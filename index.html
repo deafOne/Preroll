@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Preroll.org — Pre-Roll Culture, Reviews & Community</title>
+  <meta name="description" content="Preroll.org is an independent community for pre-roll reviews, strain discovery, terpene education, cannabis news, discussion and tools." />
+  <meta name="theme-color" content="#0b0d0c" />
+  <meta property="og:title" content="Preroll.org — The Home of Pre-Roll Culture" />
+  <meta property="og:description" content="Discover strains, compare pre-rolls, join discussions and explore cannabis education." />
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="ageGate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+  <div class="age-card">
+    <img src="assets/logo.svg" alt="Preroll.org" class="age-logo" />
+    <p class="eyebrow">AGE CHECK</p>
+    <h1 id="ageTitle">Are you 21 or older?</h1>
+    <p>Preroll.org is intended for adults of legal age. Nothing here is medical or legal advice.</p>
+    <div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div>
+    <small id="ageMessage"></small>
+  </div>
+</div>
+<header class="site-header">
+  <a class="brand" href="#home"><img src="assets/logo.svg" alt="Preroll.org" /></a>
+  <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
+  <nav id="nav">
+    <a href="#discover">Discover</a><a href="#forum">Forum</a><a href="#news">News</a><a href="#tools">Tools</a><a href="#ai">MyStrain AI</a>
+  </nav>
+  <div class="header-actions"><button id="loginBtn" class="btn ghost small">Log in</button><button id="profileBtn" class="btn primary small hidden">Profile</button></div>
+</header>
+<main id="home">
+<section class="hero section">
+  <div class="hero-copy">
+    <div class="badge">INDEPENDENT • COMMUNITY-DRIVEN • 21+</div>
+    <h1>The home of <span>pre-roll culture.</span></h1>
+    <p>Rate the burn. Compare strains. Learn terpenes. Talk with real people. Build your stash list.</p>
+    <form id="heroSearch" class="searchbar"><input id="globalSearch" placeholder="Search strains, effects, flavors or discussions…" autocomplete="off"><button class="btn primary" type="submit">Search</button></form>
+    <div class="hero-actions"><a class="btn primary" href="#discover">Explore strains</a><a class="btn ghost" href="#forum">Join the discussion</a></div>
+    <div class="stats"><div><strong id="strainCount">0</strong><span>Strains</span></div><div><strong id="postCount">0</strong><span>Discussions</span></div><div><strong id="reviewCount">0</strong><span>Reviews</span></div></div>
+  </div>
+  <div class="hero-art" aria-hidden="true"><div class="paper"><div class="fill"></div></div><div class="ember"></div><div class="smoke s1"></div><div class="smoke s2"></div><div class="smoke s3"></div></div>
+</section>
+<section id="discover" class="section">
+  <div class="section-head"><div><p class="eyebrow">DISCOVER</p><h2>Find your next favorite.</h2></div><div class="filters"><select id="typeFilter"><option value="all">All types</option><option>Hybrid</option><option>Indica</option><option>Sativa</option></select><select id="effectFilter"><option value="all">Any effect</option><option>Relaxed</option><option>Happy</option><option>Focused</option><option>Creative</option><option>Sleepy</option></select></div></div>
+  <div id="strainGrid" class="card-grid"></div>
+</section>
+<section id="forum" class="section split-section">
+  <div>
+    <p class="eyebrow">COMMUNITY</p><h2>Forum</h2><p class="muted">Post reviews, questions and local discussion. Demo mode saves posts in this browser; server mode shares them with everyone.</p>
+    <form id="postForm" class="panel form-stack"><input id="postTitle" maxlength="90" placeholder="Discussion title" required><select id="postCategory"><option>General</option><option>Pre-Roll Reviews</option><option>Growing</option><option>New York</option><option>Industry</option></select><textarea id="postBody" maxlength="1000" placeholder="What do you want to say?" required></textarea><button class="btn primary" type="submit">Post discussion</button><small id="postStatus"></small></form>
+  </div>
+  <div><div class="section-head compact"><h3>Latest discussions</h3><button id="clearPosts" class="text-btn">Reset demo</button></div><div id="forumFeed" class="feed"></div></div>
+</section>
+<section id="ai" class="section ai-section">
+  <div><p class="eyebrow">MY STRAIN AI</p><h2>Ask Dr. Terpenstein.</h2><p class="muted">A fast educational assistant for strain, terpene and pre-roll questions. The included offline assistant uses the local strain catalog; you can later connect a server-side AI provider.</p><div class="quick-prompts"><button data-prompt="What strains in this catalog are relaxing?">Relaxing</button><button data-prompt="Explain limonene simply">Limonene</button><button data-prompt="What should I look for in a well-made pre-roll?">Quality</button></div></div>
+  <div class="chat panel"><div id="chatMessages" class="chat-messages"><div class="bubble bot">Hey — I’m Dr. Terpenstein. Ask me about strains, terpenes, effects, or how to evaluate a pre-roll.</div></div><form id="chatForm" class="chat-input"><input id="chatInput" placeholder="Ask MyStrain AI…" required><button class="btn primary">Send</button></form></div>
+</section>
+<section id="news" class="section">
+  <div class="section-head"><div><p class="eyebrow">NEWS</p><h2>What’s happening.</h2></div><span class="muted">Curated demo headlines — wire a live feed/API when desired.</span></div>
+  <div id="newsGrid" class="news-grid"></div>
+</section>
+<section id="tools" class="section">
+  <p class="eyebrow">TOOLS</p><h2>Useful calculators.</h2>
+  <div class="tools-grid">
+    <form id="costCalc" class="panel form-stack"><h3>Pre-roll cost calculator</h3><label>Pack price ($)<input id="packPrice" type="number" min="0" step="0.01" value="30"></label><label>Number of pre-rolls<input id="packCount" type="number" min="1" value="5"></label><label>Grams each<input id="gramsEach" type="number" min="0.1" step="0.1" value="0.5"></label><button class="btn primary">Calculate</button><output id="costOut"></output></form>
+    <form id="edibleCalc" class="panel form-stack"><h3>Edible math helper</h3><label>Total THC listed (mg)<input id="totalMg" type="number" min="0" value="100"></label><label>Pieces/servings<input id="servings" type="number" min="1" value="10"></label><button class="btn primary">Calculate</button><output id="edibleOut"></output><small>Math only. Effects vary widely; use product labeling and local guidance.</small></form>
+    <div class="panel"><h3>Saved stash</h3><p class="muted">Favorite strains are stored on your device.</p><div id="savedList" class="saved-list"></div></div>
+  </div>
+</section>
+<section class="section cta"><img src="assets/logo.svg" alt="Preroll.org"><div><h2>Built for the people who actually smoke them.</h2><p>Independent reviews. Better conversations. No pay-to-win rankings.</p></div><button id="ctaJoin" class="btn primary">Create free account</button></section>
+</main>
+<footer><div><img src="assets/logo.svg" alt="Preroll.org"><p>Community, education and culture. Adults 21+ only.</p></div><div><strong>Explore</strong><a href="#discover">Strains</a><a href="#forum">Forum</a><a href="#news">News</a></div><div><strong>Legal</strong><span>Educational content only</span><span>Know your local laws</span></div><div><strong>Preroll.org</strong><span>© <span id="year"></span></span></div></footer>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card"><button id="modalClose" class="modal-close" aria-label="Close">×</button><div id="modalContent"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="config.js"></script><script src="app.js"></script>
+</body></html>

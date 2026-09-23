@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title desc">
+<title id="title">Preroll.org</title><desc id="desc">Original Preroll.org rolling-paper leaf mark</desc>
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#8cff66"/><stop offset="1" stop-color="#d3ff5b"/></linearGradient></defs>
+<rect width="520" height="120" rx="26" fill="#0b0d0c"/>
+<g transform="translate(22 20)"><path d="M8 43c20-32 54-41 86-23-7 33-30 54-70 55C14 65 9 55 8 43Z" fill="url(#g)"/><path d="M27 61c18-17 36-28 55-34M49 49c-3-8-4-14-3-19M60 43c7 1 14 0 21-3" fill="none" stroke="#102014" stroke-width="5" stroke-linecap="round"/><path d="M71 66l33 9-12 13-31-12z" fill="#f6f2df"/><circle cx="108" cy="79" r="7" fill="#ff7d4b"/></g>
+<text x="150" y="73" fill="#f8faf9" font-family="Inter,Arial,sans-serif" font-size="48" font-weight="800" letter-spacing="-2">preroll<tspan fill="#9dff67">.org</tspan></text>
+</svg>
