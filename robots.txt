@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /server/
+Disallow: /api/
+Sitemap: https://preroll.org/sitemap.xml
