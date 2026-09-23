@@ -48,6 +48,25 @@ Included:
 - news landing page
 - internal links from the strain catalog
 
+## Live data feeds
+
+The API layer now has production adapters for:
+
+- **New York State OCM/Open Data** — current OCM license records via the State's public Socrata dataset. OCM identifies the Current OCM Licenses table as the current source for license information. citeturn1search1turn3view0
+- **NewsAPI** — live article discovery for cannabis, marijuana, hemp, dispensary and regulatory topics. It requires a server-side `NEWS_API_KEY`; never put the key in `app.js`. NewsAPI documents its `/v2/everything` endpoint for current article search. citeturn0search1turn0search4
+- **Weedmaps Menu API** — optional authenticated menu/product integration. Weedmaps requires integrator credentials and retailer/listing authorization before production data can be accessed. citeturn5search0turn5search2
+
+Render environment variables:
+
+```text
+NEWS_API_KEY=your_newsapi_key
+NEWS_QUERY=cannabis OR marijuana OR hemp OR dispensary OR cannabis regulation
+WEEDMAPS_ACCESS_TOKEN=your_weedmaps_access_token
+WEEDMAPS_MENU_ID=your_weedmaps_menu_id
+```
+
+The site does not expose these credentials to visitors.
+
 ## Local API
 
 ```bash
