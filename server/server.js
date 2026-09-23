@@ -67,7 +67,7 @@ async function getCannabisNews(){
  const html=await fetchText('https://cannabis.ny.gov/pressroom');
  const articles=[];
  const seen=new Set();
- const linkRe=/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\\S]*?)<\/a>/gi;
+ const linkRe=/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
  let m;
  while((m=linkRe.exec(html))&&articles.length<12){
   const href=m[1], title=m[2].replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/\s+/g,' ').trim();
