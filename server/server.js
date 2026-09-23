@@ -45,26 +45,44 @@ const publicUser=u=>({id:u.id,username:u.username,email:u.email});
 
 
 const cache=new Map();
-function cached(key,ttl,value){const hit=cache.get(key);if(hit&&hit.expires>Date.now())return hit.value;const v=value();cache.set(key,{expires:Date.now()+ttl,value:v});return v}
-async function fetchJson(url,options={}){const r=await fetch(url,{...options,headers:{Accept:'application/json',...(options.headers||{})}});if(!r.ok)throw new Error('Upstream returned '+r.status);return r.json()}
+function cached(key,ttl,value){
+ const hit=cache.get(key);
+ if(hit&&hit.expires>Date.now())return hit.value;
+ const pending=Promise.resolve().then(value);
+ cache.set(key,{expires:Date.now()+ttl,value:pending});
+ pending.catch(()=>cache.delete(key));
+ return pending;
+}
+async function fetchText(url){
+ const r=await fetch(url,{headers:{'User-Agent':'Preroll.org/1.0','Accept':'text/html,application/xhtml+xml'}});
+ if(!r.ok)throw new Error('Upstream returned '+r.status);
+ return r.text();
+}
+async function fetchJson(url,options={}){
+ const r=await fetch(url,{...options,headers:{Accept:'application/json',...(options.headers||{})}});
+ if(!r.ok)throw new Error('Upstream returned '+r.status);
+ return r.json();
+}
 async function getCannabisNews(){
- const key=process.env.NEWS_API_KEY;
- if(!key)return {provider:'NYS OCM Pressroom',articles:[{source:'New York State Office of Cannabis Management',title:'New York Cannabis Pressroom',description:'Live official New York cannabis news, press releases, reports and regulatory updates.',url:'https://cannabis.ny.gov/pressroom',image:'',publishedAt:null}],configured:false,message:'NEWS_API_KEY is not configured; using the official OCM pressroom fallback'};
- const q=encodeURIComponent(process.env.NEWS_QUERY||'cannabis OR marijuana OR hemp OR dispensary OR cannabis regulation');
- const url='https://newsapi.org/v2/everything?q='+q+'&language=en&sortBy=publishedAt&pageSize=12&apiKey='+encodeURIComponent(key);
- const data=await fetchJson(url);
- return {provider:'NewsAPI',configured:true,articles:(data.articles||[]).map(a=>({source:a.source?.name||'News',title:a.title,description:a.description||'',url:a.url,image:a.urlToImage||'',publishedAt:a.publishedAt}))};
+ const html=await fetchText('https://cannabis.ny.gov/pressroom');
+ const articles=[];
+ const seen=new Set();
+ const linkRe=/<a\\b[^>]*href=["']([^"']+)["'][^>]*>([\\s\\S]*?)<\\/a>/gi;
+ let m;
+ while((m=linkRe.exec(html))&&articles.length<12){
+  const href=m[1], title=m[2].replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/\\s+/g,' ').trim();
+  if(!title||title.length<12||/^(Medical|Reports|News|Press Releases|Office of Cannabis Management|About|Contact)/i.test(title))continue;
+  if(!href.includes('/'))continue;
+  const url=new URL(href,'https://cannabis.ny.gov/').href;
+  if(seen.has(url)||url.includes('mailto:'))continue;
+  seen.add(url);
+  articles.push({source:'New York State Office of Cannabis Management',title,description:'Official New York cannabis news and regulatory update from OCM.',url,image:'',publishedAt:null});
+ }
+ if(!articles.length)articles.push({source:'New York State Office of Cannabis Management',title:'New York Cannabis Pressroom',description:'Official New York cannabis news, press releases, reports and regulatory updates.',url:'https://cannabis.ny.gov/pressroom',image:'',publishedAt:null});
+ return {provider:'NYS OCM Pressroom',configured:true,requiresSignup:false,articles};
 }
-async function getWeedmapsMenu(){
- const token=process.env.WEEDMAPS_ACCESS_TOKEN, menu=process.env.WEEDMAPS_MENU_ID;
- if(!token||!menu)return {configured:false,items:[]};
- const url='https://api-g.weedmaps.com/wm/2025-07/partners/menus/'+encodeURIComponent(menu)+'/menu_items?page=1&page_size=100';
- const data=await fetchJson(url,{headers:{Authorization:'Bearer '+token}});
- return {configured:true,provider:'Weedmaps Menu API',menuId:menu,items:data.data||data.items||[]};
-}
-
 async function getNyLicenses(){
- const url=process.env.NY_OCM_LICENSES_URL||'https://data.ny.gov/resource/jskf-tt3q.json?$limit=1000';
+ const url='https://data.ny.gov/resource/jskf-tt3q.json?$limit=1000';
  const rows=await fetchJson(url);
  return {provider:'New York State Open Data / OCM',source:'https://data.ny.gov/Economic-Development/Current-OCM-Licenses/jskf-tt3q/about_data',count:rows.length,licenses:rows};
 }
@@ -108,8 +126,8 @@ async function auth(req,res,next){
  }catch(e){next(e)}
 }
 
-app.get('/api/news',async(req,res,next)=>{try{const data=await cached('news',10*60*1000,getCannabisNews);res.json(data)}catch(e){res.status(502).json({configured:Boolean(process.env.NEWS_API_KEY),error:'News provider unavailable'})}});
-app.get('/api/menu',async(req,res,next)=>{try{const data=await cached('menu',5*60*1000,getWeedmapsMenu);res.json(data)}catch(e){res.status(502).json({configured:Boolean(process.env.WEEDMAPS_ACCESS_TOKEN&&process.env.WEEDMAPS_MENU_ID),error:'Menu provider unavailable'})}});
+app.get('/api/news',async(req,res)=>{try{res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Official OCM news feed unavailable'})}});
+
 app.get('/api/ny/licenses',async(req,res,next)=>{try{const data=await cached('nylicenses',30*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
 app.get('/api/health',async(req,res)=>{try{await pool.query('SELECT 1');res.json({ok:true})}catch{res.status(503).json({ok:false})}});
