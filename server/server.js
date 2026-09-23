@@ -5,6 +5,20 @@ const crypto=require('crypto');
 const {Pool}=require('pg');
 const cookieParser=require('cookie-parser');
 
+// Lightweight in-memory rate limiting for auth endpoints. For a single Render instance this
+// provides a useful abuse floor without adding another dependency; use an external limiter
+// when horizontally scaling the API.
+const authHits=new Map();
+function rateLimitAuth(req,res,next){
+ const key=(req.ip||'unknown')+'|'+req.path, now=Date.now(), windowMs=15*60*1000, max=25;
+ const item=authHits.get(key);
+ if(!item||now-item.start>windowMs){authHits.set(key,{start:now,count:1});return next()}
+ item.count++;
+ if(item.count>max)return res.status(429).json({error:'Too many attempts. Please try again later.'});
+ next();
+}
+setInterval(()=>{const cutoff=Date.now()-30*60*1000;for(const [k,v] of authHits)if(v.start<cutoff)authHits.delete(k)},10*60*1000).unref();
+
 const app=express();
 const PORT=process.env.PORT||3000;
 const ORIGIN=process.env.ALLOWED_ORIGIN||'https://preroll.org';
@@ -17,7 +31,7 @@ const pool=new Pool({connectionString:DATABASE_URL,ssl:process.env.NODE_ENV==='p
 app.use(cors({origin:ORIGIN,credentials:true,methods:['GET','POST'],allowedHeaders:['Content-Type']}));
 app.use(express.json({limit:'50kb'}));
 app.use(cookieParser());
-app.use((req,res,next)=>{if(['POST','PUT','PATCH','DELETE'].includes(req.method)&&req.headers.origin&&req.headers.origin!==ORIGIN)return res.status(403).json({error:'Origin not allowed'});next();});
+app.use((req,res,next)=>{if(['POST','PUT','PATCH','DELETE'].includes(req.method)){if(!req.headers.origin||req.headers.origin!==ORIGIN)return res.status(403).json({error:'Origin not allowed'});}next();});
 
 const cookie={httpOnly:true,secure:true,sameSite:'none',path:'/',maxAge:7*24*60*60*1000};
 const publicUser=u=>({id:u.id,username:u.username,email:u.email});
@@ -62,7 +76,7 @@ async function auth(req,res,next){
 }
 
 app.get('/api/health',async(req,res)=>{try{await pool.query('SELECT 1');res.json({ok:true})}catch{res.status(503).json({ok:false})}});
-app.post('/api/signup',async(req,res,next)=>{
+app.post('/api/signup',rateLimitAuth,async(req,res,next)=>{
  try{
   const username=String(req.body?.username||'').trim(),email=String(req.body?.email||'').trim().toLowerCase(),password=String(req.body?.password||'');
   if(!/^[A-Za-z0-9_]{3,24}$/.test(username)||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||password.length<12)return res.status(400).json({error:'Enter a valid username, email, and password of at least 12 characters.'});
@@ -73,7 +87,7 @@ app.post('/api/signup',async(req,res,next)=>{
   await createSession(user.id,res);res.status(201).json({user:publicUser(user)});
  }catch(e){next(e)}
 });
-app.post('/api/login',async(req,res,next)=>{
+app.post('/api/login',rateLimitAuth,async(req,res,next)=>{
  try{
   const email=String(req.body?.email||'').trim().toLowerCase(),password=String(req.body?.password||'');
   const q=await pool.query('SELECT * FROM users WHERE email=$1',[email]),user=q.rows[0];
@@ -82,7 +96,7 @@ app.post('/api/login',async(req,res,next)=>{
  }catch(e){next(e)}
 });
 app.get('/api/me',auth,(req,res)=>res.json({user:publicUser(req.user)}));
-app.post('/api/logout',async(req,res,next)=>{try{const raw=req.cookies?.pr_session;if(raw)await pool.query('DELETE FROM sessions WHERE token_hash=$1',[hashToken(raw)]);res.clearCookie('pr_session',{httpOnly:true,secure:true,sameSite:'none',path:'/'});res.json({ok:true})}catch(e){next(e)}});
+app.post('/api/logout',rateLimitAuth,async(req,res,next)=>{try{const raw=req.cookies?.pr_session;if(raw)await pool.query('DELETE FROM sessions WHERE token_hash=$1',[hashToken(raw)]);res.clearCookie('pr_session',{httpOnly:true,secure:true,sameSite:'none',path:'/'});res.json({ok:true})}catch(e){next(e)}});
 
 app.get('/api/posts',async(req,res,next)=>{try{const q=await pool.query('SELECT id,title,category,body,author,likes,EXTRACT(EPOCH FROM created_at)*1000 AS created FROM posts ORDER BY created_at DESC');res.json(q.rows)}catch(e){next(e)}});
 app.post('/api/posts',auth,async(req,res,next)=>{try{const title=String(req.body?.title||'').trim().slice(0,90),category=String(req.body?.category||'General').slice(0,40),body=String(req.body?.body||'').trim().slice(0,1000);if(!title||!body)return res.status(400).json({error:'Title and body required'});const q=await pool.query('INSERT INTO posts(title,category,body,author) VALUES($1,$2,$3,$4) RETURNING id,title,category,body,author,likes,EXTRACT(EPOCH FROM created_at)*1000 AS created',[title,category,body,req.user.username]);res.status(201).json(q.rows[0])}catch(e){next(e)}});
