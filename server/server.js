@@ -30,6 +30,7 @@ const pool=new Pool({connectionString:DATABASE_URL,ssl:process.env.NODE_ENV==='p
 
 app.use(cors({origin:ORIGIN,credentials:true,methods:['GET','POST'],allowedHeaders:['Content-Type']}));
 app.use(express.json({limit:'50kb'}));
+app.use((req,res,next)=>{res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');res.setHeader('X-Frame-Options','DENY');res.setHeader('Permissions-Policy','camera=(),microphone=(),geolocation=()');next()});
 app.use(cookieParser());
 app.use((req,res,next)=>{if(['POST','PUT','PATCH','DELETE'].includes(req.method)){if(!req.headers.origin||req.headers.origin!==ORIGIN)return res.status(403).json({error:'Origin not allowed'});}next();});
 
