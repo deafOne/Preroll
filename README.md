@@ -12,12 +12,12 @@ The repository root is the static frontend. GitHub Pages can serve it directly.
 2. Choose **New → Blueprint**.
 3. Select this repository.
 4. Render reads `render.yaml` and creates the Node API plus PostgreSQL.
-5. Confirm these environment variables:
+5. Confirm:
    - `DATABASE_URL` — supplied by Render
    - `ALLOWED_ORIGIN=https://preroll.org`
    - `NODE_ENV=production`
 6. Check the API at `/api/health`.
-7. If Render assigns a hostname different from the value in `config.js`, update `API_URL` to the real API hostname and push the change.
+7. If Render assigns a hostname different from `config.js`, update `API_URL` to that hostname and push the change.
 
 ## Authentication
 
@@ -26,12 +26,29 @@ The repository root is the static frontend. GitHub Pages can serve it directly.
 - minimum 12-character passwords
 - random database-backed session tokens
 - HttpOnly + Secure cookies
-- `SameSite=None` for the current cross-site frontend/API arrangement
-- no auth token in localStorage
+- `SameSite=None` for the cross-site frontend/API arrangement
+- no authentication token in localStorage
 - login/signup rate limiting
 - strict Origin checking on state-changing requests
 - generic server error responses
 - authenticated forum posting and reviews
+
+## Free live data
+
+The production data layer uses **only sources that do not require a signup, API key, paid plan, or secret credential**:
+
+- **New York State OCM/Open Data** — current OCM license records through the public State Open Data/Socrata endpoint.
+- **New York State OCM Pressroom** — official live cannabis news and regulatory updates fetched directly from the public OCM pressroom.
+
+The server caches these feeds to reduce upstream requests.
+
+The following signup/key-dependent providers have been removed from the production path:
+
+- NewsAPI
+- Weedmaps Menu API
+- BioTrack/Metrc licensee APIs
+
+BioTrack/Metrc interfaces are intended for licensed-business inventory/seed-to-sale integrations and are not treated as public consumer feeds.
 
 ## SEO
 
@@ -48,25 +65,6 @@ Included:
 - news landing page
 - internal links from the strain catalog
 
-## Live data feeds
-
-The API layer now has production adapters for:
-
-- **New York State OCM/Open Data** — current OCM license records via the State's public Socrata dataset. OCM identifies the Current OCM Licenses table as the current source for license information.
-- **NewsAPI** — live article discovery for cannabis, marijuana, hemp, dispensary and regulatory topics. It requires a server-side `NEWS_API_KEY`; never put the key in `app.js`. NewsAPI documents its `/v2/everything` endpoint for current article search.
-- **Weedmaps Menu API** — optional authenticated menu/product integration. Weedmaps requires integrator credentials and retailer/listing authorization before production data can be accessed.
-
-Render environment variables:
-
-```text
-NEWS_API_KEY=your_newsapi_key
-NEWS_QUERY=cannabis OR marijuana OR hemp OR dispensary OR cannabis regulation
-WEEDMAPS_ACCESS_TOKEN=your_weedmaps_access_token
-WEEDMAPS_MENU_ID=your_weedmaps_menu_id
-```
-
-The site does not expose these credentials to visitors.
-
 ## Local API
 
 ```bash
@@ -77,8 +75,12 @@ DATABASE_URL="postgresql://..." ALLOWED_ORIGIN="http://localhost:8080" NODE_ENV=
 
 Then point `config.js` at the local API.
 
+## Validation
+
+GitHub Actions checks JavaScript syntax on every push and pull request with Node 22.
+
 ## Important
 
-Do not store database credentials or AI/API secrets in the frontend or GitHub. Put secrets in Render environment variables.
+Do not store database credentials in the frontend or GitHub. The production deployment does not require any third-party API secrets.
 
-The site’s demo content is clearly presented as demo/educational content. Live news and laboratory values should be populated from real, cited sources before being presented as current facts.
+Cannabis strain descriptions, terpene information, and community reports should be presented as educational/community information rather than medical diagnosis or guaranteed effects.
