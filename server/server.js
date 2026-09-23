@@ -49,6 +49,14 @@ async function getCannabisNews(){
  const data=await fetchJson(url);
  return {provider:'NewsAPI',configured:true,articles:(data.articles||[]).map(a=>({source:a.source?.name||'News',title:a.title,description:a.description||'',url:a.url,image:a.urlToImage||'',publishedAt:a.publishedAt}))};
 }
+async function getWeedmapsMenu(){
+ const token=process.env.WEEDMAPS_ACCESS_TOKEN, menu=process.env.WEEDMAPS_MENU_ID;
+ if(!token||!menu)return {configured:false,items:[]};
+ const url='https://api-g.weedmaps.com/wm/2025-07/partners/menus/'+encodeURIComponent(menu)+'/menu_items?page=1&page_size=100';
+ const data=await fetchJson(url,{headers:{Authorization:'Bearer '+token}});
+ return {configured:true,provider:'Weedmaps Menu API',menuId:menu,items:data.data||data.items||[]};
+}
+
 async function getNyLicenses(){
  const url=process.env.NY_OCM_LICENSES_URL||'https://data.ny.gov/resource/jskf-tt3q.json?$limit=1000';
  const rows=await fetchJson(url);
@@ -95,6 +103,7 @@ async function auth(req,res,next){
 }
 
 app.get('/api/news',async(req,res,next)=>{try{const data=await cached('news',10*60*1000,getCannabisNews);res.json(data)}catch(e){res.status(502).json({configured:Boolean(process.env.NEWS_API_KEY),error:'News provider unavailable'})}});
+app.get('/api/menu',async(req,res,next)=>{try{const data=await cached('menu',5*60*1000,getWeedmapsMenu);res.json(data)}catch(e){res.status(502).json({configured:Boolean(process.env.WEEDMAPS_ACCESS_TOKEN&&process.env.WEEDMAPS_MENU_ID),error:'Menu provider unavailable'})}});
 app.get('/api/ny/licenses',async(req,res,next)=>{try{const data=await cached('nylicenses',30*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
 app.get('/api/health',async(req,res)=>{try{await pool.query('SELECT 1');res.json({ok:true})}catch{res.status(503).json({ok:false})}});
