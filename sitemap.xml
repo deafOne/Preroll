@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://preroll.org/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://preroll.org/strains/gelato-41.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://preroll.org/strains/blue-dream.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://preroll.org/strains/gmo.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://preroll.org/strains/jack-herer.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://preroll.org/strains/wedding-cake.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://preroll.org/strains/northern-lights.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://preroll.org/terpenes/limonene.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://preroll.org/terpenes/myrcene.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://preroll.org/terpenes/pinene.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://preroll.org/terpenes/caryophyllene.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://preroll.org/guides/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://preroll.org/guides/how-to-review-a-pre-roll.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://preroll.org/forum/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://preroll.org/news/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
