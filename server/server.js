@@ -49,7 +49,7 @@ function cached(key,ttl,value){const hit=cache.get(key);if(hit&&hit.expires>Date
 async function fetchJson(url,options={}){const r=await fetch(url,{...options,headers:{Accept:'application/json',...(options.headers||{})}});if(!r.ok)throw new Error('Upstream returned '+r.status);return r.json()}
 async function getCannabisNews(){
  const key=process.env.NEWS_API_KEY;
- if(!key)return {provider:null,articles:[],configured:false,message:'NEWS_API_KEY is not configured'};
+ if(!key)return {provider:'NYS OCM Pressroom',articles:[{source:'New York State Office of Cannabis Management',title:'New York Cannabis Pressroom',description:'Live official New York cannabis news, press releases, reports and regulatory updates.',url:'https://cannabis.ny.gov/pressroom',image:'',publishedAt:null}],configured:false,message:'NEWS_API_KEY is not configured; using the official OCM pressroom fallback'};
  const q=encodeURIComponent(process.env.NEWS_QUERY||'cannabis OR marijuana OR hemp OR dispensary OR cannabis regulation');
  const url='https://newsapi.org/v2/everything?q='+q+'&language=en&sortBy=publishedAt&pageSize=12&apiKey='+encodeURIComponent(key);
  const data=await fetchJson(url);
