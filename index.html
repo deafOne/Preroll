@@ -59,19 +59,20 @@
 </section>
 <section id="forum" class="section split-section">
   <div>
-    <p class="eyebrow">COMMUNITY</p><h2>Forum</h2><p class="muted">Post reviews, questions and local discussion. Demo mode saves posts in this browser; server mode shares them with everyone.</p>
+    <p class="eyebrow">COMMUNITY</p><h2>Forum</h2><p class="muted">Post reviews, questions and local discussion. Accounts, posts and reviews are stored on the live Preroll.org server.</p>
     <form id="postForm" class="panel form-stack"><input id="postTitle" maxlength="90" placeholder="Discussion title" required><select id="postCategory"><option>General</option><option>Pre-Roll Reviews</option><option>Growing</option><option>New York</option><option>Industry</option></select><textarea id="postBody" maxlength="1000" placeholder="What do you want to say?" required></textarea><button class="btn primary" type="submit">Post discussion</button><small id="postStatus"></small></form>
   </div>
-  <div><div class="section-head compact"><h3>Latest discussions</h3><button id="clearPosts" class="text-btn">Reset demo</button></div><div id="forumFeed" class="feed"></div></div>
+  <div><div class="section-head compact"><h3>Latest discussions</h3></div><div id="forumFeed" class="feed"></div></div>
 </section>
 <section id="ai" class="section ai-section">
   <div><p class="eyebrow">MY STRAIN AI</p><h2>Ask Dr. Terpenstein.</h2><p class="muted">A fast educational assistant for strain, terpene and pre-roll questions. The included offline assistant uses the local strain catalog; you can later connect a server-side AI provider.</p><div class="quick-prompts"><button data-prompt="What strains in this catalog are relaxing?">Relaxing</button><button data-prompt="Explain limonene simply">Limonene</button><button data-prompt="What should I look for in a well-made pre-roll?">Quality</button></div></div>
   <div class="chat panel"><div id="chatMessages" class="chat-messages"><div class="bubble bot">Hey — I’m Dr. Terpenstein. Ask me about strains, terpenes, effects, or how to evaluate a pre-roll.</div></div><form id="chatForm" class="chat-input"><input id="chatInput" placeholder="Ask MyStrain AI…" required><button class="btn primary">Send</button></form></div>
 </section>
 <section id="news" class="section">
-  <div class="section-head"><div><p class="eyebrow">NEWS</p><h2>What’s happening.</h2></div><span class="muted">Curated demo headlines — wire a live feed/API when desired.</span></div>
+  <div class="section-head"><div><p class="eyebrow">NEWS</p><h2>What’s happening.</h2></div><span class="muted">Live cannabis news is loaded server-side from a configured news provider. Sources are linked to the original publisher.</span></div>
   <div id="newsGrid" class="news-grid"></div>
 </section>
+<section id="ny-market" class="section"><div class="section-head"><div><p class="eyebrow">NEW YORK</p><h2>Licensed cannabis market.</h2></div><span class="muted">Current OCM license data from New York State Open Data.</span></div><div class="panel"><div class="searchbar"><input id="nySearch" placeholder="Search licensed businesses, city or county…"><button id="nyRefresh" class="btn primary" type="button">Refresh</button></div><div id="nyMarketStatus" class="muted" style="margin:12px 0"></div><div id="nyMarketGrid" class="card-grid"></div></div></section>
 <section id="tools" class="section">
   <p class="eyebrow">TOOLS</p><h2>Useful calculators.</h2>
   <div class="tools-grid">
