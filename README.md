@@ -52,9 +52,9 @@ Included:
 
 The API layer now has production adapters for:
 
-- **New York State OCM/Open Data** — current OCM license records via the State's public Socrata dataset. OCM identifies the Current OCM Licenses table as the current source for license information. citeturn1search1turn3view0
-- **NewsAPI** — live article discovery for cannabis, marijuana, hemp, dispensary and regulatory topics. It requires a server-side `NEWS_API_KEY`; never put the key in `app.js`. NewsAPI documents its `/v2/everything` endpoint for current article search. citeturn0search1turn0search4
-- **Weedmaps Menu API** — optional authenticated menu/product integration. Weedmaps requires integrator credentials and retailer/listing authorization before production data can be accessed. citeturn5search0turn5search2
+- **New York State OCM/Open Data** — current OCM license records via the State's public Socrata dataset. OCM identifies the Current OCM Licenses table as the current source for license information.
+- **NewsAPI** — live article discovery for cannabis, marijuana, hemp, dispensary and regulatory topics. It requires a server-side `NEWS_API_KEY`; never put the key in `app.js`. NewsAPI documents its `/v2/everything` endpoint for current article search.
+- **Weedmaps Menu API** — optional authenticated menu/product integration. Weedmaps requires integrator credentials and retailer/listing authorization before production data can be accessed.
 
 Render environment variables:
 
