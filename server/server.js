@@ -37,6 +37,24 @@ app.use((req,res,next)=>{if(['POST','PUT','PATCH','DELETE'].includes(req.method)
 const cookie={httpOnly:true,secure:true,sameSite:'none',path:'/',maxAge:7*24*60*60*1000};
 const publicUser=u=>({id:u.id,username:u.username,email:u.email});
 
+
+const cache=new Map();
+function cached(key,ttl,value){const hit=cache.get(key);if(hit&&hit.expires>Date.now())return hit.value;const v=value();cache.set(key,{expires:Date.now()+ttl,value:v});return v}
+async function fetchJson(url,options={}){const r=await fetch(url,{...options,headers:{Accept:'application/json',...(options.headers||{})}});if(!r.ok)throw new Error('Upstream returned '+r.status);return r.json()}
+async function getCannabisNews(){
+ const key=process.env.NEWS_API_KEY;
+ if(!key)return {provider:null,articles:[],configured:false,message:'NEWS_API_KEY is not configured'};
+ const q=encodeURIComponent(process.env.NEWS_QUERY||'cannabis OR marijuana OR hemp OR dispensary OR cannabis regulation');
+ const url='https://newsapi.org/v2/everything?q='+q+'&language=en&sortBy=publishedAt&pageSize=12&apiKey='+encodeURIComponent(key);
+ const data=await fetchJson(url);
+ return {provider:'NewsAPI',configured:true,articles:(data.articles||[]).map(a=>({source:a.source?.name||'News',title:a.title,description:a.description||'',url:a.url,image:a.urlToImage||'',publishedAt:a.publishedAt}))};
+}
+async function getNyLicenses(){
+ const url=process.env.NY_OCM_LICENSES_URL||'https://data.ny.gov/resource/jskf-tt3q.json?$limit=1000';
+ const rows=await fetchJson(url);
+ return {provider:'New York State Open Data / OCM',source:'https://data.ny.gov/Economic-Development/Current-OCM-Licenses/jskf-tt3q/about_data',count:rows.length,licenses:rows};
+}
+
 async function init(){
  await pool.query(`CREATE TABLE IF NOT EXISTS users(
   id UUID PRIMARY KEY, username VARCHAR(24) UNIQUE NOT NULL, email VARCHAR(254) UNIQUE NOT NULL,
@@ -75,6 +93,9 @@ async function auth(req,res,next){
   req.user=q.rows[0];next();
  }catch(e){next(e)}
 }
+
+app.get('/api/news',async(req,res,next)=>{try{const data=await cached('news',10*60*1000,getCannabisNews);res.json(data)}catch(e){res.status(502).json({configured:Boolean(process.env.NEWS_API_KEY),error:'News provider unavailable'})}});
+app.get('/api/ny/licenses',async(req,res,next)=>{try{const data=await cached('nylicenses',30*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
 app.get('/api/health',async(req,res)=>{try{await pool.query('SELECT 1');res.json({ok:true})}catch{res.status(503).json({ok:false})}});
 app.post('/api/signup',rateLimitAuth,async(req,res,next)=>{
