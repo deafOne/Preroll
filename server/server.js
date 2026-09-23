@@ -67,10 +67,10 @@ async function getCannabisNews(){
  const html=await fetchText('https://cannabis.ny.gov/pressroom');
  const articles=[];
  const seen=new Set();
- const linkRe=/<a\\b[^>]*href=["']([^"']+)["'][^>]*>([\\s\\S]*?)<\\/a>/gi;
+ const linkRe=/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\\S]*?)<\/a>/gi;
  let m;
  while((m=linkRe.exec(html))&&articles.length<12){
-  const href=m[1], title=m[2].replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/\\s+/g,' ').trim();
+  const href=m[1], title=m[2].replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/\s+/g,' ').trim();
   if(!title||title.length<12||/^(Medical|Reports|News|Press Releases|Office of Cannabis Management|About|Contact)/i.test(title))continue;
   if(!href.includes('/'))continue;
   const url=new URL(href,'https://cannabis.ny.gov/').href;
