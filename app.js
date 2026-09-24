@@ -23,12 +23,20 @@ window.openStrain=async id=>{const s=strains.find(x=>x.id===id);if(window.PREROL
 async function renderPosts(){if(window.PREROLL_CONFIG.API_URL){try{const r=await fetch(window.PREROLL_CONFIG.API_URL+'/api/posts',{credentials:'include'});if(r.ok){posts=await r.json()}else{posts=[]}}catch{posts=[]}}posts.sort((a,b)=>b.created-a.created);$('#forumFeed').innerHTML=posts.map(p=>`<article class="post"><div class="forum-meta"><span class="pill">${esc(p.category)}</span><span class="pill">@${esc(p.author)}</span></div><h4>${esc(p.title)}</h4><p>${esc(p.body)}</p><div class="post-actions"><button onclick="likePost(${p.id})">▲ ${p.likes||0}</button><span>${new Date(p.created).toLocaleString()}</span></div></article>`).join('');$('#postCount').textContent=posts.length}
 window.likePost=async id=>{if(window.PREROLL_CONFIG.API_URL){try{await fetch(window.PREROLL_CONFIG.API_URL+'/api/posts/'+id+'/like',{method:'POST',credentials:'include'});return renderPosts()}catch{return toast('Could not reach server')}}const p=posts.find(x=>x.id===id);if(p){p.likes=(p.likes||0)+1;store.set('pr_posts',posts);renderPosts()}}
 async function renderNews(){
- if(!window.PREROLL_CONFIG.API_URL){$('#newsGrid').innerHTML='<p class="muted">Live news feed is not configured.</p>';return}
+ const grid=$('#newsGrid');
+ if(!window.PREROLL_CONFIG.API_URL){grid.innerHTML='<p class="muted">Live news feed is not configured.</p>';return}
+ grid.innerHTML='<p class="muted">Loading the latest cannabis news…</p>';
  try{
-  const r=await fetch(window.PREROLL_CONFIG.API_URL+'/api/news',{credentials:'include'}),data=await r.json();
-  if(!r.ok||!data.articles?.length){$('#newsGrid').innerHTML='<p class="muted">No live cannabis news is available right now.</p>';return}
-  $('#newsGrid').innerHTML=data.articles.map(n=>`<article class="news-card"><span class="source">${esc(n.source||'NEWS')}</span><h3>${esc(n.title||'Untitled')}</h3><p>${esc(n.description||'')}</p><small class="muted">${n.publishedAt?new Date(n.publishedAt).toLocaleString():''}</small><p><a class="btn ghost small" href="${esc(n.url||'#')}" target="_blank" rel="noopener noreferrer">Read source</a></p></article>`).join('')
- }catch{$('#newsGrid').innerHTML='<p class="muted">Live news feed temporarily unavailable.</p>'}
+  const r=await fetch(window.PREROLL_CONFIG.API_URL+'/api/news?latest=18',{credentials:'include',cache:'no-store'}),data=await r.json();
+  if(!r.ok||!data.articles?.length){grid.innerHTML='<p class="muted">No live cannabis news is available right now.</p>';return}
+  grid.innerHTML=data.articles.map(n=>{
+   const when=n.publishedAt?new Date(n.publishedAt):null;
+   const date=when&&!Number.isNaN(when.getTime())?when.toLocaleString():'Recent';
+   return `<article class="news-card"><span class="source">${esc(n.source||'CANNABIS NEWS')}</span><h3>${esc(n.title||'Untitled')}</h3><p>${esc(n.description||'Latest cannabis industry, policy, market and culture coverage.')}</p><small class="muted">${esc(date)}</small><p><a class="btn ghost small" href="${esc(n.url||'#')}" target="_blank" rel="noopener noreferrer">Read source ↗</a></p></article>`;
+  }).join('');
+  const head=$('#news .section-head .muted');
+  if(head)head.textContent=`Latest public cannabis news • updated ${new Date(data.updatedAt||Date.now()).toLocaleTimeString()}`;
+ }catch{grid.innerHTML='<p class="muted">Live cannabis news is temporarily unavailable. Try again in a few minutes.</p>'}
 }
 function updateStats(){$('#reviewCount').textContent=reviews.length;$('#postCount').textContent=posts.length;$('#strainCount').textContent=strains.length}
 function showModal(html){$('#modalContent').innerHTML=html;$('#modal').classList.remove('hidden')}
