@@ -29,7 +29,10 @@
     <p class="eyebrow">AGE CHECK</p>
     <h1 id="ageTitle">Are you 21 or older?</h1>
     <p>Preroll.org is intended for adults of legal age. Nothing here is medical or legal advice.</p>
-    <div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div>
+    <div class="row">
+      <button id="ageYes" type="button" class="btn primary" onclick="try{localStorage.setItem('pr_age','yes')}catch(e){};document.getElementById('ageGate').classList.add('hidden');">Yes, enter</button>
+      <button id="ageNo" type="button" class="btn ghost" onclick="document.getElementById('ageMessage').textContent='Sorry — this site is for adults 21+.';">No</button>
+    </div>
     <small id="ageMessage"></small>
   </div>
 </div>
@@ -69,7 +72,7 @@
   <div class="chat panel"><div id="chatMessages" class="chat-messages"><div class="bubble bot">Hey — I’m Dr. Terpenstein. Ask me about strains, terpenes, effects, or how to evaluate a pre-roll.</div></div><form id="chatForm" class="chat-input"><input id="chatInput" placeholder="Ask MyStrain AI…" required><button class="btn primary">Send</button></form></div>
 </section>
 <section id="news" class="section">
-  <div class="section-head"><div><p class="eyebrow">NEWS</p><h2>What’s happening.</h2></div><span class="muted">Live cannabis news is loaded server-side from a configured news provider. Sources are linked to the original publisher.</span></div>
+  <div class="section-head"><div><p class="eyebrow">NEWS</p><h2>What’s happening.</h2></div><span class="muted">Live cannabis news is loaded from New York OCM public pressroom sources.</span></div>
   <div id="newsGrid" class="news-grid"></div>
 </section>
 <section id="ny-market" class="section"><div class="section-head"><div><p class="eyebrow">NEW YORK</p><h2>Licensed cannabis market.</h2></div><span class="muted">Current OCM license data from New York State Open Data.</span></div><div class="panel"><div class="searchbar"><input id="nySearch" placeholder="Search licensed businesses, city or county…"><button id="nyRefresh" class="btn primary" type="button">Refresh</button></div><div id="nyMarketStatus" class="muted" style="margin:12px 0"></div><div id="nyMarketGrid" class="card-grid"></div></div></section>
@@ -86,5 +89,5 @@
 <footer><div><img src="assets/logo.svg" alt="Preroll.org"><p>Community, education and culture. Adults 21+ only.</p></div><div><strong>Explore</strong><a href="#discover">Strains</a><a href="forum/index.html">Forum</a><a href="news/index.html">News</a><a href="guides/index.html">Guides</a></div><div><strong>Legal</strong><span>Educational content only</span><span>Know your local laws</span><a href="https://preroll.org/robots.txt">Robots</a><a href="sitemap.xml">Sitemap</a></div><div><strong>Preroll.org</strong><span>© <span id="year"></span></span></div></footer>
 <div id="modal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card"><button id="modalClose" class="modal-close" aria-label="Close">×</button><div id="modalContent"></div></div></div>
 <div id="toast" class="toast hidden"></div>
-<script src="age-gate.js"></script><script src="config.js"></script><script src="app.js"></script>
+<script src="age-gate.js?v=3"></script><script src="config.js"></script><script src="app.js"></script>
 </body></html>
