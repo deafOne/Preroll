@@ -12,7 +12,7 @@ let currentUser=store.get('pr_user',null), posts=window.PREROLL_CONFIG?.API_URL?
 {id:2,title:'Best burn test: white ash or overhyped?',category:'Pre-Roll Reviews',body:'Curious what everyone actually uses to judge a clean, even burn.',author:'Mia',likes:9,created:Date.now()-4400000},
 {id:3,title:'NY community check-in',category:'New York',body:'What are people reviewing lately? Keep it about legal products and actual experiences.',author:'NorthShore',likes:6,created:Date.now()-1900000}
 ]), reviews=window.PREROLL_CONFIG?.API_URL?[]:store.get('pr_reviews',[]), saved=store.get('pr_saved',[]);
-const $=s=>document.querySelector(s), $=s=>[...document.querySelectorAll(s)];
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const strainPages={gelato41:'gelato-41', 'blue-dream':'blue-dream',gmo:'gmo','jack-herer':'jack-herer','wedding-cake':'wedding-cake','northern-lights':'northern-lights'};
 function esc(s=''){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2200)}
