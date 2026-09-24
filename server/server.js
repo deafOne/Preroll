@@ -63,23 +63,27 @@ async function fetchJson(url,options={}){
  if(!r.ok)throw new Error('Upstream returned '+r.status);
  return r.json();
 }
-async function getCannabisNews(){
- const html=await fetchText('https://cannabis.ny.gov/pressroom');
- const articles=[];
- const seen=new Set();
- const linkRe=/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
- let m;
- while((m=linkRe.exec(html))&&articles.length<12){
-  const href=m[1], title=m[2].replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/\s+/g,' ').trim();
-  if(!title||title.length<12||/^(Medical|Reports|News|Press Releases|Office of Cannabis Management|About|Contact)/i.test(title))continue;
-  if(!href.includes('/'))continue;
-  const url=new URL(href,'https://cannabis.ny.gov/').href;
-  if(seen.has(url)||url.includes('mailto:'))continue;
-  seen.add(url);
-  articles.push({source:'New York State Office of Cannabis Management',title,description:'Official New York cannabis news and regulatory update from OCM.',url,image:'',publishedAt:null});
+function xmlText(v=''){return v.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/<[^>]+>/g,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'\"').replace(/&#39;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/&nbsp;/gi,' ').replace(/\s+/g,' ').trim()}
+async function parseRssFeed(url,source){
+ const xml=await fetchText(url),items=[],blocks=xml.match(/<(item|entry)\b[\s\S]*?<\/\1>/gi)||[];
+ for(const block of blocks.slice(0,20)){
+  const title=xmlText((block.match(/<title[^>]*>([\s\S]*?)<\/title>/i)||[])[1]||'');
+  const description=xmlText((block.match(/<(description|summary|content:encoded)[^>]*>([\s\S]*?)<\/\1>/i)||[])[2]||'').slice(0,500);
+  const linkMatch=block.match(/<link[^>]*>([\s\S]*?)<\/link>/i)||block.match(/<link[^>]+href=["']([^"']+)["']/i);
+  const urlValue=(linkMatch?.[1]||'').trim();
+  const date=((block.match(/<(pubDate|published|updated|dc:date)[^>]*>([\s\S]*?)<\/\1>/i)||[])[2]||'').trim();
+  const publishedAt=date?new Date(date).toISOString():null;
+  if(title&&urlValue)items.push({source,title,description,url:urlValue,publishedAt,image:''});
  }
- if(!articles.length)articles.push({source:'New York State Office of Cannabis Management',title:'New York Cannabis Pressroom',description:'Official New York cannabis news, press releases, reports and regulatory updates.',url:'https://cannabis.ny.gov/pressroom',image:'',publishedAt:null});
- return {provider:'NYS OCM Pressroom',configured:true,requiresSignup:false,articles};
+ return items;
+}
+async function getCannabisNews(){
+ const feeds=[['https://www.marijuanamoment.net/feed/','Marijuana Moment'],['https://cannabiswire.com/feed/','Cannabis Wire'],['https://cannabisindustryjournal.com/feed/','Cannabis Industry Journal'],['https://mjbizdaily.com/feed/','MJBizDaily']];
+ const results=await Promise.allSettled(feeds.map(([url,source])=>parseRssFeed(url,source)));
+ const articles=results.flatMap(r=>r.status==='fulfilled'?r.value:[]),seen=new Set();
+ const unique=articles.filter(a=>{const key=a.url||a.title;if(seen.has(key))return false;seen.add(key);return true}).sort((a,b)=>(Date.parse(b.publishedAt||'')||0)-(Date.parse(a.publishedAt||'')||0)).slice(0,18);
+ if(!unique.length)throw new Error('No upstream cannabis news feeds available');
+ return {provider:'Public cannabis RSS feeds',configured:true,requiresSignup:false,updatedAt:new Date().toISOString(),articles:unique};
 }
 async function getNyLicenses(){
  const url='https://data.ny.gov/resource/jskf-tt3q.json?$limit=1000';
