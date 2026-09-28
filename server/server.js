@@ -86,9 +86,14 @@ async function getCannabisNews(){
  return {provider:'Public cannabis RSS feeds',configured:true,requiresSignup:false,updatedAt:new Date().toISOString(),articles:unique};
 }
 async function getNyLicenses(){
- const url='https://data.ny.gov/resource/jskf-tt3q.json?$limit=1000';
+ const url='https://data.ny.gov/resource/jskf-tt3q.json?$limit=50000';
  const rows=await fetchJson(url);
- return {provider:'New York State Open Data / OCM',source:'https://data.ny.gov/Economic-Development/Current-OCM-Licenses/jskf-tt3q/about_data',count:rows.length,licenses:rows};
+ const pick=(row,names)=>names.map(k=>row[k]).find(v=>v!==undefined&&v!==null&&String(v).trim()!=='')||'';
+ const statusKey=row=>String(pick(row,['license_status','status','current_status'])).toLowerCase();
+ const typeKey=row=>String(pick(row,['license_type','license_category','type'])).toLowerCase();
+ const active=rows.filter(row=>/active|operational|issued/.test(statusKey(row)));
+ const adultUseRetail=rows.filter(row=>/adult.?use retail|retail dispensary|au retail/.test(typeKey(row)));
+ return {provider:'New York State Open Data / OCM',source:'https://data.ny.gov/Economic-Development/Current-OCM-Licenses/jskf-tt3q/about_data',fetchedAt:new Date().toISOString(),count:rows.length,activeCount:active.length,adultUseRetailCount:adultUseRetail.length,licenses:rows};
 }
 
 async function init(){
@@ -130,9 +135,9 @@ async function auth(req,res,next){
  }catch(e){next(e)}
 }
 
-app.get('/api/news',async(req,res)=>{try{res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Official OCM news feed unavailable'})}});
+app.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
 
-app.get('/api/ny/licenses',async(req,res,next)=>{try{const data=await cached('nylicenses',30*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
+app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
 app.get('/api/health',async(req,res)=>{try{await pool.query('SELECT 1');res.json({ok:true})}catch{res.status(503).json({ok:false})}});
 app.post('/api/signup',rateLimitAuth,async(req,res,next)=>{
