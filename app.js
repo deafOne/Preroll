@@ -48,7 +48,29 @@ function aiAnswer(q){const x=q.toLowerCase();if(x.includes('limonene'))return 'L
 $('#ageYes').onclick=()=>{localStorage.setItem('pr_age','yes');$('#ageGate').classList.add('hidden')};$('#ageNo').onclick=()=>{$('#ageMessage').textContent='Sorry — this site is for adults 21+.'};if(localStorage.getItem('pr_age')==='yes')$('#ageGate').classList.add('hidden');
 $('#menuBtn').onclick=()=>$('#nav').classList.toggle('open');$$('#nav a').forEach(a=>a.onclick=()=>$('#nav').classList.remove('open'));$('#loginBtn').onclick=()=>showAuth();$('#ctaJoin').onclick=()=>showAuth();$('#profileBtn').onclick=showProfile;$('#modalClose').onclick=()=>$('#modal').classList.add('hidden');$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.add('hidden')};
 $('#heroSearch').onsubmit=e=>{e.preventDefault();renderStrains($('#globalSearch').value);location.hash='discover'};$('#typeFilter').onchange=()=>renderStrains($('#globalSearch').value);$('#effectFilter').onchange=()=>renderStrains($('#globalSearch').value);
-async function loadNyMarket(query=''){if(!window.PREROLL_CONFIG.API_URL)return;const status=$('#nyMarketStatus'),grid=$('#nyMarketGrid');status.textContent='Loading current New York license data…';try{const r=await fetch(window.PREROLL_CONFIG.API_URL+'/api/ny/licenses',{credentials:'include'}),data=await r.json();if(!r.ok)throw new Error();const q=query.toLowerCase();const rows=(data.licenses||[]).filter(x=>JSON.stringify(x).toLowerCase().includes(q)).slice(0,30);status.textContent=`Showing ${rows.length} matching records from ${data.count} current records.`;grid.innerHTML=rows.map(x=>{const name=x.entity_name||x.business_name||x.dba||x.licensee_name||'Licensed business';const address=x.address||x.location_address||x.street_address||'';const city=x.city||x.location_city||'';const county=x.county||x.location_county||'';return `<article class="news-card"><span class="source">NY OCM / OPEN DATA</span><h3>${esc(name)}</h3><p>${esc([address,city,county].filter(Boolean).join(', '))}</p></article>`}).join('')||'<p class="muted">No matching license records.</p>'}catch{status.textContent='New York license data is temporarily unavailable.';grid.innerHTML=''}}
+async function loadNyMarket(query=''){
+ if(!window.PREROLL_CONFIG.API_URL)return;
+ const status=$('#nyMarketStatus'),grid=$('#nyMarketGrid');
+ status.textContent='Loading live New York OCM license data…';
+ try{
+  const r=await fetch(window.PREROLL_CONFIG.API_URL+'/api/ny/licenses',{credentials:'include',cache:'no-store'}),data=await r.json();
+  if(!r.ok)throw new Error();
+  const q=query.toLowerCase();
+  const rows=(data.licenses||[]).filter(x=>JSON.stringify(x).toLowerCase().includes(q)).slice(0,30);
+  const fetched=data.fetchedAt?new Date(data.fetchedAt):new Date();
+  const stamp=!Number.isNaN(fetched.getTime())?fetched.toLocaleTimeString():'now';
+  status.innerHTML=`<strong>LIVE</strong> • ${data.activeCount??data.count??0} active records • ${data.adultUseRetailCount??0} adult-use retail records • updated ${esc(stamp)}`;
+  grid.innerHTML=rows.map(x=>{
+   const name=x.entity_name||x.business_name||x.dba||x.licensee_name||'Licensed business';
+   const address=x.address||x.location_address||x.street_address||'';
+   const city=x.city||x.location_city||'';
+   const county=x.county||x.location_county||'';
+   const type=x.license_type||x.license_category||x.type||'';
+   const state=x.license_status||x.status||x.current_status||'';
+   return `<article class="news-card"><span class="source">NY OCM / OPEN DATA</span><h3>${esc(name)}</h3><p>${esc([address,city,county].filter(Boolean).join(', '))}</p><small class="muted">${esc([type,state].filter(Boolean).join(' • '))}</small></article>`;
+  }).join('')||'<p class="muted">No matching license records.</p>';
+ }catch{status.textContent='New York license data is temporarily unavailable.';grid.innerHTML=''}
+}
 $('#nySearch').oninput=e=>loadNyMarket(e.target.value);$('#nyRefresh').onclick=()=>loadNyMarket($('#nySearch').value);
 $('#postForm').onsubmit=async e=>{e.preventDefault();if(!currentUser)return showAuth('Log in before posting to the forum.');const p={id:Date.now(),title:$('#postTitle').value.trim(),category:$('#postCategory').value,body:$('#postBody').value.trim(),author:currentUser.username,likes:0,created:Date.now()};if(window.PREROLL_CONFIG.API_URL){try{const r=await fetch(window.PREROLL_CONFIG.API_URL+'/api/posts',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify(p)});const data=await r.json();if(!r.ok)throw new Error(data.error||'Could not post');posts.unshift(data)}catch(err){return toast(err.message)}}else{posts.unshift(p);store.set('pr_posts',posts)}e.target.reset();renderPosts();toast('Discussion posted')};
 $('#chatForm').onsubmit=e=>{e.preventDefault();const q=$('#chatInput').value.trim();if(!q)return;$('#chatMessages').insertAdjacentHTML('beforeend',`<div class="bubble user">${esc(q)}</div>`);$('#chatInput').value='';setTimeout(()=>{$('#chatMessages').insertAdjacentHTML('beforeend',`<div class="bubble bot">${esc(aiAnswer(q))}</div>`);$('#chatMessages').scrollTop=$('#chatMessages').scrollHeight},180)};$$('[data-prompt]').forEach(b=>b.onclick=()=>{$('#chatInput').value=b.dataset.prompt;$('#chatForm').requestSubmit()});
