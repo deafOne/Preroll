@@ -1,1 +1,1 @@
-{"name":"preroll-org-api","version":"2.0.0","private":true,"type":"commonjs","scripts":{"start":"node server.js"},"dependencies":{"bcryptjs":"^2.4.3","cors":"^2.8.5","cookie-parser":"^1.4.7","express":"^4.21.2","pg":"^8.16.3"}}
+{"name":"preroll-org-api","version":"2.0.0","private":true,"type":"commonjs","scripts":{"start":"node server.js","sync-strains":"node strain-sync.js"},"dependencies":{"bcryptjs":"^2.4.3","cors":"^2.8.5","cookie-parser":"^1.4.7","express":"^4.21.2","pg":"^8.16.3"},"engines":{"node":">=24"}}
