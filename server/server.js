@@ -169,7 +169,7 @@ app.get('/api/strains',async(req,res,next)=>{
  }catch(e){next(e)}
 });
 
-app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'').trim().toLowerCase(),type=String(req.query.type||'').trim(),limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));const p=[],w=[];if(q){p.push('%'+q+'%');w.push('(LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1)')}if(type&&type!=='all'){p.push(type);w.push('LOWER(type)=LOWER(async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
+app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'').trim().toLowerCase(),type=String(req.query.type||'').trim().toLowerCase(),limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100)),params=[],where=[];if(q){params.push('%'+q+'%');where.push('(LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1)')}if(type&&type!=='all'){params.push(type);where.push('LOWER(type)=LOWER(async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
 
 app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
@@ -205,7 +205,7 @@ app.post('/api/reviews',rateLimitWrites,auth,async(req,res,next)=>{try{const val
 
 app.use((err,req,res,next)=>{console.error(err);res.status(500).json({error:'Server error'})});
 init().then(()=>app.listen(PORT,()=>console.log('Preroll.org API listening on '+PORT))).catch(err=>{console.error(err);process.exit(1)});
-+p.length+')')}const clause=w.length?'WHERE '+w.join(' AND '):'';const total=(await pool.query('SELECT COUNT(*)::int AS count FROM strains '+clause,p)).rows[0].count;const rows=(await pool.query('SELECT slug AS id,name,type,source FROM strains '+clause+' ORDER BY LOWER(name),source LIMIT async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
++params.length+')')}const clause=where.length?' WHERE '+where.join(' AND '):'';const total=(await pool.query('SELECT COUNT(*)::int AS count FROM strains'+clause,params)).rows[0].count;params.push(limit);const rows=(await pool.query('SELECT slug AS id,name,type,source FROM strains'+clause+' ORDER BY LOWER(name),source LIMIT async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
 
 app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
@@ -241,7 +241,7 @@ app.post('/api/reviews',rateLimitWrites,auth,async(req,res,next)=>{try{const val
 
 app.use((err,req,res,next)=>{console.error(err);res.status(500).json({error:'Server error'})});
 init().then(()=>app.listen(PORT,()=>console.log('Preroll.org API listening on '+PORT))).catch(err=>{console.error(err);process.exit(1)});
-+(p.length+1),[...p,limit])).rows;res.json({strains:rows,total,sources:['leafly','weedmaps']})}catch(e){next(e)}});
++params.length,params)).rows;res.json({strains:rows,total,limit,sources:['leafly','weedmaps']})}catch(e){next(e)}});
 
 app.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
 
