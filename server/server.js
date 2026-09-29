@@ -4,6 +4,7 @@ const bcrypt=require('bcryptjs');
 const crypto=require('crypto');
 const {Pool}=require('pg');
 const cookieParser=require('cookie-parser');
+const {spawn}=require('child_process');
 
 // Lightweight in-memory rate limiting for auth endpoints. For a single Render instance this
 // provides a useful abuse floor without adding another dependency; use an external limiter
@@ -171,4 +172,17 @@ app.get('/api/reviews',async(req,res,next)=>{try{const q=await pool.query('SELEC
 app.post('/api/reviews',rateLimitWrites,auth,async(req,res,next)=>{try{const vals=['overall','burn','flavor','value'].map(k=>Number(req.body?.[k]));if(vals.some(v=>!Number.isInteger(v)||v<1||v>5))return res.status(400).json({error:'Scores must be 1 through 5.'});const strain=String(req.body?.strain||'').slice(0,80),text=String(req.body?.text||'').trim().slice(0,600);if(!strain||!text)return res.status(400).json({error:'Strain and review text required'});const q=await pool.query('INSERT INTO reviews(strain,author,text,overall,burn,flavor,value) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING id,strain,author,text,overall,burn,flavor,value,EXTRACT(EPOCH FROM created_at)*1000 AS created',[strain,req.user.username,text,...vals]);res.status(201).json(q.rows[0])}catch(e){next(e)}});
 
 app.use((err,req,res,next)=>{console.error(err);res.status(500).json({error:'Server error'})});
-init().then(()=>app.listen(PORT,()=>console.log('Preroll.org API listening on '+PORT))).catch(err=>{console.error(err);process.exit(1)});
+init().then(async()=>{
+ const server=app.listen(PORT,()=>console.log('Preroll.org API listening on '+PORT));
+ if(process.env.STRAIN_SYNC_ON_EMPTY==='true'){
+  try{
+   const q=await pool.query('SELECT COUNT(*)::int AS count FROM strains');
+   if(q.rows[0].count===0){
+    console.log('Strain catalog is empty; starting initial Leafly/Weedmaps sync');
+    const child=spawn(process.execPath,['strain-sync.js'],{cwd:__dirname,stdio:'inherit',detached:false});
+    child.on('error',err=>console.error('Initial strain sync failed to start:',err));
+   }
+  }catch(e){console.error('Could not check strain catalog:',e)}
+ }
+ return server;
+}).catch(err=>{console.error(err);process.exit(1)});
