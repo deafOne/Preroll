@@ -112,6 +112,8 @@ async function init(){
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
  )`);
  await pool.query(`CREATE TABLE IF NOT EXISTS strains( id BIGSERIAL PRIMARY KEY, slug VARCHAR(180) NOT NULL, name VARCHAR(180) NOT NULL, type VARCHAR(20) NOT NULL DEFAULT 'Unknown', source VARCHAR(20) NOT NULL, source_page INTEGER, updated_at TIMESTAMPTZ NOT NULL DEFAULT now(), UNIQUE(slug,source) )`);
+ await pool.query('CREATE INDEX IF NOT EXISTS idx_strains_name ON strains(name)');
+ await pool.query('CREATE INDEX IF NOT EXISTS idx_strains_source ON strains(source)');
  await pool.query(`CREATE TABLE IF NOT EXISTS reviews(
   id BIGSERIAL PRIMARY KEY, strain VARCHAR(80) NOT NULL, author VARCHAR(24) NOT NULL,
   text VARCHAR(600) NOT NULL, overall SMALLINT NOT NULL, burn SMALLINT NOT NULL,
