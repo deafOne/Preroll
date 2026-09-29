@@ -22,14 +22,14 @@ databases:
     databaseName: preroll
     user: preroll
 
-cronJobs:
-  - name: preroll-strain-sync
+  - type: cron
+    name: preroll-strain-sync
     runtime: node
     rootDir: server
     schedule: "0 4 * * *"
     buildCommand: npm install
     startCommand: npm run sync-strains
-    autoDeploy: true
+    autoDeployTrigger: commit
     envVars:
       - key: DATABASE_URL
         fromDatabase:
