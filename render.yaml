@@ -15,9 +15,9 @@ services:
       - key: ALLOWED_ORIGIN
         value: https://preroll.org
       - key: NODE_ENV
+        value: production
       - key: STRAIN_SYNC_ON_EMPTY
         value: "true"
-        value: production
 
   - type: cron
     name: preroll-strain-sync
@@ -33,9 +33,9 @@ services:
           name: preroll-postgres
           property: connectionString
       - key: NODE_ENV
+        value: production
       - key: STRAIN_SYNC_ON_EMPTY
         value: "false"
-        value: production
 
 databases:
   - name: preroll-postgres
