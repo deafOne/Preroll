@@ -17,11 +17,6 @@ services:
       - key: NODE_ENV
         value: production
 
-databases:
-  - name: preroll-postgres
-    databaseName: preroll
-    user: preroll
-
   - type: cron
     name: preroll-strain-sync
     runtime: node
@@ -37,3 +32,8 @@ databases:
           property: connectionString
       - key: NODE_ENV
         value: production
+
+databases:
+  - name: preroll-postgres
+    databaseName: preroll
+    user: preroll
