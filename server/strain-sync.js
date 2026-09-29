@@ -79,8 +79,12 @@ async function runSource(source){
  return total;
 }
 (async()=>{
+ let locked=false;
  try{
   await ensureTable();
+  const lock=(await pool.query('SELECT pg_try_advisory_lock(81723451) AS locked')).rows[0].locked;
+  if(!lock){console.log('Another strain sync is already running; exiting.');return;}
+  locked=true;
   for(const source of SOURCES)await runSource(source);
   const q=await pool.query('SELECT source,COUNT(*)::int AS count FROM strains GROUP BY source ORDER BY source');
   console.log('Strain catalog sync complete:',q.rows);
