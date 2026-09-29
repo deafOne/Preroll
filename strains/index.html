@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strain Library — Preroll.org</title>
+<meta name="description" content="Preroll.org strain library with catalog entries sourced from Leafly and Weedmaps.">
+<link rel="icon" href="../assets/logo.svg"><link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div id="ageGate" class="age-gate" role="dialog" aria-modal="true">
+ <div class="age-card"><img src="../assets/logo.svg" alt="Preroll.org" class="age-logo"><p class="eyebrow">AGE CHECK</p>
+ <h1>Are you 21 or older?</h1><p>Preroll.org is intended for adults of legal age. Educational content only.</p>
+ <div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div><p id="ageMessage" class="muted"></p></div>
+</div>
+<header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="Preroll.org"></a>
+<button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+<nav id="nav"><a href="../index.html">Home</a><a href="../news/index.html">News</a><a href="../index.html#market">NY Market</a><a href="../index.html#community">Community</a><a href="index.html" aria-current="page">Strains</a><a href="../guides/index.html">Guides</a><a href="../calculators/index.html">Calculators</a><a href="../forum/index.html">Forum</a></nav></div></header>
+<main class="container">
+<section class="hero compact"><p class="eyebrow">STRAIN LIBRARY</p><h1>Search the catalog.</h1><p class="lede">A unified index of public strain names sourced from Leafly and Weedmaps. Chemistry, effects and potency are not inferred when the source record does not provide verified data.</p>
+<div class="search-row"><input id="strainSearch" type="search" placeholder="Search strain name…" autocomplete="off"><select id="typeFilter"><option value="all">All types</option><option value="Indica">Indica</option><option value="Sativa">Sativa</option><option value="Hybrid">Hybrid</option><option value="Unknown">Unknown</option></select><select id="sourceFilter"><option value="all">All sources</option><option value="leafly">Leafly</option><option value="weedmaps">Weedmaps</option></select></div>
+<div class="live-stamp"><span class="live-dot"></span><span id="status">Loading live strain catalog…</span></div></section>
+<section class="section"><div class="section-head"><div><p class="eyebrow">CATALOG</p><h2 id="resultTitle">Strains</h2></div><span class="muted" id="resultCount"></span></div><div id="strainGrid" class="cards-grid"><p class="muted">Loading…</p></div><div class="row center" id="pager"></div></section>
+</main>
+<footer class="site-footer"><div class="container"><p>© <span id="year"></span> Preroll.org · 21+ · Educational information.</p></div></footer>
+<script>window.PREROLL_CONFIG=window.PREROLL_CONFIG||{API_URL:"https://preroll-api.onrender.com"};</script>
+<script src="../age-gate.js?v=5"></script><script src="../config.js?v=3"></script><script src="strains.js?v=1"></script>
+</body></html>
