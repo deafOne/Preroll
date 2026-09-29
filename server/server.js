@@ -110,11 +110,7 @@ async function init(){
   body VARCHAR(1000) NOT NULL, author VARCHAR(24) NOT NULL, likes INTEGER NOT NULL DEFAULT 0,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
  )`);
- await pool.query(`CREATE TABLE IF NOT EXISTS strains(
-  id BIGSERIAL PRIMARY KEY, slug VARCHAR(180) NOT NULL, name VARCHAR(180) NOT NULL,
-  type VARCHAR(20) NOT NULL DEFAULT 'Unknown', source VARCHAR(20) NOT NULL, source_page INTEGER,
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(), UNIQUE(slug,source)
- )`);
+ await pool.query(`CREATE TABLE IF NOT EXISTS strains( id BIGSERIAL PRIMARY KEY, slug VARCHAR(180) NOT NULL, name VARCHAR(180) NOT NULL, type VARCHAR(20) NOT NULL DEFAULT 'Unknown', source VARCHAR(20) NOT NULL, source_page INTEGER, updated_at TIMESTAMPTZ NOT NULL DEFAULT now(), UNIQUE(slug,source) )`);
  await pool.query(`CREATE TABLE IF NOT EXISTS reviews(
   id BIGSERIAL PRIMARY KEY, strain VARCHAR(80) NOT NULL, author VARCHAR(24) NOT NULL,
   text VARCHAR(600) NOT NULL, overall SMALLINT NOT NULL, burn SMALLINT NOT NULL,
@@ -140,95 +136,7 @@ async function auth(req,res,next){
  }catch(e){next(e)}
 }
 
-app.get('/api/strains',async(req,res,next)=>{
- try{
-  const q=String(req.query.q||'').trim().toLowerCase();
-  const type=String(req.query.type||'').trim().toLowerCase();
-  const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));
-  const params=[],where=[];
-  if(q){params.push('%'+q+'%');where.push('(LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1)')}
-  if(type&&type!=='all'){params.push(type);where.push('LOWER(type)=LOWER(async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
-
-app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
-
-app.get('/api/health',async(req,res)=>{try{await pool.query('SELECT 1');res.json({ok:true})}catch{res.status(503).json({ok:false})}});
-app.post('/api/signup',rateLimitAuth,async(req,res,next)=>{
- try{
-  const username=String(req.body?.username||'').trim(),email=String(req.body?.email||'').trim().toLowerCase(),password=String(req.body?.password||'');
-  if(!/^[A-Za-z0-9_]{3,24}$/.test(username)||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||password.length<12)return res.status(400).json({error:'Enter a valid username, email, and password of at least 12 characters.'});
-  const exists=await pool.query('SELECT 1 FROM users WHERE email=$1 OR username=$2 LIMIT 1',[email,username]);
-  if(exists.rowCount)return res.status(409).json({error:'That username or email is already registered.'});
-  const user={id:crypto.randomUUID(),username,email,password_hash:await bcrypt.hash(password,12)};
-  await pool.query('INSERT INTO users(id,username,email,password_hash) VALUES($1,$2,$3,$4)',[user.id,user.username,user.email,user.password_hash]);
-  await createSession(user.id,res);res.status(201).json({user:publicUser(user)});
- }catch(e){next(e)}
-});
-app.post('/api/login',rateLimitAuth,async(req,res,next)=>{
- try{
-  const email=String(req.body?.email||'').trim().toLowerCase(),password=String(req.body?.password||'');
-  const q=await pool.query('SELECT * FROM users WHERE email=$1',[email]),user=q.rows[0];
-  if(!user||!(await bcrypt.compare(password,user.password_hash)))return res.status(401).json({error:'Invalid email or password'});
-  await createSession(user.id,res);res.json({user:publicUser(user)});
- }catch(e){next(e)}
-});
-app.get('/api/me',auth,(req,res)=>res.json({user:publicUser(req.user)}));
-app.post('/api/logout',rateLimitAuth,async(req,res,next)=>{try{const raw=req.cookies?.pr_session;if(raw)await pool.query('DELETE FROM sessions WHERE token_hash=$1',[hashToken(raw)]);res.clearCookie('pr_session',{httpOnly:true,secure:true,sameSite:'none',path:'/'});res.json({ok:true})}catch(e){next(e)}});
-
-app.get('/api/posts',async(req,res,next)=>{try{const q=await pool.query('SELECT id,title,category,body,author,likes,EXTRACT(EPOCH FROM created_at)*1000 AS created FROM posts ORDER BY created_at DESC');res.json(q.rows)}catch(e){next(e)}});
-app.post('/api/posts',rateLimitWrites,auth,async(req,res,next)=>{try{const title=String(req.body?.title||'').trim().slice(0,90),category=String(req.body?.category||'General').slice(0,40),body=String(req.body?.body||'').trim().slice(0,1000);if(!title||!body)return res.status(400).json({error:'Title and body required'});const q=await pool.query('INSERT INTO posts(title,category,body,author) VALUES($1,$2,$3,$4) RETURNING id,title,category,body,author,likes,EXTRACT(EPOCH FROM created_at)*1000 AS created',[title,category,body,req.user.username]);res.status(201).json(q.rows[0])}catch(e){next(e)}});
-app.post('/api/posts/:id/like',rateLimitWrites,async(req,res,next)=>{try{const q=await pool.query('UPDATE posts SET likes=likes+1 WHERE id=$1 RETURNING id,title,category,body,author,likes,EXTRACT(EPOCH FROM created_at)*1000 AS created',[req.params.id]);if(!q.rowCount)return res.status(404).json({error:'Not found'});res.json(q.rows[0])}catch(e){next(e)}});
-
-app.get('/api/reviews',async(req,res,next)=>{try{const q=await pool.query('SELECT id,strain,author,text,overall,burn,flavor,value,EXTRACT(EPOCH FROM created_at)*1000 AS created FROM reviews ORDER BY created_at DESC');res.json(q.rows)}catch(e){next(e)}});
-app.post('/api/reviews',rateLimitWrites,auth,async(req,res,next)=>{try{const vals=['overall','burn','flavor','value'].map(k=>Number(req.body?.[k]));if(vals.some(v=>!Number.isInteger(v)||v<1||v>5))return res.status(400).json({error:'Scores must be 1 through 5.'});const strain=String(req.body?.strain||'').slice(0,80),text=String(req.body?.text||'').trim().slice(0,600);if(!strain||!text)return res.status(400).json({error:'Strain and review text required'});const q=await pool.query('INSERT INTO reviews(strain,author,text,overall,burn,flavor,value) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING id,strain,author,text,overall,burn,flavor,value,EXTRACT(EPOCH FROM created_at)*1000 AS created',[strain,req.user.username,text,...vals]);res.status(201).json(q.rows[0])}catch(e){next(e)}});
-
-app.use((err,req,res,next)=>{console.error(err);res.status(500).json({error:'Server error'})});
-init().then(()=>app.listen(PORT,()=>console.log('Preroll.org API listening on '+PORT))).catch(err=>{console.error(err);process.exit(1)});
-+params.length+')')}
-  const clause=where.length?' WHERE '+where.join(' AND '):'';
-  const total=(await pool.query('SELECT COUNT(*)::int AS count FROM strains'+clause,params)).rows[0].count;
-  params.push(limit);
-  const rows=(await pool.query('SELECT slug AS id,name,type,source FROM strains'+clause+' ORDER BY LOWER(name),source LIMIT async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
-
-app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
-
-app.get('/api/health',async(req,res)=>{try{await pool.query('SELECT 1');res.json({ok:true})}catch{res.status(503).json({ok:false})}});
-app.post('/api/signup',rateLimitAuth,async(req,res,next)=>{
- try{
-  const username=String(req.body?.username||'').trim(),email=String(req.body?.email||'').trim().toLowerCase(),password=String(req.body?.password||'');
-  if(!/^[A-Za-z0-9_]{3,24}$/.test(username)||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||password.length<12)return res.status(400).json({error:'Enter a valid username, email, and password of at least 12 characters.'});
-  const exists=await pool.query('SELECT 1 FROM users WHERE email=$1 OR username=$2 LIMIT 1',[email,username]);
-  if(exists.rowCount)return res.status(409).json({error:'That username or email is already registered.'});
-  const user={id:crypto.randomUUID(),username,email,password_hash:await bcrypt.hash(password,12)};
-  await pool.query('INSERT INTO users(id,username,email,password_hash) VALUES($1,$2,$3,$4)',[user.id,user.username,user.email,user.password_hash]);
-  await createSession(user.id,res);res.status(201).json({user:publicUser(user)});
- }catch(e){next(e)}
-});
-app.post('/api/login',rateLimitAuth,async(req,res,next)=>{
- try{
-  const email=String(req.body?.email||'').trim().toLowerCase(),password=String(req.body?.password||'');
-  const q=await pool.query('SELECT * FROM users WHERE email=$1',[email]),user=q.rows[0];
-  if(!user||!(await bcrypt.compare(password,user.password_hash)))return res.status(401).json({error:'Invalid email or password'});
-  await createSession(user.id,res);res.json({user:publicUser(user)});
- }catch(e){next(e)}
-});
-app.get('/api/me',auth,(req,res)=>res.json({user:publicUser(req.user)}));
-app.post('/api/logout',rateLimitAuth,async(req,res,next)=>{try{const raw=req.cookies?.pr_session;if(raw)await pool.query('DELETE FROM sessions WHERE token_hash=$1',[hashToken(raw)]);res.clearCookie('pr_session',{httpOnly:true,secure:true,sameSite:'none',path:'/'});res.json({ok:true})}catch(e){next(e)}});
-
-app.get('/api/posts',async(req,res,next)=>{try{const q=await pool.query('SELECT id,title,category,body,author,likes,EXTRACT(EPOCH FROM created_at)*1000 AS created FROM posts ORDER BY created_at DESC');res.json(q.rows)}catch(e){next(e)}});
-app.post('/api/posts',rateLimitWrites,auth,async(req,res,next)=>{try{const title=String(req.body?.title||'').trim().slice(0,90),category=String(req.body?.category||'General').slice(0,40),body=String(req.body?.body||'').trim().slice(0,1000);if(!title||!body)return res.status(400).json({error:'Title and body required'});const q=await pool.query('INSERT INTO posts(title,category,body,author) VALUES($1,$2,$3,$4) RETURNING id,title,category,body,author,likes,EXTRACT(EPOCH FROM created_at)*1000 AS created',[title,category,body,req.user.username]);res.status(201).json(q.rows[0])}catch(e){next(e)}});
-app.post('/api/posts/:id/like',rateLimitWrites,async(req,res,next)=>{try{const q=await pool.query('UPDATE posts SET likes=likes+1 WHERE id=$1 RETURNING id,title,category,body,author,likes,EXTRACT(EPOCH FROM created_at)*1000 AS created',[req.params.id]);if(!q.rowCount)return res.status(404).json({error:'Not found'});res.json(q.rows[0])}catch(e){next(e)}});
-
-app.get('/api/reviews',async(req,res,next)=>{try{const q=await pool.query('SELECT id,strain,author,text,overall,burn,flavor,value,EXTRACT(EPOCH FROM created_at)*1000 AS created FROM reviews ORDER BY created_at DESC');res.json(q.rows)}catch(e){next(e)}});
-app.post('/api/reviews',rateLimitWrites,auth,async(req,res,next)=>{try{const vals=['overall','burn','flavor','value'].map(k=>Number(req.body?.[k]));if(vals.some(v=>!Number.isInteger(v)||v<1||v>5))return res.status(400).json({error:'Scores must be 1 through 5.'});const strain=String(req.body?.strain||'').slice(0,80),text=String(req.body?.text||'').trim().slice(0,600);if(!strain||!text)return res.status(400).json({error:'Strain and review text required'});const q=await pool.query('INSERT INTO reviews(strain,author,text,overall,burn,flavor,value) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING id,strain,author,text,overall,burn,flavor,value,EXTRACT(EPOCH FROM created_at)*1000 AS created',[strain,req.user.username,text,...vals]);res.status(201).json(q.rows[0])}catch(e){next(e)}});
-
-app.use((err,req,res,next)=>{console.error(err);res.status(500).json({error:'Server error'})});
-init().then(()=>app.listen(PORT,()=>console.log('Preroll.org API listening on '+PORT))).catch(err=>{console.error(err);process.exit(1)});
-+params.length,params)).rows;
-  res.json({strains:rows,total,limit,sources:['leafly','weedmaps']});
- }catch(e){next(e)}
-});
-
-app.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
+app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'').trim().toLowerCase();const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));const pattern=q?('%'+q+'%'):null;const total=(await pool.query(pattern?'SELECT COUNT(*)::int AS count FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1':'SELECT COUNT(*)::int AS count FROM strains',pattern?[pattern]:[])).rows[0].count;const rows=(await pool.query(pattern?'SELECT slug AS id,name,type,source FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1 ORDER BY LOWER(name),source LIMIT $2':'SELECT slug AS id,name,type,source FROM strains ORDER BY LOWER(name),source LIMIT $1',pattern?[pattern,limit]:[limit])).rows;res.json({strains:rows,total,limit,sources:['leafly','weedmaps']})}catch(e){next(e)}});\n\napp.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
 
 app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
