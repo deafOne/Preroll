@@ -21,3 +21,19 @@ databases:
   - name: preroll-postgres
     databaseName: preroll
     user: preroll
+
+cronJobs:
+  - name: preroll-strain-sync
+    runtime: node
+    rootDir: server
+    schedule: "0 4 * * *"
+    buildCommand: npm install
+    startCommand: npm run sync-strains
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: preroll-postgres
+          property: connectionString
+      - key: NODE_ENV
+        value: production
