@@ -13,6 +13,23 @@ function render(){
  $('#pager').querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{page=Number(b.dataset.page);render();window.scrollTo({top:0,behavior:'smooth'})});
 }
 function qTitle(n){return n+' strains'}
-async function load(){if(!API_URL){$('#status').textContent='API not configured';return}try{const r=await fetch(API_URL+'/api/strains?limit=20000',{cache:'no-store'}),data=await r.json();if(!r.ok)throw new Error(data.error||'Catalog unavailable');catalog=Array.isArray(data.strains)?data.strains:[];$('#status').textContent='Live catalog · '+catalog.length.toLocaleString()+' entries loaded';render()}catch(e){$('#status').textContent='Live catalog unavailable right now';$('#strainGrid').innerHTML='<p class="muted">The strain catalog could not be loaded. Try refreshing in a few minutes.</p>'}}
+async function load(){
+ try{
+  let data=null;
+  const local=await fetch('./catalog.json',{cache:'no-store'});
+  if(local.ok)data=await local.json();
+  if(!data&&API_URL){
+   const r=await fetch(API_URL+'/api/strains?limit=20000',{cache:'no-store'});
+   data=await r.json();if(!r.ok)throw new Error(data.error||'Catalog unavailable');
+  }
+  if(!data)throw new Error('Catalog unavailable');
+  catalog=Array.isArray(data.strains)?data.strains:[];
+  $('#status').textContent='Catalog · '+catalog.length.toLocaleString()+' entries loaded · updated '+(data.generatedAt?new Date(data.generatedAt).toLocaleDateString():'live');
+  render();
+ }catch(e){
+  $('#status').textContent='Catalog unavailable right now';
+  $('#strainGrid').innerHTML='<p class="muted">The strain catalog is updating. Refresh shortly.</p>';
+ }
+}
 $('#strainSearch').addEventListener('input',()=>{page=1;render()});$('#typeFilter').addEventListener('change',()=>{page=1;render()});$('#sourceFilter').addEventListener('change',()=>{page=1;render()});
 $('#menuBtn').addEventListener('click',()=>$('#nav').classList.toggle('open'));$('#year').textContent=new Date().getFullYear();load();
