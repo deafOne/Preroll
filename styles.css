@@ -12,3 +12,23 @@
 .center{justify-content:center;margin-top:24px}
 @media(max-width:900px){.search-row{grid-template-columns:1fr 1fr}.search-row input{grid-column:1/-1}.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.hero.compact{padding:48px 18px 24px}.search-row{grid-template-columns:1fr}.search-row input{grid-column:auto}.cards-grid{grid-template-columns:1fr}}
+
+/* Free editorial photography */
+.hero-art{isolation:isolate;overflow:hidden;border-radius:30px}
+.hero-photo{position:absolute;inset:0;border:1px solid var(--line);border-radius:30px;overflow:hidden;box-shadow:0 35px 100px #000}
+.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#05070655,#050706cc 82%)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.05)}
+.hero-art .paper,.hero-art .ember,.hero-art .smoke{z-index:2}
+.visual-showcase{padding-top:0;display:grid;grid-template-columns:1.35fr .65fr;gap:18px}
+.visual-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:#111512;min-height:260px}
+.visual-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.05)}
+.visual-wide{min-height:430px}
+.visual-wide:after,.visual-mini-grid .visual-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#05070605 25%,#050706dd 100%)}
+.visual-overlay{position:absolute;z-index:2;left:28px;right:28px;bottom:25px}
+.visual-overlay h2{font-size:clamp(2rem,4vw,3.5rem);margin:7px 0}
+.visual-overlay p{color:#d1d8d2;max-width:600px}
+.visual-mini-grid{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+.visual-mini-grid figure{margin:0}
+.visual-mini-grid figcaption{position:absolute;z-index:2;left:18px;bottom:16px;font-weight:800}
+@media(max-width:900px){.visual-showcase{grid-template-columns:1fr}.visual-mini-grid{grid-template-columns:1fr 1fr;grid-template-rows:none}.visual-wide{min-height:360px}}
+@media(max-width:600px){.visual-mini-grid{grid-template-columns:1fr}.visual-wide{min-height:330px}.hero-photo{border-radius:22px}}
