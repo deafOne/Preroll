@@ -1,7 +1,7 @@
 const fs=require('fs');
 const path=require('path');
 
-const SOURCES=[
+// Scheduled public-source crawler for recent cannabis how-to resources.\nconst SOURCES=[
  {name:'Leafly',index:'https://www.leafly.com/learn',kind:'learn',max:80},
  {name:'Weedmaps Learn',index:'https://weedmaps.com/learn',kind:'learn',max:80},
  {name:'Grow Weed Easy',index:'https://www.growweedeasy.com/',kind:'grow',max:100},
