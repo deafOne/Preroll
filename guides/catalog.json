@@ -1,1 +1,131 @@
-{"generatedAt":"2026-10-08T00:00:00.000Z","count":0,"sources":[],"guides":[]}
+{
+  "generatedAt": "2026-10-08T16:30:28.335Z",
+  "count": 15,
+  "sources": [
+    "Leafly",
+    "Weedmaps Learn",
+    "New York Office of Cannabis Management"
+  ],
+  "guides": [
+    {
+      "title": "Leafly’s guide to growing marijuana",
+      "description": "Updated growing guide covering preparation, germination, plant growth, harvesting and troubleshooting.",
+      "url": "https://www.leafly.com/learn/growing",
+      "source": "Leafly",
+      "category": "Growing",
+      "publishedAt": "2026-05-22T00:00:00.000Z"
+    },
+    {
+      "title": "Cannabis seeds 101: How to grow marijuana from seed",
+      "description": "Beginner guide covering cannabis seed basics and the major stages of plant growth.",
+      "url": "https://www.leafly.com/learn/growing/cannabis-seeds-101",
+      "source": "Leafly",
+      "category": "Growing",
+      "publishedAt": "2026-01-28T00:00:00.000Z"
+    },
+    {
+      "title": "The science of getting high: How does weed create effects?",
+      "description": "Educational guide covering cannabinoids, terpenes, the endocannabinoid system and factors that influence effects.",
+      "url": "https://www.leafly.com/learn/beginners-guide-to-cannabis",
+      "source": "Leafly",
+      "category": "Cannabis science",
+      "publishedAt": "2026-05-22T00:00:00.000Z"
+    },
+    {
+      "title": "How to smoke weed",
+      "description": "Educational overview of smoking cannabis flower and how inhaled cannabis works.",
+      "url": "https://www.leafly.com/learn/consume/smoke",
+      "source": "Leafly",
+      "category": "Safer consumption",
+      "publishedAt": "2024-05-09T00:00:00.000Z"
+    },
+    {
+      "title": "The ultimate 420 guide",
+      "description": "Cannabis culture and consumption-method guide covering smoking, vaping, edibles, tinctures and safer dosing resources.",
+      "url": "https://www.leafly.com/learn/four-twenty",
+      "source": "Leafly",
+      "category": "Cannabis 101",
+      "publishedAt": "2026-05-20T00:00:00.000Z"
+    },
+    {
+      "title": "Introduction to cannabis: beginner guides",
+      "description": "Beginner resources covering rolling a joint, evaluating flower, product types and what to expect when consuming cannabis.",
+      "url": "https://weedmaps.com/learn/introduction",
+      "source": "Weedmaps Learn",
+      "category": "Cannabis 101",
+      "publishedAt": null
+    },
+    {
+      "title": "How to not cough when hitting a cart",
+      "description": "Recent educational guide about vaping technique, coughing and cannabis vape safety considerations.",
+      "url": "https://weedmaps.com/learn",
+      "source": "Weedmaps Learn",
+      "category": "Safer consumption",
+      "publishedAt": "2026-10-08T00:00:00.000Z"
+    },
+    {
+      "title": "Can you fly with a weed pen? What TSA rules actually say in 2026",
+      "description": "Current 2026 travel guide explaining federal considerations around cannabis and vape products.",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/can-you-fly-with-a-weed-pen",
+      "source": "Weedmaps Learn",
+      "category": "Cannabis 101",
+      "publishedAt": "2026-09-08T00:00:00.000Z"
+    },
+    {
+      "title": "Cannabis concentrates guide: types, THCA, dosing & how to choose",
+      "description": "Guide to concentrate types, product selection, potency and storage considerations.",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/cannabis-concentrates-guide",
+      "source": "Weedmaps Learn",
+      "category": "Cannabis science",
+      "publishedAt": "2026-03-08T00:00:00.000Z"
+    },
+    {
+      "title": "Building a headstash: How to select, store, and preserve high-quality cannabis flower",
+      "description": "Guide focused on selecting and storing flower to preserve aroma, texture and quality.",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/building-a-cannabis-headstash",
+      "source": "Weedmaps Learn",
+      "category": "Safer consumption",
+      "publishedAt": "2026-03-08T00:00:00.000Z"
+    },
+    {
+      "title": "What is cannabis flower and how do you consume it?",
+      "description": "Flower overview covering common consumption methods and label/potency concepts.",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/cannabis-flower",
+      "source": "Weedmaps Learn",
+      "category": "Cannabis 101",
+      "publishedAt": "2026-02-22T00:00:00.000Z"
+    },
+    {
+      "title": "How to make weed gummies: A step-by-step guide",
+      "description": "Educational cooking guide with emphasis on preparation, heat and storage considerations.",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/how-to-make-weed-gummies",
+      "source": "Weedmaps Learn",
+      "category": "Edibles & cooking",
+      "publishedAt": "2026-02-22T00:00:00.000Z"
+    },
+    {
+      "title": "How to read a Certificate of Analysis (CoA)",
+      "description": "New York OCM guide explaining product testing reports, lot identifiers, sample information and reported results.",
+      "url": "https://cannabis.ny.gov/how-read-lab-certificate-analysis-your-cannabis-product",
+      "source": "New York Office of Cannabis Management",
+      "category": "New York",
+      "publishedAt": "2026-04-08T00:00:00.000Z"
+    },
+    {
+      "title": "Consumers: safer and responsible cannabis information",
+      "description": "Official New York consumer guidance covering product types, onset, potency, safer consumption and secure storage.",
+      "url": "https://cannabis.ny.gov/consumers",
+      "source": "New York Office of Cannabis Management",
+      "category": "New York",
+      "publishedAt": null
+    },
+    {
+      "title": "Adult-Use Information and consumer education materials",
+      "description": "Official New York resource hub with safer-consumption, concentrates, lab testing and adult-use educational materials.",
+      "url": "https://cannabis.ny.gov/node/16",
+      "source": "New York Office of Cannabis Management",
+      "category": "New York",
+      "publishedAt": null
+    }
+  ]
+}
