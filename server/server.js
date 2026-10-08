@@ -33,7 +33,7 @@ const DATABASE_URL=process.env.DATABASE_URL;
 
 if(!DATABASE_URL) console.warn('DATABASE_URL is not configured; strain catalog will use its live-source fallback.');
 
-const pool=DATABASE_URL?new Pool({connectionString:DATABASE_URL,ssl:process.env.NODE_ENV==='production'?{rejectUnauthorized:false}:false}):null;
+let pool=DATABASE_URL?new Pool({connectionString:DATABASE_URL,ssl:process.env.NODE_ENV==='production'?{rejectUnauthorized:false}:false}):null;
 
 app.use(cors({origin:ORIGIN,credentials:true,methods:['GET','POST'],allowedHeaders:['Content-Type']}));
 app.use(express.json({limit:'50kb'}));
@@ -99,6 +99,7 @@ async function getNyLicenses(){
 
 async function init(){
  if(!pool)return;
+ try{
  await pool.query(`CREATE TABLE IF NOT EXISTS users(
   id UUID PRIMARY KEY, username VARCHAR(24) UNIQUE NOT NULL, email VARCHAR(254) UNIQUE NOT NULL,
   password_hash TEXT NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT now()
@@ -120,6 +121,11 @@ async function init(){
   text VARCHAR(600) NOT NULL, overall SMALLINT NOT NULL, burn SMALLINT NOT NULL,
   flavor SMALLINT NOT NULL, value SMALLINT NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT now()
  )`);
+ }catch(err){
+  console.error('Database initialization failed; continuing in degraded mode:',err.message);
+  try{await pool.end()}catch{}
+  pool=null;
+ }
 }
 
 function hashToken(t){return crypto.createHash('sha256').update(t).digest('hex')}
