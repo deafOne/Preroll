@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dr. Terpenstein — Cannabis Education AI | Preroll.org</title>
+<meta name="description" content="Ask Dr. Terpenstein about cannabis terpenes, strains, pre-roll labels and cannabis terminology. Educational information only.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://preroll.org/dr-terpenstein/">
+<link rel="icon" href="../assets/logo.svg">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.terp-page{max-width:var(--max);margin:auto;padding:70px 24px 100px}
+.terp-hero{display:grid;grid-template-columns:.75fr 1.25fr;gap:50px;align-items:center;min-height:620px}
+.terp-avatar-wrap{display:grid;place-items:center;position:relative;min-height:520px}
+.terp-avatar{width:300px;height:380px;position:relative;filter:drop-shadow(0 35px 45px #000)}
+.terp-head{position:absolute;left:58px;top:20px;width:184px;height:184px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#fff5df,#d8ad7c 58%,#8e5b3e);border:6px solid #202820;box-shadow:inset -18px -18px 35px #0004}
+.terp-hair{position:absolute;left:42px;top:0;width:215px;height:75px;background:#222923;border-radius:60% 60% 35% 35%;transform:rotate(-3deg)}
+.terp-hair:after{content:"";position:absolute;right:-5px;top:35px;width:42px;height:80px;background:#222923;border-radius:20px;transform:rotate(22deg)}
+.terp-glasses{position:absolute;left:77px;top:82px;display:flex;gap:5px;z-index:3}
+.terp-glasses span{width:63px;height:38px;border:5px solid #172018;border-radius:14px;background:#9dff6720}
+.terp-nose{position:absolute;left:137px;top:112px;width:18px;height:42px;border-right:4px solid #8d5b43;border-bottom:4px solid #8d5b43;border-radius:0 0 12px 0;z-index:3}
+.terp-mouth{position:absolute;left:112px;top:155px;width:55px;height:20px;border-bottom:5px solid #3b241e;border-radius:50%;z-index:3}
+.terp-body{position:absolute;left:18px;top:190px;width:264px;height:190px;background:linear-gradient(145deg,#f4f5ed,#bfc8be);border:6px solid #202820;border-radius:80px 80px 35px 35px;box-shadow:inset -20px -20px 35px #0002}
+.terp-shirt{position:absolute;left:104px;top:203px;width:95px;height:150px;background:#f9faf5;z-index:2;clip-path:polygon(0 0,100% 0,78% 100%,22% 100%)}
+.terp-tie{position:absolute;left:137px;top:208px;width:31px;height:112px;background:#273c2b;z-index:3;clip-path:polygon(35% 0,65% 0,100% 100%,50% 88%,0 100%)}
+.terp-pocket{position:absolute;right:45px;top:245px;width:55px;height:48px;border:3px solid #6c766d;border-radius:4px;z-index:3}
+.terp-badge{position:absolute;right:49px;top:252px;font-size:8px;color:#253126;z-index:4;font-weight:900;text-align:center}
+.terp-arm{position:absolute;top:225px;width:58px;height:135px;background:#d9e0d9;border:6px solid #202820;border-radius:35px;z-index:1}
+.terp-arm.left{left:0;transform:rotate(18deg)}.terp-arm.right{right:0;transform:rotate(-18deg)}
+.terp-bubble{position:absolute;right:-35px;top:25px;background:#151b16;border:1px solid var(--line);border-radius:18px;padding:14px 18px;color:var(--green);font-weight:800;box-shadow:0 20px 50px #0008;z-index:5}
+.terp-bubble:after{content:"";position:absolute;left:25px;bottom:-9px;border:9px solid transparent;border-top-color:#151b16;border-bottom:0}
+.terp-copy .badge{display:inline-block}.terp-copy h1{font-size:clamp(3rem,7vw,6.8rem);line-height:.86;letter-spacing:-.065em;margin:18px 0 25px}.terp-copy h1 span{color:var(--green)}.terp-copy .lede{font-size:1.15rem;color:#b9c3bb;max-width:700px}.terp-topics{display:flex;flex-wrap:wrap;gap:8px;margin:25px 0}.terp-topic{padding:8px 11px;border:1px solid var(--line);border-radius:999px;color:#c9d2cb;background:#111512}.terp-chat{max-width:920px;margin:0 auto}.terp-chat .chat-messages{height:480px}.terp-note{margin-top:14px;color:var(--muted);font-size:.82rem;text-align:center}
+@media(max-width:900px){.terp-hero{grid-template-columns:1fr;min-height:0}.terp-avatar-wrap{min-height:440px}.terp-copy{order:-1}}
+@media(max-width:600px){.terp-page{padding:45px 18px 70px}.terp-avatar{transform:scale(.82)}.terp-avatar-wrap{min-height:380px;margin:-30px 0}.terp-bubble{right:-10px}.terp-chat .chat-messages{height:400px}}
+</style>
+</head>
+<body>
+<div id="ageGate" class="age-gate" role="dialog" aria-modal="true">
+<div class="age-card"><img src="../assets/logo.svg" alt="Preroll.org" class="age-logo"><p class="eyebrow">AGE CHECK</p><h1>Are you 21 or older?</h1><p>Preroll.org is intended for adults of legal age. Educational content only.</p><div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div><small id="ageMessage"></small></div>
+</div>
+<header class="site-header">
+<a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="Preroll.org"></a>
+<button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
+<nav id="nav"><a href="../index.html">Home</a><a href="../news/index.html">News</a><a href="../index.html#market">NY Market</a><a href="../index.html#community">Community</a><a href="../strains/index.html">Strains</a><a href="../guides/index.html">Guides</a><a href="../calculators/index.html">Calculators</a><a href="../forum/index.html">Forum</a><a href="index.html">Dr. Terpenstein</a></nav>
+<div class="header-actions"><a class="btn ghost small" href="../forum/index.html">Join forum</a></div>
+</header>
+<main class="terp-page">
+<section class="terp-hero">
+<div class="terp-avatar-wrap" aria-label="Dr. Terpenstein cartoon character">
+<div class="terp-avatar">
+<div class="terp-bubble">Ask me anything.</div>
+<div class="terp-hair"></div><div class="terp-head"><div class="terp-glasses"><span></span><span></span></div><div class="terp-nose"></div><div class="terp-mouth"></div></div>
+<div class="terp-body"></div><div class="terp-shirt"></div><div class="terp-tie"></div><div class="terp-pocket"></div><div class="terp-badge">DR.<br>TERP</div><div class="terp-arm left"></div><div class="terp-arm right"></div>
+</div>
+</div>
+<div class="terp-copy">
+<span class="badge">PREROLL.ORG • DR. TERPENSTEIN</span>
+<h1>Meet the <span>Doc.</span></h1>
+<p class="lede">A cannabis education assistant built to cut through hype. Ask about terpenes, strain terminology, cannabinoid labels, pre-roll quality and cannabis history.</p>
+<div class="terp-topics"><span class="terp-topic">Terpenes</span><span class="terp-topic">Strains</span><span class="terp-topic">THC / CBD</span><span class="terp-topic">Labels</span><span class="terp-topic">Pre-rolls</span></div>
+<p class="muted">Educational information only. Dr. Terpenstein does not diagnose conditions, prescribe products or provide medical treatment.</p>
+</div>
+</section>
+<section class="terp-chat panel" id="terpensteinChat">
+<div class="chat-messages" id="terpensteinMessages" aria-live="polite">
+<div class="bubble"><strong>Dr. Terpenstein:</strong><br>Welcome to my office. Ask me about terpenes, strain categories, cannabis labels or how to evaluate a pre-roll.</div>
+</div>
+<form class="chat-input" id="terpensteinForm"><input id="terpensteinInput" maxlength="240" placeholder="Ask Dr. Terpenstein…" aria-label="Ask Dr. Terpenstein"><button class="btn primary" type="submit">Ask</button></form>
+<p class="terp-note">Dr. Terpenstein is an educational character, not a medical professional.</p>
+</section>
+</main>
+<footer><div><img src="../assets/logo.svg" alt="Preroll.org"><p>Live information, education and community. Adults 21+ only.</p></div><div><strong>Explore</strong><a href="../news/index.html">News</a><a href="../forum/index.html">Forum</a><a href="../guides/index.html">Guides</a><a href="../calculators/index.html">Calculators</a></div><div><strong>Data</strong><a href="../index.html#market">NY Market</a><a href="../index.html#community">Community</a><a href="../strains/index.html">Strains</a></div><div><strong>Preroll.org</strong><span>© <span id="year"></span></span></div></footer>
+<script src="../age-gate.js?v=5"></script>
+<script>
+const terpAnswers=[
+[/terpene/i,"Terpenes are aromatic compounds found in cannabis and many other plants. Common examples include myrcene, limonene, pinene and caryophyllene. A terpene profile can describe aroma and flavor, but it does not reliably predict how every person will feel."],
+[/label|thc|potency|cannabinoid/i,"Start with the label: check THC/CBD amounts, serving or package size, batch information and whether laboratory testing is available. Potency is only one part of evaluating a cannabis product."],
+[/indica|sativa|hybrid/i,"Indica, sativa and hybrid are useful shorthand, but they are not precise predictors of effects. For a more useful comparison, look at the cultivar's chemistry, terpene profile and the specific product batch."],
+[/pre.?roll|good|quality/i,"For a pre-roll, check the producer, package date, testing information, flower quality, storage condition and whether the label clearly identifies the product. A high THC number alone does not guarantee quality."],
+[/myrcene|limonene|pinene|caryophyllene/i,"Myrcene is often associated with earthy aromas, limonene with citrus, pinene with pine, and caryophyllene with peppery/spicy notes. Aroma descriptions are not promises about effects."]
+];
+const esc=s=>String(s??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[c]));
+function answer(q){const hit=terpAnswers.find(([re])=>re.test(q));return hit?hit[1]:"I can help explain cannabis terminology, terpenes, strain categories, cannabinoids, pre-roll labels and quality factors. Ask me something specific and we'll dig into it."}
+function ask(q){const box=document.getElementById("terpensteinMessages");if(!box||!q.trim())return;box.insertAdjacentHTML("beforeend","<div class='bubble user'>"+esc(q)+"</div><div class='bubble'><strong>Dr. Terpenstein:</strong><br>"+esc(answer(q))+"</div>");box.scrollTop=box.scrollHeight}
+document.getElementById("terpensteinForm").addEventListener("submit",e=>{e.preventDefault();const i=document.getElementById("terpensteinInput");ask(i.value);i.value=""});
+document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("nav").classList.toggle("open"));
+document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>document.getElementById("nav").classList.remove("open")));
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
