@@ -64,7 +64,7 @@ async function fetchJson(url,options={}){
  if(!r.ok)throw new Error('Upstream returned '+r.status);
  return r.json();
 }
-function xmlText(v=''){return v.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/<[^>]+>/g,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'\"').replace(/&#39;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/&nbsp;/gi,' ').replace(/\s+/g,' ').trim()}
+function xmlText(v=''){return v.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/<[^>]+>/g,' ').replace(/&#(x[0-9a-f]+|\d+);/gi,(_,n)=>{const code=n.toLowerCase().startsWith('x')?parseInt(n.slice(1),16):parseInt(n,10);return Number.isFinite(code)?String.fromCodePoint(code):''}).replace(/&(amp|quot|apos|lt|gt|nbsp);/gi,(_,n)=>({amp:'&',quot:'\"',apos:"'",lt:'<',gt:'>',nbsp:' '}[n.toLowerCase()]||'')).replace(/[\u0000-\u001f\u007f]/g,' ').replace(/\s+/g,' ').trim()}
 async function parseRssFeed(url,source){
  const xml=await fetchText(url),items=[],blocks=xml.match(/<(item|entry)\b[\s\S]*?<\/\1>/gi)||[];
  for(const block of blocks.slice(0,20)){
