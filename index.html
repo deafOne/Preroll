@@ -9,7 +9,21 @@
 <figure class="visual-card"><img src="https://images.pexels.com/photos/33314138/pexels-photo-33314138.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Cannabis plant and developing buds" loading="lazy"><figcaption>Plant knowledge</figcaption></figure>
 </div></section><section id="live-overview" class="section"><div class="section-head"><div><p class="eyebrow">LIVE OVERVIEW</p><h2>Today on Preroll.</h2></div><button id="refreshAll" class="btn ghost small">Refresh all</button></div><div class="live-stats"><div class="panel"><strong id="newsCount">—</strong><span>current news stories</span></div><div class="panel"><strong id="marketCount">—</strong><span>active NY records</span></div><div class="panel"><strong id="retailCount">—</strong><span>adult-use retail records</span></div><div class="panel"><strong id="postCount">—</strong><span>community discussions</span></div><div class="panel"><strong id="reviewCount">—</strong><span>community reviews</span></div></div></section>
 <section id="news" class="section"><div class="section-head"><div><p class="eyebrow">LIVE NEWS</p><h2>Latest cannabis coverage.</h2></div><a class="btn ghost small" href="news/index.html">All news</a></div><div id="newsGrid" class="news-grid"><p class="muted">Loading live news…</p></div></section>
-<section id="market" class="section"><div class="section-head"><div><p class="eyebrow">NEW YORK • LIVE</p><h2>Licensed cannabis market.</h2></div><span id="marketUpdated" class="muted">Loading OCM data…</span></div><div class="panel"><div class="searchbar"><input id="marketSearch" placeholder="Search business, city, county or license type…"><button id="marketRefresh" class="btn primary">Refresh</button></div><div id="marketStatus" class="muted" style="margin:12px 0"></div><div id="marketGrid" class="card-grid"></div></div></section>
+<section id="market" class="section"><div class="section-head"><div><p class="eyebrow">NEW YORK • LIVE</p><h2>Licensed cannabis market.</h2></div><span id="marketUpdated" class="muted">Loading OCM data…</span></div><div class="ocm-dashboard">
+<div class="ocm-summary">
+<div class="ocm-stat"><span>OCM records</span><strong id="ocmTotal">—</strong><small>Current Open Data</small></div>
+<div class="ocm-stat"><span>Active / operational</span><strong id="marketCount">—</strong><small>License records</small></div>
+<div class="ocm-stat"><span>Adult-use retail</span><strong id="retailCount">—</strong><small>Retail records</small></div>
+<div class="ocm-stat"><span>Last checked</span><strong id="ocmAge">—</strong><small id="marketUpdated">Loading…</small></div>
+</div>
+<div class="ocm-toolbar">
+<div class="searchbar"><input id="marketSearch" placeholder="Search business, city, county, license type…"><button id="marketRefresh" class="btn primary">Refresh</button></div>
+<div class="ocm-filters"><select id="marketType"><option value="">All license types</option></select><select id="marketStatus"><option value="">All statuses</option></select></div>
+</div>
+<div class="ocm-meta"><span id="marketStatusText">Loading OCM records…</span><a href="https://data.ny.gov/d/jskf-tt3q" target="_blank" rel="noopener noreferrer">Official OCM dataset ↗</a></div>
+<div id="marketBreakdown" class="ocm-breakdown"></div>
+<div id="marketGrid" class="ocm-list"></div>
+</div></section>
 <section id="community" class="section"><div class="section-head"><div><p class="eyebrow">LIVE COMMUNITY</p><h2>What people are discussing.</h2></div><a class="btn ghost small" href="forum/index.html">Open forum</a></div><div class="split-section"><div><div id="forumFeed" class="feed"><p class="muted">Loading discussions…</p></div></div><div><div class="section-head compact"><h3>Recent reviews</h3><a href="forum/index.html" class="muted">Join →</a></div><div id="reviewFeed" class="feed"><p class="muted">Loading reviews…</p></div></div></div></section>
 <section id="mystrain" class="section ai-section">
 <div>
