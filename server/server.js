@@ -33,7 +33,7 @@ const DATABASE_URL=process.env.DATABASE_URL;
 
 if(!DATABASE_URL) console.warn('DATABASE_URL is not configured; strain catalog will use its live-source fallback.');
 
-const pool=new Pool({connectionString:DATABASE_URL,ssl:process.env.NODE_ENV==='production'?{rejectUnauthorized:false}:false});
+const pool=DATABASE_URL?new Pool({connectionString:DATABASE_URL,ssl:process.env.NODE_ENV==='production'?{rejectUnauthorized:false}:false}):null;
 
 app.use(cors({origin:ORIGIN,credentials:true,methods:['GET','POST'],allowedHeaders:['Content-Type']}));
 app.use(express.json({limit:'50kb'}));
@@ -98,6 +98,7 @@ async function getNyLicenses(){
 }
 
 async function init(){
+ if(!pool)return;
  await pool.query(`CREATE TABLE IF NOT EXISTS users(
   id UUID PRIMARY KEY, username VARCHAR(24) UNIQUE NOT NULL, email VARCHAR(254) UNIQUE NOT NULL,
   password_hash TEXT NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT now()
@@ -130,6 +131,7 @@ async function createSession(userId,res){
  res.cookie('pr_session',raw,cookie);
 }
 async function auth(req,res,next){
+ if(!pool)return res.status(503).json({error:'Database is not connected yet. Please try again after the production database binding is applied.'});
  try{
   const raw=req.cookies?.pr_session;
   if(!raw)return res.status(401).json({error:'Login required'});
@@ -139,7 +141,7 @@ async function auth(req,res,next){
  }catch(e){next(e)}
 }
 
-app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'').trim().toLowerCase();const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));const pattern=q?('%'+q+'%'):null;const total=(await pool.query(pattern?'SELECT COUNT(*)::int AS count FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1':'SELECT COUNT(*)::int AS count FROM strains',pattern?[pattern]:[])).rows[0].count;const rows=(await pool.query(pattern?'SELECT slug AS id,name,type,source FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1 ORDER BY LOWER(name),source LIMIT $2':'SELECT slug AS id,name,type,source FROM strains ORDER BY LOWER(name),source LIMIT $1',pattern?[pattern,limit]:[limit])).rows;res.json({strains:rows,total,limit,sources:['leafly','weedmaps']})}catch(e){next(e)}});app.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
+app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'').trim().toLowerCase(); if(!pool){const fs=require('fs');const path=require('path');let data={strains:[]};try{data=JSON.parse(fs.readFileSync(path.join(__dirname,'..','strains','catalog.json'),'utf8'));}catch{} let rows=Array.isArray(data.strains)?data.strains:[];if(q)rows=rows.filter(x=>String(x.name||'').toLowerCase().includes(q)||String(x.id||'').toLowerCase().includes(q));const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));return res.json({strains:rows.slice(0,limit),total:rows.length,limit,sources:['leafly','weedmaps'],mode:'static-fallback'});}const q=const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));const pattern=q?('%'+q+'%'):null;const total=(await pool.query(pattern?'SELECT COUNT(*)::int AS count FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1':'SELECT COUNT(*)::int AS count FROM strains',pattern?[pattern]:[])).rows[0].count;const rows=(await pool.query(pattern?'SELECT slug AS id,name,type,source FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1 ORDER BY LOWER(name),source LIMIT $2':'SELECT slug AS id,name,type,source FROM strains ORDER BY LOWER(name),source LIMIT $1',pattern?[pattern,limit]:[limit])).rows;res.json({strains:rows,total,limit,sources:['leafly','weedmaps']})}catch(e){next(e)}});app.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
 
 app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
@@ -176,7 +178,7 @@ app.post('/api/reviews',rateLimitWrites,auth,async(req,res,next)=>{try{const val
 app.use((err,req,res,next)=>{console.error(err);res.status(500).json({error:'Server error'})});
 init().then(async()=>{
  const server=app.listen(PORT,()=>console.log('Preroll.org API listening on '+PORT));
- if(process.env.STRAIN_SYNC_ON_EMPTY==='true'){
+ if(pool&&process.env.STRAIN_SYNC_ON_EMPTY==='true'){
   try{
    const q=await pool.query('SELECT COUNT(*)::int AS count FROM strains');
    if(q.rows[0].count===0){
