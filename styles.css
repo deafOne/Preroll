@@ -32,3 +32,9 @@
 .visual-mini-grid figcaption{position:absolute;z-index:2;left:18px;bottom:16px;font-weight:800}
 @media(max-width:900px){.visual-showcase{grid-template-columns:1fr}.visual-mini-grid{grid-template-columns:1fr 1fr;grid-template-rows:none}.visual-wide{min-height:360px}}
 @media(max-width:600px){.visual-mini-grid{grid-template-columns:1fr}.visual-wide{min-height:330px}.hero-photo{border-radius:22px}}
+
+#terpensteinChat{min-height:430px}
+#terpensteinMessages{background:#0c100d}
+#terpensteinInput{min-width:0}
+#terpPrompts button{min-height:44px}
+@media(max-width:600px){#terpensteinForm{flex-wrap:wrap}#terpensteinInput{width:100%;flex-basis:100%}#terpensteinForm .btn{width:100%}}
