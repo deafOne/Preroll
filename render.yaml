@@ -6,6 +6,7 @@ services:
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/health
+    repo: https://github.com/deafOne/Preroll
     autoDeployTrigger: commit
     envVars:
       - key: DATABASE_URL
@@ -24,6 +25,7 @@ services:
     runtime: node
     rootDir: server
     schedule: "0 4 * * *"
+    repo: https://github.com/deafOne/Preroll
     buildCommand: npm install
     startCommand: npm run sync-strains
     autoDeployTrigger: commit
