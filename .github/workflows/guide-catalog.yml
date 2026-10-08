@@ -1,0 +1,33 @@
+name: Build guide catalog
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build-guide-catalog.js'
+  schedule:
+    - cron: '35 4 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  guides:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Scrape recent cannabis how-to guides
+        run: node scripts/build-guide-catalog.js
+      - name: Commit catalog
+        run: |
+          git config user.name "preroll-guide-bot"
+          git config user.email "actions@github.com"
+          git add guides/catalog.json
+          if git diff --cached --quiet; then
+            echo "Guide catalog unchanged"
+          else
+            git commit -m "Update cannabis how-to guide catalog"
+            git push
+          fi
