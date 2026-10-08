@@ -39,6 +39,8 @@ function marketRender(){
 }
 function populateMarketFilters(){
  const type=$("#marketType"),status=$("#marketStatus");
+ type.innerHTML="<option value=''>All license types</option>";
+ status.innerHTML="<option value=''>All statuses</option>";
  const unique=(keys)=>[...new Set(market.map(x=>marketValue(x,keys)).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
  unique(["license_type","license_category","type"]).forEach(v=>type.insertAdjacentHTML("beforeend","<option value='"+esc(v.toLowerCase())+"'>"+esc(v)+"</option>"));
  unique(["license_status","status","current_status"]).forEach(v=>status.insertAdjacentHTML("beforeend","<option value='"+esc(v.toLowerCase())+"'>"+esc(v)+"</option>"));
