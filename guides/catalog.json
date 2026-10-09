@@ -1,130 +1,948 @@
 {
-  "generatedAt": "2026-10-08T16:30:28.335Z",
-  "count": 15,
+  "generatedAt": "2026-10-09T07:55:26.194Z",
+  "count": 104,
   "sources": [
+    "Preroll.org Editorial",
     "Leafly",
     "Weedmaps Learn",
     "New York Office of Cannabis Management"
   ],
+  "editorialNote": "Distinct topic index; external sources should be consulted for current rules and technical details.",
   "guides": [
     {
-      "title": "Leafly’s guide to growing marijuana",
-      "description": "Updated growing guide covering preparation, germination, plant growth, harvesting and troubleshooting.",
-      "url": "https://www.leafly.com/learn/growing",
-      "source": "Leafly",
-      "category": "Growing",
-      "publishedAt": "2026-05-22T00:00:00.000Z"
-    },
-    {
-      "title": "Cannabis seeds 101: How to grow marijuana from seed",
-      "description": "Beginner guide covering cannabis seed basics and the major stages of plant growth.",
-      "url": "https://www.leafly.com/learn/growing/cannabis-seeds-101",
-      "source": "Leafly",
-      "category": "Growing",
-      "publishedAt": "2026-01-28T00:00:00.000Z"
-    },
-    {
-      "title": "The science of getting high: How does weed create effects?",
-      "description": "Educational guide covering cannabinoids, terpenes, the endocannabinoid system and factors that influence effects.",
-      "url": "https://www.leafly.com/learn/beginners-guide-to-cannabis",
-      "source": "Leafly",
-      "category": "Cannabis science",
-      "publishedAt": "2026-05-22T00:00:00.000Z"
-    },
-    {
-      "title": "How to smoke weed",
-      "description": "Educational overview of smoking cannabis flower and how inhaled cannabis works.",
-      "url": "https://www.leafly.com/learn/consume/smoke",
-      "source": "Leafly",
-      "category": "Safer consumption",
-      "publishedAt": "2024-05-09T00:00:00.000Z"
-    },
-    {
-      "title": "The ultimate 420 guide",
-      "description": "Cannabis culture and consumption-method guide covering smoking, vaping, edibles, tinctures and safer dosing resources.",
-      "url": "https://www.leafly.com/learn/four-twenty",
-      "source": "Leafly",
-      "category": "Cannabis 101",
-      "publishedAt": "2026-05-20T00:00:00.000Z"
-    },
-    {
-      "title": "Introduction to cannabis: beginner guides",
-      "description": "Beginner resources covering rolling a joint, evaluating flower, product types and what to expect when consuming cannabis.",
-      "url": "https://weedmaps.com/learn/introduction",
-      "source": "Weedmaps Learn",
-      "category": "Cannabis 101",
+      "guideId": "pr-001",
+      "title": "Read a cannabis label",
+      "description": "A focused reference covering read a cannabis label. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Labels & testing",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
       "publishedAt": null
     },
     {
-      "title": "How to not cough when hitting a cart",
-      "description": "Recent educational guide about vaping technique, coughing and cannabis vape safety considerations.",
-      "url": "https://weedmaps.com/learn",
-      "source": "Weedmaps Learn",
-      "category": "Safer consumption",
-      "publishedAt": "2026-10-08T00:00:00.000Z"
-    },
-    {
-      "title": "Can you fly with a weed pen? What TSA rules actually say in 2026",
-      "description": "Current 2026 travel guide explaining federal considerations around cannabis and vape products.",
-      "url": "https://weedmaps.com/learn/products-and-how-to-consume/can-you-fly-with-a-weed-pen",
-      "source": "Weedmaps Learn",
-      "category": "Cannabis 101",
-      "publishedAt": "2026-09-08T00:00:00.000Z"
-    },
-    {
-      "title": "Cannabis concentrates guide: types, THCA, dosing & how to choose",
-      "description": "Guide to concentrate types, product selection, potency and storage considerations.",
-      "url": "https://weedmaps.com/learn/products-and-how-to-consume/cannabis-concentrates-guide",
-      "source": "Weedmaps Learn",
-      "category": "Cannabis science",
-      "publishedAt": "2026-03-08T00:00:00.000Z"
-    },
-    {
-      "title": "Building a headstash: How to select, store, and preserve high-quality cannabis flower",
-      "description": "Guide focused on selecting and storing flower to preserve aroma, texture and quality.",
-      "url": "https://weedmaps.com/learn/products-and-how-to-consume/building-a-cannabis-headstash",
-      "source": "Weedmaps Learn",
-      "category": "Safer consumption",
-      "publishedAt": "2026-03-08T00:00:00.000Z"
-    },
-    {
-      "title": "What is cannabis flower and how do you consume it?",
-      "description": "Flower overview covering common consumption methods and label/potency concepts.",
-      "url": "https://weedmaps.com/learn/products-and-how-to-consume/cannabis-flower",
-      "source": "Weedmaps Learn",
-      "category": "Cannabis 101",
-      "publishedAt": "2026-02-22T00:00:00.000Z"
-    },
-    {
-      "title": "How to make weed gummies: A step-by-step guide",
-      "description": "Educational cooking guide with emphasis on preparation, heat and storage considerations.",
-      "url": "https://weedmaps.com/learn/products-and-how-to-consume/how-to-make-weed-gummies",
-      "source": "Weedmaps Learn",
-      "category": "Edibles & cooking",
-      "publishedAt": "2026-02-22T00:00:00.000Z"
-    },
-    {
-      "title": "How to read a Certificate of Analysis (CoA)",
-      "description": "New York OCM guide explaining product testing reports, lot identifiers, sample information and reported results.",
-      "url": "https://cannabis.ny.gov/how-read-lab-certificate-analysis-your-cannabis-product",
-      "source": "New York Office of Cannabis Management",
-      "category": "New York",
-      "publishedAt": "2026-04-08T00:00:00.000Z"
-    },
-    {
-      "title": "Consumers: safer and responsible cannabis information",
-      "description": "Official New York consumer guidance covering product types, onset, potency, safer consumption and secure storage.",
-      "url": "https://cannabis.ny.gov/consumers",
-      "source": "New York Office of Cannabis Management",
-      "category": "New York",
+      "guideId": "pr-002",
+      "title": "Interpret a Certificate of Analysis",
+      "description": "A focused reference covering interpret a certificate of analysis. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Science",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
       "publishedAt": null
     },
     {
-      "title": "Adult-Use Information and consumer education materials",
-      "description": "Official New York resource hub with safer-consumption, concentrates, lab testing and adult-use educational materials.",
-      "url": "https://cannabis.ny.gov/node/16",
-      "source": "New York Office of Cannabis Management",
+      "guideId": "pr-003",
+      "title": "Compare THC percentages",
+      "description": "A focused reference covering compare thc percentages. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Terpenes",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-004",
+      "title": "THC and THCA explained",
+      "description": "A focused reference covering thc and thca explained. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Pre-rolls",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-005",
+      "title": "CBD and THC compared",
+      "description": "A focused reference covering cbd and thc compared. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Storage",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-006",
+      "title": "Minor cannabinoids overview",
+      "description": "A focused reference covering minor cannabinoids overview. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Formats",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-007",
+      "title": "Read a terpene panel",
+      "description": "A focused reference covering read a terpene panel. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Vaping",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-008",
+      "title": "Myrcene aroma and evidence",
+      "description": "A focused reference covering myrcene aroma and evidence. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Edibles",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-009",
+      "title": "Limonene aroma and evidence",
+      "description": "A focused reference covering limonene aroma and evidence. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Safety",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-010",
+      "title": "Caryophyllene profile basics",
+      "description": "A focused reference covering caryophyllene profile basics. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Health",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-011",
+      "title": "Pinene profile basics",
+      "description": "A focused reference covering pinene profile basics. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Research",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-012",
+      "title": "Linalool profile basics",
+      "description": "A focused reference covering linalool profile basics. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Strains",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-013",
+      "title": "Humulene and ocimene",
+      "description": "A focused reference covering humulene and ocimene. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Community",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-014",
+      "title": "Compare tested batches",
+      "description": "A focused reference covering compare tested batches. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
       "category": "New York",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-015",
+      "title": "Microbial testing basics",
+      "description": "A focused reference covering microbial testing basics. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Policy",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-016",
+      "title": "Pesticide report basics",
+      "description": "A focused reference covering pesticide report basics. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Retail",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-017",
+      "title": "Heavy-metal testing basics",
+      "description": "A focused reference covering heavy-metal testing basics. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Data",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-018",
+      "title": "Residual solvent reports",
+      "description": "A focused reference covering residual solvent reports. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Tracking",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-019",
+      "title": "Water activity versus moisture",
+      "description": "A focused reference covering water activity versus moisture. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Business",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-020",
+      "title": "Inspect a pre-roll package",
+      "description": "A focused reference covering inspect a pre-roll package. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Consumer",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-021",
+      "title": "Pre-roll net weight explained",
+      "description": "A focused reference covering pre-roll net weight explained. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Labels & testing",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-022",
+      "title": "Evaluate pre-roll consistency",
+      "description": "A focused reference covering evaluate pre-roll consistency. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Science",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-023",
+      "title": "Why pre-roll burn quality varies",
+      "description": "A focused reference covering why pre-roll burn quality varies. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Terpenes",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-024",
+      "title": "Store unopened products safely",
+      "description": "A focused reference covering store unopened products safely. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Pre-rolls",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-025",
+      "title": "Store opened flower responsibly",
+      "description": "A focused reference covering store opened flower responsibly. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Storage",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-026",
+      "title": "Spot damaged packaging",
+      "description": "A focused reference covering spot damaged packaging. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Formats",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-027",
+      "title": "Cannabis dates explained",
+      "description": "A focused reference covering cannabis dates explained. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Vaping",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-028",
+      "title": "Compare flower and concentrates",
+      "description": "A focused reference covering compare flower and concentrates. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Edibles",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-029",
+      "title": "Live resin versus live rosin",
+      "description": "A focused reference covering live resin versus live rosin. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Safety",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-030",
+      "title": "Distillate and full-spectrum basics",
+      "description": "A focused reference covering distillate and full-spectrum basics. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Health",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-031",
+      "title": "Read a vape ingredient list",
+      "description": "A focused reference covering read a vape ingredient list. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Research",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-032",
+      "title": "Vape device safety checklist",
+      "description": "A focused reference covering vape device safety checklist. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Strains",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-033",
+      "title": "Unverified vape product risks",
+      "description": "A focused reference covering unverified vape product risks. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Community",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-034",
+      "title": "Read edible serving sizes",
+      "description": "A focused reference covering read edible serving sizes. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "New York",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-035",
+      "title": "Why edible onset varies",
+      "description": "A focused reference covering why edible onset varies. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Policy",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-036",
+      "title": "Child-resistant edible packaging",
+      "description": "A focused reference covering child-resistant edible packaging. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Retail",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-037",
+      "title": "Respond to excessive THC",
+      "description": "A focused reference covering respond to excessive thc. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Data",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-038",
+      "title": "Cannabis and driving",
+      "description": "A focused reference covering cannabis and driving. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Tracking",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-039",
+      "title": "Cannabis and alcohol",
+      "description": "A focused reference covering cannabis and alcohol. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Business",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-040",
+      "title": "Store products away from pets",
+      "description": "A focused reference covering store products away from pets. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Consumer",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-041",
+      "title": "Child may have eaten an edible",
+      "description": "A focused reference covering child may have eaten an edible. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Labels & testing",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-042",
+      "title": "Discuss cannabis and medication",
+      "description": "A focused reference covering discuss cannabis and medication. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Science",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-043",
+      "title": "Cannabis during pregnancy",
+      "description": "A focused reference covering cannabis during pregnancy. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Terpenes",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-044",
+      "title": "Cannabis and mental health",
+      "description": "A focused reference covering cannabis and mental health. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Pre-rolls",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-045",
+      "title": "Cannabis use disorder signs",
+      "description": "A focused reference covering cannabis use disorder signs. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Storage",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-046",
+      "title": "Tolerance and breaks",
+      "description": "A focused reference covering tolerance and breaks. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Formats",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-047",
+      "title": "Cannabis withdrawal basics",
+      "description": "A focused reference covering cannabis withdrawal basics. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Vaping",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-048",
+      "title": "Talk to a clinician about cannabis",
+      "description": "A focused reference covering talk to a clinician about cannabis. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Edibles",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-049",
+      "title": "Evaluate research headlines",
+      "description": "A focused reference covering evaluate research headlines. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Safety",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-050",
+      "title": "Animal versus human evidence",
+      "description": "A focused reference covering animal versus human evidence. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Health",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-051",
+      "title": "Correlation versus causation",
+      "description": "A focused reference covering correlation versus causation. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Research",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-052",
+      "title": "Verify a cannabis news claim",
+      "description": "A focused reference covering verify a cannabis news claim. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Strains",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-053",
+      "title": "Spot unsupported strain promises",
+      "description": "A focused reference covering spot unsupported strain promises. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Community",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-054",
+      "title": "Indica and sativa label limits",
+      "description": "A focused reference covering indica and sativa label limits. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "New York",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-055",
+      "title": "Strain names vary by producer",
+      "description": "A focused reference covering strain names vary by producer. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Policy",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-056",
+      "title": "Phenotype versus cultivar",
+      "description": "A focused reference covering phenotype versus cultivar. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Retail",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-057",
+      "title": "Compare strain records",
+      "description": "A focused reference covering compare strain records. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Data",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-058",
+      "title": "Why batch potency varies",
+      "description": "A focused reference covering why batch potency varies. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Tracking",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-059",
+      "title": "Read a terpene chart",
+      "description": "A focused reference covering read a terpene chart. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Business",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-060",
+      "title": "Interpret strain reviews",
+      "description": "A focused reference covering interpret strain reviews. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Consumer",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-061",
+      "title": "Write a useful strain review",
+      "description": "A focused reference covering write a useful strain review. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Labels & testing",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-062",
+      "title": "Compare New York dispensary menus",
+      "description": "A focused reference covering compare new york dispensary menus. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Science",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-063",
+      "title": "Verify a New York cannabis license",
+      "description": "A focused reference covering verify a new york cannabis license. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Terpenes",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-064",
+      "title": "Read New York product labels",
+      "description": "A focused reference covering read new york product labels. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Pre-rolls",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-065",
+      "title": "Legal versus illicit market uncertainty",
+      "description": "A focused reference covering legal versus illicit market uncertainty. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Storage",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-066",
+      "title": "Report a product concern in NY",
+      "description": "A focused reference covering report a product concern in ny. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Formats",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-067",
+      "title": "Social-equity licensing terminology",
+      "description": "A focused reference covering social-equity licensing terminology. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Vaping",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-068",
+      "title": "Compare cannabis prices fairly",
+      "description": "A focused reference covering compare cannabis prices fairly. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Edibles",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-069",
+      "title": "Cannabis taxes and shelf price",
+      "description": "A focused reference covering cannabis taxes and shelf price. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Safety",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-070",
+      "title": "Evaluate brand transparency",
+      "description": "A focused reference covering evaluate brand transparency. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Health",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-071",
+      "title": "Check whether a cannabis story is current",
+      "description": "A focused reference covering check whether a cannabis story is current. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Research",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-072",
+      "title": "Use public cannabis datasets",
+      "description": "A focused reference covering use public cannabis datasets. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Strains",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-073",
+      "title": "Interpret license dashboards",
+      "description": "A focused reference covering interpret license dashboards. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Community",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-074",
+      "title": "Submit a database correction",
+      "description": "A focused reference covering submit a database correction. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "New York",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-075",
+      "title": "Keep a product-use log",
+      "description": "A focused reference covering keep a product-use log. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Policy",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-076",
+      "title": "Compare personal notes",
+      "description": "A focused reference covering compare personal notes. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Retail",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-077",
+      "title": "Plan safer use at an event",
+      "description": "A focused reference covering plan safer use at an event. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Data",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-078",
+      "title": "Decline cannabis without pressure",
+      "description": "A focused reference covering decline cannabis without pressure. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Tracking",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-079",
+      "title": "Discuss cannabis with family",
+      "description": "A focused reference covering discuss cannabis with family. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Business",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-080",
+      "title": "Moderate a cannabis forum",
+      "description": "A focused reference covering moderate a cannabis forum. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Consumer",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-081",
+      "title": "Cite cannabis information online",
+      "description": "A focused reference covering cite cannabis information online. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Labels & testing",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-082",
+      "title": "Spot misleading product photos",
+      "description": "A focused reference covering spot misleading product photos. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Science",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-083",
+      "title": "Understand hemp-derived intoxicants",
+      "description": "A focused reference covering understand hemp-derived intoxicants. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Terpenes",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-084",
+      "title": "Hemp-derived THC versus licensed cannabis",
+      "description": "A focused reference covering hemp-derived thc versus licensed cannabis. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Pre-rolls",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-085",
+      "title": "Follow federal cannabis policy",
+      "description": "A focused reference covering follow federal cannabis policy. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Storage",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-086",
+      "title": "What rescheduling would change",
+      "description": "A focused reference covering what rescheduling would change. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Formats",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-087",
+      "title": "Read cannabis earnings releases",
+      "description": "A focused reference covering read cannabis earnings releases. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Vaping",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-088",
+      "title": "Evaluate a market-size claim",
+      "description": "A focused reference covering evaluate a market-size claim. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Edibles",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-089",
+      "title": "Compare license categories",
+      "description": "A focused reference covering compare license categories. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Safety",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-090",
+      "title": "Assess a news source",
+      "description": "A focused reference covering assess a news source. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Health",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-091",
+      "title": "Recognize affiliate marketing",
+      "description": "A focused reference covering recognize affiliate marketing. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Research",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-092",
+      "title": "Report misinformation constructively",
+      "description": "A focused reference covering report misinformation constructively. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Strains",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-093",
+      "title": "Build a cannabis glossary",
+      "description": "A focused reference covering build a cannabis glossary. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Community",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-094",
+      "title": "Compare consumption formats",
+      "description": "A focused reference covering compare consumption formats. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "New York",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-095",
+      "title": "Read tincture labels",
+      "description": "A focused reference covering read tincture labels. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Policy",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-096",
+      "title": "Evaluate topical product claims",
+      "description": "A focused reference covering evaluate topical product claims. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Retail",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-097",
+      "title": "Questions for a budtender",
+      "description": "A focused reference covering questions for a budtender. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Data",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-098",
+      "title": "Prepare for a dispensary visit",
+      "description": "A focused reference covering prepare for a dispensary visit. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Tracking",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-099",
+      "title": "Understand a recall notice",
+      "description": "A focused reference covering understand a recall notice. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Business",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-100",
+      "title": "Preserve product traceability",
+      "description": "A focused reference covering preserve product traceability. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Consumer",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-101",
+      "title": "Build a reliable source list",
+      "description": "A focused reference covering build a reliable source list. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Labels & testing",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-102",
+      "title": "Audit strain databases for errors",
+      "description": "A focused reference covering audit strain databases for errors. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Science",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-103",
+      "title": "Review versus lab result",
+      "description": "A focused reference covering review versus lab result. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Terpenes",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
+      "publishedAt": null
+    },
+    {
+      "guideId": "pr-104",
+      "title": "Update guides when laws change",
+      "description": "A focused reference covering update guides when laws change. Check current official guidance and product-specific documentation; do not assume results apply across batches or jurisdictions.",
+      "category": "Pre-rolls",
+      "source": "Preroll.org Editorial",
+      "url": "https://preroll.org/guides/index.html",
       "publishedAt": null
     }
   ]
