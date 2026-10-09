@@ -44,7 +44,7 @@ function parse(html,source){
   if(!name||name.length<2||/^(all strains|strains|learn more)$/i.test(name))continue;
   const nearby=html.slice(Math.max(0,m.index-700),Math.min(html.length,m.index+1200));
   const type=inferType(nearby);
-  out.set(slug,{id:slug,name,type,source,url:'https://'+(source==='leafly'?'www.leafly.com':'weedmaps.com')+'/strains/'+slug});
+  out.set(slug,{id:slug,name,type,source,url:'https://'+(source==='leafly'?'www.leafly.com':source==='herbistry420'?'herbistry420.com':'weedmaps.com')+'/strains/'+slug});
  }
  return [...out.values()];
 }
@@ -99,7 +99,7 @@ async function runHerbistryIndex(){
  const all=new Map();let failed=0;
  try{
   const html=await fetchPage('https://herbistry420.com/strains/index-a-z');
-  for(const item of parse(html,'herbistry420'))all.set(item.id,{...item,url:'https://herbistry420.com'+(item.url.startsWith('/')?item.url:'/strains')});
+  for(const item of parse(html,'herbistry420'))all.set(item.id,item);
  }catch(e){failed++;console.error('herbistry420 index',e.message)}
  const strains=[...all.values()];
  console.log(JSON.stringify({source:'herbistry420',pages:1,records:strains.length,failed}));
