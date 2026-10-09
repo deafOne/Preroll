@@ -82,6 +82,30 @@ async function fetchPage(url){
  throw last;
 }
 
+async function runWeedmapsAlphabet(){
+ const letters='abcdefghijklmnopqrstuvwxyz'.split('');
+ const all=new Map();let failed=0;
+ await Promise.all(letters.map(async letter=>{
+  try{
+   const html=await fetchPage('https://weedmaps.com/strains/list-'+letter);
+   for(const item of parse(html,'weedmaps'))all.set(item.id,item);
+  }catch(e){failed++;console.error('weedmaps A-Z',letter,e.message)}
+ }));
+ const strains=[...all.values()];
+ console.log(JSON.stringify({source:'weedmaps-a-z',pages:letters.length,records:strains.length,failed}));
+ return {source:'weedmaps-a-z',pages:letters.length,strains,failed};
+}
+async function runHerbistryIndex(){
+ const all=new Map();let failed=0;
+ try{
+  const html=await fetchPage('https://herbistry420.com/strains/index-a-z');
+  for(const item of parse(html,'herbistry420'))all.set(item.id,{...item,url:'https://herbistry420.com'+(item.url.startsWith('/')?item.url:'/strains')});
+ }catch(e){failed++;console.error('herbistry420 index',e.message)}
+ const strains=[...all.values()];
+ console.log(JSON.stringify({source:'herbistry420',pages:1,records:strains.length,failed}));
+ return {source:'herbistry420',pages:1,strains,failed};
+}
+
 async function runSource(src){
  const first=await fetchPage(src.base+'1');
  const pages=detectPages(first,src.defaultPages);
@@ -123,6 +147,9 @@ async function runSource(src){
   try{ results.push(await runSource(src)); }
   catch(e){ console.error(src.source,'fatal:',e.message); results.push({source:src.source,pages:0,strains:[],failed:src.defaultPages}); }
  }
+ // Supplement paginated catalogs with alphabetic directories and an independent A-Z index.
+ try{results.push(await runWeedmapsAlphabet())}catch(e){console.error('Weedmaps A-Z failed',e.message)}
+ try{results.push(await runHerbistryIndex())}catch(e){console.error('Herbistry index failed',e.message)}
 
  const counts=Object.fromEntries(results.map(x=>[x.source,x.strains.length]));
  const total=results.reduce((n,x)=>n+x.strains.length,0);
