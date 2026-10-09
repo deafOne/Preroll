@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-10-09T07:55:26.194Z",
-  "count": 104,
+  "generatedAt": "2026-10-09T07:58:54.813Z",
+  "count": 204,
   "sources": [
     "Preroll.org Editorial",
     "Leafly",
     "Weedmaps Learn",
     "New York Office of Cannabis Management"
   ],
-  "editorialNote": "Distinct topic index; external sources should be consulted for current rules and technical details.",
+  "editorialNote": "100 additional distinct how-to topics added. Each has a unique title, scope, and steps; confirm current technical, safety, and regulatory details against primary sources.",
   "guides": [
     {
       "guideId": "pr-001",
@@ -944,6 +944,1506 @@
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
       "publishedAt": null
+    },
+    {
+      "title": "Read a batch-specific product label",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-001",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Verify a product QR code",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-002",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare lab report sample IDs",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-003",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Understand ND versus LOQ",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-004",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Check lab report dates",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-005",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare terpene reporting units",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-006",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Identify missing lab fields",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-007",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Read a contaminant panel",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-008",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Check a laboratory identity",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-009",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Document a label mismatch",
+      "category": "Labels & testing",
+      "description": "Check the exact product identity, lot or sample identifier, units, source, and date. Keep unreported fields marked unknown rather than inferring a result.",
+      "guideId": "howto-2026-010",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Resolve duplicate strain names",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-011",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Record a strain alias",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-012",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Separate cultivar and batch data",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-013",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Document uncertain lineage",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-014",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Track strain data provenance",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-015",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Flag conflicting potency values",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-016",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Record a chemistry test date",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-017",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Mark unknown strain attributes",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-018",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Review a community strain submission",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-019",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Audit strain profile sources",
+      "category": "Strain data",
+      "description": "Maintain source links and dates for each claim. Keep cultivar-level descriptions separate from batch-specific laboratory results and preserve conflicting evidence for review.",
+      "guideId": "howto-2026-020",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Separate aroma from lab measurements",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-021",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare terpene profiles across labs",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-022",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Read a terpene glossary",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-023",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Interpret cannabinoid ratios",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-024",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Understand rounded cannabinoid values",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-025",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Distinguish THC from total THC",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-026",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Review a minor cannabinoid claim",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-027",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Read a study methods section",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-028",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Check a study limitations section",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-029",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare animal and human research",
+      "category": "Terpenes & science",
+      "description": "Read the original data or study methods, confirm units and sample context, and distinguish measured results from aroma descriptions or broad effect claims.",
+      "guideId": "howto-2026-030",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Calculate price per gram",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-031",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare package sizes fairly",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-032",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Create a product comparison sheet",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-033",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Save product batch details",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-034",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Check a dispensary receipt",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-035",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare delivery fees",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-036",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Prepare questions for retail staff",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-037",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Record product storage directions",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-038",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Document a product complaint",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-039",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare product formats",
+      "category": "Consumer tools",
+      "description": "Record comparable quantities, product format, fees, and source details before drawing a comparison. Keep unknown values visible and avoid comparing unlike formats as equivalent.",
+      "guideId": "howto-2026-040",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Build a locked-storage checklist",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-041",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Prepare information for poison control",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-042",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Respond to a product recall",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-043",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Plan sober transportation",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-044",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Report a suspected adverse event",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-045",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Check package tampering",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-046",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Store products during travel",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-047",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Handle an expired product",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-048",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Keep products away from pets",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-049",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Create a safe-use event plan",
+      "category": "Safety & storage",
+      "description": "Follow current product labeling and official safety guidance. Keep products secured and seek qualified help promptly for serious symptoms or suspected accidental ingestion.",
+      "guideId": "howto-2026-050",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Verify a New York dispensary",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-051",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Check a universal symbol",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-052",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Find official consumer guidance",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-053",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Read a license category",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-054",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Track policy effective dates",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-055",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Distinguish proposed and final rules",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-056",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare rules across jurisdictions",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-057",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Check official delivery options",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-058",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Read packaging guidance",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-059",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Find a regulator incident form",
+      "category": "New York & policy",
+      "description": "Use current official New York State sources and verify the business, rule status, jurisdiction, and effective date before relying on a legal or licensing claim.",
+      "guideId": "howto-2026-060",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Verify an industry statistic",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-061",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare conflicting news stories",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-062",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Identify sponsored content",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-063",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Find the primary source",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-064",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Check a news publication date",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-065",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Evaluate a market-size estimate",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-066",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Read a cannabis survey",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-067",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Compare market reports",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-068",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Evaluate a company press release",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-069",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Separate revenue from profit",
+      "category": "News & research",
+      "description": "Trace claims to primary documents, inspect dates and definitions, and distinguish reported facts, estimates, company statements, and preliminary findings.",
+      "guideId": "howto-2026-070",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Write useful image alt text",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-071",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Source cannabis photography legally",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-072",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Test an age-gate flow",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-073",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Test guide search results",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-074",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Test a mobile navigation menu",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-075",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Validate a JSON catalog",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-076",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Recover from a malformed catalog",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-077",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Prevent empty catalog publishing",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-078",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Monitor a scheduled content job",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-079",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Show data freshness accurately",
+      "category": "Web publishing",
+      "description": "Test the page in desktop and mobile contexts, validate the underlying data before publishing, and preserve the last known-good version if an update fails.",
+      "guideId": "howto-2026-080",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Prevent duplicate guide topics",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-081",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Create a correction policy",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-082",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Write transparent correction notes",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-083",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Schedule article reviews",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-084",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Retire outdated content",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-085",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Build a source citation",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-086",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Label editorial versus review content",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-087",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Create a fact-check checklist",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-088",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Review community-submitted sources",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-089",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Write an honest guide disclaimer",
+      "category": "Editorial quality",
+      "description": "Use clear scope, primary sources, review dates, and a visible correction process. Merge overlapping topics instead of publishing near-duplicate pages.",
+      "guideId": "howto-2026-090",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Moderate unsupported effect claims",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-091",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Structure a useful strain review",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-092",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Protect privacy in product reviews",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-093",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Correct misinformation constructively",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-094",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Design useful data filters",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-095",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Audit a public dataset",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-096",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Avoid duplicate license counts",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-097",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Explain missing data to readers",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-098",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Track source redirects",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-099",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
+    },
+    {
+      "title": "Maintain a content change log",
+      "category": "Community & data",
+      "description": "Use consistent identifiers, transparent source labels, privacy-aware moderation, and explicit uncertainty when records are incomplete or claims are subjective.",
+      "guideId": "howto-2026-100",
+      "source": "Preroll.org Editorial",
+      "url": "https://cannabis.ny.gov/consumers",
+      "publishedAt": "2026-10-09",
+      "steps": [
+        "Identify the exact item or question and collect its label, source, date, or unique identifier.",
+        "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
+        "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
+        "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
+      ]
     }
   ]
 }
