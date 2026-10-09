@@ -155,7 +155,7 @@ async function runSource(src){
  const total=results.reduce((n,x)=>n+x.strains.length,0);
 
  // Never replace a good catalog with an empty/partial scrape.
- if(results.some(x=>x.strains.length<MIN_VALID_RECORDS)){
+ if(results.filter(x=>SOURCES.some(src=>src.source===x.source)).some(x=>x.strains.length<MIN_VALID_RECORDS)){
   console.error('Catalog validation failed:',JSON.stringify(counts));
   process.exit(2);
  }
