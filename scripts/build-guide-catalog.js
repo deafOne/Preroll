@@ -19,7 +19,7 @@ async function get(url){
  return r.text();
 }
 function clean(s=''){return s.replace(/<script[\\s\\S]*?<\\/script>/gi,' ').replace(/<style[\\s\\S]*?<\\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/\\s+/g,' ').trim();}
-function absolute(href,base){try{return new URL(href,base).href}catch{return null}}
+function uSeenHas(set,url){return set.has(url)}\nfunction absolute(href,base){try{return new URL(href,base).href}catch{return null}}
 function links(html,base){
  const out=[]; const re=/<a\\b[^>]*href=["']([^"']+)["'][^>]*>([\\s\\S]*?)<\\/a>/gi; let m;
  while((m=re.exec(html))){
@@ -85,9 +85,15 @@ async function crawlSource(src){
  const cleanItems=all.filter(x=>{if(!x.title||seen.has(x.url))return false;seen.add(x.url);return true})
   .sort((a,b)=>(Date.parse(b.publishedAt||'')||0)-(Date.parse(a.publishedAt||'')||0));
  const recent=cleanItems.filter(x=>!x.publishedAt||Date.parse(x.publishedAt)>=cutoff);
- const out={generatedAt:new Date().toISOString(),count:recent.length,sources:SOURCES.map(x=>x.name),guides:recent.slice(0,500)};
  const file=path.join(__dirname,'..','guides','catalog.json');
+ let existing={guides:[]};
+ try{existing=JSON.parse(fs.readFileSync(file,'utf8'))}catch{}
+ const editorial=(existing.guides||[]).filter(g=>g.source==='Preroll.org Editorial'||String(g.guideId||'').startsWith('howto-2026-'));
+ const merged=[...editorial,...recent.slice(0,500)];
+ const titleSeen=new Set(),urlSeen=new Set();
+ const guides=merged.filter(g=>{const t=String(g.title||'').toLowerCase().trim(),u=String(g.url||'').trim();if(!t||titleSeen.has(t))return false;titleSeen.add(t);if(u&&uSeenHas(urlSeen,u))return false;if(u)urlSeen.add(u);return true});
+ const out={generatedAt:new Date().toISOString(),count:guides.length,sources:[...new Set([...SOURCES.map(x=>x.name),'Preroll.org Editorial'])],guides};
  fs.mkdirSync(path.dirname(file),{recursive:true});
  fs.writeFileSync(file,JSON.stringify(out,null,2)+'\\n');
- console.log('Guide catalog:',out.count);
+ console.log('Guide catalog:',out.count,'including',editorial.length,'preserved editorial guides');
 })().catch(e=>{console.error(e);process.exit(1)});
