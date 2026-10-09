@@ -1,20 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
-<title id="title">Preroll.org</title><desc id="desc">Preroll.org brush-lettered wordmark in vivid green and charcoal gray on a transparent background</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 850" role="img" aria-labelledby="title desc">
+<title id="title">Preroll.org — Cannabis Related Talk</title>
+<desc id="desc">Neon green and white brush-lettered Preroll.org logo with a cannabis leaf crown and speech bubble, on transparent background.</desc>
 <defs>
- <linearGradient id="green" x1="0" y1="0" x2="0.2" y2="1"><stop stop-color="#70d900"/><stop offset="1" stop-color="#4fae00"/></linearGradient>
- <linearGradient id="gray" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#66666a"/><stop offset="1" stop-color="#444448"/></linearGradient>
- <filter id="texture" x="-5%" y="-8%" width="110%" height="116%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="11" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G"/></filter>
+ <linearGradient id="neon" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#e1ff00"/><stop offset=".45" stop-color="#83ff00"/><stop offset="1" stop-color="#42bd00"/></linearGradient>
+ <linearGradient id="white" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#d5d8d8"/></linearGradient>
+ <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22ff1d"/><stop offset=".5" stop-color="#087d1d"/><stop offset="1" stop-color="#002f10"/></linearGradient>
+ <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="7" result="blur"/><feOffset dy="6" result="off"/><feComponentTransfer><feFuncA type="linear" slope=".65"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="rough" x="-5%" y="-8%" width="110%" height="116%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="8" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2"/></filter>
 </defs>
-<g transform="translate(20 20) rotate(-1 580 270)" filter="url(#texture)">
- <text x="35" y="365" font-family="Brush Script MT, Segoe Print, Comic Sans MS, cursive" font-size="340" font-style="italic" font-weight="900" letter-spacing="-24" fill="url(#green)" stroke="#59b900" stroke-width="1.2" paint-order="stroke">preroll</text>
- <text x="765" y="365" font-family="Brush Script MT, Segoe Print, Comic Sans MS, cursive" font-size="285" font-style="italic" font-weight="900" letter-spacing="-18" fill="url(#gray)" stroke="#4e4e52" stroke-width="1" paint-order="stroke">.org</text>
+<!-- cannabis fan behind the wordmark -->
+<g transform="translate(1160 250)" stroke="#7aff00" stroke-width="7" stroke-linejoin="round" filter="url(#shadow)">
+ <path d="M0 310C-25 190-32 75 0-210C32 75 25 190 0 310Z" fill="url(#leaf)"/>
+ <path d="M-6 260L0-185M0 55L-68-12L-112-90L-48-64L-94-150L-22-111L-8-178" fill="url(#leaf)"/>
+ <path d="M7 260L68-12L112-90L48-64L94-150L22-111L8-178" fill="url(#leaf)"/>
+ <path d="M-3 155L-165 15L-215-80L-124-38L-172-126L-91-78L-65-143L-18-33" fill="url(#leaf)"/>
+ <path d="M3 155L165 15L215-80L124-38L172-126L91-78L65-143L18-33" fill="url(#leaf)"/>
+ <path d="M-4 245L-225 115L-280 40L-180 63L-223-2L-132 35L-83-3L-20 112" fill="url(#leaf)"/>
+ <path d="M4 245L225 115L280 40L180 63L223-2L132 35L83-3L20 112" fill="url(#leaf)"/>
+ <g fill="none" stroke="#b7ff40" stroke-width="4"><path d="M0 285L-164 16M0 285L164 16M0 285L-112-90M0 285L112-90M0 285L0-190"/></g>
 </g>
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
- <path d="M90 435 Q350 355 635 407 Q660 412 685 400" stroke="#65c900" stroke-width="17"/>
- <path d="M120 454 Q355 386 600 420" stroke="#65c900" stroke-width="6"/>
- <path d="M705 430 Q855 377 1080 394" stroke="#555559" stroke-width="16"/>
- <path d="M760 446 Q920 405 1050 408" stroke="#555559" stroke-width="5"/>
+<!-- crown -->
+<g filter="url(#shadow)" stroke="#9dff00" stroke-width="12" stroke-linejoin="round">
+ <path d="M470 255L390 140L510 198L558 42L630 178L724 58L716 220L815 170L752 275Z" fill="#050805"/>
+ <path d="M475 244L405 151L516 205L558 65L629 189L712 78L706 222L789 186L746 263" fill="none" stroke="url(#neon)" stroke-width="8"/>
 </g>
-<g fill="#63c600" opacity=".9"><path d="M76 320l78-47-30 62 47-24-45 60-28-10z"/><path d="M250 420l-18 39 50-18z"/><path d="M638 369l33-46-10 59z"/></g>
-<g fill="#535357" opacity=".9"><path d="M1080 335l38-32-19 47 33-12-29 42-24-5z"/><path d="M830 430l-22 24 52-15z"/></g>
+<!-- main lettering -->
+<g filter="url(#shadow)" font-family="Brush Script MT, Segoe Print, Comic Sans MS, cursive" font-weight="900" font-style="italic" letter-spacing="-30">
+ <text x="45" y="525" font-size="380" fill="url(#neon)" stroke="#071407" stroke-width="20" paint-order="stroke" transform="rotate(-3 650 450)">Preroll</text>
+ <text x="1110" y="525" font-size="285" fill="url(#white)" stroke="#080808" stroke-width="20" paint-order="stroke" letter-spacing="-20" transform="rotate(-2 1380 450)">.org</text>
+ <text x="45" y="525" font-size="380" fill="url(#neon)" stroke="#66d800" stroke-width="2" paint-order="stroke" transform="rotate(-3 650 450)">Preroll</text>
+</g>
+<!-- rough brush underlines -->
+<g fill="none" stroke-linecap="round" filter="url(#rough)">
+ <path d="M260 565Q560 495 925 552" stroke="url(#neon)" stroke-width="18"/>
+ <path d="M285 584Q610 520 900 563" stroke="#65ee00" stroke-width="7"/>
+ <path d="M1095 572Q1330 505 1585 538" stroke="url(#white)" stroke-width="17"/>
+</g>
+<!-- speech bubble -->
+<g filter="url(#shadow)">
+ <path d="M225 625C225 580 260 555 305 555H360C405 555 438 584 438 625S405 694 360 694H320L287 735L290 691C251 681 225 657 225 625Z" fill="#050905" stroke="url(#neon)" stroke-width="12"/>
+ <g fill="url(#neon)"><circle cx="282" cy="625" r="13"/><circle cx="330" cy="625" r="13"/><circle cx="378" cy="625" r="13"/></g>
+</g>
+<text x="465" y="682" font-family="Impact, Brush Script MT, sans-serif" font-size="67" font-weight="900" font-style="italic" letter-spacing="1" fill="url(#white)" stroke="#080808" stroke-width="7" paint-order="stroke">CANNABIS RELATED TALK</text>
+<path d="M465 712Q870 680 1295 704" fill="none" stroke="url(#neon)" stroke-width="9" stroke-linecap="round"/>
 </svg>
