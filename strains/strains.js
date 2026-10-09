@@ -3,7 +3,7 @@ const API_URL=String((window.PREROLL_CONFIG&&window.PREROLL_CONFIG.API_URL)||'')
 const $=s=>document.querySelector(s),PAGE_SIZE=60;
 let catalog=[],page=1;
 function esc(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-function sourceUrl(s){return s.source==='leafly'?'https://www.leafly.com/strains/'+encodeURIComponent(s.id):s.source==='weedmaps'?'https://weedmaps.com/strains/'+encodeURIComponent(s.id):'#'}
+function sourceUrl(s){if(s.url&&/^https:\/\//i.test(s.url))return s.url;return s.source==='leafly'?'https://www.leafly.com/strains/'+encodeURIComponent(s.id):s.source==='weedmaps'?'https://weedmaps.com/strains/'+encodeURIComponent(s.id):'#'}
 function filtered(){const q=$('#strainSearch').value.trim().toLowerCase(),type=$('#typeFilter').value,source=$('#sourceFilter').value;return catalog.filter(s=>(!q||String(s.name).toLowerCase().includes(q)||String(s.id).toLowerCase().includes(q))&&(type==='all'||s.type===type)&&(source==='all'||s.source===source))}
 function render(){
  const all=filtered(),pages=Math.max(1,Math.ceil(all.length/PAGE_SIZE));page=Math.min(page,pages);const start=(page-1)*PAGE_SIZE,rows=all.slice(start,start+PAGE_SIZE);
@@ -23,7 +23,7 @@ async function load(){
    data=await r.json();if(!r.ok)throw new Error(data.error||'Catalog unavailable');
   }
   if(!data)throw new Error('Catalog unavailable');
-  catalog=Array.isArray(data.strains)?data.strains:[];
+  catalog=Array.isArray(data.strains)?data.strains:[];const sf=$('#sourceFilter');for(const src of [...new Set(catalog.map(x=>x.source).filter(Boolean))].sort()){if(![...sf.options].some(o=>o.value===src)){const op=document.createElement('option');op.value=src;op.textContent=src==='herbistry420'?'Herbistry420':src;sf.appendChild(op)}}
   $('#status').textContent='Catalog · '+catalog.length.toLocaleString()+' entries loaded · updated '+(data.generatedAt?new Date(data.generatedAt).toLocaleDateString():'live');
   render();
  }catch(e){
