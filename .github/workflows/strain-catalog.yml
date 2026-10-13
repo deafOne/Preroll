@@ -12,6 +12,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
 jobs:
   catalog:
     runs-on: ubuntu-latest
@@ -32,5 +36,6 @@ jobs:
             echo "Catalog unchanged"
           else
             git commit -m "Update strain catalog"
+            git pull --rebase origin main
             git push
           fi
