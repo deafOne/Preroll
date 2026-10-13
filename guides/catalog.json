@@ -1,11 +1,13 @@
 {
-  "generatedAt": "2026-10-09T07:58:54.813Z",
-  "count": 204,
+  "generatedAt": "2026-10-13T12:57:51.869Z",
+  "count": 328,
   "sources": [
-    "Preroll.org Editorial",
     "Leafly",
     "Weedmaps Learn",
-    "New York Office of Cannabis Management"
+    "Grow Weed Easy",
+    "Cannabis Training University",
+    "New York Office of Cannabis Management",
+    "Preroll.org Editorial"
   ],
   "editorialNote": "100 additional distinct how-to topics added. Each has a unique title, scope, and steps; confirm current technical, safety, and regulatory details against primary sources.",
   "guides": [
@@ -2444,6 +2446,1122 @@
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
       ]
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "CBD Stores",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis science",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/cbd-stores",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Science of getting high",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis science",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/beginners-guide-to-cannabis",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Consumption methods",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Tinctures",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Edibles & cooking",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/tinctures",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Topicals",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/topicals",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to smoke weed",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/smoke",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to consume edibles",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Edibles & cooking",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/edibles",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found What is dabbing?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/dabs",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found What’s the difference between joints, blunts, and spliffs?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/smoke/difference-between-joints-blunts-spliffs",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to roll a joint in 7 easy steps",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/smoke/how-to-roll-joint",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to pack and smoke a bowl of weed",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/smoke/how-to-pack-and-smoke-bowl-cannabis",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to clean glass bongs and pipes",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/smoke/how-to-clean-glass-bongs-pipes",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found Edibles dosing: How strong is your weed edible?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Edibles & cooking",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/edibles/edible-dosing",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How long do edibles take to kick in?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Edibles & cooking",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/edibles/how-long-do-edibles-take-to-kick-in",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to make cannabutter for edibles with our easy recipe",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Edibles & cooking",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/edibles/how-to-make-cannabutter",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found Cannabis and coconut oil: Benefits and uses",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Edibles & cooking",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/consume/edibles/coconut-oil-edible",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to stop the munchies when you’re high",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis 101",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/news/lifestyle/how-to-stop-munchies-when-high",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found What are cannabis terpenes?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis science",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/news/cannabis-101/terpenes-the-flavors-of-cannabis-aromatherapy",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found Leafly’s guide to marijuana legalization",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "New York",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/legalization",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found Marijuana detox: Myths, facts, and tips to get weed out of your system",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis science",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/news/cannabis-101/thc-detox-myths-facts-tips",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to pass a drug test for weed",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis 101",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/news/cannabis-101/how-to-pass-a-drug-test-guide",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found Leafly’s guide to growing marijuana",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/growing",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found 4 stages of marijuana plant growth",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/growing/marijuana-growth-stages",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found Buyer’s guides for cannabis seeds and growing equipment",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/growing/buyers-guide",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to grow marijuana outdoors",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/growing/how-to-grow-marijuana-outdoors",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to set up an indoor weed homegrow for under $500",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/growing/indoor-marijuana-homegrow-under-500",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How much weed can you get from growing one plant?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/growing/how-much-weed-can-you-grow-one-plant",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to top and prune marijuana plants",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/growing/marijuana-plant-maintenance/pruning-topping-marijuana-plants",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to dry and cure cannabis",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/growing/harvesting-marijuana/drying-curing-cannabis",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to trim marijuana",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/growing/harvesting-marijuana/how-to-trim-cannabis-plants",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found Leafly’s guide to psychedelics",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis 101",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/psychedelics",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to grow psychedelic mushrooms for the first time",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/psychedelics/how-to-grow-psychedelic-mushrooms-first-time",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cubG",
+      "title": "Image Not Found How to dose psychedelic mushrooms",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Leafly",
+      "url": "https://www.leafly.com/learn/psychedelics/how-to-dose-mushrooms",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "Products",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "How to tell your family you smoke weed (without ruining Thanksgiving)",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis 101",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/introduction/thanksgiving-family-weed-discussions",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "What is TAC in weed? Total active cannabinoids, explained",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis science",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/learn-what-is-tac-in-weed",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "Does CBD smell like weed?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Cannabis science",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/learn-does-cbd-smell-like-weed",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "Different types of THC: a guide to cannabis's most talked-about cannabinoid",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/the-plant/different-types-of-thc",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "Can you fly with a weed pen? What TSA rules actually say in 2026",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/can-you-fly-with-a-weed-pen",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "How to not cough when hitting a cart: a smoke-smooth guide",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/learn-how-to-not-cough-when-hitting-a-cart",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "How to zero a vape: what it means and why it isn't risk-free",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/how-to-zero-a-vape",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "Do dab pens smell? What to expect and how to keep it discreet",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/do-dab-pens-smell-what-to-expect-and-how-to-keep-it-discreet",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "What is a blinker vape? Meaning, how long it lasts, and whether it's worth it",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Safer consumption",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/learn/products-and-how-to-consume/what-is-a-blinker-vape",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93ZWVkbW",
+      "title": "Cookie policy",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Edibles & cooking",
+      "source": "Weedmaps Learn",
+      "url": "https://weedmaps.com/legal/cookie-policy",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Submit PIcs",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/submit-trophy-pics",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Start Growing Weed Today!",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/basics",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "How to Grow Cannabis in 10 Steps",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/10-step-grow-guide",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Germinate Your Seeds!",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/germinate",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Which Nutrients Are Best For Growing Cannabis?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/nutrients",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Cannabis Grow Lights",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/cannabis-grow-lights",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Harvest Plants Properly",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/harvest",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "How to Dry &#038; Cure Buds",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/drying-curing",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Ask Questions!",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/forum/growing-community",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Cannabis Problems Guide",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/marijuana-symptoms",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "nutrient deficiency",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/cannabis-symptoms-pictures",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Complete Pest Guide - Cannabis Pests, Bugs & Viruses",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/bugs-pests-symptoms-marijuana-grow",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Stop Nutrient Deficiencies",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/ph",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "5-Step Cure to Most Plant Problems",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/5-step-solution-to-most-cannabis-growing-problem",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "choose right light for desired yields",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/growing-cannabis-setup-examples",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Read more",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-long-does-it-take-to-grow-weed",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Cheapskate Grow for $150 Guide",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/cheapest-way-to-grow-weed-indoors",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Organic Super Soil Guide",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/organic-super-soil",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "how to grow weed using bubbleponics (hydro)",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/high-yield-bubbleponics-technique",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "How to Grow 1 lb of Weed Indoors",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-to-grow-1-pound-of-weed-indoors-proven-method-grow-tent",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "650+ expert home cannabis cultivation tutorials",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/the-basics",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "5 Ways to Increase Yields",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-to-increase-yields-indoors",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "How to Improve Bud Quality",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/7-tips-to-growing-top-shelf-buds",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Nebula’s Cannabis Grow Journals",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/side-by-side-cannabis-grow-journal-experiments-by-nebula-haze",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Male vs Female Plants",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/marijuana-boy-girl",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "preventing smells",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/smell",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Control Growing Environment",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/perfect-growing-environment",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Manipulate How Plants Grow",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/cannabis-plant-training",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Glossary",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/growweedeasys-growers-glossary",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "All Tools &#038; Calculators",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/grow-tools-calculators",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Electricity Usage Calculator",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/electricity-usage-calculator",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Nutrient Schedule Calculator",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/nutrient-schedule-calculator",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "LED Selector",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/led-selector",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "GIVE ME GROW TIPS!",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/message/news",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "See OUR favorite seed sources!",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/seeds",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "inbox magazine all about how to grow weed",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/about",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "guide on how to grow marijuana indoors",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/10-step-cannabis-grow-guide",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "cannabis seed to sprout",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/germinate/",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Grow 4 oz with a 100W LED",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/harvest-up-to-4-oz-cannabis-in-this-100w-led-mini-grow-kit-complete-setup-weed-growing-tutorial",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "see even more growing styles with different price ranges",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/5-best-led-grow-lights-2025-cannabis-yields-speed-bud-quality",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Learn where it&#8217;s safe to buy cannabis seeds online",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/seed-bank-grow-weed-easy-2026-update",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "What Do Good Cannabis Seeds Look Like?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/what-do-cannabis-seeds-look-like",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "beginner strains",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/best-marijuana-strains-beginners",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "how to research and find the right strain",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/find-strain",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "pink or purple",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-to-grow-purple-buds",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "cannabis grow lights",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/cannabis-grow-lights/",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "How much will electricity cost each month?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/whats-the-cost-of-electricity-to-grow-marijuana",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Super Cropping",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-to-super-crop-marijuana",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Simplest Guide to Growing Short & Bushy Marijuana Plants",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/simple-cannabis-plant-training-guide",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "LST (Low Stress Training)",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/low-stress-training-lst/",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "controversial defoliation technique",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/nebulas-flowering-stage-defoliation-tutorial",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "pH imbalance",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-do-i-check-the-pH-of-my-water",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "heat or light stress",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/heat-light-stress",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "concentrate",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/hash-oil-aka-rso-cannabis-extract-oil",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "basics of how to grow weed",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/basics/",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "how-to weed growing tutorials",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-to-guides",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "How to start growing weed tomorrow",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/quickest-guide-to-growing-cannabis",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Read reviews of marijuana grow books",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/best-marijuana-grow-bible-review",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "contact us",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/website-feedback",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "How to Look at Trichomes with a Magnifier",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/pick-perfect-harvest-time-with-a-microscope",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "7 Reasons Why Cannabis Plants Grow Slow",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/why-cannabis-plants-growing-slow",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Is 12-12 From Seed Worth It?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/12-12-from-seed-cannabis",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "What happens if I grow seeds from a hermie plant?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/what-happens-if-i-grow-seeds-from-a-hermie-plant",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "The 5 Microskills Every Grower Eventually Learns",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/the-5-microskills-every-grower-eventually-learns",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Why Is One Plant Growing Slower Than the Others?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/only-one-plant-growing-slow",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Coco Coir: The Most Flexible Cannabis Grow Medium",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/coco-coir-cannabis-grow-medium",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "5 Steps to Give Cannabis Plants the Best Start",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/5-steps-to-give-cannabis-plants-the-best-start",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Easy Nutrients: General Hydroponics Flora Trio Guide",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/general-hydroponics-flora-trio-guide",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Which Nutrient Deficiencies are Caused by pH? (picture guide)",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/cannabis-nutrient-deficiencies-ph-picture-guide",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "3 Steps to Prune Indoor Cannabis for Bigger Yields (Free & Easy)",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/pruning-cannabis-for-big-yields",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "5 Effective Ways to Prevent Cannabis \"Hay Smell\" After Harvest",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-to-prevent-hay-smell-when-drying-cannabis",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "7 Common Flowering Stage Mistakes (and how to prevent them)",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/7-common-flowering-stage-problems-and-how-to-prevent-them",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "3-Step Guide: Choose Best Cannabis Grow Light",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/3-step-guide-choose-best-cannabis-grow-light",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "10 Unexpected Tools That Make Growing Weed Easier",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/unexpected-grow-tools",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "\"F1\" Cannabis Seeds: Best-kept secret in cannabis genetics?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/f1-cannabis-strain-best-kept-secret-in-cannabis-genetics",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Best Coco Coir Nutrients for Cannabis?",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/best-coco-nutrients-cannabis",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Cannabis Temperature Tutorial",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/temperature",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "3 Proven Supplements to Help Cannabis with Heat Stress",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/3-cannabis-supplements-for-heat-stress",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "5 Cannabis Pests That Strike in the Heat",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/5-cannabis-pests-love-heat",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Dealing with Heat and Humidity Outdoors",
+      "description": "External educational resource. Review the linked source for current details and applicable safety guidance.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/dealing-with-heat-and-humidity-outdoors",
+      "publishedAt": null
     }
   ]
 }
