@@ -1,99 +1,92 @@
-const fs=require('fs');
-const path=require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
-// Scheduled public-source crawler for recent cannabis how-to resources.\nconst SOURCES=[
- {name:'Leafly',index:'https://www.leafly.com/learn',kind:'learn',max:80},
- {name:'Weedmaps Learn',index:'https://weedmaps.com/learn',kind:'learn',max:80},
- {name:'Grow Weed Easy',index:'https://www.growweedeasy.com/',kind:'grow',max:100},
- {name:'Cannabis Training University',index:'https://cannabistraininguniversity.com/blog/',kind:'education',max:100},
- {name:'New York OCM',index:'https://cannabis.ny.gov/guide-safer-cannabis-consumption',kind:'ny',max:40},
- {name:'NY Department of Health',index:'https://www.health.ny.gov/community/cannabis/index.htm',kind:'ny',max:40}
+const SOURCES = [
+  { name: 'Leafly', url: 'https://www.leafly.com/learn' },
+  { name: 'Weedmaps Learn', url: 'https://weedmaps.com/learn' },
+  { name: 'Grow Weed Easy', url: 'https://www.growweedeasy.com/' },
+  { name: 'Cannabis Training University', url: 'https://cannabistraininguniversity.com/blog/' },
+  { name: 'New York Office of Cannabis Management', url: 'https://cannabis.ny.gov/guide-safer-cannabis-consumption' }
 ];
+const OUTPUT = path.join(__dirname, '..', 'guides', 'catalog.json');
+const HOWTO = /how to|guide|tips|tutorial|beginner|setup|set up|consume|consumption|dose|dosing|store|storage|clean|grind|roll|vape|edible|tincture|terpene|strain|grow|harvest|dry|cure|clone|prune|train|nutrient|safety|safer|responsib|label|potency|dispensary|choose|cook/i;
+const SKIP = /login|sign.?up|newsletter|advertis|podcast|shop|merch|career|privacy|terms/i;
 
-const HOWTO=/\\b(how to|guide|tips|tutorial|beginner|setup|set up|use|using|consume|consumption|dose|dosing|store|storage|clean|grind|roll|smoke|vape|edible|tincture|terpene|strain|grow|growing|harvest|dry|cure|clone|prune|train|nutrient|safety|safer|responsib|label|potency|dispensary|buy|choose|cook|cooking)\\b/i;
-const SKIP=/\\b(login|sign up|newsletter|advertis|podcast|horoscope|shop|merch|careers|jobs)\\b/i;
-
-async function get(url){
- const r=await fetch(url,{headers:{'User-Agent':'Preroll.org guide-index/1.0','Accept':'text/html,application/xhtml+xml'},redirect:'follow'});
- if(!r.ok) throw new Error(url+' -> '+r.status);
- return r.text();
+function clean(value = '') {
+  return value.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/gi, '&').replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'").replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>').replace(/\s+/g, ' ').trim();
 }
-function clean(s=''){return s.replace(/<script[\\s\\S]*?<\\/script>/gi,' ').replace(/<style[\\s\\S]*?<\\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/\\s+/g,' ').trim();}
-function uSeenHas(set,url){return set.has(url)}\nfunction absolute(href,base){try{return new URL(href,base).href}catch{return null}}
-function links(html,base){
- const out=[]; const re=/<a\\b[^>]*href=["']([^"']+)["'][^>]*>([\\s\\S]*?)<\\/a>/gi; let m;
- while((m=re.exec(html))){
-  const url=absolute(m[1],base); if(!url||!/^https?:\\/\\//.test(url))continue;
-  const text=clean(m[2]); if(!text)continue; out.push({url,text});
- }
- return out;
+function category(title, url) {
+  const s = (title + ' ' + url).toLowerCase();
+  if (/grow|harvest|cure|clone|prune|nutrient|seed|plant/.test(s)) return 'Growing';
+  if (/edible|cook|recipe|infus|tincture/.test(s)) return 'Edibles & cooking';
+  if (/terpene|cannabinoid|thc|cbd|science|effect/.test(s)) return 'Cannabis science';
+  if (/safety|dose|dosing|consume|consumption|responsib/.test(s)) return 'Safer consumption';
+  if (/new york|dispensary|license|law|legal/.test(s)) return 'New York';
+  return 'Cannabis 101';
 }
-function meta(html,name){
- const re=new RegExp('<meta[^>]+(?:name|property)=["\\']'+name+'["\\'][^>]+content=["\\']([^"\\']*)["\\']','i');
- return clean((html.match(re)||[])[1]||'');
-}
-function title(html){return clean((html.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i)||[])[1]||'');}
-function dateFrom(html){
- const raw=(html.match(/(?:datePublished|dateModified)["']?\\s*[:=]\\s*["']([^"']+)/i)||[])[1]||'';
- const d=new Date(raw); return isNaN(d)?null:d.toISOString();
-}
-function category(title,url,kind){
- const s=(title+' '+url).toLowerCase();
- if(/grow|harvest|cure|clone|prune|nutrient|vpd|seed|plant/.test(s))return 'Growing';
- if(/edible|cook|recipe|infus|tincture/.test(s))return 'Edibles & cooking';
- if(/terpene|cannabinoid|thc|cbd|tac|science|effect/.test(s))return 'Cannabis science';
- if(/safety|dose|dosing|consume|consumption|overconsum|responsib|drug test/.test(s))return 'Safer consumption';
- if(/new york|ny cannabis|dispensary|license|law|legal/.test(s)||kind==='ny')return 'New York';
- return 'Cannabis 101';
-}
-async function crawlSource(src){
- const found=new Map();
- let queue=[src.index],seen=new Set();
- while(queue.length && seen.size<12){
-  const url=queue.shift(); if(seen.has(url))continue; seen.add(url);
-  let html; try{html=await get(url)}catch(e){continue}
-  for(const l of links(html,url)){
-   if(found.size>=src.max)break;
-   if(SKIP.test(l.text+' '+l.url))continue;
-   if(!HOWTO.test(l.text+' '+l.url))continue;
-   const u=l.url.split('#')[0];
-   if(u===src.index||found.has(u))continue;
-   const sameHost=new URL(u).hostname===new URL(src.index).hostname;
-   if(!sameHost)continue;
-   found.set(u,{url:u,linkText:l.text});
+async function crawl(source) {
+  const response = await fetch(source.url, {
+    headers: { 'User-Agent': 'Preroll.org educational index crawler/1.0', 'Accept': 'text/html' },
+    signal: AbortSignal.timeout(12000),
+    redirect: 'follow'
+  });
+  if (!response.ok) throw new Error(source.name + ': HTTP ' + response.status);
+  const html = await response.text();
+  const results = new Map();
+  const re = /<a\b[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = re.exec(html)) && results.size < 80) {
+    let url;
+    try { url = new URL(match[1], source.url); } catch { continue; }
+    const title = clean(match[2]);
+    if (!/^https?:$/.test(url.protocol) || !title || title.length < 8 || title.length > 180) continue;
+    if (url.hostname !== new URL(source.url).hostname || SKIP.test(title + ' ' + url.href) || !HOWTO.test(title + ' ' + url.href)) continue;
+    url.hash = '';
+    results.set(url.href, {
+      guideId: 'external-' + Buffer.from(url.href).toString('base64url').slice(0, 18),
+      title,
+      description: 'External educational resource. Review the linked source for current details and applicable safety guidance.',
+      category: category(title, url.href),
+      source: source.name,
+      url: url.href,
+      publishedAt: null
+    });
   }
-  for(const l of links(html,url)){
-   if(seen.size+queue.length>20)break;
-   if(new URL(l.url).hostname!==new URL(src.index).hostname)continue;
-   if(/page=|\\/page\\/|\\?paged=|\\/category\\//i.test(l.url)&&!seen.has(l.url))queue.push(l.url);
-  }
- }
- const items=[];
- for(const [url,base] of found){
-  try{
-   const html=await get(url),t=title(html)||base.linkText,desc=meta(html,'description')||meta(html,'og:description');
-   const d=dateFrom(html);
-   items.push({title:t,description:desc.slice(0,320),url,source:src.name,category:category(t,url,src.kind),publishedAt:d});
-  }catch{}
- }
- return items;
+  return [...results.values()];
 }
-(async()=>{
- const all=(await Promise.all(SOURCES.map(crawlSource))).flat();
- const seen=new Set();
- const cutoff=Date.now()-1000*60*60*24*730;
- const cleanItems=all.filter(x=>{if(!x.title||seen.has(x.url))return false;seen.add(x.url);return true})
-  .sort((a,b)=>(Date.parse(b.publishedAt||'')||0)-(Date.parse(a.publishedAt||'')||0));
- const recent=cleanItems.filter(x=>!x.publishedAt||Date.parse(x.publishedAt)>=cutoff);
- const file=path.join(__dirname,'..','guides','catalog.json');
- let existing={guides:[]};
- try{existing=JSON.parse(fs.readFileSync(file,'utf8'))}catch{}
- const editorial=(existing.guides||[]).filter(g=>g.source==='Preroll.org Editorial'||String(g.guideId||'').startsWith('howto-2026-'));
- const merged=[...editorial,...recent.slice(0,500)];
- const titleSeen=new Set(),urlSeen=new Set();
- const guides=merged.filter(g=>{const t=String(g.title||'').toLowerCase().trim(),u=String(g.url||'').trim();if(!t||titleSeen.has(t))return false;titleSeen.add(t);if(u&&uSeenHas(urlSeen,u))return false;if(u)urlSeen.add(u);return true});
- const out={generatedAt:new Date().toISOString(),count:guides.length,sources:[...new Set([...SOURCES.map(x=>x.name),'Preroll.org Editorial'])],guides};
- fs.mkdirSync(path.dirname(file),{recursive:true});
- fs.writeFileSync(file,JSON.stringify(out,null,2)+'\\n');
- console.log('Guide catalog:',out.count,'including',editorial.length,'preserved editorial guides');
-})().catch(e=>{console.error(e);process.exit(1)});
+(async () => {
+  let existing = { guides: [], sources: [] };
+  try { existing = JSON.parse(fs.readFileSync(OUTPUT, 'utf8')); } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+  const editorial = (existing.guides || []).filter(g =>
+    g.source === 'Preroll.org Editorial' || String(g.guideId || '').startsWith('howto-2026-') || String(g.guideId || '').startsWith('pr-')
+  );
+  const settled = await Promise.allSettled(SOURCES.map(crawl));
+  const scraped = settled.flatMap((result, i) => {
+    if (result.status === 'fulfilled') return result.value;
+    console.warn('Skipping unavailable source:', SOURCES[i].name, result.reason.message);
+    return [];
+  });
+  const byUrl = new Map();
+  for (const guide of [...editorial, ...scraped]) {
+    if (!guide.title || !guide.url) continue;
+    if (!byUrl.has(guide.url)) byUrl.set(guide.url, guide);
+  }
+  const guides = [...byUrl.values()];
+  const output = {
+    generatedAt: new Date().toISOString(),
+    count: guides.length,
+    sources: [...new Set([...SOURCES.map(s => s.name), 'Preroll.org Editorial'])],
+    editorialNote: existing.editorialNote || 'Editorial references should be checked against current primary sources.',
+    guides
+  };
+  fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
+  fs.writeFileSync(OUTPUT, JSON.stringify(output, null, 2) + '\n');
+  console.log('Guide catalog:', output.count, '| preserved editorial:', editorial.length, '| scraped:', scraped.length);
+})().catch(error => { console.error(error); process.exitCode = 1; });
