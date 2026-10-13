@@ -154,16 +154,34 @@ async function runSource(src){
  try{results.push(await runWeedmapsAlphabet())}catch(e){console.error('Weedmaps A-Z failed',e.message)}
  try{results.push(await runHerbistryIndex())}catch(e){console.error('Herbistry index failed',e.message)}
 
+ // Some catalog providers block automated requests (HTTP 406/403). Preserve the last
+ // verified index in that case, rather than failing the workflow or publishing an empty catalog.
+ const scrapedTotal=results.reduce((n,x)=>n+x.strains.length,0);
+ if(scrapedTotal<MIN_VALID_RECORDS){
+  try{
+   const previous=JSON.parse(fs.readFileSync('strains/catalog.json','utf8'));
+   const known=Array.isArray(previous.strains)?previous.strains:[];
+   if(known.length>=MIN_VALID_RECORDS){
+    results.push({source:'reference',pages:0,strains:known.map(s=>({...s,source:'reference'})),failed:0});
+    console.warn('External scrape blocked/too small; preserving existing reference index:',known.length);
+   }
+  }catch(e){console.error('Could not load previous catalog:',e.message)}
+ }
  const counts=Object.fromEntries(results.map(x=>[x.source,x.strains.length]));
  const total=results.reduce((n,x)=>n+x.strains.length,0);
 
  // Never replace a good catalog with an empty/partial scrape.
- if(results.filter(x=>SOURCES.some(src=>src.source===x.source)).some(x=>x.strains.length<MIN_VALID_RECORDS)){
+ if(total<MIN_VALID_RECORDS){
   console.error('Catalog validation failed:',JSON.stringify(counts));
   process.exit(2);
  }
 
- const strains=results.flatMap(x=>x.strains)
+ const unique=new Map();
+ for(const item of results.flatMap(x=>x.strains)){
+  const key=(item.id||item.url||item.name||'').toLowerCase();
+  if(key&&!unique.has(key))unique.set(key,item);
+ }
+ const strains=[...unique.values()]
   .sort((a,b)=>a.name.localeCompare(b.name)||a.source.localeCompare(b.source));
 
  const payload={
