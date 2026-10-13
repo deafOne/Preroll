@@ -162,7 +162,7 @@ async function runSource(src){
    const previous=JSON.parse(fs.readFileSync('strains/catalog.json','utf8'));
    const known=Array.isArray(previous.strains)?previous.strains:[];
    if(known.length>=MIN_VALID_RECORDS){
-    results.push({source:'reference',pages:0,strains:known.map(s=>({...s,source:'reference'})),failed:0});
+    results.push({source:'reference',pages:0,strains:known.map(s=>({...s,source:s.source||'reference'})),failed:0});
     console.warn('External scrape blocked/too small; preserving existing reference index:',known.length);
    }
   }catch(e){console.error('Could not load previous catalog:',e.message)}
