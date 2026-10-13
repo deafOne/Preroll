@@ -20,3 +20,7 @@ jobs:
         run: node --check server/server.js
       - name: Check browser JavaScript
         run: node --check app.js
+      - name: Check catalog scripts
+        run: |
+          node --check scripts/build-guide-catalog.js
+          node --check scripts/build-strain-catalog.js
