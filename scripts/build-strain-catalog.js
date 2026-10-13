@@ -5,7 +5,8 @@ const SOURCES=[
  {source:'weedmaps',base:'https://weedmaps.com/strains?page=',defaultPages:591}
 ];
 
-const CONCURRENCY=6;
+const CONCURRENCY=10;
+const MAX_PAGES_PER_SOURCE=60;
 const MIN_VALID_RECORDS=100;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
@@ -66,16 +67,16 @@ async function fetchPage(url){
   'Pragma':'no-cache'
  };
  let last;
- for(let attempt=0;attempt<5;attempt++){
+ for(let attempt=0;attempt<3;attempt++){
   try{
-   const r=await fetch(url,{headers,redirect:'follow'});
+   const r=await fetch(url,{headers,redirect:'follow',signal:AbortSignal.timeout(12000)});
    if(!r.ok)throw new Error('HTTP '+r.status);
    const html=await r.text();
    if(html.length<1000)throw new Error('response too small');
    return html;
   }catch(e){
    last=e;
-   const delay=Math.min(12000,1000*Math.pow(2,attempt)+(Math.random()*500));
+   const delay=Math.min(5000,700*Math.pow(2,attempt)+(Math.random()*300));
    await sleep(delay);
   }
  }
@@ -108,7 +109,9 @@ async function runHerbistryIndex(){
 
 async function runSource(src){
  const first=await fetchPage(src.base+'1');
- const pages=detectPages(first,src.defaultPages);
+ const discoveredPages=detectPages(first,src.defaultPages);
+ const pages=Math.min(discoveredPages,MAX_PAGES_PER_SOURCE);
+ console.log(JSON.stringify({source:src.source,discoveredPages,pagesCappedAt:MAX_PAGES_PER_SOURCE,scanningPages:pages}));
  const all=new Map();
  for(const x of parse(first,src.source))all.set(x.id,x);
 
