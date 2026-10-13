@@ -29,5 +29,6 @@ jobs:
             echo "Guide catalog unchanged"
           else
             git commit -m "Update cannabis how-to guide catalog"
+            git pull --rebase origin main
             git push
           fi
