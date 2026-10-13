@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-13T14:53:59.822Z",
+  "generatedAt": "2026-10-13T14:54:07.961Z",
   "sources": {
-    "reference": 123,
-    "allbud-search": 48
+    "reference": 124,
+    "allbud-search": 47
   },
   "pages": {
     "reference": 0,
@@ -851,7 +851,7 @@
       "id": "permanent-marker",
       "name": "Permanent Marker",
       "type": "Unknown",
-      "source": "allbud-search",
+      "source": "reference",
       "url": "https://www.leafly.com/strains/permanent-marker"
     },
     {
