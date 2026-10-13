@@ -73,12 +73,16 @@ async function crawl(source) {
     console.warn('Skipping unavailable source:', SOURCES[i].name, result.reason.message);
     return [];
   });
-  const byUrl = new Map();
+  const byKey = new Map();
   for (const guide of [...editorial, ...scraped]) {
     if (!guide.title || !guide.url) continue;
-    if (!byUrl.has(guide.url)) byUrl.set(guide.url, guide);
+    // Editorial entries intentionally share the guide landing page; preserve each distinct ID.
+    const key = guide.source === 'Preroll.org Editorial' || String(guide.guideId || '').startsWith('howto-2026-') || String(guide.guideId || '').startsWith('pr-')
+      ? 'editorial:' + String(guide.guideId || guide.title)
+      : 'url:' + guide.url;
+    if (!byKey.has(key)) byKey.set(key, guide);
   }
-  const guides = [...byUrl.values()];
+  const guides = [...byKey.values()];
   const output = {
     generatedAt: new Date().toISOString(),
     count: guides.length,
