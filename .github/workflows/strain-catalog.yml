@@ -3,8 +3,9 @@ name: Build strain catalog
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - 'strains/catalog.json'
+    paths:
+      - 'scripts/build-strain-catalog.js'
+      - '.github/workflows/strain-catalog.yml'
   schedule:
     - cron: '20 4 * * *'
   workflow_dispatch:
