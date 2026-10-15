@@ -1,4 +1,5 @@
 name: Build strain catalog
+# Preserve the last valid index when upstream sites block automated access.
 
 on:
   push:
