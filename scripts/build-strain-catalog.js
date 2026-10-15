@@ -154,18 +154,21 @@ async function runSource(src){
  try{results.push(await runWeedmapsAlphabet())}catch(e){console.error('Weedmaps A-Z failed',e.message)}
  try{results.push(await runHerbistryIndex())}catch(e){console.error('Herbistry index failed',e.message)}
 
- // Some catalog providers block automated requests (HTTP 406/403). Preserve the last
- // verified index in that case, rather than failing the workflow or publishing an empty catalog.
+ // Providers frequently block automated requests (HTTP 406/403). When the scrape
+ // cannot meet the minimum, leave the verified catalog byte-for-byte unchanged.
+ // This prevents timestamp-only commits and avoids overwriting source attribution.
  const scrapedTotal=results.reduce((n,x)=>n+x.strains.length,0);
  if(scrapedTotal<MIN_VALID_RECORDS){
   try{
    const previous=JSON.parse(fs.readFileSync('strains/catalog.json','utf8'));
    const known=Array.isArray(previous.strains)?previous.strains:[];
    if(known.length>=MIN_VALID_RECORDS){
-    results.push({source:'reference',pages:0,strains:known.map(s=>({...s,source:s.source||'reference'})),failed:0});
-    console.warn('External scrape blocked/too small; preserving existing reference index:',known.length);
+    console.warn('External scrape blocked/too small; preserving existing catalog unchanged:',known.length);
+    process.exit(0);
    }
   }catch(e){console.error('Could not load previous catalog:',e.message)}
+  console.error('Catalog validation failed: insufficient scrape records',scrapedTotal);
+  process.exit(2);
  }
  const counts=Object.fromEntries(results.map(x=>[x.source,x.strains.length]));
  const total=results.reduce((n,x)=>n+x.strains.length,0);
