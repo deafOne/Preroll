@@ -24,3 +24,7 @@ jobs:
         run: |
           node --check scripts/build-guide-catalog.js
           node --check scripts/build-strain-catalog.js
+      - name: Validate catalog JSON
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('guides/catalog.json', 'utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('strains/catalog.json', 'utf8'))"
