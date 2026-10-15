@@ -24,7 +24,7 @@ services:
     name: preroll-strain-sync
     runtime: node
     rootDir: server
-    schedule: "0 4 * * *"
+    schedule: "0 5 * * *"
     repo: https://github.com/deafOne/Preroll
     buildCommand: npm install
     startCommand: npm run sync-strains
