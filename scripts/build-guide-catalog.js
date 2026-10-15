@@ -14,12 +14,12 @@ const HOWTO = /how to|guide|tips|tutorial|beginner|setup|set up|consume|consumpt
 const SKIP = /login|sign.?up|newsletter|advertis|podcast|shop|merch|career|privacy|terms/i;
 
 function clean(value = '') {
-  return value.replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi, ' ')
-    .replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi, ' ')
+  return value.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&amp;/gi, '&').replace(/&quot;/gi, '"')
     .replace(/&#39;|&apos;/gi, "'").replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>').replace(/\\s+/g, ' ').trim();
+    .replace(/&gt;/gi, '>').replace(/\s+/g, ' ').trim();
 }
 function category(title, url) {
   const s = (title + ' ' + url).toLowerCase();
@@ -39,7 +39,7 @@ async function crawl(source) {
   if (!response.ok) throw new Error(source.name + ': HTTP ' + response.status);
   const html = await response.text();
   const results = new Map();
-  const re = /<a\\b[^>]*href=["']([^"'#]+)["'][^>]*>([\\s\\S]*?)<\\/a>/gi;
+  const re = /<a\b[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
   let match;
   while ((match = re.exec(html)) && results.size < 100) {
     let url;
@@ -99,7 +99,7 @@ async function crawl(source) {
     guides
   };
   fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
-  fs.writeFileSync(OUTPUT, JSON.stringify(output, null, 2) + '\\n');
+  fs.writeFileSync(OUTPUT, JSON.stringify(output, null, 2) + '\n');
   console.log('Published ' + additions.length + ' new external how-to resources. Total indexed: ' + output.count);
   for (const guide of additions) console.log('+ ' + guide.title + ' — ' + guide.url);
 })().catch(error => { console.error(error); process.exitCode = 1; });
