@@ -1,6 +1,7 @@
 {
-  "generatedAt": "2026-10-15T17:50:25.949Z",
-  "count": 328,
+  "generatedAt": "2026-10-15T23:12:49.106Z",
+  "count": 338,
+  "dailyNewCount": 10,
   "sources": [
     "Leafly",
     "Weedmaps Learn",
@@ -3561,6 +3562,96 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/dealing-with-heat-and-humidity-outdoors",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "5 Secrets to Controlling Heat Indoors",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/5-secrets-cannabis-heat-control",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "7 Environment Effects on Bud Quality",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/7-effects-environment-cannabis-bud-quality",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Pink OG Kush Harvest (Picture Gallery)",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/pink-og-kush-harvest-in-picture",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Is it Time to Harvest My Outdoor Cannabis? (Outdoor Ready-to-Harvest Weed Picture Gallery)",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/is-it-time-to-harvest-my-outdoor-cannabis-outdoor-ready-to-harvest-weed-picture-gallery",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Complete Guide to Grow Tents for Cannabis",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/cannabis-grow-tent",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Home Cannabis Grower Q&As",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/home-cannabis-grower-qas",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "The Beginner’s Grow Setup: Minimum Supplies for Top-Shelf Weed",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/the-beginners-grow-setup-minimum-supplies-for-top-shelf-weed",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Grow Better Weed: The 5 Core Principles",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-to-grow-better-weed-at-home",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Cannabis LED Grow Journal: Mars Hydro TSL-2000 vs Spider Farmer SF-2000",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/led-grow-journal-mars-hydro-tsl-2000w-vs-spider-farmer-sf-2000",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "What is the Solo Cup Challenge? (Grow Weed in a Cup)",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/solo-cup-challenge-grow-weed-in-a-cup",
       "publishedAt": null
     }
   ]
