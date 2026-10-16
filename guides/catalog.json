@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-15T23:12:49.106Z",
-  "count": 338,
+  "generatedAt": "2026-10-16T09:14:20.235Z",
+  "count": 348,
   "dailyNewCount": 10,
   "sources": [
     "Leafly",
@@ -3652,6 +3652,96 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/solo-cup-challenge-grow-weed-in-a-cup",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "How to Pollinate Cannabis",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-to-pollinate-cannabis",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Fast Outdoor Strains for a Quicker Cannabis Harvest (Short Summer, Late Planting...)",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/fastest-outdoor-cannabis-strains-for-late-planting",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Fix Your \"Limiting Factor\" to Increase Yields & Bud Size",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/yields-limiting-factor",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Nebula’s Screenless SCROG Method: Bigger Yields Without the Net",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/easy-cannabis-scrog-how-to-scrog-without-screen",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "How to Save Money When Growing Weed",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/how-to-save-money-when-growing-weed",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Mars Hydro TSL2000 LED Cannabis Grow Setup & Tutorial (300W LED)",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/mars-hydro-tsl2000-led-cannabis-grow-setup-tutorial-300w-led",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Unlock Bigger Yields & More THC: 7 Game-Changing Insights for Cannabis Growers",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/bigger-yields-more-thc-7-game-changing-cannabis-growing-insights-for-2026",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Harvest Rescue: How to Beat the Mid-Flower Curse",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/mid-flower-yellow-leaves-cannabis",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Your soil might be ruining your cannabis grow",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/cannabis-bad-soil",
+      "publishedAt": null
+    },
+    {
+      "guideId": "external-aHR0cHM6Ly93d3cuZ3",
+      "title": "Best Soil Nutrients & Supplements for Cannabis?",
+      "description": "External educational resource. Open the original source for the complete guide and current safety information.",
+      "category": "Growing",
+      "source": "Grow Weed Easy",
+      "url": "https://www.growweedeasy.com/best-soil-nutrients-for-cannabis",
       "publishedAt": null
     }
   ]
