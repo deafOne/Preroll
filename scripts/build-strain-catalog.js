@@ -5,10 +5,11 @@ const SOURCES=[
  {source:'weedmaps',base:'https://weedmaps.com/strains?page=',defaultPages:591}
 ];
 
-const CONCURRENCY=10;
-const MAX_PAGES_PER_SOURCE=60;
+const CONCURRENCY=2;
+const MAX_PAGES_PER_SOURCE=600;
 const MIN_VALID_RECORDS=100;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const PAGE_DELAY_MS=900;
 
 function decode(s=''){
  return s
@@ -60,24 +61,32 @@ function detectPages(html, fallback){
 
 async function fetchPage(url){
  const headers={
-  'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/131 Safari/537.36 PrerollCatalog/1.0',
-  'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'Accept-Language':'en-US,en;q=0.9',
-  'Cache-Control':'no-cache',
-  'Pragma':'no-cache'
+  'User-Agent':'Preroll.org strain catalog bot (+https://preroll.org)',
+  'Accept':'text/html,application/xhtml+xml',
+  'Accept-Language':'en-US,en;q=0.8'
  };
  let last;
  for(let attempt=0;attempt<3;attempt++){
   try{
-   const r=await fetch(url,{headers,redirect:'follow',signal:AbortSignal.timeout(12000)});
-   if(!r.ok)throw new Error('HTTP '+r.status);
+   const r=await fetch(url,{headers,redirect:'follow',signal:AbortSignal.timeout(15000)});
+   if(r.status===403||r.status===406){
+    throw Object.assign(new Error('HTTP '+r.status+'; source denies automated access, stopping requests to this host'),{permanent:true});
+   }
+   if(r.status===429){
+    const retryAfter=Number(r.headers.get('retry-after'));
+    const wait=Number.isFinite(retryAfter)&&retryAfter>0?Math.min(retryAfter*1000,60000):Math.min(5000*2**attempt,60000);
+    console.warn('Rate limited; waiting',wait,'ms before retry');
+    await sleep(wait);
+    throw Object.assign(new Error('HTTP 429 rate limited'),{rateLimited:true});
+   }
+   if(!r.ok)throw Object.assign(new Error('HTTP '+r.status),{retryable:r.status>=500});
    const html=await r.text();
    if(html.length<1000)throw new Error('response too small');
    return html;
   }catch(e){
    last=e;
-   const delay=Math.min(5000,700*Math.pow(2,attempt)+(Math.random()*300));
-   await sleep(delay);
+   if(e.permanent)throw e;
+   if(attempt<2)await sleep(e.rateLimited?1000:Math.min(2000*2**attempt,15000));
   }
  }
  throw last;
