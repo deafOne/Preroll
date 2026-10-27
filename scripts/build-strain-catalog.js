@@ -95,12 +95,16 @@ async function fetchPage(url){
 async function runWeedmapsAlphabet(){
  const letters='abcdefghijklmnopqrstuvwxyz'.split('');
  const all=new Map();let failed=0;
- await Promise.all(letters.map(async letter=>{
+ for(const letter of letters){
   try{
    const html=await fetchPage('https://weedmaps.com/strains/list-'+letter);
    for(const item of parse(html,'weedmaps'))all.set(item.id,item);
-  }catch(e){failed++;console.error('weedmaps A-Z',letter,e.message)}
- }));
+  }catch(e){
+   failed++;console.error('weedmaps A-Z',letter,e.message);
+   if(e.permanent||e.rateLimited)break;
+  }
+  await sleep(PAGE_DELAY_MS);
+ }
  const strains=[...all.values()];
  console.log(JSON.stringify({source:'weedmaps-a-z',pages:letters.length,records:strains.length,failed}));
  return {source:'weedmaps-a-z',pages:letters.length,strains,failed};
@@ -123,35 +127,35 @@ async function runSource(src){
  console.log(JSON.stringify({source:src.source,discoveredPages,pagesCappedAt:MAX_PAGES_PER_SOURCE,scanningPages:pages}));
  const all=new Map();
  for(const x of parse(first,src.source))all.set(x.id,x);
-
  const queue=Array.from({length:pages-1},(_,i)=>i+2);
- let active=0,failed=0;
-
+ let active=0,failed=0,stop=false;
  await new Promise(resolve=>{
   const next=()=>{
-   while(active<CONCURRENCY&&queue.length){
-    const page=queue.shift();
-    active++;
-    fetchPage(src.base+page).then(html=>{
+   if(stop&&active===0){resolve();return}
+   while(!stop&&active<CONCURRENCY&&queue.length){
+    const page=queue.shift();active++;
+    (async()=>{
+     await sleep(PAGE_DELAY_MS);
+     return fetchPage(src.base+page);
+    })().then(html=>{
       for(const x of parse(html,src.source))all.set(x.id,x);
     }).catch(e=>{
-      failed++;
-      console.error(src.source,'page',page,e.message);
+      failed++;console.error(src.source,'page',page,e.message);
+      if(e.permanent||e.rateLimited)stop=true;
     }).finally(()=>{
       active--;
-      if(!queue.length&&!active)resolve();
+      if((!queue.length||stop)&&!active)resolve();
       else next();
     });
    }
+   if(!queue.length&&!active)resolve();
   };
   next();
  });
-
  const strains=[...all.values()];
- console.log(JSON.stringify({source:src.source,pages,records:strains.length,failed}));
- return {source:src.source,pages,strains,failed};
+ console.log(JSON.stringify({source:src.source,pages:pages-queue.length,records:strains.length,failed,stoppedEarly:stop}));
+ return {source:src.source,pages:pages-queue.length,strains,failed};
 }
-
 (async()=>{
  const started=new Date().toISOString();
  const results=[];
