@@ -1,56 +1,926 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Green Market — Preroll.org</title>
-<meta name="description" content="A browser-based cannabis market strategy game. Buy and sell fictional strains, travel between fictional markets, and build your paper portfolio.">
-<meta name="robots" content="index,follow"><link rel="canonical" href="https://preroll.org/game/index.html"><link rel="icon" href="../assets/logo.svg"><link rel="stylesheet" href="../styles.css">
-<style>
-.game-wrap{max-width:1180px;margin:auto;padding:42px 22px 80px}.game-hero{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:26px}.game-hero h1{font-size:clamp(2.7rem,7vw,5.4rem);line-height:.9;letter-spacing:-.06em;margin:10px 0 16px}.game-hero h1 span{color:var(--green)}.game-hero p{max-width:680px;color:#b6c0b8}.game-badge{border:1px solid #365137;border-radius:16px;padding:15px 18px;color:var(--green);background:#132016;font-weight:800}.game-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:24px 0}.game-stat{padding:18px;border:1px solid var(--line);border-radius:16px;background:#111512}.game-stat span{display:block;color:var(--muted);font-size:.82rem}.game-stat strong{display:block;font-size:clamp(1.3rem,3vw,2rem);margin-top:5px}.game-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(270px,.8fr);gap:18px}.game-panel{padding:22px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,#151a16,#0f1310);min-width:0}.game-panel h2{font-size:1.65rem;letter-spacing:-.035em;margin:0 0 6px}.game-panel .sub{color:var(--muted);font-size:.9rem;margin:0 0 18px}.market-table{width:100%;border-collapse:collapse}.market-table th,.market-table td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line);font-size:.9rem}.market-table th{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.07em}.market-table td:last-child,.market-table th:last-child{text-align:right}.market-table button{padding:8px 10px;min-height:38px}.strain-name{font-weight:800}.strain-type{display:block;color:var(--muted);font-size:.78rem}.game-controls{display:grid;gap:12px}.game-controls label{display:grid;gap:7px;color:#cbd2cc;font-size:.9rem}.game-controls select,.game-controls input{width:100%;min-height:46px}.action-row{display:flex;gap:9px;flex-wrap:wrap}.action-row .btn{flex:1}.inventory-list{display:grid;gap:9px}.inventory-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}.inventory-item small{display:block;color:var(--muted)}.log{display:grid;gap:9px;max-height:280px;overflow:auto}.log-entry{padding:11px 12px;border-left:3px solid #4e7c45;background:#ffffff05;border-radius:0 9px 9px 0;color:#c5cec7;font-size:.88rem}.log-entry.event{border-color:#d9a24c}.log-entry.good{border-color:var(--green)}.game-footnote{font-size:.8rem;color:var(--muted);margin-top:20px}.game-notice{padding:12px 14px;border:1px solid #3a5137;border-radius:12px;background:#101a11;color:#d9e7d8;margin:14px 0}.game-wrap .btn:disabled{opacity:.35;cursor:not-allowed;transform:none}.mobile-scroll{overflow-x:auto}.game-bottom{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
-@media(max-width:760px){.game-hero{grid-template-columns:1fr}.game-badge{justify-self:start}.game-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.game-layout,.game-bottom{grid-template-columns:1fr}.game-panel{padding:16px}.market-table th,.market-table td{padding:10px 5px;font-size:.82rem}.market-table .strain-type{display:none}}
-@media(max-width:760px){.site-header{flex-wrap:wrap}.menu-btn{display:block;margin-left:auto}.site-header nav{display:none;order:3;width:100%;margin:0;flex-direction:column;gap:0;padding:8px 0}.site-header nav.open{display:flex}.site-header nav a{padding:12px 8px;border-top:1px solid var(--line)}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GREEN EMPIRE — Digital Gangster Style</title>
+  <style>
+    :root {
+      --green: #5dff8a;
+      --cyan:  #5ef0ff;
+      --mag:   #ff5ae0;
+      --amber: #ffd95a;
+      --ink:   #05060a;
+      --panel: #0a0c12;
+      --panel2: #0d1018;
+      --border: #33ff66;
+      --text: #e8ffe8;
+      --muted: #b8f0c8;
+      --red: #ff6b7a;
+      --yellow: #ffd95a;
+      --blue: #5ef0ff;
+      --green-dim: #1a9940;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: "Lucida Console", "DejaVu Sans Mono", "Courier New", monospace;
+      background: var(--ink);
+      color: var(--text);
+      line-height: 1.3;
+      font-size: 13px;
+    }
+    /* rainbow copper bars — softer so text stays readable */
+    #bg {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          #05060a 0px, #05060a 6px,
+          #1a0530 7px, #1a0530 12px,
+          #050620 13px, #050620 18px,
+          #001a2a 19px, #001a2a 24px,
+          #002210 25px, #002210 30px,
+          #2a0010 31px, #2a0010 36px,
+          #2a1a00 37px, #2a1a00 42px,
+          #05060a 43px, #05060a 48px
+        );
+      opacity: 0.32;
+    }
+    #crt {
+      position: fixed; inset: 0; z-index: 40; pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px,
+        rgba(0,0,0,0.12) 3px, rgba(0,0,0,0.12) 4px
+      );
+      mix-blend-mode: multiply;
+    }
+    #vignette {
+      position: fixed; inset: 0; z-index: 41; pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 100%);
+    }
+    .app {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 6px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      flex-shrink: 0;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(51,255,102,0.35);
+    }
+    h1 {
+      font-size: 1.15rem;
+      color: #fff;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 6px var(--cyan),
+        0 0 14px rgba(41,230,255,0.5),
+        2px 2px 0 #001a2a;
+      font-weight: 700;
+    }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      font-size: 0.78rem;
+    }
+    .stat {
+      background: rgba(0,0,0,0.55);
+      padding: 3px 8px;
+      border: 1px solid var(--green);
+      box-shadow: 0 0 8px rgba(51,255,102,0.15);
+    }
+    .stat strong { color: var(--green); text-shadow: 0 0 6px rgba(51,255,102,0.5); }
+    .stat.debt strong { color: var(--red); text-shadow: 0 0 6px rgba(255,68,102,0.5); }
+    .stat.day strong { color: var(--amber); text-shadow: 0 0 6px rgba(255,204,51,0.5); }
+
+    .main {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 6px;
+    }
+    @media (max-width: 780px) {
+      .main { grid-template-columns: 1fr; }
+      html, body { overflow: auto; }
+      .app { height: auto; min-height: 100%; }
+    }
+
+    .left, .right {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 0;
+    }
+
+    .panel {
+      background: rgba(5,6,10,0.94);
+      border: 2px solid var(--green);
+      box-shadow: 0 0 14px rgba(51,255,102,0.18), inset 0 0 20px rgba(51,255,102,0.04);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .panel h2 {
+      font-size: 0.78rem;
+      margin: 0;
+      padding: 5px 8px;
+      background: var(--green);
+      color: #05060a;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+    .panel h2 span { color: #05060a; }
+
+    .market-panel { flex: 0 1 auto; max-height: 62%; }
+    .market-panel .table-wrap {
+      overflow: auto;
+      min-height: 0;
+      padding: 4px 6px 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+    }
+    th, td {
+      padding: 3px 4px;
+      text-align: left;
+      border-bottom: 1px dashed rgba(51,255,102,0.25);
+      color: var(--text);
+    }
+    th {
+      color: var(--cyan);
+      font-weight: 600;
+      position: sticky; top: 0;
+      background: rgba(5,6,10,0.97);
+      letter-spacing: 0.06em;
+    }
+    tr:hover td { background: rgba(51,255,102,0.08); }
+    .price { font-variant-numeric: tabular-nums; color: var(--amber); }
+
+    .btn {
+      background: rgba(51,255,102,0.12);
+      color: var(--green);
+      border: 1px solid var(--green);
+      border-radius: 0;
+      padding: 3px 7px;
+      font-size: 0.72rem;
+      font-family: inherit;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background 0.12s, color 0.12s, box-shadow 0.12s;
+    }
+    .btn:hover:not(:disabled) {
+      background: var(--green);
+      color: #05060a;
+      box-shadow: 0 0 12px rgba(51,255,102,0.45);
+    }
+    .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .btn.secondary {
+      background: transparent;
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    .btn.secondary:hover:not(:disabled) {
+      background: var(--cyan);
+      color: #05060a;
+      box-shadow: 0 0 12px rgba(41,230,255,0.4);
+    }
+    .btn.small { padding: 2px 6px; font-size: 0.7rem; }
+
+    .actions { display: flex; gap: 3px; align-items: center; flex-wrap: nowrap; }
+    input[type="number"] {
+      width: 42px;
+      background: #05060a;
+      border: 1px solid rgba(51,255,102,0.45);
+      color: var(--green);
+      border-radius: 0;
+      padding: 2px 3px;
+      font-size: 0.72rem;
+      font-family: inherit;
+    }
+    input[type="number"]:focus {
+      outline: none;
+      border-color: var(--cyan);
+      box-shadow: 0 0 8px rgba(41,230,255,0.3);
+    }
+
+    .travel-panel { flex-shrink: 0; }
+    .travel-panel .cities { padding: 5px 6px 6px; }
+    .cities {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4px;
+    }
+    .city-btn {
+      text-align: left;
+      padding: 5px 6px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(51,255,102,0.5);
+      border-radius: 0;
+      cursor: pointer;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.74rem;
+      transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
+    }
+    .city-btn:hover:not(:disabled) {
+      border-color: var(--cyan);
+      background: rgba(41,230,255,0.1);
+      box-shadow: 0 0 10px rgba(41,230,255,0.25);
+    }
+    .city-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .city-btn.current {
+      border-color: var(--green);
+      background: rgba(51,255,102,0.15);
+      box-shadow: 0 0 12px rgba(51,255,102,0.3);
+    }
+    .city-btn .name { font-weight: 700; display: block; letter-spacing: 0.04em; color: #fff; }
+    .city-btn .cost { font-size: 0.66rem; color: var(--muted); }
+
+    .inv-panel { flex: 0 0 auto; }
+    .inv-panel .space-bar,
+    .inv-panel .inventory-list { margin-left: 6px; margin-right: 6px; }
+    .inventory-list {
+      list-style: none;
+      overflow-y: auto;
+      max-height: 72px;
+      font-size: 0.74rem;
+      padding-bottom: 4px;
+    }
+    .inventory-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 2px 0;
+      border-bottom: 1px dashed rgba(51,255,102,0.2);
+      color: var(--text);
+    }
+    .empty { color: var(--muted); font-style: normal; padding: 2px 0; opacity: 0.9; }
+
+    .log-panel { flex: 1; min-height: 0; }
+    .log-panel .log { padding: 4px 6px 6px; }
+    .log {
+      flex: 1;
+      overflow-y: auto;
+      font-size: 0.72rem;
+      min-height: 0;
+    }
+    .log-entry {
+      padding: 1px 0;
+      border-bottom: 1px dashed rgba(51,255,102,0.12);
+    }
+    .log-entry.good { color: #7dff9a; text-shadow: 0 0 6px rgba(51,255,102,0.4); }
+    .log-entry.bad { color: #ff8a95; text-shadow: 0 0 6px rgba(255,68,102,0.4); }
+    .log-entry.info { color: #8af5ff; }
+
+    .debt-panel { flex-shrink: 0; }
+    .debt-panel p,
+    .debt-panel .btn { margin-left: 6px; margin-right: 6px; }
+    .debt-panel p { margin-top: 4px; margin-bottom: 4px; }
+    .debt-panel .btn { margin-bottom: 6px; width: calc(100% - 12px); }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 16px;
+    }
+    .modal {
+      background: rgba(5,6,10,0.95);
+      border: 2px solid var(--green);
+      box-shadow: 0 0 30px rgba(51,255,102,0.25);
+      border-radius: 0;
+      padding: 16px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .modal h2 {
+      color: var(--green);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(51,255,102,0.5);
+      background: none;
+      padding: 0;
+    }
+    .modal p { color: var(--text); margin-bottom: 12px; line-height: 1.45; font-size: 0.82rem; opacity: 0.95; }
+    .modal .btn { margin: 0 5px; min-width: 90px; }
+
+    .hidden { display: none !important; }
+
+    .space-bar {
+      height: 5px;
+      background: #05060a;
+      border: 1px solid rgba(51,255,102,0.3);
+      overflow: hidden;
+      margin: 4px 0;
+      flex-shrink: 0;
+    }
+    .space-fill {
+      height: 100%;
+      background: var(--green);
+      box-shadow: 0 0 8px rgba(51,255,102,0.5);
+      transition: width 0.3s;
+    }
+    .space-fill.warn { background: var(--amber); box-shadow: 0 0 8px rgba(255,204,51,0.5); }
+    .space-fill.full { background: var(--red); box-shadow: 0 0 8px rgba(255,68,102,0.5); }
+
+    footer {
+      flex-shrink: 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      padding-top: 1px;
+      opacity: 0.95;
+    }
+  </style>
 </head>
 <body>
-<div id="ageGate" class="age-gate" role="dialog" aria-modal="true"><div class="age-card"><img src="../assets/logo.svg" alt="Preroll.org" class="age-logo"><p class="eyebrow">AGE CHECK</p><h1>Are you 21 or older?</h1><p>Preroll.org is intended for adults of legal age. Educational content only.</p><div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div><small id="ageMessage"></small></div></div>
-<header class="site-header"><a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="Preroll.org"></a><button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button><nav id="nav"><a href="../index.html">Home</a><a href="../news/index.html">News</a><a href="../strains/index.html">Strains</a><a href="../guides/index.html">Guides</a><a href="../calculators/index.html">Calculators</a><a href="../forum/index.html">Forum</a><a href="index.html" aria-current="page">Green Market Game</a></nav></header>
-<main class="game-wrap">
-<section class="game-hero"><div><p class="eyebrow">PREROLL ARCADE · STRATEGY</p><h1>GREEN <span>MARKET.</span></h1><p>A cannabis-only market strategy game. Read fictional local prices, buy inventory, travel between made-up markets, and sell when the price is right. No real money, real products, or real-world dealing instructions.</p></div><div class="game-badge">10 DAYS · PAPER ECONOMY</div></section>
-<div class="game-stats" aria-live="polite"><div class="game-stat"><span>Cash</span><strong id="cash">$2,000</strong></div><div class="game-stat"><span>Inventory value</span><strong id="invValue">$0</strong></div><div class="game-stat"><span>Net worth</span><strong id="netWorth">$2,000</strong></div><div class="game-stat"><span>Day / 10</span><strong id="day">1 / 10</strong></div></div>
-<div class="game-notice" id="notice" role="status">Welcome to Green Market. Choose a strain and use Buy/Sell to trade in this fictional game economy.</div>
-<div class="game-layout">
-<section class="game-panel"><h2 id="marketTitle">Mastic Grove Market</h2><p class="sub">Prices change each day. Each unit is a fictional game token, not a real-world quantity.</p><div class="mobile-scroll"><table class="market-table"><thead><tr><th>Strain</th><th>Buy price</th><th>Sell price</th><th>Action</th></tr></thead><tbody id="marketRows"></tbody></table></div><div class="game-footnote">Market names, strain prices, and events are simulated for entertainment.</div></section>
-<aside class="game-panel"><h2>Trade desk</h2><p class="sub">Select a strain and amount, then make your move.</p><div class="game-controls"><label for="strainSelect">Strain<select id="strainSelect"></select></label><label for="quantity">Units<input id="quantity" type="number" inputmode="numeric" min="1" max="999" step="1" value="1"></label><div class="action-row"><button id="buyBtn" class="btn primary" type="button">Buy units</button><button id="sellBtn" class="btn" type="button">Sell units</button></div><button id="travelBtn" class="btn ghost" type="button">Travel to next market →</button><button id="endBtn" class="btn ghost" type="button">End day →</button><button id="restartBtn" class="btn ghost" type="button">Restart run</button></div><p class="game-footnote">Trading is fictional and limited to the game's made-up economy. No external services or accounts needed.</p></aside>
-</div>
-<div class="game-bottom"><section class="game-panel"><h2>Your stash</h2><p class="sub">Inventory you can sell at the current simulated market.</p><div id="inventory" class="inventory-list"></div></section><section class="game-panel"><h2>Market journal</h2><p class="sub">Price shifts, travel, and day-end events.</p><div id="log" class="log" aria-live="polite"></div></section></div>
-<p class="game-footnote">Goal: finish Day 10 with the highest net worth you can. Prices and events are randomized on each run. This is a fictional strategy game, not financial advice or a guide to real-world transactions.</p>
-</main>
-<footer><div><img src="../assets/logo.svg" alt="Preroll.org"><p>Live information, education and community. Adults 21+ only.</p></div><div><strong>Explore</strong><a href="../news/index.html">News</a><a href="../forum/index.html">Forum</a><a href="../guides/index.html">Guides</a><a href="../calculators/index.html">Calculators</a></div><div><strong>Library</strong><a href="../strains/index.html">Strains</a><a href="../resources/index.html">Resources</a></div><div><strong>Preroll.org</strong><span>© <span id="year"></span></span></div></footer>
-<script src="../age-gate.js?v=5"></script>
-<script>
-(function(){
-const strains=[{name:"Blue Dream",base:95,type:"Hybrid"},{name:"Northern Lights",base:82,type:"Indica"},{name:"Jack Herer",base:108,type:"Sativa"},{name:"Wedding Cake",base:120,type:"Hybrid"},{name:"GMO",base:115,type:"Indica"},{name:"Sour Diesel",base:105,type:"Sativa"}];
-const markets=["Mastic Grove","Harbor Green","North Shore Exchange","Empire Bloom","Sunset Junction"];
-let cash=2000,day=1,marketIndex=0,inventory={},prices=[],history=[],finished=false;
-const $=id=>document.getElementById(id), money=n=>"$"+Math.round(n).toLocaleString("en-US");
-function note(msg,kind=""){ $("notice").textContent=msg; $("notice").style.borderColor=kind==="bad"?"#9a493c":kind==="good"?"#4d803f":"#3a5137"; }
-function addLog(msg,kind=""){history.unshift({msg,kind});history=history.slice(0,24);$("log").innerHTML=history.map(x=>'<div class="log-entry '+x.kind+'">'+escapeHtml(x.msg)+'</div>').join("");}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-function rollPrices(){prices=strains.map(s=>{const fluct=.62+Math.random()*.82;const buy=Math.max(15,Math.round(s.base*fluct/5)*5);return {name:s.name,buy,sell:Math.max(10,Math.round(buy*.82/5)*5)};});}
-function held(name){return inventory[name]||0;}
-function totals(){const value=prices.reduce((n,p)=>n+held(p.name)*p.sell,0);$("cash").textContent=money(cash);$("invValue").textContent=money(value);$("netWorth").textContent=money(cash+value);$("day").textContent=day+" / 10";}
-function render(){ $("marketTitle").textContent=markets[marketIndex]+" Market";$("marketRows").innerHTML=prices.map(p=>'<tr><td><span class="strain-name">'+escapeHtml(p.name)+'</span><span class="strain-type">'+strains.find(s=>s.name===p.name).type+'</span></td><td>'+money(p.buy)+'</td><td>'+money(p.sell)+'</td><td><button class="btn small" type="button" data-pick="'+escapeHtml(p.name)+'">Select</button></td></tr>').join("");$("inventory").innerHTML=strains.map(s=>({s,n:held(s.name)})).filter(x=>x.n>0).map(x=>'<div class="inventory-item"><div><strong>'+escapeHtml(x.s.name)+'</strong><small>'+x.n+' unit'+(x.n===1?"":"s")+'</small></div><strong>'+money(x.n*(prices.find(p=>p.name===x.s.name)?.sell||0))+'</strong></div>').join("")||'<p class="muted">Your stash is empty. Buy a few units to get started.</p>';totals();$("buyBtn").disabled=finished;$("sellBtn").disabled=finished;$("travelBtn").disabled=finished;$("endBtn").disabled=finished;}
-function select(name){$("strainSelect").value=name;}
-function amount(){const n=Number($("quantity").value);if(!Number.isFinite(n)||!Number.isInteger(n)||n<1||n>999){note("Enter a whole number between 1 and 999.","bad");return null;}return n;}
-function buy(name){if(finished)return;const n=amount();if(!n)return;const p=prices.find(x=>x.name===name);if(!p)return;if(n*p.buy>cash){note("Not enough game cash for that order. Try fewer units.","bad");return;}cash-=n*p.buy;inventory[name]=held(name)+n;note("Bought "+n+" "+name+" game unit"+(n===1?"":"s")+" for "+money(n*p.buy)+".","good");addLog("Bought "+n+" "+name+" at "+money(p.buy)+" each.","good");render();}
-function sell(name){if(finished)return;const n=amount();if(!n)return;const p=prices.find(x=>x.name===name);if(!p)return;if(n>held(name)){note("You only have "+held(name)+" "+name+" unit"+(held(name)===1?"":"s")+" in your stash.","bad");return;}cash+=n*p.sell;inventory[name]=held(name)-n;if(!inventory[name])delete inventory[name];note("Sold "+n+" "+name+" game unit"+(n===1?"":"s")+" for "+money(n*p.sell)+".","good");addLog("Sold "+n+" "+name+" at "+money(p.sell)+" each.","good");render();}
-function advanceDay(travel){if(finished)return;if(day>=10){finish();return;}day++;if(travel){marketIndex=(marketIndex+1)%markets.length;addLog("Travelled to "+markets[marketIndex]+". New market prices posted.","event");}rollPrices();const event=Math.random();if(event<.22){const i=Math.floor(Math.random()*prices.length),old=prices[i].sell;prices[i].buy=Math.round(prices[i].buy*1.25/5)*5;prices[i].sell=Math.round(prices[i].sell*1.22/5)*5;addLog("Local demand spike: "+prices[i].name+" prices jumped.","good");note("Market event: demand for "+prices[i].name+" surged today.","good");}else if(event<.39){const i=Math.floor(Math.random()*prices.length);prices[i].buy=Math.max(15,Math.round(prices[i].buy*.75/5)*5);prices[i].sell=Math.max(10,Math.round(prices[i].sell*.73/5)*5);addLog("Oversupply: "+prices[i].name+" prices dipped.","event");note("Market event: oversupply pushed "+prices[i].name+" prices down.","bad");}else{note(travel?"Arrived at "+markets[marketIndex]+". Fresh fictional prices are in.":"Day "+day+" begins. Prices have shifted.");addLog("Day "+day+": prices updated.");}render();if(day>=10){$("endBtn").textContent="Finish run";}}
-function finish(){finished=true;render();const net=cash+prices.reduce((n,p)=>n+held(p.name)*p.sell,0);note("Run complete! Final net worth: "+money(net)+". "+(net>2000?"You finished ahead by "+money(net-2000)+".":net<2000?"You finished down "+money(2000-net)+".":"You broke even."),"good");addLog("Run complete. Final net worth: "+money(net)+".","good");$("endBtn").textContent="Run complete";}
-function restart(){cash=2000;day=1;marketIndex=0;inventory={};history=[];finished=false;rollPrices();$("quantity").value="1";$("endBtn").textContent="End day →";note("New run started. You have $2,000 in game cash.");addLog("New run: starting cash $2,000.");render();}
-strains.forEach(s=>{const o=document.createElement("option");o.value=s.name;o.textContent=s.name;$("strainSelect").appendChild(o);});
-$("marketRows").addEventListener("click",e=>{const b=e.target.closest("[data-pick]");if(b)select(b.dataset.pick);});
-$("buyBtn").addEventListener("click",()=>buy($("strainSelect").value));$("sellBtn").addEventListener("click",()=>sell($("strainSelect").value));$("travelBtn").addEventListener("click",()=>advanceDay(true));$("endBtn").addEventListener("click",()=>{if(day>=10)finish();else advanceDay(false);});$("restartBtn").addEventListener("click",restart);
-const menuBtn=$("menuBtn"),nav=$("nav");if(menuBtn&&nav){menuBtn.addEventListener("click",()=>{const open=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open));});} $("year").textContent=new Date().getFullYear();rollPrices();addLog("Welcome to Green Market. Starting cash: $2,000.");render();
-})();
-</script>
-</body></html>
+  <div id="bg"></div>
+  <div id="crt"></div>
+  <div id="vignette"></div>
+  <div class="app">
+    <header>
+      <h1>GREEN EMPIRE</h1>
+      <div class="stats">
+        <div class="stat">CASH <strong id="cash">$0</strong></div>
+        <div class="stat debt">DEBT <strong id="debt">$0</strong></div>
+        <div class="stat">NET <strong id="net">$0</strong></div>
+        <div class="stat day">DAY <strong id="day">1</strong></div>
+        <div class="stat">LOC <strong id="location">—</strong></div>
+      </div>
+    </header>
+
+    <div class="main">
+      <div class="left">
+        <div class="panel market-panel">
+          <h2>Market — <span id="market-city">—</span></h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Own</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="market-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel travel-panel">
+          <h2>Travel</h2>
+          <div class="cities" id="cities"></div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="panel inv-panel">
+          <h2>Inventory <span id="space-text" style="font-size:0.72rem;opacity:0.85"></span></h2>
+          <div class="space-bar"><div class="space-fill" id="space-fill"></div></div>
+          <ul class="inventory-list" id="inventory"></ul>
+        </div>
+
+        <div class="panel log-panel">
+          <h2>Event Log</h2>
+          <div class="log" id="log"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      (C) GREEN EMPIRE — CANNABIS TRADING SIM · INSPIRED BY CLASSIC DOPE WARS · PURELY FICTIONAL
+    </footer>
+  </div>
+
+  <!-- Start Modal -->
+  <div class="modal-overlay" id="start-modal">
+    <div class="modal">
+      <h2>GREEN EMPIRE</h2>
+      <p>
+        You borrowed <strong>$2,000</strong> from a lender to start a small cannabis trading operation.
+        Travel between cities, buy low, sell high, and pay off the debt before interest eats you alive.
+        <br><br>
+        Inventory space is limited. Watch the market and the cops.
+      </p>
+      <button class="btn" id="start-btn">START TRADING</button>
+    </div>
+  </div>
+
+  <!-- Event Modal -->
+  <div class="modal-overlay hidden" id="event-modal">
+    <div class="modal">
+      <h2 id="event-title">Event</h2>
+      <p id="event-text"></p>
+      <button class="btn" id="event-ok">OK</button>
+    </div>
+  </div>
+
+  <!-- Game Over Modal -->
+  <div class="modal-overlay hidden" id="end-modal">
+    <div class="modal">
+      <h2 id="end-title">Game Over</h2>
+      <p id="end-text"></p>
+      <button class="btn" id="restart-btn">Play Again</button>
+    </div>
+  </div>
+
+  <script>
+    // ========== GAME DATA ==========
+    const CITIES = [
+      { id: 'seattle', name: 'Seattle', travel: 80 },
+      { id: 'denver', name: 'Denver', travel: 120 },
+      { id: 'portland', name: 'Portland', travel: 70 },
+      { id: 'la', name: 'Los Angeles', travel: 150 },
+      { id: 'chicago', name: 'Chicago', travel: 140 },
+      { id: 'nyc', name: 'New York', travel: 180 }
+    ];
+
+    // Real brands stocked in the game cities (WA/OR/CO/CA/IL/NY markets)
+    const PRODUCTS = [
+      { id: 'wyld',    name: 'Wyld Real Fruit Gummies',   base: 28, volatility: 0.28, space: 1 },
+      { id: 'camino',  name: 'Camino Gummies 10pk',       base: 26, volatility: 0.30, space: 1 },
+      { id: 'stiiizy', name: 'STIIIZY Live Resin Pod',    base: 48, volatility: 0.40, space: 1 },
+      { id: 'jeeter',  name: 'Jeeter Infused Pre-Roll 5pk', base: 42, volatility: 0.35, space: 1 },
+      { id: 'cookies', name: 'Cookies Flower 3.5g',       base: 52, volatility: 0.42, space: 1 },
+      { id: 'phat',    name: 'Phat Panda Pre-Roll',       base: 14, volatility: 0.38, space: 1 },
+      { id: '710',     name: '710 Labs Live Rosin 1g',    base: 68, volatility: 0.50, space: 1 },
+      { id: 'rawg',    name: 'Raw Garden Live Resin',     base: 55, volatility: 0.45, space: 1 }
+    ];
+
+    const MAX_SPACE = 40;
+    const START_CASH = 2000;
+    const START_DEBT = 2000;
+    const INTEREST_RATE = 0.08; // 8% per travel/day advance
+    const MAX_DAYS = 30;
+
+    // ========== STATE ==========
+    let state = {};
+
+    function freshState() {
+      return {
+        cash: START_CASH,
+        debt: START_DEBT,
+        day: 1,
+        city: 'denver',
+        inventory: {}, // productId -> qty
+        prices: {},    // cityId -> { productId -> price }
+        log: [],
+        gameOver: false
+      };
+    }
+
+    // ========== HELPERS ==========
+    function rand(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+    function randInt(min, max) {
+      return Math.floor(rand(min, max + 1));
+    }
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+    function formatMoney(n) {
+      return '$' + Math.round(n).toLocaleString();
+    }
+
+    function usedSpace() {
+      let s = 0;
+      for (const [id, qty] of Object.entries(state.inventory)) {
+        const p = PRODUCTS.find(x => x.id === id);
+        s += (p?.space || 1) * qty;
+      }
+      return s;
+    }
+
+    function invQty(id) {
+      return state.inventory[id] || 0;
+    }
+
+    function netWorth() {
+      let invValue = 0;
+      const cityPrices = state.prices[state.city] || {};
+      for (const [id, qty] of Object.entries(state.inventory)) {
+        invValue += (cityPrices[id] || 0) * qty;
+      }
+      return state.cash + invValue - state.debt;
+    }
+
+    function addLog(msg, type = 'info') {
+      state.log.unshift({ msg, type, day: state.day });
+      if (state.log.length > 40) state.log.pop();
+    }
+
+    // ========== PRICE GENERATION ==========
+    function generatePrices() {
+      const prices = {};
+      for (const city of CITIES) {
+        prices[city.id] = {};
+        // City modifiers: some cities are generally higher/lower
+        const cityMod = {
+          seattle: 0.95, denver: 0.90, portland: 0.92,
+          la: 1.15, chicago: 1.05, nyc: 1.25
+        }[city.id] || 1;
+
+        for (const p of PRODUCTS) {
+          const vol = p.volatility;
+          const factor = rand(1 - vol, 1 + vol) * cityMod;
+          // Occasional extreme spikes/drops
+          let extreme = 1;
+          if (Math.random() < 0.08) extreme = rand(0.4, 0.7);   // crash
+          if (Math.random() < 0.07) extreme = rand(1.6, 2.4);   // boom
+          prices[city.id][p.id] = Math.round(p.base * factor * extreme);
+        }
+      }
+      return prices;
+    }
+
+    // ========== EVENTS ==========
+    const EVENTS = [
+      {
+        chance: 0.12,
+        run() {
+          const fine = randInt(150, 450);
+          if (state.cash >= fine) {
+            state.cash -= fine;
+            return { title: '🚔 Police Attention', text: `Local enforcement is cracking down. You pay a $${fine} fine to stay under the radar.`, type: 'bad' };
+          } else {
+            // Seize some inventory
+            const keys = Object.keys(state.inventory).filter(k => state.inventory[k] > 0);
+            if (keys.length) {
+              const k = keys[randInt(0, keys.length - 1)];
+              const lost = Math.min(state.inventory[k], randInt(2, 6));
+              state.inventory[k] -= lost;
+              if (state.inventory[k] <= 0) delete state.inventory[k];
+              return { title: '🚔 Police Attention', text: `Cops seize ${lost} units of product. You got off light.`, type: 'bad' };
+            }
+            return { title: '🚔 Close Call', text: 'Police are active but you slip away with nothing lost.', type: 'info' };
+          }
+        }
+      },
+      {
+        chance: 0.10,
+        run() {
+          const bonus = randInt(100, 350);
+          state.cash += bonus;
+          return { title: '💰 High Demand', text: `A local event spikes demand. You unload some inventory off-market for an extra $${bonus}.`, type: 'good' };
+        }
+      },
+      {
+        chance: 0.08,
+        run() {
+          // Price boom on one product in current city
+          const p = PRODUCTS[randInt(0, PRODUCTS.length - 1)];
+          const old = state.prices[state.city][p.id];
+          state.prices[state.city][p.id] = Math.round(old * rand(1.7, 2.5));
+          return { title: '📈 Supply Crunch', text: `${p.name} is suddenly scarce here. Prices have jumped hard.`, type: 'good' };
+        }
+      },
+      {
+        chance: 0.08,
+        run() {
+          const p = PRODUCTS[randInt(0, PRODUCTS.length - 1)];
+          const old = state.prices[state.city][p.id];
+          state.prices[state.city][p.id] = Math.max(5, Math.round(old * rand(0.35, 0.6)));
+          return { title: '📉 Market Flood', text: `Someone dumped a lot of ${p.name} on the market. Prices crashed.`, type: 'bad' };
+        }
+      },
+      {
+        chance: 0.07,
+        run() {
+          // Find extra product
+          const p = PRODUCTS[randInt(0, PRODUCTS.length - 1)];
+          const spaceLeft = MAX_SPACE - usedSpace();
+          if (spaceLeft < 1) {
+            return { title: '🎁 Lucky Find', text: `You found a small stash of ${p.name} but your inventory is full. Had to leave it.`, type: 'info' };
+          }
+          const qty = Math.min(spaceLeft, randInt(1, 4));
+          state.inventory[p.id] = (state.inventory[p.id] || 0) + qty;
+          return { title: '🎁 Lucky Find', text: `You came across ${qty} units of ${p.name}. Free inventory!`, type: 'good' };
+        }
+      },
+      {
+        chance: 0.06,
+        run() {
+          // Interest reminder / pressure
+          return { title: '📞 Lender Calling', text: `Your lender reminds you the debt is accruing interest. Pay it down when you can.`, type: 'info' };
+        }
+      },
+      {
+        chance: 0.05,
+        run() {
+          // Quality issue - lose some product
+          const keys = Object.keys(state.inventory).filter(k => state.inventory[k] > 0);
+          if (!keys.length) return null;
+          const k = keys[randInt(0, keys.length - 1)];
+          const lost = Math.min(state.inventory[k], randInt(1, 3));
+          state.inventory[k] -= lost;
+          if (state.inventory[k] <= 0) delete state.inventory[k];
+          const p = PRODUCTS.find(x => x.id === k);
+          return { title: '😬 Quality Issue', text: `${lost} units of ${p.name} went bad in transit. Written off.`, type: 'bad' };
+        }
+      }
+    ];
+
+    function maybeTriggerEvent() {
+      for (const e of EVENTS) {
+        if (Math.random() < e.chance) {
+          const result = e.run();
+          if (result) return result;
+        }
+      }
+      return null;
+    }
+
+    // ========== ACTIONS ==========
+    function buy(productId, qty) {
+      if (state.gameOver) return;
+      qty = Math.floor(qty);
+      if (qty < 1) return;
+
+      const price = state.prices[state.city][productId];
+      const cost = price * qty;
+      const p = PRODUCTS.find(x => x.id === productId);
+      const spaceNeeded = (p?.space || 1) * qty;
+
+      if (cost > state.cash) {
+        addLog('Not enough cash.', 'bad');
+        render();
+        return;
+      }
+      if (usedSpace() + spaceNeeded > MAX_SPACE) {
+        addLog('Not enough inventory space.', 'bad');
+        render();
+        return;
+      }
+
+      state.cash -= cost;
+      state.inventory[productId] = (state.inventory[productId] || 0) + qty;
+      addLog(`Bought ${qty} ${p.name} for ${formatMoney(cost)}.`, 'info');
+      render();
+    }
+
+    function sell(productId, qty) {
+      if (state.gameOver) return;
+      qty = Math.floor(qty);
+      if (qty < 1) return;
+      if (invQty(productId) < qty) {
+        addLog('You don\'t have that many.', 'bad');
+        render();
+        return;
+      }
+
+      const price = state.prices[state.city][productId];
+      const revenue = price * qty;
+      const p = PRODUCTS.find(x => x.id === productId);
+
+      state.cash += revenue;
+      state.inventory[productId] -= qty;
+      if (state.inventory[productId] <= 0) delete state.inventory[productId];
+      addLog(`Sold ${qty} ${p.name} for ${formatMoney(revenue)}.`, 'good');
+      render();
+    }
+
+    function travel(cityId) {
+      if (state.gameOver || cityId === state.city) return;
+
+      const city = CITIES.find(c => c.id === cityId);
+      if (!city) return;
+
+      if (state.cash < city.travel) {
+        addLog(`Not enough cash for travel (need ${formatMoney(city.travel)}).`, 'bad');
+        render();
+        return;
+      }
+
+      state.cash -= city.travel;
+      state.city = cityId;
+      state.day += 1;
+
+      // Interest on debt
+      const interest = Math.round(state.debt * INTEREST_RATE);
+      state.debt += interest;
+      if (interest > 0) {
+        addLog(`Debt interest: +${formatMoney(interest)}.`, 'bad');
+      }
+
+      // Refresh prices
+      state.prices = generatePrices();
+
+      addLog(`Traveled to ${city.name}.`, 'info');
+
+      // Check win/lose conditions
+      if (state.day > MAX_DAYS) {
+        endGame(false, `You ran out of time (Day ${MAX_DAYS}). Final net worth: ${formatMoney(netWorth())}.`);
+        return;
+      }
+      if (state.debt > 0 && state.cash + Object.values(state.inventory).reduce((a,b)=>a+b,0) === 0 && netWorth() < -500) {
+        // Rough bankrupt check
+      }
+
+      // Event?
+      const ev = maybeTriggerEvent();
+      render();
+      if (ev) {
+        showEvent(ev.title, ev.text, ev.type);
+        addLog(ev.text, ev.type);
+      }
+    }
+
+    function payDebt() {
+      if (state.debt <= 0) return;
+      const pay = Math.min(state.cash, state.debt);
+      if (pay <= 0) {
+        addLog('No cash to pay debt.', 'bad');
+        render();
+        return;
+      }
+      state.cash -= pay;
+      state.debt -= pay;
+      addLog(`Paid ${formatMoney(pay)} toward debt.`, 'good');
+      if (state.debt <= 0) {
+        state.debt = 0;
+        addLog('🎉 Debt fully paid off!', 'good');
+        // Soft win check
+        if (netWorth() >= 10000) {
+          endGame(true, `You paid off the debt and built a solid operation. Final net worth: ${formatMoney(netWorth())}.`);
+          return;
+        }
+      }
+      render();
+    }
+
+    function endGame(won, text) {
+      state.gameOver = true;
+      document.getElementById('end-title').textContent = won ? '🏆 Empire Built' : 'Game Over';
+      document.getElementById('end-text').textContent = text;
+      document.getElementById('end-modal').classList.remove('hidden');
+    }
+
+    // ========== RENDER ==========
+    function render() {
+      document.getElementById('cash').textContent = formatMoney(state.cash);
+      document.getElementById('debt').textContent = formatMoney(state.debt);
+      document.getElementById('net').textContent = formatMoney(netWorth());
+      document.getElementById('day').textContent = state.day;
+      const cityObj = CITIES.find(c => c.id === state.city);
+      document.getElementById('location').textContent = cityObj?.name || '—';
+      document.getElementById('market-city').textContent = cityObj?.name || '—';
+
+      // Market table
+      const tbody = document.getElementById('market-body');
+      tbody.innerHTML = '';
+      const prices = state.prices[state.city] || {};
+
+      for (const p of PRODUCTS) {
+        const price = prices[p.id] || p.base;
+        const owned = invQty(p.id);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${p.name}</td>
+          <td class="price">${formatMoney(price)}</td>
+          <td>${owned}</td>
+          <td>
+            <div class="actions">
+              <input type="number" min="1" value="1" id="qty-buy-${p.id}" />
+              <button class="btn small" data-buy="${p.id}">Buy</button>
+              <button class="btn small secondary" data-sell="${p.id}" ${owned < 1 ? 'disabled' : ''}>Sell</button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      }
+
+      // Buy/Sell listeners
+      tbody.querySelectorAll('[data-buy]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-buy');
+          const input = document.getElementById(`qty-buy-${id}`);
+          buy(id, parseInt(input.value, 10) || 1);
+        });
+      });
+      tbody.querySelectorAll('[data-sell]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-sell');
+          const input = document.getElementById(`qty-buy-${id}`);
+          sell(id, parseInt(input.value, 10) || 1);
+        });
+      });
+
+      // Cities
+      const citiesEl = document.getElementById('cities');
+      citiesEl.innerHTML = '';
+      for (const c of CITIES) {
+        const btn = document.createElement('button');
+        btn.className = 'city-btn' + (c.id === state.city ? ' current' : '');
+        btn.disabled = c.id === state.city || state.gameOver;
+        btn.innerHTML = `<span class="name">${c.name}</span><span class="cost">${c.id === state.city ? 'Current location' : 'Travel: ' + formatMoney(c.travel)}</span>`;
+        btn.addEventListener('click', () => travel(c.id));
+        citiesEl.appendChild(btn);
+      }
+
+      // Inventory
+      const invEl = document.getElementById('inventory');
+      invEl.innerHTML = '';
+      const entries = Object.entries(state.inventory).filter(([, q]) => q > 0);
+      if (!entries.length) {
+        invEl.innerHTML = '<li class="empty">Empty</li>';
+      } else {
+        for (const [id, qty] of entries) {
+          const p = PRODUCTS.find(x => x.id === id);
+          const li = document.createElement('li');
+          li.innerHTML = `<span>${p?.name || id}</span><span>×${qty}</span>`;
+          invEl.appendChild(li);
+        }
+      }
+
+      // Space bar
+      const used = usedSpace();
+      const pct = (used / MAX_SPACE) * 100;
+      document.getElementById('space-text').textContent = `${used} / ${MAX_SPACE}`;
+      const fill = document.getElementById('space-fill');
+      fill.style.width = pct + '%';
+      fill.className = 'space-fill' + (pct >= 100 ? ' full' : pct >= 75 ? ' warn' : '');
+
+      // Log
+      const logEl = document.getElementById('log');
+      logEl.innerHTML = state.log.map(e => 
+        `<div class="log-entry ${e.type}">Day ${e.day}: ${e.msg}</div>`
+      ).join('');
+
+      // Pay debt button (add if debt > 0)
+      // We'll inject a small control under inventory
+    }
+
+    function showEvent(title, text, type) {
+      document.getElementById('event-title').textContent = title;
+      document.getElementById('event-text').textContent = text;
+      document.getElementById('event-modal').classList.remove('hidden');
+    }
+
+    // ========== INIT ==========
+    function startGame() {
+      state = freshState();
+      state.prices = generatePrices();
+      addLog('You arrive in Denver with a stake and a debt. Time to build an empire.', 'info');
+      document.getElementById('start-modal').classList.add('hidden');
+      document.getElementById('end-modal').classList.add('hidden');
+      render();
+    }
+
+    document.getElementById('start-btn').addEventListener('click', startGame);
+    document.getElementById('event-ok').addEventListener('click', () => {
+      document.getElementById('event-modal').classList.add('hidden');
+    });
+    document.getElementById('restart-btn').addEventListener('click', startGame);
+
+    // Add a permanent pay-debt control
+    const rightPanel = document.querySelector('.right');
+    const payPanel = document.createElement('div');
+    payPanel.className = 'panel debt-panel';
+    payPanel.innerHTML = `
+      <h2>Debt</h2>
+      <p style="font-size:0.72rem;color:var(--muted);">Interest accrues on travel.</p>
+      <button class="btn" id="pay-debt-btn">PAY DEBT</button>
+    `;
+    rightPanel.appendChild(payPanel);
+    document.getElementById('pay-debt-btn').addEventListener('click', payDebt);
+
+    // Auto-start is blocked by modal
+  </script>
+</body>
+</html>
