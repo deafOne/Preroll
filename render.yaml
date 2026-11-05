@@ -10,7 +10,9 @@ services:
     autoDeployTrigger: commit
     envVars:
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: robb-v2wf
+          property: connectionString
       - key: ALLOWED_ORIGIN
         value: https://preroll.org
       - key: NODE_ENV
@@ -29,16 +31,10 @@ services:
     autoDeployTrigger: commit
     envVars:
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: robb-v2wf
+          property: connectionString
       - key: NODE_ENV
         value: production
       - key: STRAIN_SYNC_ON_EMPTY
         value: "false"
-
-databases:
-  # Retain the suspended legacy database declaration so a Blueprint sync does not remove it.
-  - name: robb
-    databaseName: robb
-    user: robb_user
-    plan: free
-    region: oregon
