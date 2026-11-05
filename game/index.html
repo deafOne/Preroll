@@ -15,7 +15,7 @@
 <body>
 <div id="ageGate" class="overlay gate"><div class="modal"><div class="eyebrow">PREROLL.ORG • ADULT EXPERIENCE</div><h2>Green Empire</h2><p>This fictional strategy game is intended for adults 21+. It is entertainment only and does not facilitate or promote real-world cannabis sales or unlawful activity.</p><p><strong>Are you 21 or older?</strong></p><button id="ageYes" class="btn primary">Yes, I am 21+</button> <button id="ageNo" class="btn">No, exit</button><p id="ageMessage" class="muted"></p></div></div>
 <div class="shell">
-<header class="top"><div class="brand"><div class="brand-mark">GE</div><div><h1>GREEN EMPIRE</h1><p>A PREROLL.ORG MARKET STRATEGY GAME</p></div></div><div class="top-actions"><button class="btn" id="saveBtn">Save game</button><button class="btn" id="soundBtn" aria-pressed="false">Sound: Off</button><button class="btn danger" id="resetBtn">New game</button></div></header>
+<header class="top"><div class="brand"><div class="brand-mark">GE</div><div><h1>GREEN EMPIRE</h1><p>A PREROLL.ORG MARKET STRATEGY GAME</p></div></div><div class="top-actions"><button class="btn" id="saveBtn">Export backup</button><button class="btn" id="importBtn">Import backup</button><button class="btn" id="soundBtn" aria-pressed="false">Sound: Off</button><button class="btn danger" id="resetBtn">New game</button></div></header>
 <section class="stats" aria-label="Empire statistics"><div class="stat"><span>CASH</span><strong id="cash">$0</strong></div><div class="stat"><span>DEBT</span><strong id="debt">$0</strong></div><div class="stat"><span>NET WORTH</span><strong id="net">$0</strong></div><div class="stat"><span>DAY</span><strong id="day">1</strong></div><div class="stat"><span>LEVEL</span><strong id="level">1</strong></div><div class="stat"><span>MARKET</span><strong id="location">Denver</strong></div></section>
 <nav class="nav" aria-label="Game sections"><button class="tab" data-tab="dashboard" aria-selected="true">Command Center</button><button class="tab" data-tab="market" aria-selected="false">Market</button><button class="tab" data-tab="empire" aria-selected="false">Build Empire</button><button class="tab" data-tab="map" aria-selected="false">City Map</button><button class="tab" data-tab="missions" aria-selected="false">Missions</button><button class="tab" data-tab="collection" aria-selected="false">Strain Vault</button><button class="tab" data-tab="leaderboard" aria-selected="false">Hall of Fame</button></nav>
 <main>
@@ -158,9 +158,8 @@ $("ageYes").addEventListener("click",()=>{try{localStorage.setItem("pr_age","yes
 $("ageNo").addEventListener("click",()=>{$("ageMessage").textContent="Access is restricted to adults 21 and older.";});
 $("soundBtn").addEventListener("click",()=>{sound=!sound;$("soundBtn").textContent="Sound: "+(sound?"On":"Off");$("soundBtn").setAttribute("aria-pressed",String(sound));toast(sound?"Sound feedback enabled where supported.":"Sound off.");});
 $("importFile").addEventListener("change",e=>{let f=e.target.files[0];if(f)importSave(f);e.target.value="";});
-$("saveBtn").addEventListener("contextmenu",e=>{e.preventDefault();$("importFile").click();});
-$("saveBtn").addEventListener("dblclick",()=>$("importFile").click());
-$("saveBtn").title="Click to export backup; double-click to import a backup";
+$("importBtn").addEventListener("click",()=>$("importFile").click());
+$("saveBtn").title="Download a JSON backup of your current game";
 window.addEventListener("beforeunload",()=>{if(state)save(true);});
 init();
 })();
