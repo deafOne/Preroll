@@ -151,14 +151,15 @@ app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'')
 // Verified strain profile enrichment. Data is fetched by exact strain slug and cached;
 // absent fields remain absent rather than being guessed or filled with generic copy.
 function plainText(v=''){
- return String(v).replace(/<script[\\s\\S]*?<\\/script>/gi,' ').replace(/<style[\\s\\S]*?<\\/style>/gi,' ')
-  .replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"')
-  .replace(/&#39;/gi,"'").replace(/\\s+/g,' ').trim();
+ let s=String(v).replace(new RegExp('<[^>]*>','g'),' ');
+ s=s.replace(new RegExp('&nbsp;','gi'),' ').replace(new RegExp('&amp;','gi'),'&')
+  .replace(new RegExp('&quot;','gi'),'"').replace(new RegExp('&#39;','gi'),"'");
+ return s.replace(new RegExp('\\\\s+','g'),' ').trim();
 }
 function safeHttpUrl(v){
  try{const u=new URL(String(v||''));return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}
 }
-function strainKey(v=''){return String(v).toLowerCase().normalize('NFKD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim()}
+function strainKey(v=''){return String(v).toLowerCase().normalize('NFKD').replace(new RegExp('[^a-z0-9]+','g'),' ').trim()}
 app.get('/api/strains/:slug/profile',async(req,res)=>{
  const slug=String(req.params.slug||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,180);
  const expected=String(req.query.name||'').slice(0,180);
