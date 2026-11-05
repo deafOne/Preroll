@@ -24,6 +24,7 @@ services:
   - type: cron
     name: preroll-strain-sync
     runtime: node
+    plan: free
     rootDir: server
     schedule: "0 5 * * *"
     repo: https://github.com/deafOne/Preroll
