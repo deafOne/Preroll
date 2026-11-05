@@ -1,926 +1,169 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GREEN EMPIRE — Digital Gangster Style</title>
-  <style>
-    :root {
-      --green: #5dff8a;
-      --cyan:  #5ef0ff;
-      --mag:   #ff5ae0;
-      --amber: #ffd95a;
-      --ink:   #05060a;
-      --panel: #0a0c12;
-      --panel2: #0d1018;
-      --border: #33ff66;
-      --text: #e8ffe8;
-      --muted: #b8f0c8;
-      --red: #ff6b7a;
-      --yellow: #ffd95a;
-      --blue: #5ef0ff;
-      --green-dim: #1a9940;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
-      height: 100%;
-      overflow: hidden;
-      font-family: "Lucida Console", "DejaVu Sans Mono", "Courier New", monospace;
-      background: var(--ink);
-      color: var(--text);
-      line-height: 1.3;
-      font-size: 13px;
-    }
-    /* rainbow copper bars — softer so text stays readable */
-    #bg {
-      position: fixed; inset: 0; z-index: 0;
-      background:
-        repeating-linear-gradient(
-          to bottom,
-          #05060a 0px, #05060a 6px,
-          #1a0530 7px, #1a0530 12px,
-          #050620 13px, #050620 18px,
-          #001a2a 19px, #001a2a 24px,
-          #002210 25px, #002210 30px,
-          #2a0010 31px, #2a0010 36px,
-          #2a1a00 37px, #2a1a00 42px,
-          #05060a 43px, #05060a 48px
-        );
-      opacity: 0.32;
-    }
-    #crt {
-      position: fixed; inset: 0; z-index: 40; pointer-events: none;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px,
-        rgba(0,0,0,0.12) 3px, rgba(0,0,0,0.12) 4px
-      );
-      mix-blend-mode: multiply;
-    }
-    #vignette {
-      position: fixed; inset: 0; z-index: 41; pointer-events: none;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 100%);
-    }
-    .app {
-      position: relative;
-      z-index: 10;
-      height: 100%;
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 6px 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      flex-shrink: 0;
-      padding-bottom: 4px;
-      border-bottom: 1px solid rgba(51,255,102,0.35);
-    }
-    h1 {
-      font-size: 1.15rem;
-      color: #fff;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-shadow:
-        0 0 6px var(--cyan),
-        0 0 14px rgba(41,230,255,0.5),
-        2px 2px 0 #001a2a;
-      font-weight: 700;
-    }
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      font-size: 0.78rem;
-    }
-    .stat {
-      background: rgba(0,0,0,0.55);
-      padding: 3px 8px;
-      border: 1px solid var(--green);
-      box-shadow: 0 0 8px rgba(51,255,102,0.15);
-    }
-    .stat strong { color: var(--green); text-shadow: 0 0 6px rgba(51,255,102,0.5); }
-    .stat.debt strong { color: var(--red); text-shadow: 0 0 6px rgba(255,68,102,0.5); }
-    .stat.day strong { color: var(--amber); text-shadow: 0 0 6px rgba(255,204,51,0.5); }
-
-    .main {
-      flex: 1;
-      min-height: 0;
-      display: grid;
-      grid-template-columns: 1fr 260px;
-      gap: 6px;
-    }
-    @media (max-width: 780px) {
-      .main { grid-template-columns: 1fr; }
-      html, body { overflow: auto; }
-      .app { height: auto; min-height: 100%; }
-    }
-
-    .left, .right {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      min-height: 0;
-    }
-
-    .panel {
-      background: rgba(5,6,10,0.94);
-      border: 2px solid var(--green);
-      box-shadow: 0 0 14px rgba(51,255,102,0.18), inset 0 0 20px rgba(51,255,102,0.04);
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-      overflow: hidden;
-    }
-    .panel h2 {
-      font-size: 0.78rem;
-      margin: 0;
-      padding: 5px 8px;
-      background: var(--green);
-      color: #05060a;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-shrink: 0;
-      font-weight: 700;
-    }
-    .panel h2 span { color: #05060a; }
-
-    .market-panel { flex: 0 1 auto; max-height: 62%; }
-    .market-panel .table-wrap {
-      overflow: auto;
-      min-height: 0;
-      padding: 4px 6px 6px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.78rem;
-    }
-    th, td {
-      padding: 3px 4px;
-      text-align: left;
-      border-bottom: 1px dashed rgba(51,255,102,0.25);
-      color: var(--text);
-    }
-    th {
-      color: var(--cyan);
-      font-weight: 600;
-      position: sticky; top: 0;
-      background: rgba(5,6,10,0.97);
-      letter-spacing: 0.06em;
-    }
-    tr:hover td { background: rgba(51,255,102,0.08); }
-    .price { font-variant-numeric: tabular-nums; color: var(--amber); }
-
-    .btn {
-      background: rgba(51,255,102,0.12);
-      color: var(--green);
-      border: 1px solid var(--green);
-      border-radius: 0;
-      padding: 3px 7px;
-      font-size: 0.72rem;
-      font-family: inherit;
-      cursor: pointer;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: background 0.12s, color 0.12s, box-shadow 0.12s;
-    }
-    .btn:hover:not(:disabled) {
-      background: var(--green);
-      color: #05060a;
-      box-shadow: 0 0 12px rgba(51,255,102,0.45);
-    }
-    .btn:disabled { opacity: 0.35; cursor: not-allowed; }
-    .btn.secondary {
-      background: transparent;
-      border-color: var(--cyan);
-      color: var(--cyan);
-    }
-    .btn.secondary:hover:not(:disabled) {
-      background: var(--cyan);
-      color: #05060a;
-      box-shadow: 0 0 12px rgba(41,230,255,0.4);
-    }
-    .btn.small { padding: 2px 6px; font-size: 0.7rem; }
-
-    .actions { display: flex; gap: 3px; align-items: center; flex-wrap: nowrap; }
-    input[type="number"] {
-      width: 42px;
-      background: #05060a;
-      border: 1px solid rgba(51,255,102,0.45);
-      color: var(--green);
-      border-radius: 0;
-      padding: 2px 3px;
-      font-size: 0.72rem;
-      font-family: inherit;
-    }
-    input[type="number"]:focus {
-      outline: none;
-      border-color: var(--cyan);
-      box-shadow: 0 0 8px rgba(41,230,255,0.3);
-    }
-
-    .travel-panel { flex-shrink: 0; }
-    .travel-panel .cities { padding: 5px 6px 6px; }
-    .cities {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 4px;
-    }
-    .city-btn {
-      text-align: left;
-      padding: 5px 6px;
-      background: rgba(0,0,0,0.55);
-      border: 1px solid rgba(51,255,102,0.5);
-      border-radius: 0;
-      cursor: pointer;
-      color: var(--text);
-      font-family: inherit;
-      font-size: 0.74rem;
-      transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
-    }
-    .city-btn:hover:not(:disabled) {
-      border-color: var(--cyan);
-      background: rgba(41,230,255,0.1);
-      box-shadow: 0 0 10px rgba(41,230,255,0.25);
-    }
-    .city-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .city-btn.current {
-      border-color: var(--green);
-      background: rgba(51,255,102,0.15);
-      box-shadow: 0 0 12px rgba(51,255,102,0.3);
-    }
-    .city-btn .name { font-weight: 700; display: block; letter-spacing: 0.04em; color: #fff; }
-    .city-btn .cost { font-size: 0.66rem; color: var(--muted); }
-
-    .inv-panel { flex: 0 0 auto; }
-    .inv-panel .space-bar,
-    .inv-panel .inventory-list { margin-left: 6px; margin-right: 6px; }
-    .inventory-list {
-      list-style: none;
-      overflow-y: auto;
-      max-height: 72px;
-      font-size: 0.74rem;
-      padding-bottom: 4px;
-    }
-    .inventory-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 2px 0;
-      border-bottom: 1px dashed rgba(51,255,102,0.2);
-      color: var(--text);
-    }
-    .empty { color: var(--muted); font-style: normal; padding: 2px 0; opacity: 0.9; }
-
-    .log-panel { flex: 1; min-height: 0; }
-    .log-panel .log { padding: 4px 6px 6px; }
-    .log {
-      flex: 1;
-      overflow-y: auto;
-      font-size: 0.72rem;
-      min-height: 0;
-    }
-    .log-entry {
-      padding: 1px 0;
-      border-bottom: 1px dashed rgba(51,255,102,0.12);
-    }
-    .log-entry.good { color: #7dff9a; text-shadow: 0 0 6px rgba(51,255,102,0.4); }
-    .log-entry.bad { color: #ff8a95; text-shadow: 0 0 6px rgba(255,68,102,0.4); }
-    .log-entry.info { color: #8af5ff; }
-
-    .debt-panel { flex-shrink: 0; }
-    .debt-panel p,
-    .debt-panel .btn { margin-left: 6px; margin-right: 6px; }
-    .debt-panel p { margin-top: 4px; margin-bottom: 4px; }
-    .debt-panel .btn { margin-bottom: 6px; width: calc(100% - 12px); }
-
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      padding: 16px;
-    }
-    .modal {
-      background: rgba(5,6,10,0.95);
-      border: 2px solid var(--green);
-      box-shadow: 0 0 30px rgba(51,255,102,0.25);
-      border-radius: 0;
-      padding: 16px;
-      max-width: 400px;
-      width: 100%;
-      text-align: center;
-    }
-    .modal h2 {
-      color: var(--green);
-      margin-bottom: 8px;
-      font-size: 1rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px rgba(51,255,102,0.5);
-      background: none;
-      padding: 0;
-    }
-    .modal p { color: var(--text); margin-bottom: 12px; line-height: 1.45; font-size: 0.82rem; opacity: 0.95; }
-    .modal .btn { margin: 0 5px; min-width: 90px; }
-
-    .hidden { display: none !important; }
-
-    .space-bar {
-      height: 5px;
-      background: #05060a;
-      border: 1px solid rgba(51,255,102,0.3);
-      overflow: hidden;
-      margin: 4px 0;
-      flex-shrink: 0;
-    }
-    .space-fill {
-      height: 100%;
-      background: var(--green);
-      box-shadow: 0 0 8px rgba(51,255,102,0.5);
-      transition: width 0.3s;
-    }
-    .space-fill.warn { background: var(--amber); box-shadow: 0 0 8px rgba(255,204,51,0.5); }
-    .space-fill.full { background: var(--red); box-shadow: 0 0 8px rgba(255,68,102,0.5); }
-
-    footer {
-      flex-shrink: 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      padding-top: 1px;
-      opacity: 0.95;
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07110c"><meta name="description" content="Green Empire — a fictional 21+ cannabis-market strategy and empire-building game from Preroll.org.">
+<title>Green Empire — Preroll.org</title>
+<style>
+:root{color-scheme:dark;--bg:#07110c;--panel:#0d1b13;--panel2:#12251a;--line:#244a32;--green:#73e69a;--bright:#a8ffc0;--gold:#f0c66e;--muted:#9db5a4;--red:#ff8585;--blue:#8bd7e8;--shadow:0 14px 35px #0007}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% -10%,#173d27 0,transparent 42%),linear-gradient(145deg,#07110c,#09150e 55%,#050a07);color:#edf8ef;font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}a{color:var(--bright)}.shell{max-width:1400px;margin:auto;padding:18px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:10px 2px 18px;border-bottom:1px solid #31543b}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:44px;height:44px;border:1px solid #5c9e70;border-radius:13px;display:grid;place-items:center;color:var(--bright);font-weight:900;font-size:22px;background:linear-gradient(145deg,#1b4b2b,#0a1a10);box-shadow:0 0 22px #50d67b22}.brand h1{font-size:clamp(21px,3vw,30px);letter-spacing:.12em;margin:0}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px;letter-spacing:.08em}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid #497958;background:#14281b;color:#dff8e6;border-radius:9px;padding:9px 13px;font-weight:700;font-size:13px;transition:.15s}.btn:hover:not(:disabled){background:#21472e;border-color:var(--green);transform:translateY(-1px)}.btn.primary{background:var(--green);border-color:var(--green);color:#07130b}.btn.primary:hover:not(:disabled){background:var(--bright)}.btn.gold{border-color:#8e7139;color:#ffe2a0;background:#302715}.btn.danger{border-color:#754343;color:#ffb1b1;background:#301818}.btn.small{padding:6px 9px;font-size:12px}.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;margin:15px 0}.stat,.panel,.tile{background:linear-gradient(150deg,#102218,#0b1710);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow)}.stat{padding:11px 13px;min-width:0}.stat span{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;font-weight:800}.stat strong{display:block;margin-top:4px;font-size:clamp(16px,2vw,22px);font-variant-numeric:tabular-nums;white-space:nowrap}.stat .negative{color:var(--red)}.nav{display:flex;gap:6px;overflow:auto;padding:3px 0 13px;scrollbar-width:thin}.tab{white-space:nowrap;border:1px solid #31553b;background:#0b1810;color:#b9d0bf;border-radius:999px;padding:9px 15px;font-size:13px;font-weight:750}.tab[aria-selected=true]{background:#244a30;color:#dfffe7;border-color:#6fc88a;box-shadow:0 0 16px #54c87920}.view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,.9fr);gap:13px}.panel{padding:16px;min-width:0}.panel h2{margin:0 0 12px;font-size:16px;letter-spacing:.04em}.panel h3{margin:0 0 7px;font-size:14px}.muted{color:var(--muted)}.eyebrow{font-size:10px;color:var(--green);font-weight:900;letter-spacing:.16em;text-transform:uppercase}.hero{padding:21px;background:linear-gradient(120deg,#153b24,#102318 55%,#152a1c);border:1px solid #477c53;border-radius:15px;margin-bottom:13px;position:relative;overflow:hidden}.hero:after{content:"GE";position:absolute;right:22px;top:-22px;font-size:130px;font-weight:1000;color:#aaffbf0a;pointer-events:none}.hero h2{font-size:clamp(22px,3vw,34px);margin:4px 0 7px}.hero p{max-width:740px;color:#c3d9c9;margin:0}.hero-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.market-table{width:100%;border-collapse:collapse;font-size:13px}.market-table th,.market-table td{text-align:left;padding:10px 8px;border-bottom:1px solid #233d2b}.market-table th{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}.market-table tr:last-child td{border-bottom:0}.product-name{font-weight:800}.sub{display:block;color:var(--muted);font-size:11px;font-weight:500}.price{color:var(--gold);font-weight:850;white-space:nowrap}.trend-up{color:var(--green)}.trend-down{color:var(--red)}.trade-actions{display:flex;gap:5px;align-items:center}.qty{width:48px;min-width:0;padding:7px 5px;border:1px solid #3d6248;border-radius:7px;background:#07120b;color:white}.market-wrap{overflow:auto}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{padding:14px;box-shadow:none}.tile .big{font-size:23px;font-weight:900;color:var(--bright)}.tile p{font-size:12px;color:var(--muted);margin:5px 0 12px}.tile .btn{margin-top:7px}.city-grid,.business-grid,.mission-grid,.collection-grid,.achievement-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.city-card,.business-card,.mission-card,.collect-card,.achievement-card{border:1px solid #294b34;background:#0b1910;border-radius:11px;padding:13px;min-width:0}.city-card.current{border-color:var(--green);background:#14301d}.city-card h3,.business-card h3{margin:0 0 4px}.city-card p,.business-card p,.mission-card p,.collect-card p,.achievement-card p{font-size:12px;color:var(--muted);margin:4px 0 9px}.city-meta{display:flex;justify-content:space-between;gap:8px;color:var(--gold);font-size:12px;margin:9px 0}.bar{height:7px;background:#07110b;border-radius:99px;overflow:hidden;border:1px solid #2c4d35}.bar span{display:block;height:100%;background:linear-gradient(90deg,#42a866,#a2f6b5);border-radius:99px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.section-head p{margin:0}.section-head h2{margin:2px 0 0}.stack{display:grid;gap:10px}.log{display:grid;gap:7px;max-height:340px;overflow:auto}.log-entry{border-left:3px solid #497b57;background:#0a160e;padding:8px 10px;border-radius:0 8px 8px 0;font-size:12px;color:#c4d8ca}.log-entry.good{border-color:var(--green)}.log-entry.bad{border-color:var(--red)}.log-entry.gold{border-color:var(--gold)}.notice{padding:11px 13px;background:#15271a;border:1px solid #385c40;border-radius:10px;color:#c9e4d0;font-size:12px}.pill{display:inline-block;border:1px solid #3a6545;border-radius:999px;padding:3px 8px;font-size:10px;color:#bfe8c9;font-weight:800;letter-spacing:.05em}.progress{display:flex;align-items:center;gap:9px;margin:8px 0}.progress .bar{flex:1}.locked{opacity:.48;filter:grayscale(.7)}.empty{color:var(--muted);font-size:13px;padding:14px;text-align:center}.leader-row{display:grid;grid-template-columns:42px 1fr auto;gap:9px;align-items:center;padding:10px 0;border-bottom:1px solid #213a29}.leader-row:last-child{border:0}.rank{color:var(--gold);font-weight:900}.footer{padding:22px 5px 8px;color:#88a18f;font-size:11px;text-align:center}.overlay{position:fixed;inset:0;z-index:50;background:#020805ed;display:grid;place-items:center;padding:18px}.modal{width:min(520px,100%);background:#0e2015;border:1px solid #5a9467;border-radius:17px;padding:24px;box-shadow:0 25px 80px #000b}.modal h2{margin:0 0 9px;font-size:25px}.modal p{color:#bdd3c3}.modal .btn{margin-top:9px}.gate{z-index:100}.modal input{width:100%;padding:11px;border:1px solid #456c50;background:#07120b;color:white;border-radius:8px;margin:8px 0}.hidden{display:none!important}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:120;background:#d5f9de;color:#092011;padding:10px 16px;border-radius:999px;font-weight:800;box-shadow:var(--shadow);max-width:90vw;text-align:center}.mobile-only{display:none}
+@media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr}.city-grid,.business-grid,.mission-grid,.collection-grid,.achievement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.shell{padding:11px}.top{align-items:flex-start}.top-actions{width:100%}.top-actions .btn{flex:1}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.stat{padding:9px}.cards{grid-template-columns:1fr}.city-grid,.business-grid,.mission-grid,.collection-grid,.achievement-grid{grid-template-columns:1fr}.panel{padding:12px}.market-table{min-width:580px}.hero{padding:16px}.hero:after{font-size:85px}.mobile-only{display:block}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <div id="bg"></div>
-  <div id="crt"></div>
-  <div id="vignette"></div>
-  <div class="app">
-    <header>
-      <h1>GREEN EMPIRE</h1>
-      <div class="stats">
-        <div class="stat">CASH <strong id="cash">$0</strong></div>
-        <div class="stat debt">DEBT <strong id="debt">$0</strong></div>
-        <div class="stat">NET <strong id="net">$0</strong></div>
-        <div class="stat day">DAY <strong id="day">1</strong></div>
-        <div class="stat">LOC <strong id="location">—</strong></div>
-      </div>
-    </header>
-
-    <div class="main">
-      <div class="left">
-        <div class="panel market-panel">
-          <h2>Market — <span id="market-city">—</span></h2>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Own</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="market-body"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="panel travel-panel">
-          <h2>Travel</h2>
-          <div class="cities" id="cities"></div>
-        </div>
-      </div>
-
-      <div class="right">
-        <div class="panel inv-panel">
-          <h2>Inventory <span id="space-text" style="font-size:0.72rem;opacity:0.85"></span></h2>
-          <div class="space-bar"><div class="space-fill" id="space-fill"></div></div>
-          <ul class="inventory-list" id="inventory"></ul>
-        </div>
-
-        <div class="panel log-panel">
-          <h2>Event Log</h2>
-          <div class="log" id="log"></div>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      (C) GREEN EMPIRE — CANNABIS TRADING SIM · INSPIRED BY CLASSIC DOPE WARS · PURELY FICTIONAL
-    </footer>
-  </div>
-
-  <!-- Start Modal -->
-  <div class="modal-overlay" id="start-modal">
-    <div class="modal">
-      <h2>GREEN EMPIRE</h2>
-      <p>
-        You borrowed <strong>$2,000</strong> from a lender to start a small cannabis trading operation.
-        Travel between cities, buy low, sell high, and pay off the debt before interest eats you alive.
-        <br><br>
-        Inventory space is limited. Watch the market and the cops.
-      </p>
-      <button class="btn" id="start-btn">START TRADING</button>
-    </div>
-  </div>
-
-  <!-- Event Modal -->
-  <div class="modal-overlay hidden" id="event-modal">
-    <div class="modal">
-      <h2 id="event-title">Event</h2>
-      <p id="event-text"></p>
-      <button class="btn" id="event-ok">OK</button>
-    </div>
-  </div>
-
-  <!-- Game Over Modal -->
-  <div class="modal-overlay hidden" id="end-modal">
-    <div class="modal">
-      <h2 id="end-title">Game Over</h2>
-      <p id="end-text"></p>
-      <button class="btn" id="restart-btn">Play Again</button>
-    </div>
-  </div>
-
-  <script>
-    // ========== GAME DATA ==========
-    const CITIES = [
-      { id: 'seattle', name: 'Seattle', travel: 80 },
-      { id: 'denver', name: 'Denver', travel: 120 },
-      { id: 'portland', name: 'Portland', travel: 70 },
-      { id: 'la', name: 'Los Angeles', travel: 150 },
-      { id: 'chicago', name: 'Chicago', travel: 140 },
-      { id: 'nyc', name: 'New York', travel: 180 }
-    ];
-
-    // Real brands stocked in the game cities (WA/OR/CO/CA/IL/NY markets)
-    const PRODUCTS = [
-      { id: 'wyld',    name: 'Wyld Real Fruit Gummies',   base: 28, volatility: 0.28, space: 1 },
-      { id: 'camino',  name: 'Camino Gummies 10pk',       base: 26, volatility: 0.30, space: 1 },
-      { id: 'stiiizy', name: 'STIIIZY Live Resin Pod',    base: 48, volatility: 0.40, space: 1 },
-      { id: 'jeeter',  name: 'Jeeter Infused Pre-Roll 5pk', base: 42, volatility: 0.35, space: 1 },
-      { id: 'cookies', name: 'Cookies Flower 3.5g',       base: 52, volatility: 0.42, space: 1 },
-      { id: 'phat',    name: 'Phat Panda Pre-Roll',       base: 14, volatility: 0.38, space: 1 },
-      { id: '710',     name: '710 Labs Live Rosin 1g',    base: 68, volatility: 0.50, space: 1 },
-      { id: 'rawg',    name: 'Raw Garden Live Resin',     base: 55, volatility: 0.45, space: 1 }
-    ];
-
-    const MAX_SPACE = 40;
-    const START_CASH = 2000;
-    const START_DEBT = 2000;
-    const INTEREST_RATE = 0.08; // 8% per travel/day advance
-    const MAX_DAYS = 30;
-
-    // ========== STATE ==========
-    let state = {};
-
-    function freshState() {
-      return {
-        cash: START_CASH,
-        debt: START_DEBT,
-        day: 1,
-        city: 'denver',
-        inventory: {}, // productId -> qty
-        prices: {},    // cityId -> { productId -> price }
-        log: [],
-        gameOver: false
-      };
-    }
-
-    // ========== HELPERS ==========
-    function rand(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-    function randInt(min, max) {
-      return Math.floor(rand(min, max + 1));
-    }
-    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
-
-    function formatMoney(n) {
-      return '$' + Math.round(n).toLocaleString();
-    }
-
-    function usedSpace() {
-      let s = 0;
-      for (const [id, qty] of Object.entries(state.inventory)) {
-        const p = PRODUCTS.find(x => x.id === id);
-        s += (p?.space || 1) * qty;
-      }
-      return s;
-    }
-
-    function invQty(id) {
-      return state.inventory[id] || 0;
-    }
-
-    function netWorth() {
-      let invValue = 0;
-      const cityPrices = state.prices[state.city] || {};
-      for (const [id, qty] of Object.entries(state.inventory)) {
-        invValue += (cityPrices[id] || 0) * qty;
-      }
-      return state.cash + invValue - state.debt;
-    }
-
-    function addLog(msg, type = 'info') {
-      state.log.unshift({ msg, type, day: state.day });
-      if (state.log.length > 40) state.log.pop();
-    }
-
-    // ========== PRICE GENERATION ==========
-    function generatePrices() {
-      const prices = {};
-      for (const city of CITIES) {
-        prices[city.id] = {};
-        // City modifiers: some cities are generally higher/lower
-        const cityMod = {
-          seattle: 0.95, denver: 0.90, portland: 0.92,
-          la: 1.15, chicago: 1.05, nyc: 1.25
-        }[city.id] || 1;
-
-        for (const p of PRODUCTS) {
-          const vol = p.volatility;
-          const factor = rand(1 - vol, 1 + vol) * cityMod;
-          // Occasional extreme spikes/drops
-          let extreme = 1;
-          if (Math.random() < 0.08) extreme = rand(0.4, 0.7);   // crash
-          if (Math.random() < 0.07) extreme = rand(1.6, 2.4);   // boom
-          prices[city.id][p.id] = Math.round(p.base * factor * extreme);
-        }
-      }
-      return prices;
-    }
-
-    // ========== EVENTS ==========
-    const EVENTS = [
-      {
-        chance: 0.12,
-        run() {
-          const fine = randInt(150, 450);
-          if (state.cash >= fine) {
-            state.cash -= fine;
-            return { title: '🚔 Police Attention', text: `Local enforcement is cracking down. You pay a $${fine} fine to stay under the radar.`, type: 'bad' };
-          } else {
-            // Seize some inventory
-            const keys = Object.keys(state.inventory).filter(k => state.inventory[k] > 0);
-            if (keys.length) {
-              const k = keys[randInt(0, keys.length - 1)];
-              const lost = Math.min(state.inventory[k], randInt(2, 6));
-              state.inventory[k] -= lost;
-              if (state.inventory[k] <= 0) delete state.inventory[k];
-              return { title: '🚔 Police Attention', text: `Cops seize ${lost} units of product. You got off light.`, type: 'bad' };
-            }
-            return { title: '🚔 Close Call', text: 'Police are active but you slip away with nothing lost.', type: 'info' };
-          }
-        }
-      },
-      {
-        chance: 0.10,
-        run() {
-          const bonus = randInt(100, 350);
-          state.cash += bonus;
-          return { title: '💰 High Demand', text: `A local event spikes demand. You unload some inventory off-market for an extra $${bonus}.`, type: 'good' };
-        }
-      },
-      {
-        chance: 0.08,
-        run() {
-          // Price boom on one product in current city
-          const p = PRODUCTS[randInt(0, PRODUCTS.length - 1)];
-          const old = state.prices[state.city][p.id];
-          state.prices[state.city][p.id] = Math.round(old * rand(1.7, 2.5));
-          return { title: '📈 Supply Crunch', text: `${p.name} is suddenly scarce here. Prices have jumped hard.`, type: 'good' };
-        }
-      },
-      {
-        chance: 0.08,
-        run() {
-          const p = PRODUCTS[randInt(0, PRODUCTS.length - 1)];
-          const old = state.prices[state.city][p.id];
-          state.prices[state.city][p.id] = Math.max(5, Math.round(old * rand(0.35, 0.6)));
-          return { title: '📉 Market Flood', text: `Someone dumped a lot of ${p.name} on the market. Prices crashed.`, type: 'bad' };
-        }
-      },
-      {
-        chance: 0.07,
-        run() {
-          // Find extra product
-          const p = PRODUCTS[randInt(0, PRODUCTS.length - 1)];
-          const spaceLeft = MAX_SPACE - usedSpace();
-          if (spaceLeft < 1) {
-            return { title: '🎁 Lucky Find', text: `You found a small stash of ${p.name} but your inventory is full. Had to leave it.`, type: 'info' };
-          }
-          const qty = Math.min(spaceLeft, randInt(1, 4));
-          state.inventory[p.id] = (state.inventory[p.id] || 0) + qty;
-          return { title: '🎁 Lucky Find', text: `You came across ${qty} units of ${p.name}. Free inventory!`, type: 'good' };
-        }
-      },
-      {
-        chance: 0.06,
-        run() {
-          // Interest reminder / pressure
-          return { title: '📞 Lender Calling', text: `Your lender reminds you the debt is accruing interest. Pay it down when you can.`, type: 'info' };
-        }
-      },
-      {
-        chance: 0.05,
-        run() {
-          // Quality issue - lose some product
-          const keys = Object.keys(state.inventory).filter(k => state.inventory[k] > 0);
-          if (!keys.length) return null;
-          const k = keys[randInt(0, keys.length - 1)];
-          const lost = Math.min(state.inventory[k], randInt(1, 3));
-          state.inventory[k] -= lost;
-          if (state.inventory[k] <= 0) delete state.inventory[k];
-          const p = PRODUCTS.find(x => x.id === k);
-          return { title: '😬 Quality Issue', text: `${lost} units of ${p.name} went bad in transit. Written off.`, type: 'bad' };
-        }
-      }
-    ];
-
-    function maybeTriggerEvent() {
-      for (const e of EVENTS) {
-        if (Math.random() < e.chance) {
-          const result = e.run();
-          if (result) return result;
-        }
-      }
-      return null;
-    }
-
-    // ========== ACTIONS ==========
-    function buy(productId, qty) {
-      if (state.gameOver) return;
-      qty = Math.floor(qty);
-      if (qty < 1) return;
-
-      const price = state.prices[state.city][productId];
-      const cost = price * qty;
-      const p = PRODUCTS.find(x => x.id === productId);
-      const spaceNeeded = (p?.space || 1) * qty;
-
-      if (cost > state.cash) {
-        addLog('Not enough cash.', 'bad');
-        render();
-        return;
-      }
-      if (usedSpace() + spaceNeeded > MAX_SPACE) {
-        addLog('Not enough inventory space.', 'bad');
-        render();
-        return;
-      }
-
-      state.cash -= cost;
-      state.inventory[productId] = (state.inventory[productId] || 0) + qty;
-      addLog(`Bought ${qty} ${p.name} for ${formatMoney(cost)}.`, 'info');
-      render();
-    }
-
-    function sell(productId, qty) {
-      if (state.gameOver) return;
-      qty = Math.floor(qty);
-      if (qty < 1) return;
-      if (invQty(productId) < qty) {
-        addLog('You don\'t have that many.', 'bad');
-        render();
-        return;
-      }
-
-      const price = state.prices[state.city][productId];
-      const revenue = price * qty;
-      const p = PRODUCTS.find(x => x.id === productId);
-
-      state.cash += revenue;
-      state.inventory[productId] -= qty;
-      if (state.inventory[productId] <= 0) delete state.inventory[productId];
-      addLog(`Sold ${qty} ${p.name} for ${formatMoney(revenue)}.`, 'good');
-      render();
-    }
-
-    function travel(cityId) {
-      if (state.gameOver || cityId === state.city) return;
-
-      const city = CITIES.find(c => c.id === cityId);
-      if (!city) return;
-
-      if (state.cash < city.travel) {
-        addLog(`Not enough cash for travel (need ${formatMoney(city.travel)}).`, 'bad');
-        render();
-        return;
-      }
-
-      state.cash -= city.travel;
-      state.city = cityId;
-      state.day += 1;
-
-      // Interest on debt
-      const interest = Math.round(state.debt * INTEREST_RATE);
-      state.debt += interest;
-      if (interest > 0) {
-        addLog(`Debt interest: +${formatMoney(interest)}.`, 'bad');
-      }
-
-      // Refresh prices
-      state.prices = generatePrices();
-
-      addLog(`Traveled to ${city.name}.`, 'info');
-
-      // Check win/lose conditions
-      if (state.day > MAX_DAYS) {
-        endGame(false, `You ran out of time (Day ${MAX_DAYS}). Final net worth: ${formatMoney(netWorth())}.`);
-        return;
-      }
-      if (state.debt > 0 && state.cash + Object.values(state.inventory).reduce((a,b)=>a+b,0) === 0 && netWorth() < -500) {
-        // Rough bankrupt check
-      }
-
-      // Event?
-      const ev = maybeTriggerEvent();
-      render();
-      if (ev) {
-        showEvent(ev.title, ev.text, ev.type);
-        addLog(ev.text, ev.type);
-      }
-    }
-
-    function payDebt() {
-      if (state.debt <= 0) return;
-      const pay = Math.min(state.cash, state.debt);
-      if (pay <= 0) {
-        addLog('No cash to pay debt.', 'bad');
-        render();
-        return;
-      }
-      state.cash -= pay;
-      state.debt -= pay;
-      addLog(`Paid ${formatMoney(pay)} toward debt.`, 'good');
-      if (state.debt <= 0) {
-        state.debt = 0;
-        addLog('🎉 Debt fully paid off!', 'good');
-        // Soft win check
-        if (netWorth() >= 10000) {
-          endGame(true, `You paid off the debt and built a solid operation. Final net worth: ${formatMoney(netWorth())}.`);
-          return;
-        }
-      }
-      render();
-    }
-
-    function endGame(won, text) {
-      state.gameOver = true;
-      document.getElementById('end-title').textContent = won ? '🏆 Empire Built' : 'Game Over';
-      document.getElementById('end-text').textContent = text;
-      document.getElementById('end-modal').classList.remove('hidden');
-    }
-
-    // ========== RENDER ==========
-    function render() {
-      document.getElementById('cash').textContent = formatMoney(state.cash);
-      document.getElementById('debt').textContent = formatMoney(state.debt);
-      document.getElementById('net').textContent = formatMoney(netWorth());
-      document.getElementById('day').textContent = state.day;
-      const cityObj = CITIES.find(c => c.id === state.city);
-      document.getElementById('location').textContent = cityObj?.name || '—';
-      document.getElementById('market-city').textContent = cityObj?.name || '—';
-
-      // Market table
-      const tbody = document.getElementById('market-body');
-      tbody.innerHTML = '';
-      const prices = state.prices[state.city] || {};
-
-      for (const p of PRODUCTS) {
-        const price = prices[p.id] || p.base;
-        const owned = invQty(p.id);
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${p.name}</td>
-          <td class="price">${formatMoney(price)}</td>
-          <td>${owned}</td>
-          <td>
-            <div class="actions">
-              <input type="number" min="1" value="1" id="qty-buy-${p.id}" />
-              <button class="btn small" data-buy="${p.id}">Buy</button>
-              <button class="btn small secondary" data-sell="${p.id}" ${owned < 1 ? 'disabled' : ''}>Sell</button>
-            </div>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      }
-
-      // Buy/Sell listeners
-      tbody.querySelectorAll('[data-buy]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const id = btn.getAttribute('data-buy');
-          const input = document.getElementById(`qty-buy-${id}`);
-          buy(id, parseInt(input.value, 10) || 1);
-        });
-      });
-      tbody.querySelectorAll('[data-sell]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const id = btn.getAttribute('data-sell');
-          const input = document.getElementById(`qty-buy-${id}`);
-          sell(id, parseInt(input.value, 10) || 1);
-        });
-      });
-
-      // Cities
-      const citiesEl = document.getElementById('cities');
-      citiesEl.innerHTML = '';
-      for (const c of CITIES) {
-        const btn = document.createElement('button');
-        btn.className = 'city-btn' + (c.id === state.city ? ' current' : '');
-        btn.disabled = c.id === state.city || state.gameOver;
-        btn.innerHTML = `<span class="name">${c.name}</span><span class="cost">${c.id === state.city ? 'Current location' : 'Travel: ' + formatMoney(c.travel)}</span>`;
-        btn.addEventListener('click', () => travel(c.id));
-        citiesEl.appendChild(btn);
-      }
-
-      // Inventory
-      const invEl = document.getElementById('inventory');
-      invEl.innerHTML = '';
-      const entries = Object.entries(state.inventory).filter(([, q]) => q > 0);
-      if (!entries.length) {
-        invEl.innerHTML = '<li class="empty">Empty</li>';
-      } else {
-        for (const [id, qty] of entries) {
-          const p = PRODUCTS.find(x => x.id === id);
-          const li = document.createElement('li');
-          li.innerHTML = `<span>${p?.name || id}</span><span>×${qty}</span>`;
-          invEl.appendChild(li);
-        }
-      }
-
-      // Space bar
-      const used = usedSpace();
-      const pct = (used / MAX_SPACE) * 100;
-      document.getElementById('space-text').textContent = `${used} / ${MAX_SPACE}`;
-      const fill = document.getElementById('space-fill');
-      fill.style.width = pct + '%';
-      fill.className = 'space-fill' + (pct >= 100 ? ' full' : pct >= 75 ? ' warn' : '');
-
-      // Log
-      const logEl = document.getElementById('log');
-      logEl.innerHTML = state.log.map(e => 
-        `<div class="log-entry ${e.type}">Day ${e.day}: ${e.msg}</div>`
-      ).join('');
-
-      // Pay debt button (add if debt > 0)
-      // We'll inject a small control under inventory
-    }
-
-    function showEvent(title, text, type) {
-      document.getElementById('event-title').textContent = title;
-      document.getElementById('event-text').textContent = text;
-      document.getElementById('event-modal').classList.remove('hidden');
-    }
-
-    // ========== INIT ==========
-    function startGame() {
-      state = freshState();
-      state.prices = generatePrices();
-      addLog('You arrive in Denver with a stake and a debt. Time to build an empire.', 'info');
-      document.getElementById('start-modal').classList.add('hidden');
-      document.getElementById('end-modal').classList.add('hidden');
-      render();
-    }
-
-    document.getElementById('start-btn').addEventListener('click', startGame);
-    document.getElementById('event-ok').addEventListener('click', () => {
-      document.getElementById('event-modal').classList.add('hidden');
-    });
-    document.getElementById('restart-btn').addEventListener('click', startGame);
-
-    // Add a permanent pay-debt control
-    const rightPanel = document.querySelector('.right');
-    const payPanel = document.createElement('div');
-    payPanel.className = 'panel debt-panel';
-    payPanel.innerHTML = `
-      <h2>Debt</h2>
-      <p style="font-size:0.72rem;color:var(--muted);">Interest accrues on travel.</p>
-      <button class="btn" id="pay-debt-btn">PAY DEBT</button>
-    `;
-    rightPanel.appendChild(payPanel);
-    document.getElementById('pay-debt-btn').addEventListener('click', payDebt);
-
-    // Auto-start is blocked by modal
-  </script>
+<div id="ageGate" class="overlay gate"><div class="modal"><div class="eyebrow">PREROLL.ORG • ADULT EXPERIENCE</div><h2>Green Empire</h2><p>This fictional strategy game is intended for adults 21+. It is entertainment only and does not facilitate or promote real-world cannabis sales or unlawful activity.</p><p><strong>Are you 21 or older?</strong></p><button id="ageYes" class="btn primary">Yes, I am 21+</button> <button id="ageNo" class="btn">No, exit</button><p id="ageMessage" class="muted"></p></div></div>
+<div class="shell">
+<header class="top"><div class="brand"><div class="brand-mark">GE</div><div><h1>GREEN EMPIRE</h1><p>A PREROLL.ORG MARKET STRATEGY GAME</p></div></div><div class="top-actions"><button class="btn" id="saveBtn">Save game</button><button class="btn" id="soundBtn" aria-pressed="false">Sound: Off</button><button class="btn danger" id="resetBtn">New game</button></div></header>
+<section class="stats" aria-label="Empire statistics"><div class="stat"><span>CASH</span><strong id="cash">$0</strong></div><div class="stat"><span>DEBT</span><strong id="debt">$0</strong></div><div class="stat"><span>NET WORTH</span><strong id="net">$0</strong></div><div class="stat"><span>DAY</span><strong id="day">1</strong></div><div class="stat"><span>LEVEL</span><strong id="level">1</strong></div><div class="stat"><span>MARKET</span><strong id="location">Denver</strong></div></section>
+<nav class="nav" aria-label="Game sections"><button class="tab" data-tab="dashboard" aria-selected="true">Command Center</button><button class="tab" data-tab="market" aria-selected="false">Market</button><button class="tab" data-tab="empire" aria-selected="false">Build Empire</button><button class="tab" data-tab="map" aria-selected="false">City Map</button><button class="tab" data-tab="missions" aria-selected="false">Missions</button><button class="tab" data-tab="collection" aria-selected="false">Strain Vault</button><button class="tab" data-tab="leaderboard" aria-selected="false">Hall of Fame</button></nav>
+<main>
+<section id="view-dashboard" class="view active"><div class="hero"><div class="eyebrow">YOUR NEXT MOVE STARTS HERE</div><h2>Build smart. Grow steady. Own the market.</h2><p>Trade in a fictional, regulated-market simulation, expand your businesses, manage your team and build a lasting empire. Every in-game day changes the market.</p><div class="hero-row"><button class="btn primary" data-goto="market">Open the market</button><button class="btn gold" data-goto="empire">Expand your empire</button><span class="pill" id="saveStatus">Autosave ready</span></div></div>
+<div class="grid"><div class="stack"><div class="panel"><div class="section-head"><div><p class="eyebrow">LIVE MARKET PULSE</p><h2 id="marketHeadline">Market opening report</h2></div><span class="pill" id="marketMood">STABLE</span></div><p id="marketNews" class="muted">Prices update as you advance the game.</p><div id="marketPreview" class="cards"></div></div><div class="panel"><div class="section-head"><div><p class="eyebrow">ACTIVE OBJECTIVES</p><h2>Today's missions</h2></div><button class="btn small" data-goto="missions">View all</button></div><div id="dashboardMissions" class="stack"></div></div></div>
+<div class="stack"><div class="panel"><h2>Empire overview</h2><div id="empireOverview" class="stack"></div></div><div class="panel"><h2>Recent activity</h2><div id="activityLog" class="log"></div></div><div class="panel"><h2>Daily operations</h2><p class="muted">Advance one day to refresh the market, collect business revenue, pay staff and progress missions.</p><button id="advanceBtn" class="btn primary">Advance day</button><button id="debtBtn" class="btn gold">Pay down debt</button></div></div></div></section>
+<section id="view-market" class="view"><div class="panel"><div class="section-head"><div><p class="eyebrow">DYNAMIC SUPPLY & DEMAND</p><h2>Fictional wholesale exchange</h2></div><span class="pill" id="marketDay">DAY 1</span></div><p class="muted">Prices are game values only. City demand, random events and your market upgrades influence the simulation.</p><div class="market-wrap"><table class="market-table"><thead><tr><th>Product / strain</th><th>Market price</th><th>Trend</th><th>Owned</th><th>Trade quantity</th></tr></thead><tbody id="marketBody"></tbody></table></div></div></section>
+<section id="view-empire" class="view"><div class="hero"><div class="eyebrow">FROM ONE OPERATION TO A NETWORK</div><h2>Build your business portfolio</h2><p>Acquire fictional retail, cultivation, processing and distribution properties. Hire staff and invest in upgrades to generate passive in-game revenue.</p></div><div class="grid"><div class="stack"><div class="panel"><h2>Available businesses</h2><div id="businessCatalog" class="business-grid"></div></div><div class="panel"><h2>Your properties</h2><div id="ownedBusinesses" class="business-grid"></div></div></div><div class="stack"><div class="panel"><h2>Team & upgrades</h2><div id="staffUpgrades" class="stack"></div></div><div class="panel"><h2>Empire milestones</h2><div id="milestones" class="stack"></div></div></div></div></section>
+<section id="view-map" class="view"><div class="panel"><div class="section-head"><div><p class="eyebrow">SIX FICTIONAL MARKET HUBS</p><h2>Expand your footprint</h2></div><span class="pill" id="cityCount">1 / 6 hubs visited</span></div><p class="muted">Each market has its own demand profile, price modifier and travel cost. Visit hubs to unlock city-specific market achievements.</p><div id="cityGrid" class="city-grid"></div></div></section>
+<section id="view-missions" class="view"><div class="panel"><div class="section-head"><div><p class="eyebrow">PLAY WITH A PURPOSE</p><h2>Contracts & challenges</h2></div><button id="newMissionsBtn" class="btn small">Refresh missions</button></div><p class="muted">Complete objectives for cash, experience and collectible cards. Refreshing missions costs an in-game day.</p><div id="missionGrid" class="mission-grid"></div></div><div class="panel" style="margin-top:13px"><h2>Achievements</h2><div id="achievementGrid" class="achievement-grid"></div></div></section>
+<section id="view-collection" class="view"><div class="panel"><div class="section-head"><div><p class="eyebrow">COLLECT • DISCOVER • COMPLETE</p><h2>Strain vault</h2></div><span class="pill" id="collectionCount">0 / 12 collected</span></div><p class="muted">Collect fictional cultivar cards. Rarity, profile tags and game bonuses are invented for entertainment and are not product testing data or claims about real strains.</p><div id="collectionGrid" class="collection-grid"></div></div></section>
+<section id="view-leaderboard" class="view"><div class="grid"><div class="panel"><p class="eyebrow">LOCAL RECORDS</p><h2>Hall of Fame</h2><p class="muted">Best scores saved on this device and browser. This is not a cross-player online leaderboard; no account or personal data is collected.</p><div id="leaderboardList"></div></div><div class="panel"><h2>Your career stats</h2><div id="careerStats" class="stack"></div><div class="notice" style="margin-top:12px">Tip: keep a save on this device. Clearing browser data can remove local game progress and records.</div></div></div></section>
+</main>
+<footer class="footer">GREEN EMPIRE • A fictional strategy game • 21+ • Entertainment only • <a href="../index.html">Back to Preroll.org</a></footer>
+</div>
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<div id="startModal" class="overlay hidden"><div class="modal"><div class="eyebrow">THE FIRST MOVE</div><h2>Welcome to Green Empire.</h2><p>You start with <strong>$2,000 in cash</strong> and a matching in-game startup loan. Build a responsible fictional market operation, make strategic decisions and pay down your debt while expanding.</p><p class="muted">Your progress saves automatically in this browser. You can export a backup from the Save game button.</p><button id="startGameBtn" class="btn primary">Start building</button></div></div>
+<div id="confirmModal" class="overlay hidden"><div class="modal"><h2>Start a new empire?</h2><p>This replaces the current save on this device. Export a backup first if you want to keep your current run.</p><button id="confirmReset" class="btn danger">Start new game</button> <button id="cancelReset" class="btn">Cancel</button></div></div>
+<input id="importFile" type="file" accept="application/json,.json" hidden>
+<script src="../age-gate.js"></script>
+<script>
+(function(){
+"use strict";
+const SAVE_KEY="greenEmpireSaveV2",SCORES_KEY="greenEmpireScoresV2",DAY_LIMIT=45,START_CASH=2000,START_DEBT=2000;
+const CITIES=[
+{id:"denver",name:"Denver",cost:0,mod:.94,demand:"Balanced",desc:"A steady launch market with approachable prices."},
+{id:"portland",name:"Portland",cost:90,mod:.92,demand:"Craft demand",desc:"Independent-minded customers favor boutique profiles."},
+{id:"seattle",name:"Seattle",cost:110,mod:.98,demand:"Premium demand",desc:"A mature market with strong premium-category demand."},
+{id:"chicago",name:"Chicago",cost:145,mod:1.04,demand:"High volume",desc:"A large, competitive market with broad category demand."},
+{id:"losangeles",name:"Los Angeles",cost:165,mod:1.12,demand:"Trend driven",desc:"Fast-moving demand rewards smart inventory choices."},
+{id:"newyork",name:"New York",cost:190,mod:1.18,demand:"Premium & volume",desc:"A high-value endgame market with intense competition."}
+];
+const PRODUCTS=[
+{id:"citrus",name:"Citrus Haze",type:"Flower",base:38,vol:.25,space:1,tag:"Citrus",rarity:"Common"},
+{id:"night",name:"Midnight Velvet",type:"Flower",base:52,vol:.3,space:1,tag:"Earthy",rarity:"Uncommon"},
+{id:"berry",name:"Berry Circuit",type:"Pre-rolls",base:31,vol:.28,space:1,tag:"Berry",rarity:"Common"},
+{id:"pine",name:"Pine Signal",type:"Pre-rolls",base:35,vol:.32,space:1,tag:"Pine",rarity:"Uncommon"},
+{id:"gold",name:"Golden Hour",type:"Concentrates",base:72,vol:.38,space:1,tag:"Bright",rarity:"Rare"},
+{id:"frost",name:"Frostline Reserve",type:"Concentrates",base:88,vol:.42,space:1,tag:"Cool",rarity:"Epic"},
+{id:"mango",name:"Mango Static",type:"Edibles",base:27,vol:.24,space:1,tag:"Tropical",rarity:"Common"},
+{id:"orbit",name:"Orbit Drops",type:"Edibles",base:34,vol:.3,space:1,tag:"Fruit",rarity:"Uncommon"},
+{id:"rose",name:"Rose Quartz",type:"Flower",base:64,vol:.43,space:1,tag:"Floral",rarity:"Rare"},
+{id:"diesel",name:"Velvet Engine",type:"Pre-rolls",base:46,vol:.37,space:1,tag:"Bold",rarity:"Rare"},
+{id:"aurora",name:"Aurora Glass",type:"Concentrates",base:105,vol:.48,space:1,tag:"Reserve",rarity:"Legendary"},
+{id:"honey",name:"Honeycomb Muse",type:"Edibles",base:42,vol:.34,space:1,tag:"Sweet",rarity:"Epic"}
+];
+const BUSINESSES=[
+{id:"retail",name:"Neighborhood Retail",cost:3600,income:430,desc:"A dependable storefront with steady daily revenue.",icon:"▦"},
+{id:"cultivation",name:"Indoor Cultivation",cost:6200,income:690,desc:"A production property that strengthens your supply chain.",icon:"♧"},
+{id:"processing",name:"Craft Processing",cost:8800,income:970,desc:"A specialist facility with stronger margins.",icon:"⚙"},
+{id:"distribution",name:"Regional Distribution",cost:12500,income:1420,desc:"A larger operation with the highest daily overhead.",icon:"⇄"},
+{id:"research",name:"Market Research Lab",cost:15500,income:1150,desc:"Insights and forecasting create a reliable advantage.",icon:"⌁"},
+{id:"flagship",name:"Flagship Experience",cost:22000,income:2200,desc:"A premium destination that anchors your empire.",icon:"✦"}
+];
+const UPGRADES=[
+{id:"storage",name:"Expanded Storage",cost:650,effect:"Adds 15 inventory capacity.",desc:"+15 inventory capacity"},
+{id:"transport",name:"Fleet Optimization",cost:900,effect:"Reduces travel costs by 25%.",desc:"−25% travel cost"},
+{id:"marketing",name:"Brand Campaign",cost:1200,effect:"Adds 12% to business revenue.",desc:"+12% business revenue"},
+{id:"analytics",name:"Market Analytics",cost:1800,effect:"Improves price forecasts and mission rewards.",desc:"+10% sale value"},
+{id:"team",name:"Team Training",cost:2100,effect:"Improves staff productivity.",desc:"+15% business revenue"}
+];
+const CARDS=[
+["Citrus Haze","Common","Citrus","A bright fictional cultivar profile.",1],["Midnight Velvet","Uncommon","Earthy","A deep, mellow fictional profile.",1],["Berry Circuit","Common","Berry","A fruit-forward fictional profile.",1],["Pine Signal","Uncommon","Pine","A crisp fictional profile.",1],["Golden Hour","Rare","Bright","A premium collectible market profile.",2],["Frostline Reserve","Epic","Cool","A high-tier fictional collectible.",3],["Mango Static","Common","Tropical","A tropical-inspired collectible.",1],["Orbit Drops","Uncommon","Fruit","A playful fruit-inspired collectible.",1],["Rose Quartz","Rare","Floral","A refined floral collectible.",2],["Velvet Engine","Rare","Bold","A bold collectible profile.",2],["Aurora Glass","Legendary","Reserve","The rarest card in this collection.",4],["Honeycomb Muse","Epic","Sweet","A premium sweet-profile collectible.",3]
+];
+const ACHIEVEMENTS=[
+{id:"firstsale",name:"First Exchange",desc:"Complete your first market sale.",test:s=>s.stats.sales>=1},
+{id:"traveler",name:"Frequent Flyer",desc:"Visit four different city markets.",test:s=>s.visited.length>=4},
+{id:"operator",name:"Business Owner",desc:"Acquire your first business.",test:s=>Object.values(s.businesses).some(n=>n>0)},
+{id:"team",name:"People Person",desc:"Hire your first team member.",test:s=>s.staff>=1},
+{id:"debtfree",name:"Clear Ledger",desc:"Pay off your startup loan.",test:s=>s.debt<=0},
+{id:"collector",name:"Curator",desc:"Collect six strain cards.",test:s=>s.cards.length>=6},
+{id:"millionaire",name:"Market Mover",desc:"Reach $25,000 net worth.",test:s=>netWorth(s)>=25000},
+{id:"mogul",name:"Empire Builder",desc:"Own three different business types.",test:s=>Object.values(s.businesses).filter(n=>n>0).length>=3}
+];
+let state=null,sound=false,toastTimer=null;
+const $=id=>document.getElementById(id),money=n=>"$"+Math.round(n).toLocaleString(),rand=(a,b)=>Math.random()*(b-a)+a,ri=(a,b)=>Math.floor(rand(a,b+1)),clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+function freshState(){return{version:2,cash:START_CASH,debt:START_DEBT,day:1,city:"denver",inventory:{},prices:{},previousPrices:{},businesses:{},staff:0,upgrades:[],capacity:40,xp:0,level:1,cards:[],visited:["denver"],achievements:[],missions:[],log:[],gameOver:false,stats:{sales:0,revenue:0,daysPlayed:0,travel:0,businessesBought:0,highestNet:0},startedAt:Date.now()};}
+function usedSpace(s=state){return Object.values(s.inventory).reduce((a,n)=>a+n,0)}
+function netWorth(s=state){let stock=0,p=s.prices[s.city]||{};Object.keys(s.inventory).forEach(id=>stock+=(p[id]||PRODUCTS.find(x=>x.id===id).base)*s.inventory[id]);let assets=Object.entries(s.businesses).reduce((a,[id,n])=>a+(BUSINESSES.find(b=>b.id===id).cost*.55*n),0);return s.cash+stock+assets-s.debt;}
+function xpNeed(l){return 500+(l-1)*350}
+function addLog(msg,type){state.log.unshift({msg:msg,type:type||"info",day:state.day});state.log=state.log.slice(0,35)}
+function toast(msg){const t=$("toast");t.textContent=msg;t.classList.remove("hidden");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add("hidden"),2300)}
+function save(silent){try{localStorage.setItem(SAVE_KEY,JSON.stringify(state));$("saveStatus").textContent="Saved "+new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});if(!silent)toast("Game saved on this device.");}catch(e){$("saveStatus").textContent="Save unavailable";if(!silent)toast("Browser storage is unavailable. Export a backup.");}}
+function load(){try{const x=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");if(!x||x.version!==2)return null;const d=freshState();return Object.assign(d,x,{stats:Object.assign(d.stats,x.stats||{}),inventory:x.inventory||{},businesses:x.businesses||{},upgrades:x.upgrades||[],cards:x.cards||[],visited:x.visited||["denver"],achievements:x.achievements||[],missions:x.missions||[],log:x.log||[]});}catch(e){return null;}}
+function prices(){let out={};CITIES.forEach(c=>{out[c.id]={};PRODUCTS.forEach(p=>{let demand=1;if(c.id==="newyork"&&["Concentrates","Flower"].includes(p.type))demand=1.12;if(c.id==="portland"&&p.rarity==="Rare")demand=1.09;if(c.id==="losangeles"&&p.type==="Pre-rolls")demand=1.1;let prev=state.prices[c.id]&&state.prices[c.id][p.id]||p.base*c.mod;let drift=rand(-p.vol,p.vol)*.7;let n=prev*(1+drift)*c.mod/(CITIES.find(z=>z.id===c.id).mod)*demand;if(Math.random()<.035)n*=rand(1.35,1.75);if(Math.random()<.035)n*=rand(.55,.78);out[c.id][p.id]=Math.round(clamp(n,p.base*.35,p.base*2.7));});});return out;}
+function initPrices(){state.prices=prices();state.previousPrices=JSON.parse(JSON.stringify(state.prices));}
+function makeMissions(){let pool=[
+{title:"Market Maker",desc:"Sell 6 units of any product.",goal:6,kind:"sell",reward:420,xp:160},
+{title:"City Explorer",desc:"Travel to a different city market.",goal:1,kind:"travel",reward:350,xp:140},
+{title:"Daily Revenue",desc:"Earn $500 from market sales.",goal:500,kind:"revenue",reward:500,xp:180},
+{title:"Storage Manager",desc:"Finish a day with 10+ units in inventory.",goal:10,kind:"stock",reward:300,xp:120},
+{title:"Portfolio Starter",desc:"Acquire one new business property.",goal:1,kind:"business",reward:700,xp:240},
+{title:"Debt Reduction",desc:"Pay $300 toward your startup loan.",goal:300,kind:"debt",reward:400,xp:160}
+];state.missions=pool.sort(()=>Math.random()-.5).slice(0,3).map((m,i)=>Object.assign({id:"m"+state.day+"_"+i,progress:0,done:false},m));}
+function checkLevel(){while(state.xp>=xpNeed(state.level)){state.xp-=xpNeed(state.level);state.level++;addLog("LEVEL UP — you reached level "+state.level+". New markets and contracts are within reach.","gold");toast("Level "+state.level+" reached!");}}
+function missionProgress(kind,amount){state.missions.forEach(m=>{if(!m.done&&m.kind===kind){m.progress+=amount;if(m.progress>=m.goal){m.progress=m.goal;m.done=true;state.cash+=m.reward;state.xp+=m.xp;addLog("Mission complete: "+m.title+" • reward "+money(m.reward)+" and "+m.xp+" XP.","good");unlockCard();}}});checkLevel();}
+function unlockCard(){let available=CARDS.map((c,i)=>i).filter(i=>!state.cards.includes(i));if(!available.length)return;let idx=available[ri(0,available.length-1)];if(Math.random()<.62||state.cards.length===0){state.cards.push(idx);addLog("Strain Vault unlocked: "+CARDS[idx][0]+".","gold");}}
+function checkAchievements(){ACHIEVEMENTS.forEach(a=>{if(!state.achievements.includes(a.id)&&a.test(state)){state.achievements.push(a.id);state.cash+=250;state.xp+=100;addLog("Achievement unlocked: "+a.name+" • $250 bonus.","gold");}});checkLevel();}
+function businessIncome(){let gross=0;Object.entries(state.businesses).forEach(([id,n])=>{let b=BUSINESSES.find(x=>x.id===id);gross+=b.income*n;});let bonus=1+(state.upgrades.includes("marketing")?.12:0)+(state.upgrades.includes("team")?.15:0);return Math.round(gross*bonus);}
+function travelCost(city){return Math.round(city.cost*(state.upgrades.includes("transport")?.75:1));}
+function buy(id,qty){let p=PRODUCTS.find(x=>x.id===id),price=state.prices[state.city][id],cost=price*qty;if(!p||qty<1||!Number.isInteger(qty))return;if(cost>state.cash){toast("Not enough cash.");return;}if(usedSpace()+qty>state.capacity){toast("Inventory capacity reached. Upgrade storage.");return;}state.cash-=cost;state.inventory[id]=(state.inventory[id]||0)+qty;addLog("Acquired "+qty+" units of "+p.name+" for "+money(cost)+".","info");save(true);render();}
+function sell(id,qty){let p=PRODUCTS.find(x=>x.id===id),owned=state.inventory[id]||0;if(!p||qty<1||!Number.isInteger(qty)||qty>owned){toast("Choose a valid quantity.");return;}let price=state.prices[state.city][id],bonus=state.upgrades.includes("analytics")?1.1:1,revenue=Math.round(price*qty*bonus);state.cash+=revenue;state.inventory[id]-=qty;if(!state.inventory[id])delete state.inventory[id];state.stats.sales+=qty;state.stats.revenue+=revenue;state.xp+=Math.round(revenue*.04);addLog("Sold "+qty+" units of "+p.name+" for "+money(revenue)+".","good");missionProgress("sell",qty);missionProgress("revenue",revenue);checkAchievements();save(true);render();}
+function travel(id){let c=CITIES.find(x=>x.id===id);if(!c||id===state.city)return;let cost=travelCost(c);if(state.cash<cost){toast("Not enough cash for travel.");return;}state.cash-=cost;state.city=id;state.stats.travel++;if(!state.visited.includes(id))state.visited.push(id);missionProgress("travel",1);addLog("Expanded your market reach to "+c.name+". Travel cost: "+money(cost)+".","info");advanceDay(true);}
+function advanceDay(fromTravel){if(state.gameOver)return;state.day++;state.stats.daysPlayed++;let income=businessIncome(),wages=state.staff*95,netIncome=income-wages;state.cash+=netIncome;let interest=Math.round(state.debt*.035);state.debt+=interest;state.previousPrices=state.prices;state.prices=prices();let event=ri(1,5);let headlines=["A regional trade expo lifts premium-category demand.","A new wave of independent operators puts pressure on pricing.","A supply partnership stabilizes wholesale costs.","A seasonal trend boosts demand for select product categories.","A quiet market session rewards patient operators."];let mood=["ACTIVE","COMPETITIVE","STABLE","TRENDING","STEADY"][event-1];$("marketHeadline").textContent=headlines[event-1];$("marketNews").textContent="Daily brief: "+headlines[event-1];$("marketMood").textContent=mood;addLog("Day "+state.day+" close: business income "+money(income)+", payroll "+money(wages)+", debt interest "+money(interest)+".","info");if(netIncome>=0)addLog("Portfolio net operating income: +"+money(netIncome)+".","good");else addLog("Payroll exceeded daily revenue by "+money(-netIncome)+".","bad");missionProgress("stock",usedSpace());if(state.day>DAY_LIMIT){finishGame();}if(state.cash<0&&state.debt>12000){state.cash=0;addLog("Cash reserves are exhausted. Review your costs and portfolio.","bad");}checkAchievements();state.stats.highestNet=Math.max(state.stats.highestNet,netWorth());save(true);render();if(!fromTravel)toast("Day "+state.day+" started. Market prices refreshed.");}
+function payDebt(amount){let pay=Math.min(state.cash,state.debt,amount||state.cash);if(pay<=0){toast("No available cash to repay.");return;}state.cash-=pay;state.debt-=pay;state.debt=Math.max(0,state.debt);addLog("Paid "+money(pay)+" toward the startup loan.","good");missionProgress("debt",pay);checkAchievements();save(true);render();}
+function acquireBusiness(id){let b=BUSINESSES.find(x=>x.id===id);if(!b)return;let owned=state.businesses[id]||0;if(state.cash<b.cost){toast("Not enough cash to acquire this property.");return;}if(owned>=3){toast("Maximum three properties of this type.");return;}state.cash-=b.cost;state.businesses[id]=owned+1;state.stats.businessesBought++;state.xp+=180;addLog("Acquired "+b.name+". Projected daily revenue: "+money(b.income)+".","good");missionProgress("business",1);checkAchievements();save(true);render();}
+function hire(){let cost=1250;if(state.staff>=12){toast("Your team is at capacity.");return;}if(state.cash<cost){toast("Not enough cash to hire.");return;}state.cash-=cost;state.staff++;state.xp+=60;addLog("Hired a new team member. Daily payroll increased by $95.","info");checkAchievements();save(true);render();}
+function upgrade(id){let u=UPGRADES.find(x=>x.id===id);if(!u||state.upgrades.includes(id))return;if(state.cash<u.cost){toast("Not enough cash for this upgrade.");return;}state.cash-=u.cost;state.upgrades.push(id);if(id==="storage")state.capacity+=15;addLog("Installed upgrade: "+u.name+". "+u.effect,"good");save(true);render();}
+function refreshMissions(){state.day++;state.stats.daysPlayed++;state.cash+=businessIncome()-state.staff*95;state.debt+=Math.round(state.debt*.035);state.previousPrices=state.prices;state.prices=prices();makeMissions();addLog("New mission board posted. One day has passed and the market has refreshed.","info");save(true);render();}
+function finishGame(){state.gameOver=true;let score=Math.max(0,Math.round(netWorth()+state.stats.revenue*.15+state.level*500+state.achievements.length*300));let list=[];try{list=JSON.parse(localStorage.getItem(SCORES_KEY)||"[]")}catch(e){}list.push({score:score,day:state.day,level:state.level,at:Date.now()});list.sort((a,b)=>b.score-a.score);localStorage.setItem(SCORES_KEY,JSON.stringify(list.slice(0,10)));$("startModal").classList.remove("hidden");$("startModal").querySelector("h2").textContent="Run complete — empire evaluated";$("startModal").querySelector("p").textContent="Final score: "+money(score)+". Net worth: "+money(netWorth())+". Your result has been added to this device's Hall of Fame. Export your save or start a fresh run."; $("startGameBtn").textContent="Start a new run";}
+function exportSave(){let blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="green-empire-save.json";a.click();URL.revokeObjectURL(url);toast("Backup exported.");}
+function importSave(file){let reader=new FileReader();reader.onload=()=>{try{let x=JSON.parse(reader.result);if(x.version!==2||typeof x.cash!=="number"||!x.inventory)throw Error("Invalid save");state=Object.assign(freshState(),x);save(true);render();toast("Save imported.");}catch(e){toast("That save file is not valid.");}};reader.readAsText(file);}
+function showTab(tab){document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+tab));}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function renderStats(){$("cash").textContent=money(state.cash);$("debt").textContent=money(state.debt);$("debt").className=state.debt>0?"negative":"";$("net").textContent=money(netWorth());$("day").textContent=state.day;$("level").textContent=state.level;$("location").textContent=CITIES.find(c=>c.id===state.city).name;$("marketDay").textContent="DAY "+state.day;$("saveStatus").textContent="Autosave active";}
+function renderMarket(){let p=state.prices[state.city]||{};$("marketBody").innerHTML=PRODUCTS.map(x=>{let old=(state.previousPrices[state.city]||{})[x.id]||p[x.id],now=p[x.id]||x.base,trend=now>old?"▲ "+Math.round((now-old)/old*100)+"%":now<old?"▼ "+Math.round((old-now)/old*100)+"%":"—";return '<tr><td><span class="product-name">'+x.name+'</span><span class="sub">'+x.type+' • '+x.tag+'</span></td><td class="price">'+money(now)+'</td><td class="'+(now>old?"trend-up":now<old?"trend-down":"muted")+'">'+trend+'</td><td>'+(state.inventory[x.id]||0)+'</td><td><div class="trade-actions"><input class="qty" type="number" min="1" max="40" value="1" id="qty-'+x.id+'" aria-label="Quantity for '+x.name+'"><button class="btn small" data-buy="'+x.id+'">Buy</button><button class="btn small gold" data-sell="'+x.id+'" '+((state.inventory[x.id]||0)<1?"disabled":"")+'>Sell</button></div></td></tr>';}).join("");$("marketPreview").innerHTML=PRODUCTS.slice().sort((a,b)=>p[b.id]-p[a.id]).slice(0,4).map(x=>'<div class="tile"><span class="eyebrow">'+x.type+'</span><h3>'+x.name+'</h3><div class="big">'+money(p[x.id])+'</div><span class="sub">'+x.tag+' profile • '+x.rarity+'</span></div>').join("");}
+function renderEmpire(){let cat=$("businessCatalog");cat.innerHTML=BUSINESSES.map(b=>{let n=state.businesses[b.id]||0;return '<div class="business-card"><span class="eyebrow">'+b.icon+' PORTFOLIO ASSET</span><h3>'+b.name+'</h3><p>'+b.desc+'</p><div class="city-meta"><span>Cost '+money(b.cost)+'</span><strong>+'+money(b.income)+'/day</strong></div><span class="pill">'+n+' owned / 3</span><br><button class="btn small primary" data-business="'+b.id+'" '+(n>=3?"disabled":"")+'>Acquire property</button></div>';}).join("");let owned=BUSINESSES.filter(b=>(state.businesses[b.id]||0)>0);$("ownedBusinesses").innerHTML=owned.length?owned.map(b=>'<div class="business-card"><h3>'+b.name+'</h3><div class="big">'+(state.businesses[b.id]||0)+' ×</div><p>Gross daily revenue '+money(b.income*(state.businesses[b.id]||0))+'</p></div>').join(""):'<div class="empty">No properties yet. Acquire your first business to begin generating daily revenue.</div>';$("staffUpgrades").innerHTML='<div class="tile"><h3>Operations team</h3><div class="big">'+state.staff+' staff</div><p>Payroll: '+money(state.staff*95)+' per day. Each team member supports your growing portfolio.</p><button class="btn small" id="hireBtn">Hire staff • $1,250</button></div>'+UPGRADES.map(u=>'<div class="tile '+(state.upgrades.includes(u.id)?"":"")+'"><h3>'+u.name+' '+(state.upgrades.includes(u.id)?'<span class="pill">INSTALLED</span>':"")+'</h3><p>'+u.desc+'</p>'+(state.upgrades.includes(u.id)?"":'<button class="btn small" data-upgrade="'+u.id+'">Install • '+money(u.cost)+'</button>')+'</div>').join("");$("milestones").innerHTML=[["First property",Object.values(state.businesses).some(n=>n>0)],["Three city markets",state.visited.length>=3],["Level five operator",state.level>=5],["Debt-free operation",state.debt<=0],["$25,000 net worth",netWorth()>=25000]].map(x=>'<div class="progress"><span style="width:180px;font-size:12px">'+x[0]+'</span><div class="bar"><span style="width:'+(x[1]?100:0)+'%"></span></div><span>'+(x[1]?"✓":"—")+'</span></div>').join("");}
+function renderMap(){$("cityCount").textContent=state.visited.length+" / 6 hubs visited";$("cityGrid").innerHTML=CITIES.map(c=>{let current=c.id===state.city,visited=state.visited.includes(c.id);return '<div class="city-card '+(current?"current":"")+'"><span class="eyebrow">'+(current?"CURRENT MARKET":visited?"VISITED MARKET":"EXPANSION TARGET")+'</span><h3>'+c.name+'</h3><p>'+c.desc+'</p><div class="city-meta"><span>'+c.demand+'</span><strong>'+money(travelCost(c))+'</strong></div><button class="btn small '+(current?"primary":"")+'" data-city="'+c.id+'" '+(current?"disabled":"")+'>Travel to market</button></div>';}).join("");}
+function renderMissions(){$("missionGrid").innerHTML=state.missions.map(m=>'<div class="mission-card"><span class="pill">'+(m.done?"COMPLETED":"ACTIVE CONTRACT")+'</span><h3>'+m.title+'</h3><p>'+m.desc+'</p><div class="progress"><div class="bar"><span style="width:'+Math.min(100,m.progress/m.goal*100)+'%"></span></div><span>'+Math.min(m.progress,m.goal)+' / '+m.goal+'</span></div><div class="city-meta"><span>Reward '+money(m.reward)+'</span><strong>'+m.xp+' XP</strong></div></div>').join("");$("dashboardMissions").innerHTML=state.missions.map(m=>'<div class="notice"><strong>'+m.title+'</strong> — '+(m.done?"Completed":m.desc+" ("+Math.min(m.progress,m.goal)+"/"+m.goal+")")+'</div>').join("");$("achievementGrid").innerHTML=ACHIEVEMENTS.map(a=>{let ok=state.achievements.includes(a.id);return '<div class="achievement-card '+(ok?"":"locked")+'"><span class="eyebrow">'+(ok?"UNLOCKED":"LOCKED")+'</span><h3>'+a.name+'</h3><p>'+a.desc+'</p></div>';}).join("");}
+function renderCollection(){$("collectionCount").textContent=state.cards.length+" / "+CARDS.length+" collected";$("collectionGrid").innerHTML=CARDS.map((c,i)=>{let ok=state.cards.includes(i);return '<div class="collect-card '+(ok?"":"locked")+'"><span class="eyebrow">'+(ok?c[1].toUpperCase():"UNDISCOVERED")+'</span><h3>'+(ok?c[0]:"Mystery cultivar")+'</h3><p>'+(ok?c[3]:"Complete missions and market milestones to discover this collectible.")+'</p>'+(ok?'<span class="pill">'+c[2]+' profile • '+c[1]+'</span>':'<span class="pill">Not collected</span>')+'</div>';}).join("");}
+function renderBoard(){let list=[];try{list=JSON.parse(localStorage.getItem(SCORES_KEY)||"[]")}catch(e){}$("leaderboardList").innerHTML=list.length?list.map((x,i)=>'<div class="leader-row"><span class="rank">#'+(i+1)+'</span><span><strong>Empire run</strong><span class="sub">Level '+x.level+' • Day '+x.day+' • '+new Date(x.at).toLocaleDateString()+'</span></span><strong class="price">'+money(x.score)+'</strong></div>').join(""):'<div class="empty">No completed runs yet. Finish a 45-day campaign to set your first record.</div>';$("careerStats").innerHTML=[["Total sales",state.stats.sales+" units"],["Gross sales revenue",money(state.stats.revenue)],["Properties acquired",state.stats.businessesBought],["Markets visited",state.visited.length+" / 6"],["Cards collected",state.cards.length+" / 12"],["Achievements",state.achievements.length+" / 8"],["Highest net worth",money(state.stats.highestNet||netWorth())]].map(x=>'<div class="city-meta"><span>'+x[0]+'</span><strong>'+x[1]+'</strong></div>').join("");}
+function render(){renderStats();renderMarket();renderEmpire();renderMap();renderMissions();renderCollection();renderBoard();$("empireOverview").innerHTML='<div class="city-meta"><span>Owned properties</span><strong>'+Object.values(state.businesses).reduce((a,n)=>a+n,0)+'</strong></div><div class="city-meta"><span>Gross daily revenue</span><strong>'+money(businessIncome())+'</strong></div><div class="city-meta"><span>Daily payroll</span><strong>'+money(state.staff*95)+'</strong></div><div class="city-meta"><span>Inventory capacity</span><strong>'+usedSpace()+' / '+state.capacity+'</strong></div><div class="city-meta"><span>Experience</span><strong>'+state.xp+' / '+xpNeed(state.level)+' XP</strong></div><div class="progress"><div class="bar"><span style="width:'+Math.min(100,state.xp/xpNeed(state.level)*100)+'%"></span></div></div>';$("activityLog").innerHTML=state.log.slice(0,12).map(x=>'<div class="log-entry '+x.type+'">Day '+x.day+' — '+esc(x.msg)+'</div>').join("")||'<div class="empty">Your activity will appear here.</div>';$("advanceBtn").disabled=state.gameOver;$("debtBtn").disabled=state.debt<=0||state.cash<=0;}
+function start(){state=freshState();initPrices();makeMissions();addLog("You opened your first operation in Denver with $2,000 in cash and a $2,000 startup loan.","good");state.stats.highestNet=netWorth();save(true);$("startModal").classList.add("hidden");render();}
+function init(){let saved=load();if(saved){state=saved;if(!state.prices||!state.prices.denver)initPrices();if(!state.missions.length)makeMissions();render();}else{$("startModal").classList.remove("hidden");} }
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.goto)));
+$("marketBody").addEventListener("click",e=>{let b=e.target.closest("button");if(!b)return;let id=b.dataset.buy||b.dataset.sell;if(!id)return;let q=Math.max(1,Math.floor(Number($("qty-"+id).value)||1));if(b.dataset.buy)buy(id,q);else sell(id,q);});
+$("cityGrid").addEventListener("click",e=>{let b=e.target.closest("[data-city]");if(b)travel(b.dataset.city);});
+$("businessCatalog").addEventListener("click",e=>{let b=e.target.closest("[data-business]");if(b)acquireBusiness(b.dataset.business);});
+$("staffUpgrades").addEventListener("click",e=>{let b=e.target.closest("button");if(!b)return;if(b.id==="hireBtn")hire();if(b.dataset.upgrade)upgrade(b.dataset.upgrade);});
+$("advanceBtn").addEventListener("click",()=>advanceDay(false));
+$("debtBtn").addEventListener("click",()=>payDebt());
+$("newMissionsBtn").addEventListener("click",refreshMissions);
+$("saveBtn").addEventListener("click",exportSave);
+$("resetBtn").addEventListener("click",()=>$("confirmModal").classList.remove("hidden"));
+$("confirmReset").addEventListener("click",()=>{$("confirmModal").classList.add("hidden");localStorage.removeItem(SAVE_KEY);start();});
+$("cancelReset").addEventListener("click",()=>$("confirmModal").classList.add("hidden"));
+$("startGameBtn").addEventListener("click",()=>{if(state&&state.gameOver){localStorage.removeItem(SAVE_KEY);start();}else if(!state)start();else $("startModal").classList.add("hidden");});
+$("ageYes").addEventListener("click",()=>{try{localStorage.setItem("pr_age","yes")}catch(e){}$("ageGate").classList.add("hidden");});
+$("ageNo").addEventListener("click",()=>{$("ageMessage").textContent="Access is restricted to adults 21 and older.";});
+$("soundBtn").addEventListener("click",()=>{sound=!sound;$("soundBtn").textContent="Sound: "+(sound?"On":"Off");$("soundBtn").setAttribute("aria-pressed",String(sound));toast(sound?"Sound feedback enabled where supported.":"Sound off.");});
+$("importFile").addEventListener("change",e=>{let f=e.target.files[0];if(f)importSave(f);e.target.value="";});
+$("saveBtn").addEventListener("contextmenu",e=>{e.preventDefault();$("importFile").click();});
+$("saveBtn").addEventListener("dblclick",()=>$("importFile").click());
+$("saveBtn").title="Click to export backup; double-click to import a backup";
+window.addEventListener("beforeunload",()=>{if(state)save(true);});
+init();
+})();
+</script>
 </body>
 </html>
