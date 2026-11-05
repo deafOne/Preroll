@@ -42,8 +42,3 @@ databases:
     user: robb_user
     plan: free
     region: oregon
-  - name: preroll-production
-    databaseName: preroll_production
-    user: preroll_production_user
-    plan: basic_256mb
-    region: oregon
