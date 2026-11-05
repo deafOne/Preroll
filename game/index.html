@@ -10,6 +10,101 @@
 @media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr}.city-grid,.business-grid,.mission-grid,.collection-grid,.achievement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.shell{padding:11px}.top{align-items:flex-start}.top-actions{width:100%}.top-actions .btn{flex:1}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.stat{padding:9px}.cards{grid-template-columns:1fr}.city-grid,.business-grid,.mission-grid,.collection-grid,.achievement-grid{grid-template-columns:1fr}.panel{padding:12px}.market-table{min-width:580px}.hero{padding:16px}.hero:after{font-size:85px}.mobile-only{display:block}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Compact game cockpit: keep the playable surface above the fold. */
+.shell{max-width:1480px;padding:10px 16px}
+.top{position:sticky;top:0;z-index:30;padding:7px 2px 9px;background:#07110cf2;backdrop-filter:blur(14px);flex-wrap:nowrap}
+.brand-mark{width:38px;height:38px;border-radius:11px;font-size:19px}
+.brand h1{font-size:clamp(18px,2vw,25px)}
+.brand p{font-size:10px}
+.top-actions{gap:6px}
+.top-actions .btn{padding:7px 10px;font-size:11px}
+.stats{gap:7px;margin:9px 0}
+.stat{padding:8px 10px}
+.stat span{font-size:9px}
+.stat strong{font-size:clamp(14px,1.5vw,19px);margin-top:2px}
+.nav{position:sticky;top:54px;z-index:25;padding:5px 0 9px;background:#07110cf2;backdrop-filter:blur(12px)}
+.tab{padding:7px 12px;font-size:12px}
+.view-dashboard .hero{padding:14px 18px;margin-bottom:9px}
+.view-dashboard .hero h2{font-size:clamp(20px,2.3vw,28px);margin:2px 0 4px}
+.view-dashboard .hero p{font-size:12px;line-height:1.35}
+.view-dashboard .hero-row{margin-top:9px}
+.view-dashboard .grid{grid-template-columns:minmax(0,1.35fr) minmax(260px,.75fr);gap:9px}
+.view-dashboard .panel{padding:12px}
+.view-dashboard .panel h2{font-size:14px;margin-bottom:8px}
+.view-dashboard .market-preview{grid-template-columns:repeat(2,minmax(0,1fr))}
+.view-dashboard .tile{padding:9px}
+.view-dashboard .tile .big{font-size:18px}
+.view-dashboard .tile p{margin:3px 0 5px}
+.view-dashboard .log{max-height:125px}
+.view-dashboard .notice{padding:7px 9px}
+.view-dashboard .stack{gap:8px}
+.view-dashboard .grid>.stack:last-child>.panel:first-child,
+.view-dashboard .grid>.stack:last-child>.panel:nth-child(2){display:none}
+.view-dashboard #dashboardMissions{display:none}
+.view-dashboard .grid>.stack:last-child>.panel:last-child{padding:10px}
+.view-dashboard .grid>.stack:last-child>.panel:last-child p{font-size:11px;margin:4px 0 7px}
+.view-dashboard .grid>.stack:last-child>.panel:last-child .btn{padding:7px 10px}
+@media(max-width:760px){
+ .shell{padding:7px 9px}
+ .top{gap:8px}
+ .brand{gap:8px}
+ .brand-mark{width:32px;height:32px;font-size:16px}
+ .brand h1{font-size:17px;letter-spacing:.09em}
+ .brand p{display:none}
+ .top-actions #saveBtn,.top-actions #importBtn,.top-actions #soundBtn{display:none}
+ .top-actions #resetBtn{padding:6px 8px;font-size:10px;white-space:nowrap}
+ .stats{grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;margin:7px 0}
+ .stat{padding:6px 4px;border-radius:8px;text-align:center}
+ .stat span{font-size:7px;letter-spacing:.04em}
+ .stat strong{font-size:11px;letter-spacing:-.03em}
+ .nav{top:47px;gap:5px;padding:4px 0 7px}
+ .tab{padding:7px 10px;font-size:10px}
+ .view-dashboard .hero{padding:11px 12px;border-radius:11px}
+ .view-dashboard .hero h2{font-size:18px;line-height:1.2}
+ .view-dashboard .hero p{display:none}
+ .view-dashboard .hero-row{margin-top:7px;gap:6px}
+ .view-dashboard .hero-row .btn{padding:7px 9px;font-size:11px}
+ .view-dashboard .hero-row .pill{font-size:9px}
+ .view-dashboard .grid{grid-template-columns:minmax(0,1fr);gap:7px}
+ .view-dashboard .grid>.stack{gap:7px}
+ .view-dashboard .panel{padding:10px}
+ .view-dashboard .panel h2{font-size:13px}
+ .view-dashboard .section-head{margin-bottom:7px}
+ .view-dashboard .market-preview{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ .view-dashboard .tile{padding:8px}
+ .view-dashboard .tile .big{font-size:16px}
+ .view-dashboard .tile h3{font-size:12px;margin-bottom:3px}
+ .view-dashboard .tile .sub{font-size:9px}
+ .view-dashboard .grid>.stack:last-child>.panel:last-child{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+ .view-dashboard .grid>.stack:last-child>.panel:last-child h2{width:100%;margin:0}
+ .view-dashboard .grid>.stack:last-child>.panel:last-child p{display:none}
+ .view-dashboard .grid>.stack:last-child>.panel:last-child .btn{margin:0}
+ .market-table{min-width:0;display:block}
+ .market-table thead{display:none}
+ .market-table tbody{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .market-table tr{display:grid;grid-template-columns:1fr auto;align-content:start;border:1px solid #294b34;border-radius:9px;background:#0b1910;padding:7px;min-width:0}
+ .market-table td{padding:3px 2px;border:0;font-size:11px;min-width:0}
+ .market-table td:first-child{grid-column:1/-1}
+ .market-table td:nth-child(3),.market-table td:nth-child(4){display:none}
+ .market-table td:nth-child(2){font-size:12px}
+ .market-table td:last-child{grid-column:1/-1}
+ .trade-actions{gap:4px;flex-wrap:nowrap}
+ .qty{width:38px;padding:5px 3px;font-size:11px}
+ .trade-actions .btn{padding:5px 7px;font-size:10px}
+ .city-grid,.business-grid,.mission-grid,.collection-grid,.achievement-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .city-card,.business-card,.mission-card,.collect-card,.achievement-card{padding:9px}
+ .city-card h3,.business-card h3,.mission-card h3,.collect-card h3,.achievement-card h3{font-size:12px}
+ .city-card p,.business-card p,.mission-card p,.collect-card p,.achievement-card p{font-size:10px}
+ .panel{padding:10px}
+}
+@media(max-width:370px){
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .top-actions #resetBtn{font-size:9px}
+ .tab{padding:6px 8px}
+ .city-grid,.business-grid,.mission-grid,.collection-grid,.achievement-grid{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
