@@ -147,7 +147,48 @@ async function auth(req,res,next){
  }catch(e){next(e)}
 }
 
-app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'').trim().toLowerCase();const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));if(!pool){const fs=require('fs'),path=require('path');let data={strains:[]};try{data=JSON.parse(fs.readFileSync(path.join(__dirname,'..','strains','catalog.json'),'utf8'));}catch{}let rows=Array.isArray(data.strains)?data.strains:[];if(q)rows=rows.filter(x=>String(x.name||'').toLowerCase().includes(q)||String(x.id||'').toLowerCase().includes(q));return res.json({strains:rows.slice(0,limit),total:rows.length,limit,sources:['leafly','weedmaps'],mode:'static-fallback'});}const pattern=q?('%'+q+'%'):null;const total=(await pool.query(pattern?'SELECT COUNT(*)::int AS count FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1':'SELECT COUNT(*)::int AS count FROM strains',pattern?[pattern]:[])).rows[0].count;const rows=(await pool.query(pattern?'SELECT slug AS id,name,type,source FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1 ORDER BY LOWER(name),source LIMIT $2':'SELECT slug AS id,name,type,source FROM strains ORDER BY LOWER(name),source LIMIT $1',pattern?[pattern,limit]:[limit])).rows;res.json({strains:rows,total,limit,sources:['leafly','weedmaps']})}catch(e){next(e)}});app.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
+app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'').trim().toLowerCase();const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));if(!pool){const fs=require('fs'),path=require('path');let data={strains:[]};try{data=JSON.parse(fs.readFileSync(path.join(__dirname,'..','strains','catalog.json'),'utf8'));}catch{}let rows=Array.isArray(data.strains)?data.strains:[];if(q)rows=rows.filter(x=>String(x.name||'').toLowerCase().includes(q)||String(x.id||'').toLowerCase().includes(q));return res.json({strains:rows.slice(0,limit),total:rows.length,limit,sources:['leafly','weedmaps'],mode:'static-fallback'});}const pattern=q?('%'+q+'%'):null;const total=(await pool.query(pattern?'SELECT COUNT(*)::int AS count FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1':'SELECT COUNT(*)::int AS count FROM strains',pattern?[pattern]:[])).rows[0].count;const rows=(await pool.query(pattern?'SELECT slug AS id,name,type,source FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1 ORDER BY LOWER(name),source LIMIT $2':'SELECT slug AS id,name,type,source FROM strains ORDER BY LOWER(name),source LIMIT $1',pattern?[pattern,limit]:[limit])).rows;res.json({strains:rows,total,limit,sources:['leafly','weedmaps']})}catch(e){next(e)}});
+// Verified strain profile enrichment. Data is fetched by exact strain slug and cached;
+// absent fields remain absent rather than being guessed or filled with generic copy.
+function plainText(v=''){
+ return String(v).replace(/<script[\\s\\S]*?<\\/script>/gi,' ').replace(/<style[\\s\\S]*?<\\/style>/gi,' ')
+  .replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"')
+  .replace(/&#39;/gi,"'").replace(/\\s+/g,' ').trim();
+}
+function safeHttpUrl(v){
+ try{const u=new URL(String(v||''));return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}
+}
+function strainKey(v=''){return String(v).toLowerCase().normalize('NFKD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim()}
+app.get('/api/strains/:slug/profile',async(req,res)=>{
+ const slug=String(req.params.slug||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,180);
+ const expected=String(req.query.name||'').slice(0,180);
+ if(!slug||!expected)return res.status(400).json({error:'A strain slug and exact name are required.'});
+ try{
+  const profile=await cached('strain-profile:'+slug,12*60*60*1000,()=>fetchJson('https://www.strainapi.com/wp-json/strainapi/v1/strains/'+encodeURIComponent(slug)));
+  const returnedName=String(profile.name||profile.display_title||'').trim();
+  if(!returnedName||strainKey(returnedName)!==strainKey(expected))return res.status(404).json({error:'No exact-name source record found.'});
+  const image=profile.image||profile.featured_image||{};
+  const imageUrl=safeHttpUrl(typeof image==='string'?image:(image.url||image.src||profile.image_url||profile.imageUrl));
+  const description=plainText(profile.description||profile.excerpt||profile.content||'').slice(0,1400);
+  const sourceUrl=safeHttpUrl(profile.url)||('https://www.strainapi.com/strains/'+encodeURIComponent(profile.slug||slug)+'/');
+  res.setHeader('Cache-Control','public, max-age=3600, s-maxage=21600');
+  res.json({
+   name:returnedName,description,imageUrl,
+   imageAlt:plainText((typeof image==='object'&&image.alt)||returnedName+' strain photo'),
+   sourceUrl,provider:'StrainAPI',
+   breeder:plainText(profile.breeder||''),genetics:plainText(profile.genetics||''),
+   type:plainText(profile.type||''),thc:profile.thc||null,cbd:profile.cbd||null,
+   terpenes:Array.isArray(profile.terpenes)?profile.terpenes:[],
+   effects:profile.effects||null,flavor:profile.flavor||null,aroma:profile.aroma||null,
+   updatedAt:profile.updated_at||profile.published_at||null
+  });
+ }catch(e){
+  const status=Number(e.status)||0;
+  res.status(status===404?404:502).json({error:'Verified strain profile is temporarily unavailable.'});
+ }
+});
+
+app.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
 
 app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
