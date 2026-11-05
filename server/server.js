@@ -154,7 +154,7 @@ function plainText(v=''){
  let s=String(v).replace(new RegExp('<[^>]*>','g'),' ');
  s=s.replace(new RegExp('&nbsp;','gi'),' ').replace(new RegExp('&amp;','gi'),'&')
   .replace(new RegExp('&quot;','gi'),'"').replace(new RegExp('&#39;','gi'),"'");
- return s.replace(new RegExp('\\\\s+','g'),' ').trim();
+ while(s.includes('  '))s=s.replaceAll('  ',' '); return s.trim();
 }
 function safeHttpUrl(v){
  try{const u=new URL(String(v||''));return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}
