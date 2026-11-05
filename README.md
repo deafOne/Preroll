@@ -84,3 +84,8 @@ GitHub Actions checks JavaScript syntax on every push and pull request with Node
 Do not store database credentials in the frontend or GitHub. The production deployment does not require any third-party API secrets.
 
 Cannabis strain descriptions, terpene information, and community reports should be presented as educational/community information rather than medical diagnosis or guaranteed effects.
+
+
+## Green Empire
+
+The game is served at `/game/` and is a standalone, mobile-responsive 21+ fictional strategy game. It includes dynamic in-game market prices, six city hubs, business properties, staff, upgrades, daily missions, achievements, a 52-card fictional collectible vault, autosave, JSON save export/import, and a device-local Hall of Fame. Save data and Hall of Fame records stay in the visitor's browser; they are not synced across devices or players. The game is entertainment only and does not enable real-world transactions.
