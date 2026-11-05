@@ -10,9 +10,7 @@ services:
     autoDeployTrigger: commit
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: preroll-production
-          property: connectionString
+        sync: false
       - key: ALLOWED_ORIGIN
         value: https://preroll.org
       - key: NODE_ENV
@@ -31,9 +29,7 @@ services:
     autoDeployTrigger: commit
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: preroll-production
-          property: connectionString
+        sync: false
       - key: NODE_ENV
         value: production
       - key: STRAIN_SYNC_ON_EMPTY
