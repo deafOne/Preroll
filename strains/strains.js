@@ -22,7 +22,7 @@ async function enrichCard(card,s){
   const facts=[fact('Genetics',p.genetics),fact('Breeder',p.breeder),fact('THC',p.thc),fact('CBD',p.cbd),fact('Terpenes',p.terpenes),fact('Effects reported',p.effects),fact('Flavor',p.flavor),fact('Aroma',p.aroma)].filter(Boolean);
   card.querySelector('.strain-facts').innerHTML=facts.join('');
   const link=card.querySelector('.strain-source');if(p.sourceUrl){link.href=p.sourceUrl;link.textContent='Strain profile source ↗'}
-  if(p.imageUrl){const img=card.querySelector('.strain-photo');img.src=p.imageUrl;img.alt=p.imageAlt||p.name+' strain photo';img.hidden=false;const fallback=card.querySelector('.strain-photo-fallback');img.addEventListener('error',()=>{img.hidden=true;fallback.textContent='Source image could not be loaded.'},{once:true});fallback.hidden=true}
+  if(p.imageUrl){const img=card.querySelector('.strain-photo');img.src=p.imageUrl;img.alt=p.imageAlt||p.name+' strain photo';img.hidden=false;const fallback=card.querySelector('.strain-photo-fallback');img.addEventListener('error',()=>{img.hidden=true;fallback.hidden=false;fallback.textContent='Source image could not be loaded.'},{once:true});fallback.hidden=true}
   else card.querySelector('.strain-photo-fallback').textContent='No verified strain photo available from source.';
  }catch(e){
   card.querySelector('.strain-description').textContent='No exact-name source profile is available yet. No description has been substituted.';
