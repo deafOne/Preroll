@@ -170,7 +170,9 @@ app.get('/api/strains/:slug/profile',async(req,res)=>{
   if(!returnedName||strainKey(returnedName)!==strainKey(expected))return res.status(404).json({error:'No exact-name source record found.'});
   const image=profile.image||profile.featured_image||{};
   const imageUrl=safeHttpUrl(typeof image==='string'?image:(image.url||image.src||profile.image_url||profile.imageUrl));
-  let description=plainText(profile.description||profile.excerpt||profile.content||'').slice(0,1400);\n  // Reject scraped stylesheet/code fragments instead of ever rendering them as strain copy.\n  if(/@font-face|font-family\\s*:|\\{\\s*(src|font|color|margin|padding)\\s*:|url\\(\\s*['\\"]?\\/?static\\/fonts|\\.woff2?\\b|<\\/?(style|script)\\b/i.test(description))description='';
+  let description=plainText(profile.description||profile.excerpt||profile.content||'').slice(0,1400);
+  // Reject scraped stylesheet/code fragments instead of ever rendering them as strain copy.
+  if(/@font-face|font-family\s*:|\{\s*(src|font|color|margin|padding)\s*:|url\(\s*['"]?\/?static\/fonts|\.woff2?\b|<\/?(style|script)\b/i.test(description))description='';
   const sourceUrl=safeHttpUrl(profile.url)||('https://www.strainapi.com/strains/'+encodeURIComponent(profile.slug||slug)+'/');
   res.setHeader('Cache-Control','public, max-age=3600, s-maxage=21600');
   res.json({
