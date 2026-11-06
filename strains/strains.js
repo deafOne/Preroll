@@ -67,7 +67,7 @@ function render(){
 async function load(){
  try{
   if(!API_URL)throw new Error('Verified strain API is not configured');
-  const response=await fetch(API_URL+'/api/strains/verified',{cache:'no-store',headers:{Accept:'application/json'}});
+  const response=await fetch(API_URL+'/api/strains?limit=20000',{cache:'no-store',headers:{Accept:'application/json'}});
   const data=await response.json();
   if(!response.ok)throw new Error(data.error||'Verified strain data unavailable');
   catalog=Array.isArray(data.strains)?data.strains:[];
@@ -75,11 +75,11 @@ async function load(){
   for(const src of [...new Set(catalog.map(x=>x.source).filter(Boolean))].sort()){
    if(![...sf.options].some(o=>o.value===src)){const op=document.createElement('option');op.value=src;op.textContent=src;sf.appendChild(op)}
   }
-  $('#status').textContent='Verified strain profiles · '+catalog.length.toLocaleString()+' records · entries without documented strain data excluded';
+  $('#status').textContent='Strain catalog · '+catalog.length.toLocaleString()+' records · profile details shown when available from the source';
   render();
  }catch(e){
-  $('#status').textContent='Verified strain data unavailable';
-  $('#strainGrid').innerHTML='<p class="muted">The verified strain library is temporarily unavailable. Unverified name-only entries are not being shown.</p>';
+  $('#status').textContent='Strain catalog temporarily unavailable';
+  $('#strainGrid').innerHTML='<p class="muted">The strain catalog could not be loaded. Please try again shortly.</p>';
  }
 }
 $('#strainSearch').addEventListener('input',()=>{page=1;render()});$('#typeFilter').addEventListener('change',()=>{page=1;render()});$('#sourceFilter').addEventListener('change',()=>{page=1;render()});
