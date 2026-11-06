@@ -12,8 +12,18 @@ function validStrainDescription(value){
  if(/@font-face|font-family\s*:|\{\s*(src|font|color|margin|padding)\s*:|url\(\s*['"]?\/?static\/fonts|\.woff2?\b|<\/?(style|script)\b/i.test(s))return '';
  return s;
 }
-function fact(label,value){if(value===null||value===undefined||value===''||(Array.isArray(value)&&!value.length))return '';let v=Array.isArray(value)?value.map(x=>typeof x==='string'?x:(x.name||x.value||'')).filter(Boolean).join(', '):typeof value==='object'?[value.min!=null?value.min:null,value.max!=null?value.max:null].filter(x=>x!==null).join('–')||value.value||value.name||'':String(value);if(!v)return '';return '<div class="strain-fact"><span>'+esc(label)+'</span><strong>'+esc(v)+'</strong></div>'}
-function cardMarkup(s,i){return '<article class="strain-card strain-card-rich" data-card-index="'+i+'"><div class="strain-photo-wrap"><img class="strain-photo" alt="" loading="lazy" hidden><div class="strain-photo-fallback">Checking for a verified strain photo…</div></div><div class="strain-card-body"><div class="strain-meta"><span class="pill">'+esc(s.type||'Unknown')+'</span><span class="pill">'+esc(s.source||'catalog')+'</span></div><h3>'+esc(s.name)+'</h3><p class="strain-description muted">Checking source record for a strain-specific description…</p><div class="strain-facts"></div><div class="card-actions"><a class="btn ghost small strain-source" href="'+sourceUrl(s)+'" target="_blank" rel="noopener noreferrer">Catalog source ↗</a></div></div></article>'}
+function displayValue(value){
+ if(value===null||value===undefined||value==='')return '';
+ if(Array.isArray(value))return value.map(displayValue).filter(Boolean).join(', ');
+ if(typeof value==='object'){
+  if(value.min!=null||value.max!=null){const range=[value.min,value.max].filter(x=>x!=null).join('–');return range+(value.unit?' '+value.unit:'')}
+  if(value.value!=null)return String(value.value)+(value.unit?' '+value.unit:'');
+  return Object.entries(value).map(([k,v])=>{const d=displayValue(v);return d?k.replace(/_/g,' ')+': '+d:''}).filter(Boolean).join(' · ');
+ }
+ return String(value);
+}
+function fact(label,value){const v=displayValue(value);if(!v)return '';return '<div class="strain-fact"><span>'+esc(label)+'</span><strong>'+esc(v)+'</strong></div>'}
+function cardMarkup(s,i){return '<article class="strain-card strain-card-rich" data-card-index="'+i+'"><div class="strain-photo-wrap"><img class="strain-photo" alt="" loading="lazy" hidden><div class="strain-photo-fallback">Checking for a verified strain photo…</div></div><div class="strain-card-body"><div class="strain-meta"><span class="pill">'+esc(s.type||'Unknown')+'</span><span class="pill">'+esc(s.source||'catalog')+'</span></div><h3>'+esc(s.name)+'</h3><p class="strain-description muted">Checking source record for a strain-specific description…</p><div class="strain-facts strain-facts-primary"></div><details class="strain-extra"><summary>View all available strain information</summary><div class="strain-facts strain-facts-all"></div><p class="strain-updated muted"></p></details><div class="card-actions"><a class="btn ghost small strain-source" href="'+sourceUrl(s)+'" target="_blank" rel="noopener noreferrer">Catalog source ↗</a></div></div></article>'}
 async function getProfile(s){
  const key=String(s.id||s.slug||s.name);
  if(profileCache.has(key))return profileCache.get(key);
@@ -25,9 +35,12 @@ async function enrichCard(card,s){
   const p=await getProfile(s);
   const desc=card.querySelector('.strain-description');
   desc.textContent=validStrainDescription(p.description)||'No clean, strain-specific description is published by the connected source.';
-  const facts=[fact('Genetics',p.genetics),fact('Breeder',p.breeder),fact('THC',p.thc),fact('CBD',p.cbd),fact('Terpenes',p.terpenes),fact('Effects reported',p.effects),fact('Flavor',p.flavor),fact('Aroma',p.aroma)].filter(Boolean);
-  card.querySelector('.strain-facts').innerHTML=facts.join('');
-  const link=card.querySelector('.strain-source');if(p.sourceUrl){link.href=p.sourceUrl;link.textContent='Strain profile source ↗'}
+  const primary=[fact('Genetics / lineage',p.genetics),fact('THC',p.thc),fact('CBD',p.cbd),fact('Terpenes',p.terpenes)].filter(Boolean);
+  card.querySelector('.strain-facts-primary').innerHTML=primary.join('');
+  const all=[fact('Classification',p.type),fact('Indica share',p.indicaPercent),fact('Sativa share',p.sativaPercent),fact('Breeder',p.breeder),fact('Aliases',p.aliases),fact('Seed type',p.seedType),fact('Genetics / lineage',p.genetics),fact('THC',p.thc),fact('CBD',p.cbd),fact('Terpenes',p.terpenes),fact('Reported effects',p.effects),fact('Flavor',p.flavor),fact('Aroma',p.aroma),fact('Flowering time',p.flowering),fact('Outdoor harvest',p.outdoorHarvest),fact('Plant structure',p.plantStructure),fact('Yield',p.yield),fact('Evidence / data notes',p.evidence),fact('Published',p.publishedAt),fact('Last updated',p.updatedAt)].filter(Boolean);
+  card.querySelector('.strain-facts-all').innerHTML=all.length?all.join(''):'<p class="muted">The source has not published additional profile fields for this strain yet.</p>';
+  card.querySelector('.strain-updated').textContent='Source: StrainAPI · '+(p.updatedAt?'Updated '+new Date(p.updatedAt).toLocaleDateString():'No update date supplied');
+  const link=card.querySelector('.strain-source');if(p.sourceUrl){link.href=p.sourceUrl;link.textContent='Open original strain profile ↗'}
   if(p.imageUrl){const img=card.querySelector('.strain-photo');img.src=p.imageUrl;img.alt=p.imageAlt||p.name+' strain photo';img.hidden=false;const fallback=card.querySelector('.strain-photo-fallback');img.addEventListener('error',()=>{img.hidden=true;fallback.hidden=false;fallback.textContent='Source image could not be loaded.'},{once:true});fallback.hidden=true}
   else card.querySelector('.strain-photo-fallback').textContent='No verified strain photo available from source.';
  }catch(e){
