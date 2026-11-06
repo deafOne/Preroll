@@ -53,6 +53,35 @@ function discoverPages(html, fallback) {
   const nums = [...html.matchAll(/[?&]page=(\d+)/gi)].map(m => Number(m[1])).filter(Number.isFinite);
   return Math.max(fallback, ...nums, 1);
 }
+async function createCatalogBackup() {
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS strain_catalog_backup (
+      backup_id BIGSERIAL PRIMARY KEY,
+      original_id BIGINT,
+      slug VARCHAR(180) NOT NULL,
+      name VARCHAR(180) NOT NULL,
+      type VARCHAR(20) NOT NULL DEFAULT 'Unknown',
+      source VARCHAR(20) NOT NULL,
+      source_page INTEGER,
+      original_updated_at TIMESTAMPTZ,
+      backed_up_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `);
+  const existing = await pool.query('SELECT COUNT(*)::int AS count FROM strain_catalog_backup');
+  if (existing.rows[0].count > 0) {
+    console.log('Strain catalog backup already exists:', existing.rows[0].count, 'records; preserving original snapshot.');
+    return existing.rows[0].count;
+  }
+  const result = await pool.query(`
+    INSERT INTO strain_catalog_backup
+      (original_id, slug, name, type, source, source_page, original_updated_at)
+    SELECT id, slug, name, type, source, source_page, updated_at
+    FROM strains
+    ORDER BY id
+  `);
+  console.log('Created permanent strain catalog backup:', result.rowCount, 'records.');
+  return result.rowCount;
+}
 async function ensureTable() {
   await pool.query('CREATE TABLE IF NOT EXISTS strains(' +
     'id BIGSERIAL PRIMARY KEY, slug VARCHAR(180) NOT NULL, name VARCHAR(180) NOT NULL,' +
@@ -152,6 +181,7 @@ async function syncStaticCatalog() {
       console.warn('Live scrape returned only ' + scraped + ' records; syncing known catalog instead of leaving the database stale.');
       await syncStaticCatalog();
     }
+    await createCatalogBackup();
     const q = await pool.query('SELECT source,COUNT(*)::int AS count FROM strains GROUP BY source ORDER BY source');
     console.log('Strain catalog sync complete:', q.rows);
   } catch (e) {
