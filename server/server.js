@@ -177,6 +177,66 @@ function cleanProfileValue(value,depth=0){
  }
  return null;
 }
+
+function strainDataValueExists(value){
+ if(value===null||value===undefined||value==='')return false;
+ if(typeof value==='number')return Number.isFinite(value);
+ if(typeof value==='boolean')return true;
+ if(typeof value==='string')return value.trim().length>0;
+ if(Array.isArray(value))return value.some(strainDataValueExists);
+ if(typeof value==='object')return Object.entries(value).some(([k,v])=>!['unit','label','source'].includes(k)&&strainDataValueExists(v));
+ return false;
+}
+function hasDocumentedStrainData(item){
+ const fields=['breeder','genetics','thc','cbd','terpenes','effects','flavor','aroma','flowering','outdoor_harvest','plant_structure','yield','description','excerpt','evidence','seed_type'];
+ return fields.some(key=>strainDataValueExists(item[key]));
+}
+async function fetchVerifiedStrainCatalog(){
+ const base='https://www.strainapi.com/wp-json/strainapi/v1/strains';
+ const records=[];let totalPages=1;
+ for(let page=1;page<=totalPages&&page<=100;page++){
+  const response=await fetch(base+'?per_page=100&page='+page,{headers:{'Accept':'application/json','User-Agent':'Preroll.org verified strain library'},signal:AbortSignal.timeout(20000)});
+  if(!response.ok)throw new Error('StrainAPI catalog returned HTTP '+response.status);
+  const payload=await response.json();
+  const batch=Array.isArray(payload)?payload:Array.isArray(payload.strains)?payload.strains:Array.isArray(payload.results)?payload.results:[];
+  if(page===1)totalPages=Math.min(100,Number(response.headers.get('X-WP-TotalPages'))||1);
+  for(const item of batch){
+   const name=String(item.name||item.display_title||'').trim(),slug=String(item.slug||'').trim();
+   if(!name||!slug||!hasDocumentedStrainData(item))continue;
+   const image=item.image||item.featured_image||{};
+   const imageUrl=safeHttpUrl(typeof image==='string'?image:(image.url||image.src||item.image_url||item.imageUrl));
+   const additionalFields={};
+   const known=['id','name','display_title','slug','url','excerpt','image','featured_image','image_url','imageUrl','description','content','content_html','breeder','genetics','type','indica_percent','sativa_percent','seed_type','thc','cbd','terpenes','effects','flavor','aroma','flowering','outdoor_harvest','plant_structure','yield','evidence','aliases','published_at','updated_at'];
+   for(const [key,value] of Object.entries(item)){if(known.includes(key)||/html|script|style/i.test(key))continue;const clean=cleanProfileValue(value);if(clean!==null&&clean!==''&&(!Array.isArray(clean)||clean.length))additionalFields[key]=clean;}
+   const profile={
+    name,description:plainText(item.description||item.excerpt||'').slice(0,5000),imageUrl,
+    imageAlt:plainText((typeof image==='object'&&image.alt)||name+' strain photo'),
+    sourceUrl:safeHttpUrl(item.url)||('https://www.strainapi.com/'+encodeURIComponent(slug)+'/'),
+    provider:'StrainAPI',providerSlug:slug,breeder:item.breeder||null,genetics:item.genetics||null,
+    type:item.type||null,indicaPercent:item.indica_percent??null,sativaPercent:item.sativa_percent??null,
+    seedType:item.seed_type||null,thc:item.thc??null,cbd:item.cbd??null,terpenes:item.terpenes??[],
+    effects:item.effects??null,flavor:item.flavor??null,aroma:item.aroma??null,
+    flowering:item.flowering??null,outdoorHarvest:item.outdoor_harvest??null,
+    plantStructure:item.plant_structure??null,yield:item.yield??null,evidence:item.evidence??null,
+    aliases:item.aliases??[],publishedAt:item.published_at??null,updatedAt:item.updated_at??null,additionalFields
+   };
+   records.push({id:slug,name,type:item.type||'Unknown',source:'StrainAPI',url:profile.sourceUrl,imageUrl,profile});
+  }
+  if(batch.length<100)break;
+ }
+ return records;
+}
+app.get('/api/strains/verified',async(req,res)=>{
+ try{
+  const strains=await cached('verified-strain-catalog',6*60*60*1000,fetchVerifiedStrainCatalog);
+  res.setHeader('Cache-Control','public, max-age=900, s-maxage=3600');
+  res.json({strains,total:strains.length,source:'StrainAPI',filter:'at least one documented strain-specific data field'});
+ }catch(e){
+  console.error('Verified strain catalog unavailable:',e.message);
+  res.status(502).json({error:'The verified strain data source is temporarily unavailable.'});
+ }
+});
+
 app.get('/api/strains/:slug/profile',async(req,res)=>{
  const catalogId=String(req.params.slug||'').slice(0,180);
  const expected=String(req.query.name||'').slice(0,180);
