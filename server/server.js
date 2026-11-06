@@ -151,7 +151,7 @@ app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'')
 // Verified strain profile enrichment. Data is fetched by exact strain slug and cached;
 // absent fields remain absent rather than being guessed or filled with generic copy.
 function plainText(v=''){
- let s=String(v).replace(new RegExp('<[^>]*>','g'),' ');
+ let s=String(v).replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi,' ').replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi,' ').replace(/<[^>]*>/g,' ');
  s=s.replace(new RegExp('&nbsp;','gi'),' ').replace(new RegExp('&amp;','gi'),'&')
   .replace(new RegExp('&quot;','gi'),'"').replace(new RegExp('&#39;','gi'),"'");
  while(s.includes('  '))s=s.replaceAll('  ',' '); return s.trim();
@@ -170,7 +170,7 @@ app.get('/api/strains/:slug/profile',async(req,res)=>{
   if(!returnedName||strainKey(returnedName)!==strainKey(expected))return res.status(404).json({error:'No exact-name source record found.'});
   const image=profile.image||profile.featured_image||{};
   const imageUrl=safeHttpUrl(typeof image==='string'?image:(image.url||image.src||profile.image_url||profile.imageUrl));
-  const description=plainText(profile.description||profile.excerpt||profile.content||'').slice(0,1400);
+  let description=plainText(profile.description||profile.excerpt||profile.content||'').slice(0,1400);\n  // Reject scraped stylesheet/code fragments instead of ever rendering them as strain copy.\n  if(/@font-face|font-family\\s*:|\\{\\s*(src|font|color|margin|padding)\\s*:|url\\(\\s*['\\"]?\\/?static\\/fonts|\\.woff2?\\b|<\\/?(style|script)\\b/i.test(description))description='';
   const sourceUrl=safeHttpUrl(profile.url)||('https://www.strainapi.com/strains/'+encodeURIComponent(profile.slug||slug)+'/');
   res.setHeader('Cache-Control','public, max-age=3600, s-maxage=21600');
   res.json({
