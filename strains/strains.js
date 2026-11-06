@@ -5,7 +5,7 @@ let catalog=[],page=1;
 const profileCache=new Map();
 function esc(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function sourceUrl(s){if(s.url&&(s.url.startsWith('https://')||s.url.startsWith('http://')))return s.url;return s.source==='leafly'?'https://www.leafly.com/strains/'+encodeURIComponent(s.id):s.source==='weedmaps'?'https://weedmaps.com/strains/'+encodeURIComponent(s.id):'#'}
-function junkStarTitle(name=''){return /\\b\\d+\\s*(?:-|–|—|to)\\s*(?:\\d+\\s*)?stars?\\b|\\b0\\s*[-–—]\\s*\\*\\s*stars?\\b/i.test(String(name))||/\\b\\d+(?:\\.\\d+)?\\s*stars?\\b/i.test(String(name));}
+function junkStarTitle(name=''){return /\b\d+\s*(?:-|–|—|to)\s*(?:\d+\s*)?stars?\b|\b0\s*[-–—]\s*\*\s*stars?\b/i.test(String(name))||/\b\d+(?:\.\d+)?\s*stars?\b/i.test(String(name));}
 function hasPhotoHint(s){return Boolean(s.imageUrl||s.image_url||s.image||s.photo||s.photoUrl||s.photo_url||s.thumbnail||s.featured_image);}
 function filtered(){const q=$('#strainSearch').value.trim().toLowerCase(),type=$('#typeFilter').value,source=$('#sourceFilter').value;return catalog.filter(s=>!junkStarTitle(s.name)&&(!q||String(s.name).toLowerCase().includes(q)||String(s.id).toLowerCase().includes(q))&&(type==='all'||s.type===type)&&(source==='all'||s.source===source)).sort((a,b)=>Number(hasPhotoHint(b))-Number(hasPhotoHint(a))||String(a.name).localeCompare(String(b.name)));}
 function validStrainDescription(value){
