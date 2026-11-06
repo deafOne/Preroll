@@ -1,92 +1,138 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dr. Terpenstein — Cannabis Education AI | Preroll.org</title>
-<meta name="description" content="Ask Dr. Terpenstein about cannabis terpenes, strains, pre-roll labels and cannabis terminology. Educational information only.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://preroll.org/dr-terpenstein/">
-<link rel="icon" href="../assets/logo.svg">
-<link rel="stylesheet" href="../styles.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dr. Terpenstein — Cannabis Education | Preroll.org</title>
+<meta name="description" content="Meet Dr. Terpenstein, Preroll.org's animated cannabis education character. Explore terpenes, cannabinoids, strain profiles and pre-roll labels.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://preroll.org/dr-terpenstein/">
+<link rel="icon" href="../assets/logo.svg"><link rel="stylesheet" href="../styles.css?v=8">
 <style>
-.terp-page{max-width:var(--max);margin:auto;padding:70px 24px 100px}
-.terp-hero{display:grid;grid-template-columns:.75fr 1.25fr;gap:50px;align-items:center;min-height:620px}
-.terp-avatar-wrap{display:grid;place-items:center;position:relative;min-height:520px}
-.terp-avatar{width:300px;height:380px;position:relative;filter:drop-shadow(0 35px 45px #000)}
-.terp-head{position:absolute;left:58px;top:20px;width:184px;height:184px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#fff5df,#d8ad7c 58%,#8e5b3e);border:6px solid #202820;box-shadow:inset -18px -18px 35px #0004}
-.terp-hair{position:absolute;left:42px;top:0;width:215px;height:75px;background:#222923;border-radius:60% 60% 35% 35%;transform:rotate(-3deg)}
-.terp-hair:after{content:"";position:absolute;right:-5px;top:35px;width:42px;height:80px;background:#222923;border-radius:20px;transform:rotate(22deg)}
-.terp-glasses{position:absolute;left:77px;top:82px;display:flex;gap:5px;z-index:3}
-.terp-glasses span{width:63px;height:38px;border:5px solid #172018;border-radius:14px;background:#9dff6720}
-.terp-nose{position:absolute;left:137px;top:112px;width:18px;height:42px;border-right:4px solid #8d5b43;border-bottom:4px solid #8d5b43;border-radius:0 0 12px 0;z-index:3}
-.terp-mouth{position:absolute;left:112px;top:155px;width:55px;height:20px;border-bottom:5px solid #3b241e;border-radius:50%;z-index:3}
-.terp-body{position:absolute;left:18px;top:190px;width:264px;height:190px;background:linear-gradient(145deg,#f4f5ed,#bfc8be);border:6px solid #202820;border-radius:80px 80px 35px 35px;box-shadow:inset -20px -20px 35px #0002}
-.terp-shirt{position:absolute;left:104px;top:203px;width:95px;height:150px;background:#f9faf5;z-index:2;clip-path:polygon(0 0,100% 0,78% 100%,22% 100%)}
-.terp-tie{position:absolute;left:137px;top:208px;width:31px;height:112px;background:#273c2b;z-index:3;clip-path:polygon(35% 0,65% 0,100% 100%,50% 88%,0 100%)}
-.terp-pocket{position:absolute;right:45px;top:245px;width:55px;height:48px;border:3px solid #6c766d;border-radius:4px;z-index:3}
-.terp-badge{position:absolute;right:49px;top:252px;font-size:8px;color:#253126;z-index:4;font-weight:900;text-align:center}
-.terp-arm{position:absolute;top:225px;width:58px;height:135px;background:#d9e0d9;border:6px solid #202820;border-radius:35px;z-index:1}
-.terp-arm.left{left:0;transform:rotate(18deg)}.terp-arm.right{right:0;transform:rotate(-18deg)}
-.terp-bubble{position:absolute;right:-35px;top:25px;background:#151b16;border:1px solid var(--line);border-radius:18px;padding:14px 18px;color:var(--green);font-weight:800;box-shadow:0 20px 50px #0008;z-index:5}
-.terp-bubble:after{content:"";position:absolute;left:25px;bottom:-9px;border:9px solid transparent;border-top-color:#151b16;border-bottom:0}
-.terp-copy .badge{display:inline-block}.terp-copy h1{font-size:clamp(3rem,7vw,6.8rem);line-height:.86;letter-spacing:-.065em;margin:18px 0 25px}.terp-copy h1 span{color:var(--green)}.terp-copy .lede{font-size:1.15rem;color:#b9c3bb;max-width:700px}.terp-topics{display:flex;flex-wrap:wrap;gap:8px;margin:25px 0}.terp-topic{padding:8px 11px;border:1px solid var(--line);border-radius:999px;color:#c9d2cb;background:#111512}.terp-chat{max-width:920px;margin:0 auto}.terp-chat .chat-messages{height:480px}.terp-note{margin-top:14px;color:var(--muted);font-size:.82rem;text-align:center}
-@media(max-width:900px){.terp-hero{grid-template-columns:1fr;min-height:0}.terp-avatar-wrap{min-height:440px}.terp-copy{order:-1}}
-@media(max-width:600px){.terp-page{padding:45px 18px 70px}.terp-avatar{transform:scale(.82)}.terp-avatar-wrap{min-height:380px;margin:-30px 0}.terp-bubble{right:-10px}.terp-chat .chat-messages{height:400px}}
+.terp-page{max-width:var(--max);margin:auto;padding:44px 24px 88px}
+.terp-stage{display:grid;grid-template-columns:minmax(300px,.85fr) minmax(0,1.15fr);gap:28px;align-items:center;min-height:520px;padding:28px;border:1px solid #2d4930;border-radius:30px;background:radial-gradient(ellipse at 30% 45%,#24432a 0,#142019 43%,#0c100d 78%);overflow:hidden;position:relative}
+.terp-stage:before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:#7dff5b12;filter:blur(40px);left:4%;top:10%}
+.terp-visual{position:relative;z-index:1;display:grid;place-items:center;min-height:430px}
+.terp-mascot{width:min(100%,390px);height:auto;overflow:visible;filter:drop-shadow(0 28px 24px #0009);animation:docFloat 4.8s ease-in-out infinite;transform-origin:50% 85%}
+@keyframes docFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}
+.leaf-crown{transform-origin:50% 100%;animation:leafSway 5s ease-in-out infinite}
+@keyframes leafSway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(2deg)}}
+.doc-eye{transform-origin:center;animation:docBlink 6s infinite}
+@keyframes docBlink{0%,45%,48%,100%{transform:scaleY(1)}46%,47%{transform:scaleY(.08)}}
+.terp-speech{position:absolute;top:5%;right:0;background:#f5ffe9;color:#17321a;padding:12px 16px;border-radius:18px 18px 4px 18px;font-weight:900;box-shadow:0 12px 28px #0007;transform:rotate(2deg);z-index:3}
+.terp-copy{position:relative;z-index:1}.terp-kicker{color:#9aff7c;font-weight:900;letter-spacing:.16em;font-size:.76rem}.terp-copy h1{font-size:clamp(3rem,6vw,5.8rem);line-height:.9;letter-spacing:-.07em;margin:15px 0 18px}.terp-copy h1 span{color:#9aff7c}.terp-copy .lede{font-size:1.1rem;color:#c1cec3;max-width:620px}.terp-tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.terp-tags span{padding:8px 12px;border:1px solid #36553b;border-radius:999px;background:#142019;color:#d5e4d5;font-size:.85rem}
+.terp-chat-wrap{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:18px;margin-top:26px;align-items:start}.terp-chat{overflow:hidden;padding:0}.terp-chat-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line);background:#121a14}.terp-chat-head strong{font-size:1.05rem}.terp-status{font-size:.78rem;color:#a7d99a}.terp-messages{height:410px;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth}.terp-message{max-width:min(88%,650px);padding:13px 15px;border-radius:16px;background:#202a22;color:#e7eee7;line-height:1.55;overflow-wrap:anywhere}.terp-message.doc{border:1px solid #345139;border-bottom-left-radius:4px}.terp-message.user{align-self:flex-end;background:#b8f69b;color:#102010;border-bottom-right-radius:4px}.terp-message small{display:block;font-weight:900;color:#9aff7c;margin-bottom:5px}.terp-message.user small{color:#31552c}.terp-chat-form{display:flex;gap:9px;padding:12px;border-top:1px solid var(--line);background:#101511}.terp-chat-form input{min-width:0;flex:1;background:#080d09;border:1px solid #344237;border-radius:12px;color:white;padding:13px}.terp-chat-form button{white-space:nowrap}.terp-side{display:grid;gap:14px}.terp-side-card{padding:17px;border:1px solid var(--line);border-radius:18px;background:#111712}.terp-side-card h3{margin:0 0 10px;font-size:1rem}.terp-prompts{display:grid;gap:8px}.terp-prompt{width:100%;text-align:left;padding:10px 12px;border:1px solid #344237;border-radius:12px;background:#172019;color:#dce8dc;cursor:pointer}.terp-prompt:hover,.terp-prompt:focus{border-color:#9aff7c;color:#aaff8b}.terp-clear{border:0;background:none;color:#a8b6aa;cursor:pointer;font-size:.8rem}.terp-disclaimer{font-size:.78rem;color:var(--muted);line-height:1.5;margin:12px 0 0}.terp-topics{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.terp-topics button{border:1px solid #39543d;border-radius:999px;background:#172219;color:#cfe0cf;padding:7px 10px;font-size:.78rem;cursor:pointer}
+@media(max-width:900px){.terp-stage{grid-template-columns:1fr;gap:4px}.terp-visual{min-height:350px;order:2}.terp-copy{order:1}.terp-mascot{width:min(80%,340px)}.terp-speech{right:10%;top:0}.terp-chat-wrap{grid-template-columns:1fr}.terp-side{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.terp-page{padding:20px 14px 60px}.terp-stage{padding:22px 16px;border-radius:22px}.terp-copy h1{font-size:3.4rem}.terp-visual{min-height:300px}.terp-mascot{width:92%}.terp-speech{right:0;font-size:.85rem}.terp-side{grid-template-columns:1fr}.terp-messages{height:390px;padding:14px}.terp-message{max-width:95%}.terp-chat-form{flex-wrap:wrap}.terp-chat-form input{flex-basis:100%}.terp-chat-form button{width:100%}}
 </style>
 </head>
 <body>
-<div id="ageGate" class="age-gate" role="dialog" aria-modal="true">
-<div class="age-card"><img src="../assets/logo.svg" alt="Preroll.org" class="age-logo"><p class="eyebrow">AGE CHECK</p><h1>Are you 21 or older?</h1><p>Preroll.org is intended for adults of legal age. Educational content only.</p><div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div><small id="ageMessage"></small></div>
-</div>
-<header class="site-header">
-<a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="Preroll.org"></a>
-<button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
-<nav id="nav"><a href="../index.html">Home</a><a href="../news/index.html">News</a><a href="../index.html#market">NY Market</a><a href="../index.html#community">Community</a><a href="../strains/index.html">Strains</a><a href="../guides/index.html">Guides</a><a href="../calculators/index.html">Calculators</a><a href="../forum/index.html">Forum</a><a href="index.html">Dr. Terpenstein</a></nav>
-<div class="header-actions"><a class="btn ghost small" href="../forum/index.html">Join forum</a></div>
-</header>
+<div id="ageGate" class="age-gate" role="dialog" aria-modal="true"><div class="age-card"><img src="../assets/logo.svg" alt="Preroll.org" class="age-logo"><p class="eyebrow">AGE CHECK</p><h1>Are you 21 or older?</h1><p>Preroll.org is intended for adults of legal age. Educational content only.</p><div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div><small id="ageMessage"></small></div></div>
+<header class="site-header"><a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="Preroll.org"></a><button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button><nav id="nav"><a href="../index.html">Home</a><a href="../news/index.html">News</a><a href="../index.html#market">NY Market</a><a href="../index.html#community">Community</a><a href="../strains/index.html">Strains</a><a href="../guides/index.html">Guides</a><a href="../calculators/index.html">Calculators</a><a href="../forum/index.html">Forum</a><a href="index.html" aria-current="page">Dr. Terpenstein</a></nav><div class="header-actions"><a class="btn ghost small" href="../forum/index.html">Join forum</a></div></header>
 <main class="terp-page">
-<section class="terp-hero">
-<div class="terp-avatar-wrap" aria-label="Dr. Terpenstein cartoon character">
-<div class="terp-avatar">
-<div class="terp-bubble">Ask me anything.</div>
-<div class="terp-hair"></div><div class="terp-head"><div class="terp-glasses"><span></span><span></span></div><div class="terp-nose"></div><div class="terp-mouth"></div></div>
-<div class="terp-body"></div><div class="terp-shirt"></div><div class="terp-tie"></div><div class="terp-pocket"></div><div class="terp-badge">DR.<br>TERP</div><div class="terp-arm left"></div><div class="terp-arm right"></div>
+<section class="terp-stage">
+<div class="terp-visual">
+<div class="terp-speech">Well, hello there!</div>
+<svg class="terp-mascot" viewBox="0 0 420 500" role="img" aria-labelledby="docTitle docDesc" xmlns="http://www.w3.org/2000/svg">
+<title id="docTitle">Dr. Terpenstein, Preroll.org cannabis education mascot</title><desc id="docDesc">A friendly three-dimensional cartoon scientist with leafy green hair, round glasses, a white lab coat and a green leaf emblem.</desc>
+<defs>
+ <linearGradient id="coat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".52" stop-color="#dfe9df"/><stop offset="1" stop-color="#91a595"/></linearGradient>
+ <radialGradient id="skin" cx="34%" cy="24%" r="80%"><stop stop-color="#ffe1b5"/><stop offset=".58" stop-color="#d99a6a"/><stop offset="1" stop-color="#8f513d"/></radialGradient>
+ <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a8ff72"/><stop offset=".5" stop-color="#3c9e43"/><stop offset="1" stop-color="#14522d"/></linearGradient>
+ <linearGradient id="lens" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4fff0" stop-opacity=".9"/><stop offset="1" stop-color="#5cae76" stop-opacity=".2"/></linearGradient>
+ <linearGradient id="tie" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#397d4a"/><stop offset="1" stop-color="#123a28"/></linearGradient>
+ <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>
+ <filter id="shine"><feGaussianBlur stdDeviation="2"/></filter>
+</defs>
+<ellipse cx="214" cy="466" rx="130" ry="19" fill="#000" opacity=".4" filter="url(#softShadow)"/>
+<!-- coat arms and body -->
+<path d="M105 287 Q64 310 55 390 Q50 425 86 433 Q110 438 121 406 L147 342Z" fill="url(#coat)" stroke="#4c6654" stroke-width="5"/>
+<path d="M302 288 Q350 304 365 386 Q372 421 340 433 Q313 440 300 407 L272 343Z" fill="url(#coat)" stroke="#4c6654" stroke-width="5"/>
+<path d="M118 274 Q210 239 301 274 Q341 294 345 445 Q276 480 87 445 Q82 318 118 274Z" fill="url(#coat)" stroke="#4c6654" stroke-width="6"/>
+<path d="M173 267 L211 304 L249 267 L271 454 L151 454Z" fill="#f8fff7" opacity=".9"/>
+<path d="M198 296 L223 296 L244 424 L210 445 L179 424Z" fill="url(#tie)" stroke="#153d2a" stroke-width="3"/>
+<path d="M198 295 L222 295 L210 314Z" fill="#9aff7c"/>
+<path d="M282 337 Q316 327 321 350 L319 396 Q296 405 278 390Z" fill="#a9b9aa" stroke="#526858" stroke-width="3"/>
+<path d="M286 347 Q302 337 314 350" fill="none" stroke="#fff" stroke-width="5" opacity=".65"/>
+<circle cx="300" cy="367" r="16" fill="#2d7d3d"/><path d="M300 379 Q284 363 300 350 Q316 362 300 379Z" fill="#a7ff78"/><path d="M300 377 L300 356" stroke="#e7ffd9" stroke-width="2"/>
+<!-- neck -->
+<path d="M177 234 L244 234 L247 292 Q211 320 174 291Z" fill="url(#skin)" stroke="#8d5a43" stroke-width="4"/>
+<!-- head -->
+<ellipse cx="210" cy="177" rx="111" ry="119" fill="url(#skin)" stroke="#794d3d" stroke-width="5"/>
+<ellipse cx="127" cy="192" rx="17" ry="27" fill="#c87f59" stroke="#8e5943" stroke-width="4"/>
+<ellipse cx="294" cy="192" rx="17" ry="27" fill="#c87f59" stroke="#8e5943" stroke-width="4"/>
+<!-- leafy hair silhouette -->
+<g class="leaf-crown" fill="url(#hair)" stroke="#17532f" stroke-width="4">
+ <path d="M100 138 Q68 93 105 64 Q115 100 135 104 Q121 51 166 34 Q169 76 189 86 Q191 25 236 23 Q224 71 244 91 Q275 45 312 70 Q286 97 287 119 Q330 105 342 143 Q302 135 283 157 L126 158Z"/>
+ <path d="M115 99 Q84 64 103 35 Q123 66 135 73 Q128 32 158 13 Q163 50 180 64 Q195 19 221 9 Q216 50 227 68 Q263 35 286 54 Q265 77 265 98Z" opacity=".95"/>
+</g>
+<g fill="none" stroke="#d1ff9e" stroke-width="4" stroke-linecap="round" opacity=".8"><path d="M115 90 Q128 103 139 132"/><path d="M166 44 Q179 69 184 105"/><path d="M223 28 Q220 63 231 105"/><path d="M293 75 Q269 99 267 127"/></g>
+<!-- eyebrows -->
+<path d="M147 151 Q172 136 192 150 M229 150 Q252 135 274 151" fill="none" stroke="#4d3429" stroke-width="8" stroke-linecap="round"/>
+<!-- eyes -->
+<g class="doc-eye"><ellipse cx="171" cy="181" rx="13" ry="17" fill="#fff"/><ellipse cx="249" cy="181" rx="13" ry="17" fill="#fff"/><circle cx="175" cy="184" r="7" fill="#3b7448"/><circle cx="245" cy="184" r="7" fill="#3b7448"/><circle cx="177" cy="181" r="2.5" fill="#fff"/><circle cx="247" cy="181" r="2.5" fill="#fff"/></g>
+<!-- glasses -->
+<g fill="url(#lens)" stroke="#243b2b" stroke-width="7"><rect x="135" y="158" width="70" height="51" rx="18"/><rect x="215" y="158" width="70" height="51" rx="18"/></g><path d="M205 176 Q210 169 215 176" fill="none" stroke="#243b2b" stroke-width="7"/>
+<path d="M146 165 L163 165 M226 165 L243 165" stroke="#fff" stroke-width="4" opacity=".8"/>
+<!-- nose, smile, moustache -->
+<path d="M207 184 Q194 220 211 225 Q222 227 229 219" fill="none" stroke="#a76049" stroke-width="6" stroke-linecap="round"/>
+<path d="M177 239 Q209 265 244 238 Q225 276 192 260Z" fill="#6b3d31" opacity=".9"/>
+<path d="M184 242 Q211 253 237 241" fill="none" stroke="#fff1df" stroke-width="5" stroke-linecap="round"/>
+<!-- stethoscope -->
+<path d="M134 306 Q112 370 161 386 Q188 396 194 365 M286 306 Q310 369 260 386" fill="none" stroke="#335c40" stroke-width="8" stroke-linecap="round"/>
+<circle cx="194" cy="365" r="13" fill="#a7ff78" stroke="#315b3c" stroke-width="5"/>
+<!-- lapel -->
+<path d="M117 285 L174 326 L153 370 L103 306Z" fill="#f8fff7" stroke="#829888" stroke-width="3"/>
+<path d="M303 285 L249 326 L271 370 L322 306Z" fill="#f8fff7" stroke="#829888" stroke-width="3"/>
+<path d="M118 289 L151 330" stroke="#fff" stroke-width="5" opacity=".8"/><path d="M301 289 L270 330" stroke="#fff" stroke-width="5" opacity=".8"/>
+<!-- hands -->
+<circle cx="70" cy="411" r="25" fill="url(#skin)" stroke="#8d5943" stroke-width="4"/><circle cx="348" cy="412" r="25" fill="url(#skin)" stroke="#8d5943" stroke-width="4"/>
+<path d="M61 408 Q71 419 81 408 M338 408 Q348 419 358 408" fill="none" stroke="#8f5943" stroke-width="3" stroke-linecap="round"/>
+<!-- coat highlights -->
+<path d="M100 350 Q91 396 103 431 M326 350 Q339 395 327 430" stroke="#fff" stroke-width="7" opacity=".45" fill="none" stroke-linecap="round"/>
+</svg>
 </div>
-</div>
-<div class="terp-copy">
-<span class="badge">PREROLL.ORG • DR. TERPENSTEIN</span>
-<h1>Meet the <span>Doc.</span></h1>
-<p class="lede">A cannabis education assistant built to cut through hype. Ask about terpenes, strain terminology, cannabinoid labels, pre-roll quality and cannabis history.</p>
-<div class="terp-topics"><span class="terp-topic">Terpenes</span><span class="terp-topic">Strains</span><span class="terp-topic">THC / CBD</span><span class="terp-topic">Labels</span><span class="terp-topic">Pre-rolls</span></div>
-<p class="muted">Educational information only. Dr. Terpenstein does not diagnose conditions, prescribe products or provide medical treatment.</p>
-</div>
+<div class="terp-copy"><div class="terp-kicker">PREROLL.ORG • THE STRAIN & TERPENE GUIDE</div><h1>Meet Dr.<br><span>Terpenstein.</span></h1><p class="lede">Your curious cannabis encyclopedia in a lab coat. Ask about strain genetics, terpene families, cannabinoid labels, cultivation terms and what the numbers actually mean.</p><div class="terp-tags"><span>Strain science</span><span>Terpenes</span><span>THC / CBD</span><span>Pre-roll labels</span></div><p class="muted">Clear explanations. Source-aware strain information. No diagnosis, prescriptions or medical promises.</p><a class="btn primary" href="#ask-doc">Ask the Doc</a></div>
 </section>
-<section class="terp-chat panel" id="terpensteinChat">
-<div class="chat-messages" id="terpensteinMessages" aria-live="polite">
-<div class="bubble"><strong>Dr. Terpenstein:</strong><br>Welcome to my office. Ask me about terpenes, strain categories, cannabis labels or how to evaluate a pre-roll.</div>
+<section class="terp-chat-wrap" id="ask-doc">
+<div class="terp-chat panel">
+<div class="terp-chat-head"><div><strong>Dr. Terpenstein's Lab</strong><div class="terp-status">● Educational answer library · Ready</div></div><button class="terp-clear" id="clearChat" type="button">Clear conversation</button></div>
+<div class="terp-messages" id="terpensteinMessages" aria-live="polite"><div class="terp-message doc"><small>DR. TERPENSTEIN</small>Welcome to the lab! Pick a topic or ask a question. I'll break down the terminology and point out where strain information can vary by source or batch.</div></div>
+<form class="terp-chat-form" id="terpensteinForm"><input id="terpensteinInput" maxlength="300" autocomplete="off" placeholder="Ask about myrcene, THC, genetics…" aria-label="Ask Dr. Terpenstein"><button class="btn primary" type="submit">Ask the Doc</button></form>
 </div>
-<form class="chat-input" id="terpensteinForm"><input id="terpensteinInput" maxlength="240" placeholder="Ask Dr. Terpenstein…" aria-label="Ask Dr. Terpenstein"><button class="btn primary" type="submit">Ask</button></form>
-<p class="terp-note">Dr. Terpenstein is an educational character, not a medical professional.</p>
+<aside class="terp-side">
+<div class="terp-side-card"><h3>Popular questions</h3><div class="terp-prompts">
+<button class="terp-prompt" data-q="What are terpenes and what do they do?">What are terpenes?</button>
+<button class="terp-prompt" data-q="Explain myrcene, limonene and caryophyllene.">Compare common terpenes</button>
+<button class="terp-prompt" data-q="How should I read THC and CBD on a label?">Read a THC / CBD label</button>
+<button class="terp-prompt" data-q="What does strain genetics and lineage mean?">Explain strain genetics</button>
+<button class="terp-prompt" data-q="How do I evaluate a pre-roll label?">Evaluate a pre-roll label</button>
+</div></div>
+<div class="terp-side-card"><h3>Explore a subject</h3><div class="terp-topics"><button data-q="Tell me about terpenes.">Terpenes</button><button data-q="Explain cannabinoids.">Cannabinoids</button><button data-q="Explain indica, sativa and hybrid.">Strain types</button><button data-q="Explain flowering time and yield.">Grow terms</button><button data-q="What should a legal pre-roll label include?">Labels</button></div><p class="terp-disclaimer">This version uses a curated educational answer library. It does not diagnose, recommend treatment or claim that reported effects are guaranteed.</p></div>
+</aside>
 </section>
 </main>
-<footer><div><img src="../assets/logo.svg" alt="Preroll.org"><p>Live information, education and community. Adults 21+ only.</p></div><div><strong>Explore</strong><a href="../news/index.html">News</a><a href="../forum/index.html">Forum</a><a href="../guides/index.html">Guides</a><a href="../calculators/index.html">Calculators</a></div><div><strong>Data</strong><a href="../index.html#market">NY Market</a><a href="../index.html#community">Community</a><a href="../strains/index.html">Strains</a></div><div><strong>Preroll.org</strong><span>© <span id="year"></span></span></div></footer>
-<script src="../age-gate.js?v=5"></script>
+<footer><div><img src="../assets/logo.svg" alt="Preroll.org"><p>Live information, education and community. Adults 21+ only.</p></div><div><strong>Explore</strong><a href="../news/index.html">News</a><a href="../forum/index.html">Forum</a><a href="../guides/index.html">Guides</a><a href="../calculators/index.html">Calculators</a></div><div><strong>Data</strong><a href="../index.html#market">NY Market</a><a href="../strains/index.html">Strains</a></div><div><strong>Preroll.org</strong><span>© <span id="year"></span></span></div></footer>
+<script src="../age-gate.js?v=6"></script>
 <script>
-const terpAnswers=[
-[/terpene/i,"Terpenes are aromatic compounds found in cannabis and many other plants. Common examples include myrcene, limonene, pinene and caryophyllene. A terpene profile can describe aroma and flavor, but it does not reliably predict how every person will feel."],
-[/label|thc|potency|cannabinoid/i,"Start with the label: check THC/CBD amounts, serving or package size, batch information and whether laboratory testing is available. Potency is only one part of evaluating a cannabis product."],
-[/indica|sativa|hybrid/i,"Indica, sativa and hybrid are useful shorthand, but they are not precise predictors of effects. For a more useful comparison, look at the cultivar's chemistry, terpene profile and the specific product batch."],
-[/pre.?roll|good|quality/i,"For a pre-roll, check the producer, package date, testing information, flower quality, storage condition and whether the label clearly identifies the product. A high THC number alone does not guarantee quality."],
-[/myrcene|limonene|pinene|caryophyllene/i,"Myrcene is often associated with earthy aromas, limonene with citrus, pinene with pine, and caryophyllene with peppery/spicy notes. Aroma descriptions are not promises about effects."]
+const answers=[
+{keys:["terpene","terpenes"],text:"Terpenes are aromatic compounds produced by many plants, including cannabis. In cannabis they contribute to aroma and flavor. Common examples include myrcene, limonene, beta-caryophyllene, pinene, linalool and terpinolene. A terpene list describes reported chemistry; it does not guarantee a particular effect."},
+{keys:["myrcene","limonene","caryophyllene","pinene","linalool","terpinolene","humulene","ocimene"],text:"A few common terpene notes: myrcene is often described as earthy or musky; limonene as citrus; beta-caryophyllene as peppery or woody; pinene as pine-like; linalool as floral; humulene as hoppy or woody. These are aroma descriptors, not medical claims or reliable predictions of how an individual will feel."},
+{keys:["thc","cbd","cannabinoid","potency","percentage","percent"],text:"THC and CBD are cannabinoids. On a label, check whether the figure is a percentage by weight or a total amount in milligrams, whether it applies to the whole package or a serving, and whether it comes from a batch-specific lab result. A strain-wide number is not a substitute for the tested product batch."},
+{keys:["indica","sativa","hybrid"],text:"Indica, sativa and hybrid are broad market classifications. They can be useful catalog filters, but they do not reliably predict an individual's experience. For a more grounded comparison, review the specific cultivar or breeder version, available chemistry, terpene data and product-batch lab results."},
+{keys:["genetic","lineage","parent","cross","breeder"],text:"Genetics or lineage names the reported parent cultivars and cross history. Strain names are not globally standardized: different breeders can use the same name for different crosses. When available, compare the breeder, parentage and source record rather than assuming every listing with the same name is identical."},
+{keys:["pre-roll","preroll","label","package","packaging"],text:"When reviewing a pre-roll label, look for the product identity and net contents, licensee/producer details, batch or lot identifier, required warnings and symbols, cannabinoid information where applicable, and the package's required compliance information for its jurisdiction. Exact legal requirements depend on the state and product category; use the current regulator rules rather than a generic checklist."},
+{keys:["flowering","yield","grow","cultivation","harvest","plant structure","seed"],text:"Grow fields such as flowering time, yield, seed type, plant structure and outdoor harvest are usually breeder- or phenotype-specific estimates. Treat them as reported cultivation notes, not guarantees. Indoor/outdoor conditions, phenotype, environment and grow method can change the result."},
+{keys:["effect","effects","feel","sleep","pain","anxiety","medical","health"],text:"Effects are commonly reported experiences, not guaranteed outcomes or medical advice. Individual responses vary, and a strain name or terpene profile cannot diagnose or treat a condition. For health questions, consult a qualified clinician; for product questions, use batch-specific testing and the product label."},
+{keys:["aroma","smell","flavor","taste"],text:"Aroma and flavor are sensory descriptions. Sources may use overlapping terms, but aroma is what is smelled and flavor is what is tasted. These notes can vary by phenotype, curing, storage and source, so keep the source attribution attached."},
+{keys:["legal","ocm","new york","ny"],text:"For New York cannabis rules, rely on the New York Office of Cannabis Management and current state regulations. Requirements can change and differ by product type. Preroll.org's strain library is educational; it is not a substitute for official compliance guidance."}
 ];
-const esc=s=>String(s??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[c]));
-function answer(q){const hit=terpAnswers.find(([re])=>re.test(q));return hit?hit[1]:"I can help explain cannabis terminology, terpenes, strain categories, cannabinoids, pre-roll labels and quality factors. Ask me something specific and we'll dig into it."}
-function ask(q){const box=document.getElementById("terpensteinMessages");if(!box||!q.trim())return;box.insertAdjacentHTML("beforeend","<div class='bubble user'>"+esc(q)+"</div><div class='bubble'><strong>Dr. Terpenstein:</strong><br>"+esc(answer(q))+"</div>");box.scrollTop=box.scrollHeight}
-document.getElementById("terpensteinForm").addEventListener("submit",e=>{e.preventDefault();const i=document.getElementById("terpensteinInput");ask(i.value);i.value=""});
+function answer(q){const s=q.toLowerCase();const hit=answers.find(a=>a.keys.some(k=>s.includes(k)));return hit?hit.text:"I can explain cannabis terminology, terpene families, cannabinoids, strain classifications, genetics, cultivation fields and product labels. Try asking about a specific term or choose one of the subject prompts. If you mean a particular strain, open its profile in the Preroll strain library so we can keep the breeder and source details straight."}
+function addMessage(who,content){const box=document.getElementById("terpensteinMessages"),el=document.createElement("div");el.className="terp-message "+(who==="you"?"user":"doc");const label=document.createElement("small");label.textContent=who==="you"?"YOU":"DR. TERPENSTEIN";el.appendChild(label);el.appendChild(document.createTextNode(content));box.appendChild(el);box.scrollTop=box.scrollHeight}
+function ask(q){const clean=String(q||"").trim();if(!clean)return;addMessage("you",clean);addMessage("doc",answer(clean))}
+document.getElementById("terpensteinForm").addEventListener("submit",e=>{e.preventDefault();const input=document.getElementById("terpensteinInput");ask(input.value);input.value="";input.focus()});
+document.querySelectorAll("[data-q]").forEach(b=>b.addEventListener("click",()=>{ask(b.dataset.q);document.getElementById("ask-doc").scrollIntoView({behavior:"smooth",block:"start"})}));
+document.getElementById("clearChat").addEventListener("click",()=>{const box=document.getElementById("terpensteinMessages");box.innerHTML="";addMessage("doc","Conversation cleared. What shall we explore next?")});
 document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("nav").classList.toggle("open"));
 document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>document.getElementById("nav").classList.remove("open")));
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
-</body>
-</html>
+</body></html>
