@@ -180,10 +180,14 @@ app.get('/api/strains/:slug/profile',async(req,res)=>{
    imageAlt:plainText((typeof image==='object'&&image.alt)||returnedName+' strain photo'),
    sourceUrl,provider:'StrainAPI',
    breeder:plainText(profile.breeder||''),genetics:plainText(profile.genetics||''),
-   type:plainText(profile.type||''),thc:profile.thc||null,cbd:profile.cbd||null,
+   type:plainText(profile.type||''),indicaPercent:profile.indica_percent??null,sativaPercent:profile.sativa_percent??null,
+   seedType:plainText(profile.seed_type||''),thc:profile.thc||null,cbd:profile.cbd||null,
    terpenes:Array.isArray(profile.terpenes)?profile.terpenes:[],
    effects:profile.effects||null,flavor:profile.flavor||null,aroma:profile.aroma||null,
-   updatedAt:profile.updated_at||profile.published_at||null
+   flowering:profile.flowering||null,outdoorHarvest:plainText(profile.outdoor_harvest||''),
+   plantStructure:plainText(profile.plant_structure||''),yield:profile.yield||null,
+   evidence:profile.evidence||null,aliases:Array.isArray(profile.aliases)?profile.aliases:[],
+   publishedAt:profile.published_at||null,updatedAt:profile.updated_at||profile.published_at||null
   });
  }catch(e){
   const status=Number(e.status)||0;
