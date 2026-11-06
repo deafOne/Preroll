@@ -27,6 +27,7 @@ function displayValue(value){
 function fact(label,value){const v=displayValue(value);if(!v)return '';return '<div class="strain-fact"><span>'+esc(label)+'</span><strong>'+esc(v)+'</strong></div>'}
 function cardMarkup(s,i){return '<article class="strain-card strain-card-rich" data-card-index="'+i+'"><div class="strain-photo-wrap"><img class="strain-photo" alt="" loading="lazy" hidden><div class="strain-photo-fallback">Checking for a verified strain photo…</div></div><div class="strain-card-body"><div class="strain-meta"><span class="pill">'+esc(s.type||'Unknown')+'</span><span class="pill">'+esc(s.source||'catalog')+'</span></div><h3>'+esc(s.name)+'</h3><p class="strain-description muted">Checking source record for a strain-specific description…</p><div class="strain-facts strain-facts-primary"></div><details class="strain-extra"><summary>View all available strain information</summary><div class="strain-facts strain-facts-all"></div><p class="strain-updated muted"></p></details><div class="card-actions"><a class="btn ghost small strain-source" href="'+sourceUrl(s)+'" target="_blank" rel="noopener noreferrer">Catalog source ↗</a></div></div></article>'}
 async function getProfile(s){
+ if(s.profile)return s.profile;
  const key=String(s.id||s.slug||s.name);
  if(profileCache.has(key))return profileCache.get(key);
  const promise=(async()=>{const url=API_URL+'/api/strains/'+encodeURIComponent(key)+'/profile?name='+encodeURIComponent(s.name);const r=await fetch(url,{headers:{Accept:'application/json'}});if(!r.ok)throw new Error('No exact source profile');return r.json()})();
@@ -65,15 +66,21 @@ function render(){
 }
 async function load(){
  try{
-  let data=null;
-  try{const local=await fetch('./catalog.json',{cache:'no-store'});if(local.ok){const candidate=await local.json();if(candidate&&Array.isArray(candidate.strains))data=candidate;}}catch(localError){/* Continue to the production API when the static catalog is absent or unavailable. */}
-  if(!data&&API_URL){const r=await fetch(API_URL+'/api/strains?limit=20000',{cache:'no-store'});data=await r.json();if(!r.ok)throw new Error(data.error||'Catalog unavailable')}
-  if(!data)throw new Error('Catalog unavailable');
+  if(!API_URL)throw new Error('Verified strain API is not configured');
+  const response=await fetch(API_URL+'/api/strains/verified',{cache:'no-store',headers:{Accept:'application/json'}});
+  const data=await response.json();
+  if(!response.ok)throw new Error(data.error||'Verified strain data unavailable');
   catalog=Array.isArray(data.strains)?data.strains:[];
-  const sf=$('#sourceFilter');for(const src of [...new Set(catalog.map(x=>x.source).filter(Boolean))].sort()){if(![...sf.options].some(o=>o.value===src)){const op=document.createElement('option');op.value=src;op.textContent=src==='herbistry420'?'Herbistry420':src;sf.appendChild(op)}}
-  const removed=catalog.filter(x=>junkStarTitle(x.name)).length;$('#status').textContent='Catalog · '+(catalog.length-removed).toLocaleString()+' valid strain names · '+removed.toLocaleString()+' star-rating titles excluded · photo entries shown first';
+  const sf=$('#sourceFilter');
+  for(const src of [...new Set(catalog.map(x=>x.source).filter(Boolean))].sort()){
+   if(![...sf.options].some(o=>o.value===src)){const op=document.createElement('option');op.value=src;op.textContent=src;sf.appendChild(op)}
+  }
+  $('#status').textContent='Verified strain profiles · '+catalog.length.toLocaleString()+' records · entries without documented strain data excluded';
   render();
- }catch(e){$('#status').textContent='Catalog unavailable right now';$('#strainGrid').innerHTML='<p class="muted">The strain catalog is updating. Refresh shortly.</p>'}
+ }catch(e){
+  $('#status').textContent='Verified strain data unavailable';
+  $('#strainGrid').innerHTML='<p class="muted">The verified strain library is temporarily unavailable. Unverified name-only entries are not being shown.</p>';
+ }
 }
 $('#strainSearch').addEventListener('input',()=>{page=1;render()});$('#typeFilter').addEventListener('change',()=>{page=1;render()});$('#sourceFilter').addEventListener('change',()=>{page=1;render()});
 $('#menuBtn').addEventListener('click',()=>$('#nav').classList.toggle('open'));$('#year').textContent=new Date().getFullYear();load();
