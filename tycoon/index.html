@@ -35,6 +35,16 @@
 <div class="modalwrap" id="ageModal"><div class="modal"><h2>Adults 21+ only</h2><p>Infinity Cannabis Tycoon is a fictional business and cultivation game. It is for adults 21 and older. No real-world sales or transactions occur.</p><div class="row"><button class="primary" id="ageYes">I am 21 or older</button><button id="ageNo">Leave game</button></div></div></div>
 <div class="modalwrap hidden" id="helpModal"><div class="modal"><h2>How to play</h2><p><b>Explore:</b> WASD or the mobile joystick. Drag the screen to orbit the camera. Space to jump, Shift to run.</p><p><b>Interact:</b> Walk near a building and press E. At the greenhouse, buy seeds and plant them in empty beds; return after the grow timer and harvest. Sell harvest at the dispensary.</p><p><b>Drive:</b> Press F or DRIVE near the green pickup. WASD controls the vehicle. Press F again to exit.</p><p><b>Progress:</b> Use the warehouse for supplies and headquarters for upgrades. Your progress saves locally on this device.</p><div class="row"><button class="primary" id="closeHelp">Got it</button></div></div></div>
 <div class="modalwrap hidden" id="actionModal"><div class="modal"><h2 id="actionTitle">Greenhouse</h2><p id="actionDesc"></p><div class="row" id="actionButtons"></div><div class="row"><button id="closeAction">Close</button></div></div></div>
+<script>
+/* Keep the age gate independent from the Three.js module/CDN. */
+(() => {
+  const yes = document.getElementById('ageYes');
+  const no = document.getElementById('ageNo');
+  const gate = document.getElementById('ageModal');
+  if (yes && gate) yes.addEventListener('click', () => gate.classList.add('hidden'));
+  if (no) no.addEventListener('click', () => { window.location.href = '/'; });
+})();
+</script>
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 const $=id=>document.getElementById(id);
