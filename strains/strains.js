@@ -5,7 +5,9 @@ let catalog=[],page=1;
 const profileCache=new Map();
 function esc(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function sourceUrl(s){if(s.url&&(s.url.startsWith('https://')||s.url.startsWith('http://')))return s.url;return s.source==='leafly'?'https://www.leafly.com/strains/'+encodeURIComponent(s.id):s.source==='weedmaps'?'https://weedmaps.com/strains/'+encodeURIComponent(s.id):'#'}
-function filtered(){const q=$('#strainSearch').value.trim().toLowerCase(),type=$('#typeFilter').value,source=$('#sourceFilter').value;return catalog.filter(s=>(!q||String(s.name).toLowerCase().includes(q)||String(s.id).toLowerCase().includes(q))&&(type==='all'||s.type===type)&&(source==='all'||s.source===source))}
+function junkStarTitle(name=''){return /\\b\\d+\\s*(?:-|–|—|to)\\s*(?:\\d+\\s*)?stars?\\b|\\b0\\s*[-–—]\\s*\\*\\s*stars?\\b/i.test(String(name))||/\\b\\d+(?:\\.\\d+)?\\s*stars?\\b/i.test(String(name));}
+function hasPhotoHint(s){return Boolean(s.imageUrl||s.image_url||s.image||s.photo||s.photoUrl||s.photo_url||s.thumbnail||s.featured_image);}
+function filtered(){const q=$('#strainSearch').value.trim().toLowerCase(),type=$('#typeFilter').value,source=$('#sourceFilter').value;return catalog.filter(s=>!junkStarTitle(s.name)&&(!q||String(s.name).toLowerCase().includes(q)||String(s.id).toLowerCase().includes(q))&&(type==='all'||s.type===type)&&(source==='all'||s.source===source)).sort((a,b)=>Number(hasPhotoHint(b))-Number(hasPhotoHint(a))||String(a.name).localeCompare(String(b.name)));}
 function validStrainDescription(value){
  const s=String(value||'').trim();
  if(!s)return '';
@@ -69,7 +71,7 @@ async function load(){
   if(!data)throw new Error('Catalog unavailable');
   catalog=Array.isArray(data.strains)?data.strains:[];
   const sf=$('#sourceFilter');for(const src of [...new Set(catalog.map(x=>x.source).filter(Boolean))].sort()){if(![...sf.options].some(o=>o.value===src)){const op=document.createElement('option');op.value=src;op.textContent=src==='herbistry420'?'Herbistry420':src;sf.appendChild(op)}}
-  $('#status').textContent='Catalog · '+catalog.length.toLocaleString()+' entries · strain-specific photos and descriptions load from source records';
+  const removed=catalog.filter(x=>junkStarTitle(x.name)).length;$('#status').textContent='Catalog · '+(catalog.length-removed).toLocaleString()+' valid strain names · '+removed.toLocaleString()+' star-rating titles excluded · photo entries shown first';
   render();
  }catch(e){$('#status').textContent='Catalog unavailable right now';$('#strainGrid').innerHTML='<p class="muted">The strain catalog is updating. Refresh shortly.</p>'}
 }
