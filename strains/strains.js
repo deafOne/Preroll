@@ -37,14 +37,14 @@ async function enrichCard(card,s){
   desc.textContent=validStrainDescription(p.description)||'No clean, strain-specific description is published by the connected source.';
   const primary=[fact('Genetics / lineage',p.genetics),fact('THC',p.thc),fact('CBD',p.cbd),fact('Terpenes',p.terpenes)].filter(Boolean);
   card.querySelector('.strain-facts-primary').innerHTML=primary.join('');
-  const all=[fact('Classification',p.type),fact('Indica share',p.indicaPercent),fact('Sativa share',p.sativaPercent),fact('Breeder',p.breeder),fact('Aliases',p.aliases),fact('Seed type',p.seedType),fact('Genetics / lineage',p.genetics),fact('THC',p.thc),fact('CBD',p.cbd),fact('Terpenes',p.terpenes),fact('Reported effects',p.effects),fact('Flavor',p.flavor),fact('Aroma',p.aroma),fact('Flowering time',p.flowering),fact('Outdoor harvest',p.outdoorHarvest),fact('Plant structure',p.plantStructure),fact('Yield',p.yield),fact('Evidence / data notes',p.evidence),fact('Published',p.publishedAt),fact('Last updated',p.updatedAt)].filter(Boolean);
+  const all=[fact('Classification',p.type),fact('Indica share',p.indicaPercent),fact('Sativa share',p.sativaPercent),fact('Breeder',p.breeder),fact('Aliases',p.aliases),fact('Seed type',p.seedType),fact('Genetics / lineage',p.genetics),fact('THC',p.thc),fact('CBD',p.cbd),fact('Terpenes',p.terpenes),fact('Reported effects',p.effects),fact('Flavor',p.flavor),fact('Aroma',p.aroma),fact('Flowering time',p.flowering),fact('Outdoor harvest',p.outdoorHarvest),fact('Plant structure',p.plantStructure),fact('Yield',p.yield),fact('Evidence / data notes',p.evidence),fact('Published',p.publishedAt),fact('Last updated',p.updatedAt),...Object.entries(p.additionalFields||{}).map(([k,v])=>fact(k.replace(/_/g,' '),v))].filter(Boolean);
   card.querySelector('.strain-facts-all').innerHTML=all.length?all.join(''):'<p class="muted">The source has not published additional profile fields for this strain yet.</p>';
   card.querySelector('.strain-updated').textContent='Source: StrainAPI · '+(p.updatedAt?'Updated '+new Date(p.updatedAt).toLocaleDateString():'No update date supplied');
   const link=card.querySelector('.strain-source');if(p.sourceUrl){link.href=p.sourceUrl;link.textContent='Open original strain profile ↗'}
   if(p.imageUrl){const img=card.querySelector('.strain-photo');img.src=p.imageUrl;img.alt=p.imageAlt||p.name+' strain photo';img.hidden=false;const fallback=card.querySelector('.strain-photo-fallback');img.addEventListener('error',()=>{img.hidden=true;fallback.hidden=false;fallback.textContent='Source image could not be loaded.'},{once:true});fallback.hidden=true}
   else card.querySelector('.strain-photo-fallback').textContent='No verified strain photo available from source.';
  }catch(e){
-  card.querySelector('.strain-description').textContent='No exact-name source profile is available yet. No description has been substituted.';
+  card.querySelector('.strain-description').textContent='No exact-name detailed profile is available from the connected source yet. The catalog entry remains searchable; no details have been guessed.';
   card.querySelector('.strain-photo-fallback').textContent='No verified strain photo available.';
  }
 }
