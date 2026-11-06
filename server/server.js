@@ -151,10 +151,9 @@ app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'')
 // Verified strain profile enrichment. Data is fetched by exact strain slug and cached;
 // absent fields remain absent rather than being guessed or filled with generic copy.
 function plainText(v=''){
- let s=String(v).replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi,' ').replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi,' ').replace(/<[^>]*>/g,' ');
- s=s.replace(new RegExp('&nbsp;','gi'),' ').replace(new RegExp('&amp;','gi'),'&')
-  .replace(new RegExp('&quot;','gi'),'"').replace(new RegExp('&#39;','gi'),"'");
- while(s.includes('  '))s=s.replaceAll('  ',' '); return s.trim();
+ let s=String(v).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]*>/g,' ');
+ s=s.replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;/gi,"'");
+ return s.replace(/\s+/g,' ').trim();
 }
 function safeHttpUrl(v){
  try{const u=new URL(String(v||''));return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}
