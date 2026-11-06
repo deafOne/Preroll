@@ -32,19 +32,9 @@
  <div class="action-buttons"><button id="mobileInteract">E</button><button id="mobileJump">↑</button><button class="big" id="mobileDrive">DRIVE</button></div>
 </div>
 <div class="footerhint">WASD MOVE • MOUSE DRAG LOOK • SPACE JUMP • E INTERACT • F DRIVE • SHIFT RUN</div>
-<div class="modalwrap" id="ageModal"><div class="modal"><h2>Adults 21+ only</h2><p>Infinity Cannabis Tycoon is a fictional business and cultivation game. It is for adults 21 and older. No real-world sales or transactions occur.</p><div class="row"><button class="primary" id="ageYes">I am 21 or older</button><button id="ageNo">Leave game</button></div></div></div>
+
 <div class="modalwrap hidden" id="helpModal"><div class="modal"><h2>How to play</h2><p><b>Explore:</b> WASD or the mobile joystick. Drag the screen to orbit the camera. Space to jump, Shift to run.</p><p><b>Interact:</b> Walk near a building and press E. At the greenhouse, buy seeds and plant them in empty beds; return after the grow timer and harvest. Sell harvest at the dispensary.</p><p><b>Drive:</b> Press F or DRIVE near the green pickup. WASD controls the vehicle. Press F again to exit.</p><p><b>Progress:</b> Use the warehouse for supplies and headquarters for upgrades. Your progress saves locally on this device.</p><div class="row"><button class="primary" id="closeHelp">Got it</button></div></div></div>
 <div class="modalwrap hidden" id="actionModal"><div class="modal"><h2 id="actionTitle">Greenhouse</h2><p id="actionDesc"></p><div class="row" id="actionButtons"></div><div class="row"><button id="closeAction">Close</button></div></div></div>
-<script>
-/* Keep the age gate independent from the Three.js module/CDN. */
-(() => {
-  const yes = document.getElementById('ageYes');
-  const no = document.getElementById('ageNo');
-  const gate = document.getElementById('ageModal');
-  if (yes && gate) yes.addEventListener('click', () => gate.classList.add('hidden'));
-  if (no) no.addEventListener('click', () => { window.location.href = '/'; });
-})();
-</script>
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 const $=id=>document.getElementById(id);
@@ -105,7 +95,7 @@ function toggleVehicle(){if(state.vehicle){state.vehicle=false;char.position.cop
 $('mobileInteract').onclick=interact;$('mobileJump').onclick=()=>{if(onGround&&!state.vehicle){velY=8;onGround=false}};$('mobileDrive').onclick=toggleVehicle;
 let stick={x:0,y:0};const zone=$('stickZone'),knob=$('stick');let stickOn=false;function stickMove(e){const r=zone.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;let dx=e.clientX-cx,dy=e.clientY-cy;const len=Math.hypot(dx,dy),max=43;if(len>max){dx=dx/len*max;dy=dy/len*max}stick.x=dx/max;stick.y=dy/max;knob.style.transform=`translate(${dx}px,${dy}px)`;}
 zone.addEventListener('pointerdown',e=>{stickOn=true;zone.setPointerCapture(e.pointerId);stickMove(e)});zone.addEventListener('pointermove',e=>{if(stickOn)stickMove(e)});zone.addEventListener('pointerup',()=>{stickOn=false;stick={x:0,y:0};knob.style.transform='translate(0,0)'});zone.addEventListener('pointercancel',()=>{stickOn=false;stick={x:0,y:0};knob.style.transform='translate(0,0)'});
-$('helpBtn').onclick=()=>$('helpModal').classList.remove('hidden');$('closeHelp').onclick=()=>$('helpModal').classList.add('hidden');$('closeAction').onclick=()=>$('actionModal').classList.add('hidden');$('saveBtn').onclick=save;$('exitBtn').onclick=()=>location.href='/';$('ageYes').onclick=()=>$('ageModal').classList.add('hidden');$('ageNo').onclick=()=>location.href='/';
+$('helpBtn').onclick=()=>$('helpModal').classList.remove('hidden');$('closeHelp').onclick=()=>$('helpModal').classList.add('hidden');$('closeAction').onclick=()=>$('actionModal').classList.add('hidden');$('saveBtn').onclick=save;$('exitBtn').onclick=()=>location.href='/';
 const clock=new THREE.Clock();let promptPlace=null;
 function update(dt){const moving=state.vehicle?vehicle:char;let ix=(keys.KeyD?1:0)-(keys.KeyA?1:0)+stick.x,iz=(keys.KeyS?1:0)-(keys.KeyW?1:0)+stick.y;const mag=Math.hypot(ix,iz);if(mag>1){ix/=mag;iz/=mag}
 const speed=state.vehicle?17:(keys.ShiftLeft||keys.ShiftRight?10:6.5);
