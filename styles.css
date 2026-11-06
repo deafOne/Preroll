@@ -207,3 +207,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:600px){.site-header{height:68px;padding:7px 16px;}.site-header .brand img{width:142px;height:50px;max-height:50px;}.site-header nav{top:68px;}}
 /* Never allow a malformed source field to expose code or stylesheet text. */
 .strain-description{overflow-wrap:anywhere;white-space:normal;}
+
+/* Expanded strain profile presentation */
+.strain-card-rich{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.strain-photo-wrap{height:190px;position:relative;background:radial-gradient(circle at 50% 30%,#253c29,#0d120e);display:grid;place-items:center;overflow:hidden}
+.strain-photo{width:100%;height:100%;object-fit:cover;display:block}
+.strain-photo-fallback{color:#a7b6a9;font-size:.85rem;text-align:center;padding:20px}
+.strain-card-body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.strain-card-body h3{margin:0}
+.strain-card-body .strain-description{min-height:0;line-height:1.55;margin:0}
+.strain-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.strain-fact{min-width:0;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:#0c110d;display:flex;flex-direction:column;gap:4px}
+.strain-fact span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#92a294}
+.strain-fact strong{font-size:.88rem;color:#e1ece2;line-height:1.4;overflow-wrap:anywhere}
+.strain-extra{border:1px solid #304333;border-radius:12px;background:#101711;padding:11px}
+.strain-extra summary{cursor:pointer;color:#a7f18c;font-weight:800;font-size:.86rem}
+.strain-extra[open] summary{margin-bottom:12px}
+.strain-updated{font-size:.76rem;margin:10px 0 0}
+.strain-card-rich .card-actions{margin-top:auto;padding-top:4px}
+@media(max-width:600px){.strain-facts{grid-template-columns:1fr 1fr}.strain-photo-wrap{height:210px}}
