@@ -161,70 +161,85 @@ function safeHttpUrl(v){
 function strainKey(v=''){return String(v).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,' ').trim()}
 function profileRows(payload){
  if(Array.isArray(payload))return payload;
- if(Array.isArray(payload?.strains))return payload.strains;
- if(Array.isArray(payload?.results))return payload.results;
- if(Array.isArray(payload?.data))return payload.data;
- if(payload&&typeof payload==='object'&&payload.name)return [payload];
+ if(!payload||typeof payload!=='object')return [];
+ for(const key of ['strains','results','data','items','records']){
+  const value=payload[key];
+  if(Array.isArray(value))return value;
+  if(value&&typeof value==='object'){
+   for(const nested of ['strains','results','items','records'])if(Array.isArray(value[nested]))return value[nested];
+  }
+ }
+ if(payload.name||payload.display_title||payload.slug)return [payload];
  return [];
 }
-function cleanProfileValue(value,depth=0){
- if(depth>5||value===null||value===undefined)return null;
- if(typeof value==='string')return value.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,'').trim();
- if(typeof value==='number'||typeof value==='boolean')return value;
- if(Array.isArray(value))return value.map(v=>cleanProfileValue(v,depth+1)).filter(v=>v!==null&&v!=='');
- if(typeof value==='object'){
-  const out={};for(const [k,v] of Object.entries(value)){if(/html|content_html|raw_html|script|style/i.test(k))continue;const clean=cleanProfileValue(v,depth+1);if(clean!==null&&clean!==''&&(!Array.isArray(clean)||clean.length))out[k]=clean;}return out;
- }
+function firstValue(item,keys){
+ for(const key of keys){const value=item?.[key];if(value!==undefined&&value!==null&&value!=='')return value;}
  return null;
 }
-
-function strainDataValueExists(value){
- if(value===null||value===undefined||value==='')return false;
- if(typeof value==='number')return Number.isFinite(value);
- if(typeof value==='boolean')return true;
- if(typeof value==='string')return value.trim().length>0;
- if(Array.isArray(value))return value.some(strainDataValueExists);
- if(typeof value==='object')return Object.entries(value).some(([k,v])=>!['unit','label','source'].includes(k)&&strainDataValueExists(v));
- return false;
+function mapStrainRecord(raw){
+ const item=raw&&typeof raw==='object'?raw:{};
+ const image=firstValue(item,['image','featured_image','featuredImage','photo']);
+ const imageUrl=safeHttpUrl(typeof image==='string'?image:(image?.url||image?.src||image?.source_url||firstValue(item,['image_url','imageUrl','photo_url','photoUrl','thumbnail'])));
+ const name=String(firstValue(item,['name','display_title','title'])||'').trim();
+ const slug=String(firstValue(item,['slug','post_name','id'])||'').trim();
+ const profile={
+  name,description:plainText(firstValue(item,['description','excerpt','content','summary'])||'').slice(0,5000),
+  imageUrl,imageAlt:plainText((image&&typeof image==='object'&&image.alt)||item.image_alt||name+' strain photo'),
+  sourceUrl:safeHttpUrl(firstValue(item,['url','link','permalink']))||(slug?'https://www.strainapi.com/'+encodeURIComponent(slug)+'/':''),
+  provider:'StrainAPI',providerSlug:slug,
+  breeder:firstValue(item,['breeder','breeder_name','producer']),
+  genetics:firstValue(item,['genetics','lineage','genetic_lineage','parentage']),
+  type:firstValue(item,['type','strain_type','cultivar_type']),
+  indicaPercent:firstValue(item,['indica_percent','indica_percentage','indica']),
+  sativaPercent:firstValue(item,['sativa_percent','sativa_percentage','sativa']),
+  seedType:firstValue(item,['seed_type','seedType']),
+  thc:firstValue(item,['thc','thc_content','thc_range','total_thc']),
+  cbd:firstValue(item,['cbd','cbd_content','cbd_range','total_cbd']),
+  terpenes:firstValue(item,['terpenes','dominant_terpenes','primary_terpenes'])||[],
+  effects:firstValue(item,['effects','reported_effects']),
+  flavor:firstValue(item,['flavor','flavour','flavor_profile']),
+  aroma:firstValue(item,['aroma','aroma_profile']),
+  flowering:firstValue(item,['flowering','flowering_time','flowering_days']),
+  outdoorHarvest:firstValue(item,['outdoor_harvest','outdoorHarvest','harvest_window']),
+  plantStructure:firstValue(item,['plant_structure','plantStructure','structure']),
+  yield:firstValue(item,['yield','yield_potential']),
+  evidence:firstValue(item,['evidence','data_notes','sources']),
+  aliases:firstValue(item,['aliases','also_known_as'])||[],
+  publishedAt:firstValue(item,['published_at','publishedAt','date_published']),
+  updatedAt:firstValue(item,['updated_at','modified','date_modified']),
+  additionalFields:{}
+ };
+ const known=new Set(['id','name','display_title','title','slug','post_name','url','link','permalink','excerpt','image','featured_image','featuredImage','photo','image_url','imageUrl','photo_url','photoUrl','thumbnail','image_alt','description','content','summary','breeder','breeder_name','producer','genetics','lineage','genetic_lineage','parentage','type','strain_type','cultivar_type','indica_percent','indica_percentage','indica','sativa_percent','sativa_percentage','sativa','seed_type','seedType','thc','thc_content','thc_range','total_thc','cbd','cbd_content','cbd_range','total_cbd','terpenes','dominant_terpenes','primary_terpenes','effects','reported_effects','flavor','flavour','flavor_profile','aroma','aroma_profile','flowering','flowering_time','flowering_days','outdoor_harvest','outdoorHarvest','harvest_window','plant_structure','plantStructure','structure','yield','yield_potential','evidence','data_notes','sources','aliases','also_known_as','published_at','publishedAt','date_published','updated_at','modified','date_modified','content_html']);
+ for(const [key,value] of Object.entries(item)){
+  if(known.has(key)||/html|script|style/i.test(key))continue;
+  const clean=cleanProfileValue(value);
+  if(clean!==null&&clean!==''&&(!Array.isArray(clean)||clean.length))profile.additionalFields[key]=clean;
+ }
+ return {id:slug,name,type:profile.type||'Unknown',source:'StrainAPI',url:profile.sourceUrl,imageUrl,profile};
 }
 function hasDocumentedStrainData(item){
- const fields=['breeder','genetics','thc','cbd','terpenes','effects','flavor','aroma','flowering','outdoor_harvest','plant_structure','yield','description','excerpt','evidence','seed_type'];
- return fields.some(key=>strainDataValueExists(item[key]));
+ const p=mapStrainRecord(item).profile;
+ return ['breeder','genetics','thc','cbd','terpenes','effects','flavor','aroma','flowering','outdoorHarvest','plantStructure','yield','evidence'].some(key=>strainDataValueExists(p[key]));
 }
 async function fetchVerifiedStrainCatalog(){
  const base='https://www.strainapi.com/wp-json/strainapi/v1/strains';
  const records=[];let totalPages=1;
- for(let page=1;page<=totalPages&&page<=100;page++){
+ for(let page=1;page<=totalPages&&page<=20;page++){
   const response=await fetch(base+'?per_page=100&page='+page,{headers:{'Accept':'application/json','User-Agent':'Preroll.org verified strain library'},signal:AbortSignal.timeout(20000)});
   if(!response.ok)throw new Error('StrainAPI catalog returned HTTP '+response.status);
   const payload=await response.json();
-  const batch=Array.isArray(payload)?payload:Array.isArray(payload.strains)?payload.strains:Array.isArray(payload.results)?payload.results:[];
-  if(page===1)totalPages=Math.min(100,Number(response.headers.get('X-WP-TotalPages'))||1);
-  for(const item of batch){
-   const name=String(item.name||item.display_title||'').trim(),slug=String(item.slug||'').trim();
-   if(!name||!slug||!hasDocumentedStrainData(item))continue;
-   const image=item.image||item.featured_image||{};
-   const imageUrl=safeHttpUrl(typeof image==='string'?image:(image.url||image.src||item.image_url||item.imageUrl));
-   const additionalFields={};
-   const known=['id','name','display_title','slug','url','excerpt','image','featured_image','image_url','imageUrl','description','content','content_html','breeder','genetics','type','indica_percent','sativa_percent','seed_type','thc','cbd','terpenes','effects','flavor','aroma','flowering','outdoor_harvest','plant_structure','yield','evidence','aliases','published_at','updated_at'];
-   for(const [key,value] of Object.entries(item)){if(known.includes(key)||/html|script|style/i.test(key))continue;const clean=cleanProfileValue(value);if(clean!==null&&clean!==''&&(!Array.isArray(clean)||clean.length))additionalFields[key]=clean;}
-   const profile={
-    name,description:plainText(item.description||item.excerpt||'').slice(0,5000),imageUrl,
-    imageAlt:plainText((typeof image==='object'&&image.alt)||name+' strain photo'),
-    sourceUrl:safeHttpUrl(item.url)||('https://www.strainapi.com/'+encodeURIComponent(slug)+'/'),
-    provider:'StrainAPI',providerSlug:slug,breeder:item.breeder||null,genetics:item.genetics||null,
-    type:item.type||null,indicaPercent:item.indica_percent??null,sativaPercent:item.sativa_percent??null,
-    seedType:item.seed_type||null,thc:item.thc??null,cbd:item.cbd??null,terpenes:item.terpenes??[],
-    effects:item.effects??null,flavor:item.flavor??null,aroma:item.aroma??null,
-    flowering:item.flowering??null,outdoorHarvest:item.outdoor_harvest??null,
-    plantStructure:item.plant_structure??null,yield:item.yield??null,evidence:item.evidence??null,
-    aliases:item.aliases??[],publishedAt:item.published_at??null,updatedAt:item.updated_at??null,additionalFields
-   };
-   records.push({id:slug,name,type:item.type||'Unknown',source:'StrainAPI',url:profile.sourceUrl,imageUrl,profile});
+  const batch=profileRows(payload);
+  if(page===1)totalPages=Math.min(20,Number(response.headers.get('X-WP-TotalPages'))||1);
+  for(const raw of batch){
+   const record=mapStrainRecord(raw);
+   if(!record.name||!record.id||!hasDocumentedStrainData(raw))continue;
+   records.push(record);
   }
   if(batch.length<100)break;
  }
- return records;
+ const unique=new Map();
+ for(const record of records)if(!unique.has(strainKey(record.name)))unique.set(strainKey(record.name),record);
+ return [...unique.values()].sort((a,b)=>a.name.localeCompare(b.name));
 }
 app.get('/api/strains/verified',async(req,res)=>{
  try{
