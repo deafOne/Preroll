@@ -147,7 +147,31 @@ async function auth(req,res,next){
  }catch(e){next(e)}
 }
 
-app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'').trim().toLowerCase();const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));if(!pool){const fs=require('fs'),path=require('path');let data={strains:[]};try{data=JSON.parse(fs.readFileSync(path.join(__dirname,'..','strains','catalog.json'),'utf8'));}catch{}let rows=Array.isArray(data.strains)?data.strains:[];if(q)rows=rows.filter(x=>String(x.name||'').toLowerCase().includes(q)||String(x.id||'').toLowerCase().includes(q));return res.json({strains:rows.slice(0,limit),total:rows.length,limit,sources:['leafly','weedmaps'],mode:'static-fallback'});}const pattern=q?('%'+q+'%'):null;const total=(await pool.query(pattern?'SELECT COUNT(*)::int AS count FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1':'SELECT COUNT(*)::int AS count FROM strains',pattern?[pattern]:[])).rows[0].count;const rows=(await pool.query(pattern?'SELECT slug AS id,name,type,source FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1 ORDER BY LOWER(name),source LIMIT $2':'SELECT slug AS id,name,type,source FROM strains ORDER BY LOWER(name),source LIMIT $1',pattern?[pattern,limit]:[limit])).rows;res.json({strains:rows,total,limit,sources:['leafly','weedmaps']})}catch(e){next(e)}});
+function readStaticStrainCatalog(q,limit){
+ const fs=require('fs'),path=require('path');
+ try{
+  const data=JSON.parse(fs.readFileSync(path.join(__dirname,'..','strains','catalog.json'),'utf8'));
+  let rows=Array.isArray(data.strains)?data.strains:[];
+  if(q)rows=rows.filter(x=>String(x.name||'').toLowerCase().includes(q)||String(x.id||'').toLowerCase().includes(q));
+  return {strains:rows.slice(0,limit),total:rows.length,limit,sources:['leafly','weedmaps'],mode:'static-fallback'};
+ }catch(err){
+  console.error('Static strain catalog could not be read:',err.message);
+  return {strains:[],total:0,limit,sources:['leafly','weedmaps'],mode:'static-fallback',error:'Strain catalog file unavailable'};
+ }
+}
+app.get('/api/strains',async(req,res,next)=>{
+ try{
+  const q=String(req.query.q||'').trim().toLowerCase();
+  const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));
+  if(!pool)return res.json(readStaticStrainCatalog(q,limit));
+  const pattern=q?('%'+q+'%'):null;
+  const total=(await pool.query(pattern?'SELECT COUNT(*)::int AS count FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1':'SELECT COUNT(*)::int AS count FROM strains',pattern?[pattern]:[])).rows[0].count;
+  if(!total)return res.json(readStaticStrainCatalog(q,limit));
+  const rows=(await pool.query(pattern?'SELECT slug AS id,name,type,source FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1 ORDER BY LOWER(name),source LIMIT $2':'SELECT slug AS id,name,type,source FROM strains ORDER BY LOWER(name),source LIMIT $1',pattern?[pattern,limit]:[limit])).rows;
+  if(!rows.length)return res.json(readStaticStrainCatalog(q,limit));
+  res.json({strains:rows,total,limit,sources:['leafly','weedmaps'],mode:'database'});
+ }catch(e){next(e)}
+});
 // Verified strain profile enrichment. Resolve the provider's own slug by exact name,
 // because the public catalog IDs belong to different source systems.
 function plainText(v=''){
@@ -216,6 +240,28 @@ function mapStrainRecord(raw){
   if(clean!==null&&clean!==''&&(!Array.isArray(clean)||clean.length))profile.additionalFields[key]=clean;
  }
  return {id:slug,name,type:profile.type||'Unknown',source:'StrainAPI',url:profile.sourceUrl,imageUrl,profile};
+}
+function cleanProfileValue(value,depth=0){
+ if(value===null||value===undefined||depth>4)return null;
+ if(typeof value==='string')return plainText(value).slice(0,2000);
+ if(typeof value==='number'||typeof value==='boolean')return value;
+ if(Array.isArray(value))return value.map(v=>cleanProfileValue(v,depth+1)).filter(v=>v!==null&&v!=='');
+ if(typeof value==='object'){
+  const out={};
+  for(const [key,v] of Object.entries(value)){
+   if(/html|script|style/i.test(key))continue;
+   const clean=cleanProfileValue(v,depth+1);
+   if(clean!==null&&clean!=='')out[key]=clean;
+  }
+  return Object.keys(out).length?out:null;
+ }
+ return null;
+}
+function strainDataValueExists(value){
+ if(value===null||value===undefined||value==='')return false;
+ if(Array.isArray(value))return value.some(strainDataValueExists);
+ if(typeof value==='object')return Object.values(value).some(strainDataValueExists);
+ return true;
 }
 function hasDocumentedStrainData(item){
  const p=mapStrainRecord(item).profile;
