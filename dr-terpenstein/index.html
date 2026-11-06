@@ -22,6 +22,81 @@
 .terp-chat-wrap{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:18px;margin-top:26px;align-items:start}.terp-chat{overflow:hidden;padding:0}.terp-chat-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line);background:#121a14}.terp-chat-head strong{font-size:1.05rem}.terp-status{font-size:.78rem;color:#a7d99a}.terp-messages{height:410px;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth}.terp-message{max-width:min(88%,650px);padding:13px 15px;border-radius:16px;background:#202a22;color:#e7eee7;line-height:1.55;overflow-wrap:anywhere}.terp-message.doc{border:1px solid #345139;border-bottom-left-radius:4px}.terp-message.user{align-self:flex-end;background:#b8f69b;color:#102010;border-bottom-right-radius:4px}.terp-message small{display:block;font-weight:900;color:#9aff7c;margin-bottom:5px}.terp-message.user small{color:#31552c}.terp-chat-form{display:flex;gap:9px;padding:12px;border-top:1px solid var(--line);background:#101511}.terp-chat-form input{min-width:0;flex:1;background:#080d09;border:1px solid #344237;border-radius:12px;color:white;padding:13px}.terp-chat-form button{white-space:nowrap}.terp-side{display:grid;gap:14px}.terp-side-card{padding:17px;border:1px solid var(--line);border-radius:18px;background:#111712}.terp-side-card h3{margin:0 0 10px;font-size:1rem}.terp-prompts{display:grid;gap:8px}.terp-prompt{width:100%;text-align:left;padding:10px 12px;border:1px solid #344237;border-radius:12px;background:#172019;color:#dce8dc;cursor:pointer}.terp-prompt:hover,.terp-prompt:focus{border-color:#9aff7c;color:#aaff8b}.terp-clear{border:0;background:none;color:#a8b6aa;cursor:pointer;font-size:.8rem}.terp-disclaimer{font-size:.78rem;color:var(--muted);line-height:1.5;margin:12px 0 0}.terp-topics{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.terp-topics button{border:1px solid #39543d;border-radius:999px;background:#172219;color:#cfe0cf;padding:7px 10px;font-size:.78rem;cursor:pointer}
 @media(max-width:900px){.terp-stage{grid-template-columns:1fr;gap:4px}.terp-visual{min-height:350px;order:2}.terp-copy{order:1}.terp-mascot{width:min(80%,340px)}.terp-speech{right:10%;top:0}.terp-chat-wrap{grid-template-columns:1fr}.terp-side{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.terp-page{padding:20px 14px 60px}.terp-stage{padding:22px 16px;border-radius:22px}.terp-copy h1{font-size:3.4rem}.terp-visual{min-height:300px}.terp-mascot{width:92%}.terp-speech{right:0;font-size:.85rem}.terp-side{grid-template-columns:1fr}.terp-messages{height:390px;padding:14px}.terp-message{max-width:95%}.terp-chat-form{flex-wrap:wrap}.terp-chat-form input{flex-basis:100%}.terp-chat-form button{width:100%}}
+
+/* Compact lab layout: keep the doctor and the conversation usable with minimal scrolling. */
+.terp-page{padding:16px 20px 36px}
+.terp-stage{grid-template-columns:minmax(150px,.34fr) minmax(0,1fr);gap:18px;min-height:0;padding:16px 20px;border-radius:22px}
+.terp-visual{min-height:190px}
+.terp-mascot{width:min(100%,190px);max-height:210px}
+.terp-speech{top:0;right:-4px;padding:8px 11px;font-size:.82rem}
+.terp-copy h1{font-size:clamp(2rem,4vw,3.4rem);line-height:.94;margin:7px 0 9px}
+.terp-copy .lede{font-size:.94rem;line-height:1.4;margin:0;max-width:700px}
+.terp-tags{gap:6px;margin:10px 0}
+.terp-tags span{padding:5px 9px;font-size:.75rem}
+.terp-copy .muted{font-size:.8rem;margin:7px 0}
+.terp-copy .btn{padding:9px 14px}
+.terp-chat-wrap{grid-template-columns:minmax(0,1fr) 245px;gap:12px;margin-top:12px}
+.terp-chat-head{padding:11px 14px}
+.terp-messages{height:clamp(210px,36vh,330px);padding:13px;gap:9px}
+.terp-message{padding:10px 12px;font-size:.92rem;line-height:1.42}
+.terp-chat-form{padding:9px}
+.terp-chat-form input{padding:10px 12px}
+.terp-side{gap:10px}
+.terp-side-card{padding:12px}
+.terp-side-card h3{font-size:.9rem;margin-bottom:7px}
+.terp-prompts{gap:6px}
+.terp-prompt{padding:8px 9px;font-size:.82rem}
+.terp-topics{gap:5px;margin-top:8px}
+.terp-topics button{padding:6px 8px;font-size:.72rem}
+.terp-disclaimer{font-size:.7rem;margin-top:8px}
+@media(max-width:900px){
+ .terp-stage{grid-template-columns:130px minmax(0,1fr);gap:12px;align-items:center}
+ .terp-visual{min-height:160px;order:0}
+ .terp-mascot{width:130px;max-height:170px}
+ .terp-copy{order:0}
+ .terp-chat-wrap{grid-template-columns:minmax(0,1fr) 220px}
+ .terp-side{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ .terp-page{padding:10px 10px 24px}
+ .terp-stage{grid-template-columns:96px minmax(0,1fr);gap:9px;padding:12px;border-radius:16px}
+ .terp-visual{min-height:125px}
+ .terp-mascot{width:100px;max-height:135px}
+ .terp-speech{right:-5px;top:-3px;padding:5px 7px;font-size:.65rem}
+ .terp-copy h1{font-size:2rem;letter-spacing:-.06em;margin:5px 0 7px}
+ .terp-kicker{font-size:.58rem;letter-spacing:.1em}
+ .terp-copy .lede{font-size:.78rem;line-height:1.32}
+ .terp-tags{margin:7px 0;gap:4px}
+ .terp-tags span{font-size:.63rem;padding:4px 6px}
+ .terp-copy .muted{font-size:.68rem;line-height:1.3;margin:5px 0}
+ .terp-copy .btn{font-size:.78rem;padding:7px 10px}
+ .terp-chat-wrap{grid-template-columns:minmax(0,1fr);gap:8px;margin-top:9px}
+ .terp-chat-head{padding:9px 11px}
+ .terp-chat-head strong{font-size:.9rem}
+ .terp-status{font-size:.68rem}
+ .terp-messages{height:clamp(190px,31vh,270px);padding:10px;gap:8px}
+ .terp-message{max-width:96%;padding:9px 10px;font-size:.84rem}
+ .terp-message small{font-size:.66rem;margin-bottom:3px}
+ .terp-chat-form{display:flex;flex-wrap:nowrap;gap:6px;padding:8px}
+ .terp-chat-form input{flex:1 1 auto;min-width:0;padding:10px;font-size:.82rem}
+ .terp-chat-form button{width:auto;flex:0 0 auto;padding:9px 11px;font-size:.78rem}
+ .terp-side{grid-template-columns:1fr 1fr;gap:7px}
+ .terp-side-card{padding:9px}
+ .terp-side-card h3{font-size:.78rem}
+ .terp-prompts{gap:5px}
+ .terp-prompt{font-size:.7rem;padding:7px}
+ .terp-topics{gap:4px}
+ .terp-topics button{font-size:.64rem;padding:5px 6px}
+ .terp-disclaimer{font-size:.64rem;line-height:1.35}
+}
+@media(max-width:370px){
+ .terp-stage{grid-template-columns:78px minmax(0,1fr);padding:9px}
+ .terp-mascot{width:82px}
+ .terp-copy h1{font-size:1.75rem}
+ .terp-side{grid-template-columns:1fr}
+ .terp-chat-form button{padding:8px}
+}
+
 </style>
 </head>
 <body>
