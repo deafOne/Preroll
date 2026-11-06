@@ -148,8 +148,8 @@ async function auth(req,res,next){
 }
 
 app.get('/api/strains',async(req,res,next)=>{try{const q=String(req.query.q||'').trim().toLowerCase();const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));if(!pool){const fs=require('fs'),path=require('path');let data={strains:[]};try{data=JSON.parse(fs.readFileSync(path.join(__dirname,'..','strains','catalog.json'),'utf8'));}catch{}let rows=Array.isArray(data.strains)?data.strains:[];if(q)rows=rows.filter(x=>String(x.name||'').toLowerCase().includes(q)||String(x.id||'').toLowerCase().includes(q));return res.json({strains:rows.slice(0,limit),total:rows.length,limit,sources:['leafly','weedmaps'],mode:'static-fallback'});}const pattern=q?('%'+q+'%'):null;const total=(await pool.query(pattern?'SELECT COUNT(*)::int AS count FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1':'SELECT COUNT(*)::int AS count FROM strains',pattern?[pattern]:[])).rows[0].count;const rows=(await pool.query(pattern?'SELECT slug AS id,name,type,source FROM strains WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1 ORDER BY LOWER(name),source LIMIT $2':'SELECT slug AS id,name,type,source FROM strains ORDER BY LOWER(name),source LIMIT $1',pattern?[pattern,limit]:[limit])).rows;res.json({strains:rows,total,limit,sources:['leafly','weedmaps']})}catch(e){next(e)}});
-// Verified strain profile enrichment. Data is fetched by exact strain slug and cached;
-// absent fields remain absent rather than being guessed or filled with generic copy.
+// Verified strain profile enrichment. Resolve the provider's own slug by exact name,
+// because the public catalog IDs belong to different source systems.
 function plainText(v=''){
  let s=String(v).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]*>/g,' ');
  s=s.replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;/gi,"'");
@@ -158,39 +158,74 @@ function plainText(v=''){
 function safeHttpUrl(v){
  try{const u=new URL(String(v||''));return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}
 }
-function strainKey(v=''){return String(v).toLowerCase().normalize('NFKD').replace(new RegExp('[^a-z0-9]+','g'),' ').trim()}
+function strainKey(v=''){return String(v).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,' ').trim()}
+function profileRows(payload){
+ if(Array.isArray(payload))return payload;
+ if(Array.isArray(payload?.strains))return payload.strains;
+ if(Array.isArray(payload?.results))return payload.results;
+ if(Array.isArray(payload?.data))return payload.data;
+ if(payload&&typeof payload==='object'&&payload.name)return [payload];
+ return [];
+}
+function cleanProfileValue(value,depth=0){
+ if(depth>5||value===null||value===undefined)return null;
+ if(typeof value==='string')return value.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,'').trim();
+ if(typeof value==='number'||typeof value==='boolean')return value;
+ if(Array.isArray(value))return value.map(v=>cleanProfileValue(v,depth+1)).filter(v=>v!==null&&v!=='');
+ if(typeof value==='object'){
+  const out={};for(const [k,v] of Object.entries(value)){if(/html|content_html|raw_html|script|style/i.test(k))continue;const clean=cleanProfileValue(v,depth+1);if(clean!==null&&clean!==''&&(!Array.isArray(clean)||clean.length))out[k]=clean;}return out;
+ }
+ return null;
+}
 app.get('/api/strains/:slug/profile',async(req,res)=>{
- const slug=String(req.params.slug||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,180);
+ const catalogId=String(req.params.slug||'').slice(0,180);
  const expected=String(req.query.name||'').slice(0,180);
- if(!slug||!expected)return res.status(400).json({error:'A strain slug and exact name are required.'});
+ if(!catalogId||!expected)return res.status(400).json({error:'A catalog ID and exact strain name are required.'});
  try{
-  const profile=await cached('strain-profile:'+slug,12*60*60*1000,()=>fetchJson('https://www.strainapi.com/wp-json/strainapi/v1/strains/'+encodeURIComponent(slug)));
+  const key=strainKey(expected);
+  const profile=await cached('strain-profile-name:'+key,12*60*60*1000,async()=>{
+   let candidates=[];
+   try{candidates=profileRows(await fetchJson('https://www.strainapi.com/wp-json/strainapi/v1/search?q='+encodeURIComponent(expected)))}catch{}
+   let match=candidates.find(x=>strainKey(x.name||x.display_title)===key);
+   if(!match){
+    const fallbackSlug=catalogId.toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,180);
+    try{const fallback=await fetchJson('https://www.strainapi.com/wp-json/strainapi/v1/strains/'+encodeURIComponent(fallbackSlug));if(strainKey(fallback.name||fallback.display_title)===key)match=fallback}catch{}
+   }
+   if(!match||!match.slug)return null;
+   const full=await fetchJson('https://www.strainapi.com/wp-json/strainapi/v1/strains/'+encodeURIComponent(match.slug));
+   if(strainKey(full.name||full.display_title)!==key)return null;
+   return full;
+  });
+  if(!profile)return res.status(404).json({error:'No exact-name detailed profile is available from the connected source.'});
   const returnedName=String(profile.name||profile.display_title||'').trim();
-  if(!returnedName||strainKey(returnedName)!==strainKey(expected))return res.status(404).json({error:'No exact-name source record found.'});
   const image=profile.image||profile.featured_image||{};
   const imageUrl=safeHttpUrl(typeof image==='string'?image:(image.url||image.src||profile.image_url||profile.imageUrl));
-  let description=plainText(profile.description||profile.excerpt||profile.content||'').slice(0,1400);
-  // Reject scraped stylesheet/code fragments instead of ever rendering them as strain copy.
-  if(/@font-face|font-family\s*:|\{\s*(src|font|color|margin|padding)\s*:|url\(\s*['"]?\/?static\/fonts|\.woff2?\b|<\/?(style|script)\b/i.test(description))description='';
-  const sourceUrl=safeHttpUrl(profile.url)||('https://www.strainapi.com/strains/'+encodeURIComponent(profile.slug||slug)+'/');
+  const description=plainText(profile.description||profile.excerpt||profile.content||'').slice(0,5000);
+  const sourceUrl=safeHttpUrl(profile.url)||('https://www.strainapi.com/'+encodeURIComponent(profile.slug||'')+'/');
+  const known=['id','name','display_title','slug','url','excerpt','image','featured_image','image_url','imageUrl','description','content','content_html','breeder','genetics','type','indica_percent','sativa_percent','seed_type','thc','cbd','terpenes','effects','flavor','aroma','flowering','outdoor_harvest','plant_structure','yield','evidence','aliases','published_at','updated_at'];
+  const additionalFields={};
+  for(const [k,v] of Object.entries(profile)){
+   if(known.includes(k)||/html|script|style/i.test(k))continue;
+   const clean=cleanProfileValue(v);if(clean!==null&&clean!==''&&(!Array.isArray(clean)||clean.length))additionalFields[k]=clean;
+  }
   res.setHeader('Cache-Control','public, max-age=3600, s-maxage=21600');
   res.json({
    name:returnedName,description,imageUrl,
    imageAlt:plainText((typeof image==='object'&&image.alt)||returnedName+' strain photo'),
-   sourceUrl,provider:'StrainAPI',
-   breeder:plainText(profile.breeder||''),genetics:plainText(profile.genetics||''),
-   type:plainText(profile.type||''),indicaPercent:profile.indica_percent??null,sativaPercent:profile.sativa_percent??null,
-   seedType:plainText(profile.seed_type||''),thc:profile.thc||null,cbd:profile.cbd||null,
-   terpenes:Array.isArray(profile.terpenes)?profile.terpenes:[],
-   effects:profile.effects||null,flavor:profile.flavor||null,aroma:profile.aroma||null,
-   flowering:profile.flowering||null,outdoorHarvest:plainText(profile.outdoor_harvest||''),
-   plantStructure:plainText(profile.plant_structure||''),yield:profile.yield||null,
-   evidence:profile.evidence||null,aliases:Array.isArray(profile.aliases)?profile.aliases:[],
-   publishedAt:profile.published_at||null,updatedAt:profile.updated_at||profile.published_at||null
+   sourceUrl,provider:'StrainAPI',providerSlug:profile.slug,
+   breeder:profile.breeder||null,genetics:profile.genetics||null,
+   type:profile.type||null,indicaPercent:profile.indica_percent??null,sativaPercent:profile.sativa_percent??null,
+   seedType:profile.seed_type||null,thc:profile.thc??null,cbd:profile.cbd??null,
+   terpenes:profile.terpenes??[],effects:profile.effects??null,flavor:profile.flavor??null,aroma:profile.aroma??null,
+   flowering:profile.flowering??null,outdoorHarvest:profile.outdoor_harvest??null,
+   plantStructure:profile.plant_structure??null,yield:profile.yield??null,
+   evidence:profile.evidence??null,aliases:profile.aliases??[],
+   publishedAt:profile.published_at??null,updatedAt:profile.updated_at??null,
+   additionalFields
   });
  }catch(e){
-  const status=Number(e.status)||0;
-  res.status(status===404?404:502).json({error:'Verified strain profile is temporarily unavailable.'});
+  console.error('Strain profile lookup failed:',e.message);
+  res.status(502).json({error:'The detailed strain source is temporarily unavailable.'});
  }
 });
 
