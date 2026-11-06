@@ -51,7 +51,7 @@ function render(){
 async function load(){
  try{
   let data=null;
-  const local=await fetch('./catalog.json',{cache:'no-store'});if(local.ok)data=await local.json();
+  try{const local=await fetch('./catalog.json',{cache:'no-store'});if(local.ok){const candidate=await local.json();if(candidate&&Array.isArray(candidate.strains))data=candidate;}}catch(localError){/* Continue to the production API when the static catalog is absent or unavailable. */}
   if(!data&&API_URL){const r=await fetch(API_URL+'/api/strains?limit=20000',{cache:'no-store'});data=await r.json();if(!r.ok)throw new Error(data.error||'Catalog unavailable')}
   if(!data)throw new Error('Catalog unavailable');
   catalog=Array.isArray(data.strains)?data.strains:[];
