@@ -195,3 +195,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .strain-fact strong{font-size:.84rem;overflow-wrap:anywhere;font-weight:600}
 .strain-card-rich .card-actions{margin-top:auto;padding-top:.3rem}
 @media(max-width:520px){.strain-facts{grid-template-columns:1fr 1fr}.strain-photo-wrap{aspect-ratio:16/9}}
+
+
+/* Mobile header alignment and strain library safety fixes */
+.site-header{width:100%;}
+.site-header .nav-wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;width:100%;max-width:var(--max);margin:0 auto;gap:16px;}
+.site-header .brand{display:block;flex:0 1 auto;min-width:0;margin:0 auto 0 0;}
+.site-header .brand img{display:block;width:clamp(138px,19vw,190px);height:56px;max-height:56px;object-fit:contain;object-position:left center;}
+.site-header .menu-btn{display:none;flex:0 0 auto;margin:0 0 0 auto;line-height:1;padding:8px 4px;}
+@media(max-width:900px){.site-header{height:72px;padding:8px 18px;}.site-header .nav-wrap{height:100%;}.site-header .brand img{width:145px;height:52px;max-height:52px;}.site-header .menu-btn{display:block;}.site-header nav{top:72px;left:12px;right:12px;max-height:calc(100dvh - 92px);overflow-y:auto;z-index:30;}.site-header nav.open{display:flex;}}
+@media(max-width:600px){.site-header{height:68px;padding:7px 16px;}.site-header .brand img{width:142px;height:50px;max-height:50px;}.site-header nav{top:68px;}}
+/* Never allow a malformed source field to expose code or stylesheet text. */
+.strain-description{overflow-wrap:anywhere;white-space:normal;}
