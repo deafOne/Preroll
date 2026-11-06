@@ -184,11 +184,44 @@ function readStaticStrainCatalog(q,limit){
 }
 async function readBackupStrainCatalog(q,limit){
  const pattern=q?('%'+q+'%'):null;
- const where=pattern?' WHERE LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1':'';
- const params=pattern?[pattern]:[];
- const total=(await pool.query('SELECT COUNT(*)::int AS count FROM strain_catalog_backup'+where,params)).rows[0].count;
+ const filter='($1::text IS NULL OR LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1)';
+ const total=(await pool.query('SELECT COUNT(*)::int AS count FROM strain_catalog_backup WHERE '+filter,[pattern])).rows[0].count;
  const rows=(await pool.query(
-  'SELECT slug AS id,name,type,source FROM strain_catalog_backup'+where+' ORDER BY LOWER(name),source LIMIT 
+  'SELECT slug AS id,name,type,source FROM strain_catalog_backup WHERE '+filter+' ORDER BY LOWER(name),source LIMIT $2',
+  [pattern,limit]
+ )).rows;
+ return {strains:rows,total,limit,sources:['leafly','weedmaps'],mode:'database-backup'};
+}
+app.get('/api/strains',async(req,res,next)=>{
+ const q=String(req.query.q||'').trim().toLowerCase();
+ const limit=Math.min(20000,Math.max(1,Number(req.query.limit)||100));
+ if(!pool)return res.json(readStaticStrainCatalog(q,limit));
+ try{
+  const pattern=q?('%'+q+'%'):null;
+  const filter='($1::text IS NULL OR LOWER(name) LIKE $1 OR LOWER(slug) LIKE $1)';
+  const total=(await pool.query('SELECT COUNT(*)::int AS count FROM strains WHERE '+filter,[pattern])).rows[0].count;
+  if(total>0){
+   const rows=(await pool.query(
+    'SELECT slug AS id,name,type,source FROM strains WHERE '+filter+' ORDER BY LOWER(name),source LIMIT $2',
+    [pattern,limit]
+   )).rows;
+   if(rows.length)return res.json({strains:rows,total,limit,sources:['leafly','weedmaps'],mode:'database'});
+  }
+  console.warn('Active strain catalog is empty for requested filter; trying permanent backup snapshot.');
+  const backup=await readBackupStrainCatalog(q,limit);
+  if(backup.total>0)return res.json(backup);
+  return res.json(readStaticStrainCatalog(q,limit));
+ }catch(activeError){
+  console.error('Active strain catalog query failed; attempting backup:',activeError.message);
+  try{
+   const backup=await readBackupStrainCatalog(q,limit);
+   if(backup.total>0)return res.json(backup);
+  }catch(backupError){
+   console.error('Permanent strain backup query failed:',backupError.message);
+  }
+  return res.json(readStaticStrainCatalog(q,limit));
+ }
+});
 // Verified strain profile enrichment. Resolve the provider's own slug by exact name,
 // because the public catalog IDs belong to different source systems.
 function plainText(v=''){
