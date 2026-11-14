@@ -132,6 +132,20 @@ async function init(){
   original_updated_at TIMESTAMPTZ,
   backed_up_at TIMESTAMPTZ NOT NULL DEFAULT now()
  )`);
+ await pool.query(`CREATE TABLE IF NOT EXISTS media_network_inquiries(
+  id BIGSERIAL PRIMARY KEY,
+  business_name VARCHAR(120) NOT NULL,
+  contact_name VARCHAR(90) NOT NULL,
+  email VARCHAR(180) NOT NULL,
+  website VARCHAR(240),
+  business_type VARCHAR(100) NOT NULL,
+  interest VARCHAR(100) NOT NULL,
+  market VARCHAR(140),
+  message VARCHAR(1200),
+  status VARCHAR(24) NOT NULL DEFAULT 'new',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+ )`);
+ await pool.query('CREATE INDEX IF NOT EXISTS idx_media_inquiries_created ON media_network_inquiries(created_at DESC)');
  const backupCount = (await pool.query('SELECT COUNT(*)::int AS count FROM strain_catalog_backup')).rows[0].count;
  if (backupCount === 0) {
   const backupResult = await pool.query(`
@@ -405,6 +419,40 @@ app.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store
 app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
 
 app.get('/api/health',async(req,res)=>{if(!pool)return res.json({ok:true,database:false});try{await pool.query('SELECT 1');res.json({ok:true,database:true})}catch{res.status(503).json({ok:false,database:false})}});
+app.post('/api/media-network/inquiries',rateLimitAuth,async(req,res,next)=>{
+ if(!pool)return res.status(503).json({error:'Business inquiry storage is temporarily unavailable.'});
+ try{
+  const body=req.body||{};
+  if(String(body.companyFax||'').trim())return res.status(202).json({ok:true});
+  const businessName=String(body.businessName||'').trim().slice(0,120);
+  const contactName=String(body.contactName||'').trim().slice(0,90);
+  const email=String(body.email||'').trim().toLowerCase().slice(0,180);
+  const website=String(body.website||'').trim().slice(0,240);
+  const businessType=String(body.businessType||'').trim().slice(0,100);
+  const interest=String(body.interest||'').trim().slice(0,100);
+  const market=String(body.market||'').trim().slice(0,140);
+  const message=String(body.message||'').trim().slice(0,1200);
+  if(!businessName||!contactName||!/^\\S+@\\S+\\.\\S+$/.test(email)||!businessType||!interest||body.consent!=='on')return res.status(400).json({error:'Complete the required fields and consent checkbox.'});
+  if(website&&!/^https?:\\/\\//i.test(website))return res.status(400).json({error:'Website must begin with https:// or http://'});
+  const result=await pool.query('INSERT INTO media_network_inquiries(business_name,contact_name,email,website,business_type,interest,market,message) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id,created_at',[businessName,contactName,email,website||null,businessType,interest,market||null,message||null]);
+  res.status(201).json({ok:true,id:result.rows[0].id,receivedAt:result.rows[0].created_at});
+ }catch(e){next(e)}
+});
+app.get('/api/media-network/overview',async(req,res)=>{
+ if(!pool)return res.status(503).json({ok:false,database:false});
+ try{
+  const [strains,backup,posts,reviews,inquiries]=await Promise.all([
+   pool.query('SELECT COUNT(*)::int AS count FROM strains'),
+   pool.query('SELECT COUNT(*)::int AS count FROM strain_catalog_backup'),
+   pool.query('SELECT COUNT(*)::int AS count FROM posts'),
+   pool.query('SELECT COUNT(*)::int AS count FROM reviews'),
+   pool.query('SELECT COUNT(*)::int AS count FROM media_network_inquiries')
+  ]);
+  res.setHeader('Cache-Control','no-store');
+  res.json({ok:true,database:true,generatedAt:new Date().toISOString(),counts:{strains:strains.rows[0].count,strainBackup:backup.rows[0].count,posts:posts.rows[0].count,reviews:reviews.rows[0].count,inquiries:inquiries.rows[0].count}});
+ }catch(e){console.error('Media Network overview failed:',e.message);res.status(503).json({ok:false,database:false})}
+});
+
 app.post('/api/signup',rateLimitAuth,async(req,res,next)=>{if(!pool)return res.status(503).json({error:'Database connection is pending.'});
  try{
   const username=String(req.body?.username||'').trim(),email=String(req.body?.email||'').trim().toLowerCase(),password=String(req.body?.password||'');
