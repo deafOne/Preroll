@@ -109,5 +109,6 @@ function animate(){requestAnimationFrame(animate);const dt=Math.min(clock.getDel
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
 setInterval(()=>{if(state.planted){updateBeds()}},8000);
 </script>
+<script src="/terpenstein-widget.js?v=1" defer></script>
 </body>
 </html>
