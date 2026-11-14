@@ -48,6 +48,18 @@
     });
   }
 
+  // Load the floating Dr. Terpenstein assistant independently of the age-gate UI.
+  // This script does not block, delay, or modify fetch/XHR requests used by live page data.
+  function loadTerpensteinWidget(){
+    if (document.querySelector('script[data-pr-terpenstein-widget]')) return;
+    var script = document.createElement('script');
+    var current = document.currentScript && document.currentScript.src;
+    script.src = new URL('terpenstein-widget.js', current || window.location.href).href;
+    script.async = true;
+    script.dataset.prTerpensteinWidget = 'true';
+    document.head.appendChild(script);
+  }
+  loadTerpensteinWidget();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAgeGate, { once: true });
   } else {
