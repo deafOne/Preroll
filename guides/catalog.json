@@ -19,7 +19,8 @@
       "category": "Labels & testing",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20a%20cannabis%20label%20cannabis%20education"
     },
     {
       "guideId": "pr-002",
@@ -28,7 +29,13 @@
       "category": "Science",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "kmg_i2Lxndg",
+        "title": "What is the Certificate of Analysis?",
+        "channel": "The Cannabis Doc",
+        "url": "https://www.youtube.com/watch?v=kmg_i2Lxndg"
+      }
     },
     {
       "guideId": "pr-003",
@@ -37,7 +44,8 @@
       "category": "Terpenes",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20THC%20percentages%20cannabis%20education"
     },
     {
       "guideId": "pr-004",
@@ -46,7 +54,8 @@
       "category": "Pre-rolls",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=THC%20and%20THCA%20explained%20cannabis%20education"
     },
     {
       "guideId": "pr-005",
@@ -55,7 +64,8 @@
       "category": "Storage",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=CBD%20and%20THC%20compared%20cannabis%20education"
     },
     {
       "guideId": "pr-006",
@@ -64,7 +74,8 @@
       "category": "Formats",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Minor%20cannabinoids%20overview%20cannabis%20education"
     },
     {
       "guideId": "pr-007",
@@ -73,7 +84,8 @@
       "category": "Vaping",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20a%20terpene%20panel%20cannabis%20education"
     },
     {
       "guideId": "pr-008",
@@ -82,7 +94,8 @@
       "category": "Edibles",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Myrcene%20aroma%20and%20evidence%20cannabis%20education"
     },
     {
       "guideId": "pr-009",
@@ -91,7 +104,8 @@
       "category": "Safety",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Limonene%20aroma%20and%20evidence%20cannabis%20education"
     },
     {
       "guideId": "pr-010",
@@ -100,7 +114,13 @@
       "category": "Health",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "HzwgURbTfkQ",
+        "title": "What Are Terpenes? (Science Explained)",
+        "channel": "Weed - Smart",
+        "url": "https://www.youtube.com/watch?v=HzwgURbTfkQ"
+      }
     },
     {
       "guideId": "pr-011",
@@ -109,7 +129,8 @@
       "category": "Research",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Pinene%20profile%20basics%20cannabis%20education"
     },
     {
       "guideId": "pr-012",
@@ -118,7 +139,8 @@
       "category": "Strains",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Linalool%20profile%20basics%20cannabis%20education"
     },
     {
       "guideId": "pr-013",
@@ -127,7 +149,8 @@
       "category": "Community",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Humulene%20and%20ocimene%20cannabis%20education"
     },
     {
       "guideId": "pr-014",
@@ -136,7 +159,8 @@
       "category": "New York",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20tested%20batches%20cannabis%20education"
     },
     {
       "guideId": "pr-015",
@@ -145,7 +169,13 @@
       "category": "Policy",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "vyP3Cg2KVFU",
+        "title": "Reading and Understanding an Analytical Report for Cannabis Products",
+        "channel": "DeBacco University",
+        "url": "https://www.youtube.com/watch?v=vyP3Cg2KVFU"
+      }
     },
     {
       "guideId": "pr-016",
@@ -154,7 +184,13 @@
       "category": "Retail",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "vyP3Cg2KVFU",
+        "title": "Reading and Understanding an Analytical Report for Cannabis Products",
+        "channel": "DeBacco University",
+        "url": "https://www.youtube.com/watch?v=vyP3Cg2KVFU"
+      }
     },
     {
       "guideId": "pr-017",
@@ -163,7 +199,8 @@
       "category": "Data",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Heavy-metal%20testing%20basics%20cannabis%20education"
     },
     {
       "guideId": "pr-018",
@@ -172,7 +209,13 @@
       "category": "Tracking",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "vyP3Cg2KVFU",
+        "title": "Reading and Understanding an Analytical Report for Cannabis Products",
+        "channel": "DeBacco University",
+        "url": "https://www.youtube.com/watch?v=vyP3Cg2KVFU"
+      }
     },
     {
       "guideId": "pr-019",
@@ -181,7 +224,8 @@
       "category": "Business",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Water%20activity%20versus%20moisture%20cannabis%20education"
     },
     {
       "guideId": "pr-020",
@@ -190,7 +234,8 @@
       "category": "Consumer",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Inspect%20a%20pre-roll%20package%20cannabis%20education"
     },
     {
       "guideId": "pr-021",
@@ -199,7 +244,8 @@
       "category": "Labels & testing",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Pre-roll%20net%20weight%20explained%20cannabis%20education"
     },
     {
       "guideId": "pr-022",
@@ -208,7 +254,8 @@
       "category": "Science",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Evaluate%20pre-roll%20consistency%20cannabis%20education"
     },
     {
       "guideId": "pr-023",
@@ -217,7 +264,8 @@
       "category": "Terpenes",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Why%20pre-roll%20burn%20quality%20varies%20cannabis%20education"
     },
     {
       "guideId": "pr-024",
@@ -226,7 +274,8 @@
       "category": "Pre-rolls",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Store%20unopened%20products%20safely%20cannabis%20education"
     },
     {
       "guideId": "pr-025",
@@ -235,7 +284,8 @@
       "category": "Storage",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Store%20opened%20flower%20responsibly%20cannabis%20education"
     },
     {
       "guideId": "pr-026",
@@ -244,7 +294,8 @@
       "category": "Formats",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Spot%20damaged%20packaging%20cannabis%20education"
     },
     {
       "guideId": "pr-027",
@@ -253,7 +304,8 @@
       "category": "Vaping",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20dates%20explained%20cannabis%20education"
     },
     {
       "guideId": "pr-028",
@@ -262,7 +314,8 @@
       "category": "Edibles",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20flower%20and%20concentrates%20cannabis%20education"
     },
     {
       "guideId": "pr-029",
@@ -271,7 +324,8 @@
       "category": "Safety",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Live%20resin%20versus%20live%20rosin%20cannabis%20education"
     },
     {
       "guideId": "pr-030",
@@ -280,7 +334,8 @@
       "category": "Health",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Distillate%20and%20full-spectrum%20basics%20cannabis%20education"
     },
     {
       "guideId": "pr-031",
@@ -289,7 +344,8 @@
       "category": "Research",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20a%20vape%20ingredient%20list%20cannabis%20education"
     },
     {
       "guideId": "pr-032",
@@ -298,7 +354,8 @@
       "category": "Strains",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Vape%20device%20safety%20checklist%20cannabis%20education"
     },
     {
       "guideId": "pr-033",
@@ -307,7 +364,8 @@
       "category": "Community",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Unverified%20vape%20product%20risks%20cannabis%20education"
     },
     {
       "guideId": "pr-034",
@@ -316,7 +374,13 @@
       "category": "New York",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "gN1oyJEWhSI",
+        "title": "How to Dose Edibles Safely",
+        "channel": "Dr. Marion McNabb, Cannabis Citizen Scientist",
+        "url": "https://www.youtube.com/watch?v=gN1oyJEWhSI"
+      }
     },
     {
       "guideId": "pr-035",
@@ -325,7 +389,8 @@
       "category": "Policy",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Why%20edible%20onset%20varies%20cannabis%20education"
     },
     {
       "guideId": "pr-036",
@@ -334,7 +399,8 @@
       "category": "Retail",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Child-resistant%20edible%20packaging%20cannabis%20education"
     },
     {
       "guideId": "pr-037",
@@ -343,7 +409,8 @@
       "category": "Data",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Respond%20to%20excessive%20THC%20cannabis%20education"
     },
     {
       "guideId": "pr-038",
@@ -352,7 +419,8 @@
       "category": "Tracking",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20and%20driving%20cannabis%20education"
     },
     {
       "guideId": "pr-039",
@@ -361,7 +429,8 @@
       "category": "Business",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20and%20alcohol%20cannabis%20education"
     },
     {
       "guideId": "pr-040",
@@ -370,7 +439,8 @@
       "category": "Consumer",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Store%20products%20away%20from%20pets%20cannabis%20education"
     },
     {
       "guideId": "pr-041",
@@ -379,7 +449,8 @@
       "category": "Labels & testing",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Child%20may%20have%20eaten%20an%20edible%20cannabis%20education"
     },
     {
       "guideId": "pr-042",
@@ -388,7 +459,8 @@
       "category": "Science",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Discuss%20cannabis%20and%20medication%20cannabis%20education"
     },
     {
       "guideId": "pr-043",
@@ -397,7 +469,8 @@
       "category": "Terpenes",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20during%20pregnancy%20cannabis%20education"
     },
     {
       "guideId": "pr-044",
@@ -406,7 +479,8 @@
       "category": "Pre-rolls",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20and%20mental%20health%20cannabis%20education"
     },
     {
       "guideId": "pr-045",
@@ -415,7 +489,8 @@
       "category": "Storage",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20use%20disorder%20signs%20cannabis%20education"
     },
     {
       "guideId": "pr-046",
@@ -424,7 +499,8 @@
       "category": "Formats",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Tolerance%20and%20breaks%20cannabis%20education"
     },
     {
       "guideId": "pr-047",
@@ -433,7 +509,8 @@
       "category": "Vaping",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20withdrawal%20basics%20cannabis%20education"
     },
     {
       "guideId": "pr-048",
@@ -442,7 +519,8 @@
       "category": "Edibles",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Talk%20to%20a%20clinician%20about%20cannabis%20cannabis%20education"
     },
     {
       "guideId": "pr-049",
@@ -451,7 +529,8 @@
       "category": "Safety",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Evaluate%20research%20headlines%20cannabis%20education"
     },
     {
       "guideId": "pr-050",
@@ -460,7 +539,8 @@
       "category": "Health",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Animal%20versus%20human%20evidence%20cannabis%20education"
     },
     {
       "guideId": "pr-051",
@@ -469,7 +549,8 @@
       "category": "Research",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Correlation%20versus%20causation%20cannabis%20education"
     },
     {
       "guideId": "pr-052",
@@ -478,7 +559,8 @@
       "category": "Strains",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Verify%20a%20cannabis%20news%20claim%20cannabis%20education"
     },
     {
       "guideId": "pr-053",
@@ -487,7 +569,8 @@
       "category": "Community",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Spot%20unsupported%20strain%20promises%20cannabis%20education"
     },
     {
       "guideId": "pr-054",
@@ -496,7 +579,8 @@
       "category": "New York",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Indica%20and%20sativa%20label%20limits%20cannabis%20education"
     },
     {
       "guideId": "pr-055",
@@ -505,7 +589,8 @@
       "category": "Policy",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Strain%20names%20vary%20by%20producer%20cannabis%20education"
     },
     {
       "guideId": "pr-056",
@@ -514,7 +599,13 @@
       "category": "Retail",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "yL64bV_VEhw",
+        "title": "Marijuana strain-guide for beginners",
+        "channel": "The Oregonian",
+        "url": "https://www.youtube.com/watch?v=yL64bV_VEhw"
+      }
     },
     {
       "guideId": "pr-057",
@@ -523,7 +614,8 @@
       "category": "Data",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20strain%20records%20cannabis%20education"
     },
     {
       "guideId": "pr-058",
@@ -532,7 +624,8 @@
       "category": "Tracking",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Why%20batch%20potency%20varies%20cannabis%20education"
     },
     {
       "guideId": "pr-059",
@@ -541,7 +634,8 @@
       "category": "Business",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20a%20terpene%20chart%20cannabis%20education"
     },
     {
       "guideId": "pr-060",
@@ -550,7 +644,8 @@
       "category": "Consumer",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Interpret%20strain%20reviews%20cannabis%20education"
     },
     {
       "guideId": "pr-061",
@@ -559,7 +654,8 @@
       "category": "Labels & testing",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Write%20a%20useful%20strain%20review%20cannabis%20education"
     },
     {
       "guideId": "pr-062",
@@ -568,7 +664,8 @@
       "category": "Science",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20New%20York%20dispensary%20menus%20cannabis%20education"
     },
     {
       "guideId": "pr-063",
@@ -577,7 +674,8 @@
       "category": "Terpenes",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Verify%20a%20New%20York%20cannabis%20license%20cannabis%20education"
     },
     {
       "guideId": "pr-064",
@@ -586,7 +684,8 @@
       "category": "Pre-rolls",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20New%20York%20product%20labels%20cannabis%20education"
     },
     {
       "guideId": "pr-065",
@@ -595,7 +694,8 @@
       "category": "Storage",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Legal%20versus%20illicit%20market%20uncertainty%20cannabis%20education"
     },
     {
       "guideId": "pr-066",
@@ -604,7 +704,8 @@
       "category": "Formats",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Report%20a%20product%20concern%20in%20NY%20cannabis%20education"
     },
     {
       "guideId": "pr-067",
@@ -613,7 +714,8 @@
       "category": "Vaping",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Social-equity%20licensing%20terminology%20cannabis%20education"
     },
     {
       "guideId": "pr-068",
@@ -622,7 +724,8 @@
       "category": "Edibles",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20cannabis%20prices%20fairly%20cannabis%20education"
     },
     {
       "guideId": "pr-069",
@@ -631,7 +734,8 @@
       "category": "Safety",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20taxes%20and%20shelf%20price%20cannabis%20education"
     },
     {
       "guideId": "pr-070",
@@ -640,7 +744,8 @@
       "category": "Health",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Evaluate%20brand%20transparency%20cannabis%20education"
     },
     {
       "guideId": "pr-071",
@@ -649,7 +754,8 @@
       "category": "Research",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Check%20whether%20a%20cannabis%20story%20is%20current%20cannabis%20education"
     },
     {
       "guideId": "pr-072",
@@ -658,7 +764,8 @@
       "category": "Strains",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Use%20public%20cannabis%20datasets%20cannabis%20education"
     },
     {
       "guideId": "pr-073",
@@ -667,7 +774,8 @@
       "category": "Community",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Interpret%20license%20dashboards%20cannabis%20education"
     },
     {
       "guideId": "pr-074",
@@ -676,7 +784,8 @@
       "category": "New York",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Submit%20a%20database%20correction%20cannabis%20education"
     },
     {
       "guideId": "pr-075",
@@ -685,7 +794,8 @@
       "category": "Policy",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Keep%20a%20product-use%20log%20cannabis%20education"
     },
     {
       "guideId": "pr-076",
@@ -694,7 +804,8 @@
       "category": "Retail",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20personal%20notes%20cannabis%20education"
     },
     {
       "guideId": "pr-077",
@@ -703,7 +814,8 @@
       "category": "Data",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Plan%20safer%20use%20at%20an%20event%20cannabis%20education"
     },
     {
       "guideId": "pr-078",
@@ -712,7 +824,8 @@
       "category": "Tracking",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Decline%20cannabis%20without%20pressure%20cannabis%20education"
     },
     {
       "guideId": "pr-079",
@@ -721,7 +834,8 @@
       "category": "Business",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Discuss%20cannabis%20with%20family%20cannabis%20education"
     },
     {
       "guideId": "pr-080",
@@ -730,7 +844,8 @@
       "category": "Consumer",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Moderate%20a%20cannabis%20forum%20cannabis%20education"
     },
     {
       "guideId": "pr-081",
@@ -739,7 +854,8 @@
       "category": "Labels & testing",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cite%20cannabis%20information%20online%20cannabis%20education"
     },
     {
       "guideId": "pr-082",
@@ -748,7 +864,8 @@
       "category": "Science",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Spot%20misleading%20product%20photos%20cannabis%20education"
     },
     {
       "guideId": "pr-083",
@@ -757,7 +874,8 @@
       "category": "Terpenes",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Understand%20hemp-derived%20intoxicants%20cannabis%20education"
     },
     {
       "guideId": "pr-084",
@@ -766,7 +884,8 @@
       "category": "Pre-rolls",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Hemp-derived%20THC%20versus%20licensed%20cannabis%20cannabis%20education"
     },
     {
       "guideId": "pr-085",
@@ -775,7 +894,8 @@
       "category": "Storage",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Follow%20federal%20cannabis%20policy%20cannabis%20education"
     },
     {
       "guideId": "pr-086",
@@ -784,7 +904,8 @@
       "category": "Formats",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=What%20rescheduling%20would%20change%20cannabis%20education"
     },
     {
       "guideId": "pr-087",
@@ -793,7 +914,8 @@
       "category": "Vaping",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20cannabis%20earnings%20releases%20cannabis%20education"
     },
     {
       "guideId": "pr-088",
@@ -802,7 +924,8 @@
       "category": "Edibles",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Evaluate%20a%20market-size%20claim%20cannabis%20education"
     },
     {
       "guideId": "pr-089",
@@ -811,7 +934,8 @@
       "category": "Safety",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20license%20categories%20cannabis%20education"
     },
     {
       "guideId": "pr-090",
@@ -820,7 +944,8 @@
       "category": "Health",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Assess%20a%20news%20source%20cannabis%20education"
     },
     {
       "guideId": "pr-091",
@@ -829,7 +954,8 @@
       "category": "Research",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Recognize%20affiliate%20marketing%20cannabis%20education"
     },
     {
       "guideId": "pr-092",
@@ -838,7 +964,8 @@
       "category": "Strains",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Report%20misinformation%20constructively%20cannabis%20education"
     },
     {
       "guideId": "pr-093",
@@ -847,7 +974,8 @@
       "category": "Community",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Build%20a%20cannabis%20glossary%20cannabis%20education"
     },
     {
       "guideId": "pr-094",
@@ -856,7 +984,8 @@
       "category": "New York",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20consumption%20formats%20cannabis%20education"
     },
     {
       "guideId": "pr-095",
@@ -865,7 +994,8 @@
       "category": "Policy",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20tincture%20labels%20cannabis%20education"
     },
     {
       "guideId": "pr-096",
@@ -874,7 +1004,8 @@
       "category": "Retail",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Evaluate%20topical%20product%20claims%20cannabis%20education"
     },
     {
       "guideId": "pr-097",
@@ -883,7 +1014,8 @@
       "category": "Data",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Questions%20for%20a%20budtender%20cannabis%20education"
     },
     {
       "guideId": "pr-098",
@@ -892,7 +1024,8 @@
       "category": "Tracking",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Prepare%20for%20a%20dispensary%20visit%20cannabis%20education"
     },
     {
       "guideId": "pr-099",
@@ -901,7 +1034,8 @@
       "category": "Business",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Understand%20a%20recall%20notice%20cannabis%20education"
     },
     {
       "guideId": "pr-100",
@@ -910,7 +1044,8 @@
       "category": "Consumer",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Preserve%20product%20traceability%20cannabis%20education"
     },
     {
       "guideId": "pr-101",
@@ -919,7 +1054,8 @@
       "category": "Labels & testing",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Build%20a%20reliable%20source%20list%20cannabis%20education"
     },
     {
       "guideId": "pr-102",
@@ -928,7 +1064,8 @@
       "category": "Science",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Audit%20strain%20databases%20for%20errors%20cannabis%20education"
     },
     {
       "guideId": "pr-103",
@@ -937,7 +1074,8 @@
       "category": "Terpenes",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Review%20versus%20lab%20result%20cannabis%20education"
     },
     {
       "guideId": "pr-104",
@@ -946,7 +1084,8 @@
       "category": "Pre-rolls",
       "source": "Preroll.org Editorial",
       "url": "https://preroll.org/guides/index.html",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Update%20guides%20when%20laws%20change%20cannabis%20education"
     },
     {
       "title": "Read a batch-specific product label",
@@ -961,7 +1100,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20a%20batch-specific%20product%20label%20cannabis%20education"
     },
     {
       "title": "Verify a product QR code",
@@ -976,7 +1116,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Verify%20a%20product%20QR%20code%20cannabis%20education"
     },
     {
       "title": "Compare lab report sample IDs",
@@ -991,7 +1132,13 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "video": {
+        "id": "kmg_i2Lxndg",
+        "title": "What is the Certificate of Analysis?",
+        "channel": "The Cannabis Doc",
+        "url": "https://www.youtube.com/watch?v=kmg_i2Lxndg"
+      }
     },
     {
       "title": "Understand ND versus LOQ",
@@ -1006,7 +1153,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Understand%20ND%20versus%20LOQ%20cannabis%20education"
     },
     {
       "title": "Check lab report dates",
@@ -1021,7 +1169,13 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "video": {
+        "id": "kmg_i2Lxndg",
+        "title": "What is the Certificate of Analysis?",
+        "channel": "The Cannabis Doc",
+        "url": "https://www.youtube.com/watch?v=kmg_i2Lxndg"
+      }
     },
     {
       "title": "Compare terpene reporting units",
@@ -1036,7 +1190,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20terpene%20reporting%20units%20cannabis%20education"
     },
     {
       "title": "Identify missing lab fields",
@@ -1051,7 +1206,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Identify%20missing%20lab%20fields%20cannabis%20education"
     },
     {
       "title": "Read a contaminant panel",
@@ -1066,7 +1222,13 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "video": {
+        "id": "vyP3Cg2KVFU",
+        "title": "Reading and Understanding an Analytical Report for Cannabis Products",
+        "channel": "DeBacco University",
+        "url": "https://www.youtube.com/watch?v=vyP3Cg2KVFU"
+      }
     },
     {
       "title": "Check a laboratory identity",
@@ -1081,7 +1243,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Check%20a%20laboratory%20identity%20cannabis%20education"
     },
     {
       "title": "Document a label mismatch",
@@ -1096,7 +1259,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Document%20a%20label%20mismatch%20cannabis%20education"
     },
     {
       "title": "Resolve duplicate strain names",
@@ -1111,7 +1275,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Resolve%20duplicate%20strain%20names%20cannabis%20education"
     },
     {
       "title": "Record a strain alias",
@@ -1126,7 +1291,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Record%20a%20strain%20alias%20cannabis%20education"
     },
     {
       "title": "Separate cultivar and batch data",
@@ -1141,7 +1307,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Separate%20cultivar%20and%20batch%20data%20cannabis%20education"
     },
     {
       "title": "Document uncertain lineage",
@@ -1156,7 +1323,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Document%20uncertain%20lineage%20cannabis%20education"
     },
     {
       "title": "Track strain data provenance",
@@ -1171,7 +1339,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Track%20strain%20data%20provenance%20cannabis%20education"
     },
     {
       "title": "Flag conflicting potency values",
@@ -1186,7 +1355,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Flag%20conflicting%20potency%20values%20cannabis%20education"
     },
     {
       "title": "Record a chemistry test date",
@@ -1201,7 +1371,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Record%20a%20chemistry%20test%20date%20cannabis%20education"
     },
     {
       "title": "Mark unknown strain attributes",
@@ -1216,7 +1387,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Mark%20unknown%20strain%20attributes%20cannabis%20education"
     },
     {
       "title": "Review a community strain submission",
@@ -1231,7 +1403,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Review%20a%20community%20strain%20submission%20cannabis%20education"
     },
     {
       "title": "Audit strain profile sources",
@@ -1246,7 +1419,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Audit%20strain%20profile%20sources%20cannabis%20education"
     },
     {
       "title": "Separate aroma from lab measurements",
@@ -1261,7 +1435,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Separate%20aroma%20from%20lab%20measurements%20cannabis%20education"
     },
     {
       "title": "Compare terpene profiles across labs",
@@ -1276,7 +1451,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20terpene%20profiles%20across%20labs%20cannabis%20education"
     },
     {
       "title": "Read a terpene glossary",
@@ -1291,7 +1467,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20a%20terpene%20glossary%20cannabis%20education"
     },
     {
       "title": "Interpret cannabinoid ratios",
@@ -1306,7 +1483,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Interpret%20cannabinoid%20ratios%20cannabis%20education"
     },
     {
       "title": "Understand rounded cannabinoid values",
@@ -1321,7 +1499,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Understand%20rounded%20cannabinoid%20values%20cannabis%20education"
     },
     {
       "title": "Distinguish THC from total THC",
@@ -1336,7 +1515,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Distinguish%20THC%20from%20total%20THC%20cannabis%20education"
     },
     {
       "title": "Review a minor cannabinoid claim",
@@ -1351,7 +1531,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Review%20a%20minor%20cannabinoid%20claim%20cannabis%20education"
     },
     {
       "title": "Read a study methods section",
@@ -1366,7 +1547,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20a%20study%20methods%20section%20cannabis%20education"
     },
     {
       "title": "Check a study limitations section",
@@ -1381,7 +1563,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Check%20a%20study%20limitations%20section%20cannabis%20education"
     },
     {
       "title": "Compare animal and human research",
@@ -1396,7 +1579,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20animal%20and%20human%20research%20cannabis%20education"
     },
     {
       "title": "Calculate price per gram",
@@ -1411,7 +1595,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Calculate%20price%20per%20gram%20cannabis%20education"
     },
     {
       "title": "Compare package sizes fairly",
@@ -1426,7 +1611,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20package%20sizes%20fairly%20cannabis%20education"
     },
     {
       "title": "Create a product comparison sheet",
@@ -1441,7 +1627,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Create%20a%20product%20comparison%20sheet%20cannabis%20education"
     },
     {
       "title": "Save product batch details",
@@ -1456,7 +1643,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Save%20product%20batch%20details%20cannabis%20education"
     },
     {
       "title": "Check a dispensary receipt",
@@ -1471,7 +1659,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Check%20a%20dispensary%20receipt%20cannabis%20education"
     },
     {
       "title": "Compare delivery fees",
@@ -1486,7 +1675,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20delivery%20fees%20cannabis%20education"
     },
     {
       "title": "Prepare questions for retail staff",
@@ -1501,7 +1691,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Prepare%20questions%20for%20retail%20staff%20cannabis%20education"
     },
     {
       "title": "Record product storage directions",
@@ -1516,7 +1707,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Record%20product%20storage%20directions%20cannabis%20education"
     },
     {
       "title": "Document a product complaint",
@@ -1531,7 +1723,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Document%20a%20product%20complaint%20cannabis%20education"
     },
     {
       "title": "Compare product formats",
@@ -1546,7 +1739,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20product%20formats%20cannabis%20education"
     },
     {
       "title": "Build a locked-storage checklist",
@@ -1561,7 +1755,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Build%20a%20locked-storage%20checklist%20cannabis%20education"
     },
     {
       "title": "Prepare information for poison control",
@@ -1576,7 +1771,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Prepare%20information%20for%20poison%20control%20cannabis%20education"
     },
     {
       "title": "Respond to a product recall",
@@ -1591,7 +1787,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Respond%20to%20a%20product%20recall%20cannabis%20education"
     },
     {
       "title": "Plan sober transportation",
@@ -1606,7 +1803,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Plan%20sober%20transportation%20cannabis%20education"
     },
     {
       "title": "Report a suspected adverse event",
@@ -1621,7 +1819,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Report%20a%20suspected%20adverse%20event%20cannabis%20education"
     },
     {
       "title": "Check package tampering",
@@ -1636,7 +1835,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Check%20package%20tampering%20cannabis%20education"
     },
     {
       "title": "Store products during travel",
@@ -1651,7 +1851,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Store%20products%20during%20travel%20cannabis%20education"
     },
     {
       "title": "Handle an expired product",
@@ -1666,7 +1867,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Handle%20an%20expired%20product%20cannabis%20education"
     },
     {
       "title": "Keep products away from pets",
@@ -1681,7 +1883,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Keep%20products%20away%20from%20pets%20cannabis%20education"
     },
     {
       "title": "Create a safe-use event plan",
@@ -1696,7 +1899,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Create%20a%20safe-use%20event%20plan%20cannabis%20education"
     },
     {
       "title": "Verify a New York dispensary",
@@ -1711,7 +1915,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Verify%20a%20New%20York%20dispensary%20cannabis%20education"
     },
     {
       "title": "Check a universal symbol",
@@ -1726,7 +1931,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Check%20a%20universal%20symbol%20cannabis%20education"
     },
     {
       "title": "Find official consumer guidance",
@@ -1741,7 +1947,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Find%20official%20consumer%20guidance%20cannabis%20education"
     },
     {
       "title": "Read a license category",
@@ -1756,7 +1963,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20a%20license%20category%20cannabis%20education"
     },
     {
       "title": "Track policy effective dates",
@@ -1771,7 +1979,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Track%20policy%20effective%20dates%20cannabis%20education"
     },
     {
       "title": "Distinguish proposed and final rules",
@@ -1786,7 +1995,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Distinguish%20proposed%20and%20final%20rules%20cannabis%20education"
     },
     {
       "title": "Compare rules across jurisdictions",
@@ -1801,7 +2011,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20rules%20across%20jurisdictions%20cannabis%20education"
     },
     {
       "title": "Check official delivery options",
@@ -1816,7 +2027,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Check%20official%20delivery%20options%20cannabis%20education"
     },
     {
       "title": "Read packaging guidance",
@@ -1831,7 +2043,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20packaging%20guidance%20cannabis%20education"
     },
     {
       "title": "Find a regulator incident form",
@@ -1846,7 +2059,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Find%20a%20regulator%20incident%20form%20cannabis%20education"
     },
     {
       "title": "Verify an industry statistic",
@@ -1861,7 +2075,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Verify%20an%20industry%20statistic%20cannabis%20education"
     },
     {
       "title": "Compare conflicting news stories",
@@ -1876,7 +2091,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20conflicting%20news%20stories%20cannabis%20education"
     },
     {
       "title": "Identify sponsored content",
@@ -1891,7 +2107,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Identify%20sponsored%20content%20cannabis%20education"
     },
     {
       "title": "Find the primary source",
@@ -1906,7 +2123,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Find%20the%20primary%20source%20cannabis%20education"
     },
     {
       "title": "Check a news publication date",
@@ -1921,7 +2139,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Check%20a%20news%20publication%20date%20cannabis%20education"
     },
     {
       "title": "Evaluate a market-size estimate",
@@ -1936,7 +2155,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Evaluate%20a%20market-size%20estimate%20cannabis%20education"
     },
     {
       "title": "Read a cannabis survey",
@@ -1951,7 +2171,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20a%20cannabis%20survey%20cannabis%20education"
     },
     {
       "title": "Compare market reports",
@@ -1966,7 +2187,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Compare%20market%20reports%20cannabis%20education"
     },
     {
       "title": "Evaluate a company press release",
@@ -1981,7 +2203,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Evaluate%20a%20company%20press%20release%20cannabis%20education"
     },
     {
       "title": "Separate revenue from profit",
@@ -1996,7 +2219,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Separate%20revenue%20from%20profit%20cannabis%20education"
     },
     {
       "title": "Write useful image alt text",
@@ -2011,7 +2235,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Write%20useful%20image%20alt%20text%20cannabis%20education"
     },
     {
       "title": "Source cannabis photography legally",
@@ -2026,7 +2251,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Source%20cannabis%20photography%20legally%20cannabis%20education"
     },
     {
       "title": "Test an age-gate flow",
@@ -2041,7 +2267,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Test%20an%20age-gate%20flow%20cannabis%20education"
     },
     {
       "title": "Test guide search results",
@@ -2056,7 +2283,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Test%20guide%20search%20results%20cannabis%20education"
     },
     {
       "title": "Test a mobile navigation menu",
@@ -2071,7 +2299,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Test%20a%20mobile%20navigation%20menu%20cannabis%20education"
     },
     {
       "title": "Validate a JSON catalog",
@@ -2086,7 +2315,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Validate%20a%20JSON%20catalog%20cannabis%20education"
     },
     {
       "title": "Recover from a malformed catalog",
@@ -2101,7 +2331,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Recover%20from%20a%20malformed%20catalog%20cannabis%20education"
     },
     {
       "title": "Prevent empty catalog publishing",
@@ -2116,7 +2347,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Prevent%20empty%20catalog%20publishing%20cannabis%20education"
     },
     {
       "title": "Monitor a scheduled content job",
@@ -2131,7 +2363,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Monitor%20a%20scheduled%20content%20job%20cannabis%20education"
     },
     {
       "title": "Show data freshness accurately",
@@ -2146,7 +2379,13 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "video": {
+        "id": "85AqlQObPoo",
+        "title": "Stop RUINING Your Cannabis Buds! How to Store Them the Right Way",
+        "channel": "Bud Fellas",
+        "url": "https://www.youtube.com/watch?v=85AqlQObPoo"
+      }
     },
     {
       "title": "Prevent duplicate guide topics",
@@ -2161,7 +2400,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Prevent%20duplicate%20guide%20topics%20cannabis%20education"
     },
     {
       "title": "Create a correction policy",
@@ -2176,7 +2416,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Create%20a%20correction%20policy%20cannabis%20education"
     },
     {
       "title": "Write transparent correction notes",
@@ -2191,7 +2432,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Write%20transparent%20correction%20notes%20cannabis%20education"
     },
     {
       "title": "Schedule article reviews",
@@ -2206,7 +2448,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Schedule%20article%20reviews%20cannabis%20education"
     },
     {
       "title": "Retire outdated content",
@@ -2221,7 +2464,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Retire%20outdated%20content%20cannabis%20education"
     },
     {
       "title": "Build a source citation",
@@ -2236,7 +2480,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Build%20a%20source%20citation%20cannabis%20education"
     },
     {
       "title": "Label editorial versus review content",
@@ -2251,7 +2496,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Label%20editorial%20versus%20review%20content%20cannabis%20education"
     },
     {
       "title": "Create a fact-check checklist",
@@ -2266,7 +2512,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Create%20a%20fact-check%20checklist%20cannabis%20education"
     },
     {
       "title": "Review community-submitted sources",
@@ -2281,7 +2528,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Review%20community-submitted%20sources%20cannabis%20education"
     },
     {
       "title": "Write an honest guide disclaimer",
@@ -2296,7 +2544,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Write%20an%20honest%20guide%20disclaimer%20cannabis%20education"
     },
     {
       "title": "Moderate unsupported effect claims",
@@ -2311,7 +2560,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Moderate%20unsupported%20effect%20claims%20cannabis%20education"
     },
     {
       "title": "Structure a useful strain review",
@@ -2326,7 +2576,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Structure%20a%20useful%20strain%20review%20cannabis%20education"
     },
     {
       "title": "Protect privacy in product reviews",
@@ -2341,7 +2592,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Protect%20privacy%20in%20product%20reviews%20cannabis%20education"
     },
     {
       "title": "Correct misinformation constructively",
@@ -2356,7 +2608,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Correct%20misinformation%20constructively%20cannabis%20education"
     },
     {
       "title": "Design useful data filters",
@@ -2371,7 +2624,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Design%20useful%20data%20filters%20cannabis%20education"
     },
     {
       "title": "Audit a public dataset",
@@ -2386,7 +2640,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Audit%20a%20public%20dataset%20cannabis%20education"
     },
     {
       "title": "Avoid duplicate license counts",
@@ -2401,7 +2656,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Avoid%20duplicate%20license%20counts%20cannabis%20education"
     },
     {
       "title": "Explain missing data to readers",
@@ -2416,7 +2672,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Explain%20missing%20data%20to%20readers%20cannabis%20education"
     },
     {
       "title": "Track source redirects",
@@ -2431,7 +2688,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Track%20source%20redirects%20cannabis%20education"
     },
     {
       "title": "Maintain a content change log",
@@ -2446,7 +2704,8 @@
         "Check the relevant fields against a primary or official source and compare only compatible units and contexts.",
         "Record the result with its source and review date; mark unavailable or conflicting details as unverified.",
         "Recheck time-sensitive safety, testing, or regulatory information before acting on it."
-      ]
+      ],
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Maintain%20a%20content%20change%20log%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2455,7 +2714,8 @@
       "category": "Cannabis science",
       "source": "Leafly",
       "url": "https://www.leafly.com/cbd-stores",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=CBD%20Stores%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2464,7 +2724,8 @@
       "category": "Cannabis science",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/beginners-guide-to-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Science%20of%20getting%20high%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2473,7 +2734,8 @@
       "category": "Safer consumption",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Consumption%20methods%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2482,7 +2744,8 @@
       "category": "Edibles & cooking",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/tinctures",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Tinctures%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2491,7 +2754,8 @@
       "category": "Safer consumption",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/topicals",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Topicals%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2500,7 +2764,8 @@
       "category": "Safer consumption",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/smoke",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20smoke%20weed%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2509,7 +2774,8 @@
       "category": "Edibles & cooking",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/edibles",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20consume%20edibles%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2518,7 +2784,8 @@
       "category": "Safer consumption",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/dabs",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20What%20is%20dabbing%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2527,7 +2794,8 @@
       "category": "Safer consumption",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/smoke/difference-between-joints-blunts-spliffs",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20What%E2%80%99s%20the%20difference%20between%20joints%2C%20blunts%2C%20and%20spliffs%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2536,7 +2804,8 @@
       "category": "Safer consumption",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/smoke/how-to-roll-joint",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20roll%20a%20joint%20in%207%20easy%20steps%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2545,7 +2814,8 @@
       "category": "Safer consumption",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/smoke/how-to-pack-and-smoke-bowl-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20pack%20and%20smoke%20a%20bowl%20of%20weed%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2554,7 +2824,8 @@
       "category": "Safer consumption",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/smoke/how-to-clean-glass-bongs-pipes",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20clean%20glass%20bongs%20and%20pipes%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2563,7 +2834,8 @@
       "category": "Edibles & cooking",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/edibles/edible-dosing",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20Edibles%20dosing%3A%20How%20strong%20is%20your%20weed%20edible%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2572,7 +2844,8 @@
       "category": "Edibles & cooking",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/edibles/how-long-do-edibles-take-to-kick-in",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20long%20do%20edibles%20take%20to%20kick%20in%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2581,7 +2854,8 @@
       "category": "Edibles & cooking",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/edibles/how-to-make-cannabutter",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20make%20cannabutter%20for%20edibles%20with%20our%20easy%20recipe%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2590,7 +2864,8 @@
       "category": "Edibles & cooking",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/consume/edibles/coconut-oil-edible",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20Cannabis%20and%20coconut%20oil%3A%20Benefits%20and%20uses%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2599,7 +2874,8 @@
       "category": "Cannabis 101",
       "source": "Leafly",
       "url": "https://www.leafly.com/news/lifestyle/how-to-stop-munchies-when-high",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20stop%20the%20munchies%20when%20you%E2%80%99re%20high%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2608,7 +2884,8 @@
       "category": "Cannabis science",
       "source": "Leafly",
       "url": "https://www.leafly.com/news/cannabis-101/terpenes-the-flavors-of-cannabis-aromatherapy",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20What%20are%20cannabis%20terpenes%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2617,7 +2894,8 @@
       "category": "New York",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/legalization",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20Leafly%E2%80%99s%20guide%20to%20marijuana%20legalization%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2626,7 +2904,8 @@
       "category": "Cannabis science",
       "source": "Leafly",
       "url": "https://www.leafly.com/news/cannabis-101/thc-detox-myths-facts-tips",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20Marijuana%20detox%3A%20Myths%2C%20facts%2C%20and%20tips%20to%20get%20weed%20out%20of%20your%20system%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2635,7 +2914,8 @@
       "category": "Cannabis 101",
       "source": "Leafly",
       "url": "https://www.leafly.com/news/cannabis-101/how-to-pass-a-drug-test-guide",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20pass%20a%20drug%20test%20for%20weed%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2644,7 +2924,8 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/growing",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20Leafly%E2%80%99s%20guide%20to%20growing%20marijuana%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2653,7 +2934,8 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/growing/marijuana-growth-stages",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%204%20stages%20of%20marijuana%20plant%20growth%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2662,7 +2944,13 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/growing/buyers-guide",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "171F7bi4oeE",
+        "title": "How to Grow Weed: Easy Complete Guide for Beginners",
+        "channel": "How Weed Grow at Home - Indoor Cannabis Tutorials",
+        "url": "https://www.youtube.com/watch?v=171F7bi4oeE"
+      }
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2671,7 +2959,8 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/growing/how-to-grow-marijuana-outdoors",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20grow%20marijuana%20outdoors%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2680,7 +2969,8 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/growing/indoor-marijuana-homegrow-under-500",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20set%20up%20an%20indoor%20weed%20homegrow%20for%20under%20%24500%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2689,7 +2979,13 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/growing/how-much-weed-can-you-grow-one-plant",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "171F7bi4oeE",
+        "title": "How to Grow Weed: Easy Complete Guide for Beginners",
+        "channel": "How Weed Grow at Home - Indoor Cannabis Tutorials",
+        "url": "https://www.youtube.com/watch?v=171F7bi4oeE"
+      }
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2698,7 +2994,8 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/growing/marijuana-plant-maintenance/pruning-topping-marijuana-plants",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20top%20and%20prune%20marijuana%20plants%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2707,7 +3004,8 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/growing/harvesting-marijuana/drying-curing-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20dry%20and%20cure%20cannabis%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2716,7 +3014,8 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/growing/harvesting-marijuana/how-to-trim-cannabis-plants",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20trim%20marijuana%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2725,7 +3024,8 @@
       "category": "Cannabis 101",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/psychedelics",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20Leafly%E2%80%99s%20guide%20to%20psychedelics%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2734,7 +3034,8 @@
       "category": "Growing",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/psychedelics/how-to-grow-psychedelic-mushrooms-first-time",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20grow%20psychedelic%20mushrooms%20for%20the%20first%20time%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cubG",
@@ -2743,7 +3044,8 @@
       "category": "Safer consumption",
       "source": "Leafly",
       "url": "https://www.leafly.com/learn/psychedelics/how-to-dose-mushrooms",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Image%20Not%20Found%20How%20to%20dose%20psychedelic%20mushrooms%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2752,7 +3054,8 @@
       "category": "Safer consumption",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/products-and-how-to-consume",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Products%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2761,7 +3064,8 @@
       "category": "Cannabis 101",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/introduction/thanksgiving-family-weed-discussions",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20tell%20your%20family%20you%20smoke%20weed%20(without%20ruining%20Thanksgiving)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2770,7 +3074,8 @@
       "category": "Cannabis science",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/products-and-how-to-consume/learn-what-is-tac-in-weed",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=What%20is%20TAC%20in%20weed%3F%20Total%20active%20cannabinoids%2C%20explained%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2779,7 +3084,8 @@
       "category": "Cannabis science",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/products-and-how-to-consume/learn-does-cbd-smell-like-weed",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Does%20CBD%20smell%20like%20weed%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2788,7 +3094,8 @@
       "category": "Growing",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/the-plant/different-types-of-thc",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Different%20types%20of%20THC%3A%20a%20guide%20to%20cannabis's%20most%20talked-about%20cannabinoid%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2797,7 +3104,8 @@
       "category": "Safer consumption",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/products-and-how-to-consume/can-you-fly-with-a-weed-pen",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Can%20you%20fly%20with%20a%20weed%20pen%3F%20What%20TSA%20rules%20actually%20say%20in%202026%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2806,7 +3114,8 @@
       "category": "Safer consumption",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/products-and-how-to-consume/learn-how-to-not-cough-when-hitting-a-cart",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20not%20cough%20when%20hitting%20a%20cart%3A%20a%20smoke-smooth%20guide%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2815,7 +3124,8 @@
       "category": "Safer consumption",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/products-and-how-to-consume/how-to-zero-a-vape",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20zero%20a%20vape%3A%20what%20it%20means%20and%20why%20it%20isn't%20risk-free%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2824,7 +3134,8 @@
       "category": "Safer consumption",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/products-and-how-to-consume/do-dab-pens-smell-what-to-expect-and-how-to-keep-it-discreet",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Do%20dab%20pens%20smell%3F%20What%20to%20expect%20and%20how%20to%20keep%20it%20discreet%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2833,7 +3144,8 @@
       "category": "Safer consumption",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/learn/products-and-how-to-consume/what-is-a-blinker-vape",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=What%20is%20a%20blinker%20vape%3F%20Meaning%2C%20how%20long%20it%20lasts%2C%20and%20whether%20it's%20worth%20it%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93ZWVkbW",
@@ -2842,7 +3154,8 @@
       "category": "Edibles & cooking",
       "source": "Weedmaps Learn",
       "url": "https://weedmaps.com/legal/cookie-policy",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cookie%20policy%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2851,7 +3164,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/submit-trophy-pics",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Submit%20PIcs%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2860,7 +3174,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/basics",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Start%20Growing%20Weed%20Today!%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2869,7 +3184,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/10-step-grow-guide",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Grow%20Cannabis%20in%2010%20Steps%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2878,7 +3194,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/germinate",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Germinate%20Your%20Seeds!%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2887,7 +3204,13 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/nutrients",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "171F7bi4oeE",
+        "title": "How to Grow Weed: Easy Complete Guide for Beginners",
+        "channel": "How Weed Grow at Home - Indoor Cannabis Tutorials",
+        "url": "https://www.youtube.com/watch?v=171F7bi4oeE"
+      }
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2896,7 +3219,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/cannabis-grow-lights",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20Grow%20Lights%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2905,7 +3229,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/harvest",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Harvest%20Plants%20Properly%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2914,7 +3239,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/drying-curing",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Dry%20%26%23038%3B%20Cure%20Buds%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2923,7 +3249,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/forum/growing-community",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Ask%20Questions!%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2932,7 +3259,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/marijuana-symptoms",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20Problems%20Guide%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2941,7 +3269,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/cannabis-symptoms-pictures",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=nutrient%20deficiency%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2950,7 +3279,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/bugs-pests-symptoms-marijuana-grow",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Complete%20Pest%20Guide%20-%20Cannabis%20Pests%2C%20Bugs%20%26%20Viruses%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2959,7 +3289,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/ph",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Stop%20Nutrient%20Deficiencies%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2968,7 +3299,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/5-step-solution-to-most-cannabis-growing-problem",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=5-Step%20Cure%20to%20Most%20Plant%20Problems%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2977,7 +3309,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/growing-cannabis-setup-examples",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=choose%20right%20light%20for%20desired%20yields%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2986,7 +3319,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-long-does-it-take-to-grow-weed",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20more%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -2995,7 +3329,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/cheapest-way-to-grow-weed-indoors",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cheapskate%20Grow%20for%20%24150%20Guide%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3004,7 +3339,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/organic-super-soil",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Organic%20Super%20Soil%20Guide%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3013,7 +3349,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/high-yield-bubbleponics-technique",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=how%20to%20grow%20weed%20using%20bubbleponics%20(hydro)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3022,7 +3359,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-grow-1-pound-of-weed-indoors-proven-method-grow-tent",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Grow%201%20lb%20of%20Weed%20Indoors%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3031,7 +3369,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/the-basics",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=650%2B%20expert%20home%20cannabis%20cultivation%20tutorials%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3040,7 +3379,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-increase-yields-indoors",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=5%20Ways%20to%20Increase%20Yields%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3049,7 +3389,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/7-tips-to-growing-top-shelf-buds",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Improve%20Bud%20Quality%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3058,7 +3399,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/side-by-side-cannabis-grow-journal-experiments-by-nebula-haze",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Nebula%E2%80%99s%20Cannabis%20Grow%20Journals%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3067,7 +3409,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/marijuana-boy-girl",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Male%20vs%20Female%20Plants%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3076,7 +3419,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/smell",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=preventing%20smells%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3085,7 +3429,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/perfect-growing-environment",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Control%20Growing%20Environment%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3094,7 +3439,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/cannabis-plant-training",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Manipulate%20How%20Plants%20Grow%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3103,7 +3449,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/growweedeasys-growers-glossary",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Glossary%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3112,7 +3459,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/grow-tools-calculators",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=All%20Tools%20%26%23038%3B%20Calculators%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3121,7 +3469,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/electricity-usage-calculator",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Electricity%20Usage%20Calculator%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3130,7 +3479,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/nutrient-schedule-calculator",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Nutrient%20Schedule%20Calculator%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3139,7 +3489,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/led-selector",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=LED%20Selector%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3148,7 +3499,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/message/news",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=GIVE%20ME%20GROW%20TIPS!%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3157,7 +3509,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/seeds",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=See%20OUR%20favorite%20seed%20sources!%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3166,7 +3519,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/about",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=inbox%20magazine%20all%20about%20how%20to%20grow%20weed%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3175,7 +3529,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/10-step-cannabis-grow-guide",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=guide%20on%20how%20to%20grow%20marijuana%20indoors%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3184,7 +3539,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/germinate/",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=cannabis%20seed%20to%20sprout%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3193,7 +3549,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/harvest-up-to-4-oz-cannabis-in-this-100w-led-mini-grow-kit-complete-setup-weed-growing-tutorial",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Grow%204%20oz%20with%20a%20100W%20LED%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3202,7 +3559,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/5-best-led-grow-lights-2025-cannabis-yields-speed-bud-quality",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=see%20even%20more%20growing%20styles%20with%20different%20price%20ranges%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3211,7 +3569,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/seed-bank-grow-weed-easy-2026-update",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Learn%20where%20it%26%238217%3Bs%20safe%20to%20buy%20cannabis%20seeds%20online%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3220,7 +3579,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/what-do-cannabis-seeds-look-like",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=What%20Do%20Good%20Cannabis%20Seeds%20Look%20Like%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3229,7 +3589,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/best-marijuana-strains-beginners",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=beginner%20strains%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3238,7 +3599,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/find-strain",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=how%20to%20research%20and%20find%20the%20right%20strain%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3247,7 +3609,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-grow-purple-buds",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=pink%20or%20purple%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3256,7 +3619,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/cannabis-grow-lights/",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=cannabis%20grow%20lights%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3265,7 +3629,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/whats-the-cost-of-electricity-to-grow-marijuana",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20much%20will%20electricity%20cost%20each%20month%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3274,7 +3639,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-super-crop-marijuana",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Super%20Cropping%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3283,7 +3649,13 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/simple-cannabis-plant-training-guide",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "171F7bi4oeE",
+        "title": "How to Grow Weed: Easy Complete Guide for Beginners",
+        "channel": "How Weed Grow at Home - Indoor Cannabis Tutorials",
+        "url": "https://www.youtube.com/watch?v=171F7bi4oeE"
+      }
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3292,7 +3664,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/low-stress-training-lst/",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=LST%20(Low%20Stress%20Training)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3301,7 +3674,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/nebulas-flowering-stage-defoliation-tutorial",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=controversial%20defoliation%20technique%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3310,7 +3684,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-do-i-check-the-pH-of-my-water",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=pH%20imbalance%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3319,7 +3694,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/heat-light-stress",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=heat%20or%20light%20stress%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3328,7 +3704,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/hash-oil-aka-rso-cannabis-extract-oil",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=concentrate%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3337,7 +3714,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/basics/",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=basics%20of%20how%20to%20grow%20weed%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3346,7 +3724,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-guides",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=how-to%20weed%20growing%20tutorials%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3355,7 +3734,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/quickest-guide-to-growing-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20start%20growing%20weed%20tomorrow%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3364,7 +3744,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/best-marijuana-grow-bible-review",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Read%20reviews%20of%20marijuana%20grow%20books%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3373,7 +3754,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/website-feedback",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=contact%20us%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3382,7 +3764,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/pick-perfect-harvest-time-with-a-microscope",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Look%20at%20Trichomes%20with%20a%20Magnifier%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3391,7 +3774,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/why-cannabis-plants-growing-slow",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=7%20Reasons%20Why%20Cannabis%20Plants%20Grow%20Slow%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3400,7 +3784,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/12-12-from-seed-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Is%2012-12%20From%20Seed%20Worth%20It%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3409,7 +3794,13 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/what-happens-if-i-grow-seeds-from-a-hermie-plant",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "171F7bi4oeE",
+        "title": "How to Grow Weed: Easy Complete Guide for Beginners",
+        "channel": "How Weed Grow at Home - Indoor Cannabis Tutorials",
+        "url": "https://www.youtube.com/watch?v=171F7bi4oeE"
+      }
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3418,7 +3809,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/the-5-microskills-every-grower-eventually-learns",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=The%205%20Microskills%20Every%20Grower%20Eventually%20Learns%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3427,7 +3819,13 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/only-one-plant-growing-slow",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "171F7bi4oeE",
+        "title": "How to Grow Weed: Easy Complete Guide for Beginners",
+        "channel": "How Weed Grow at Home - Indoor Cannabis Tutorials",
+        "url": "https://www.youtube.com/watch?v=171F7bi4oeE"
+      }
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3436,7 +3834,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/coco-coir-cannabis-grow-medium",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Coco%20Coir%3A%20The%20Most%20Flexible%20Cannabis%20Grow%20Medium%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3445,7 +3844,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/5-steps-to-give-cannabis-plants-the-best-start",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=5%20Steps%20to%20Give%20Cannabis%20Plants%20the%20Best%20Start%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3454,7 +3854,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/general-hydroponics-flora-trio-guide",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Easy%20Nutrients%3A%20General%20Hydroponics%20Flora%20Trio%20Guide%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3463,7 +3864,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/cannabis-nutrient-deficiencies-ph-picture-guide",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Which%20Nutrient%20Deficiencies%20are%20Caused%20by%20pH%3F%20(picture%20guide)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3472,7 +3874,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/pruning-cannabis-for-big-yields",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=3%20Steps%20to%20Prune%20Indoor%20Cannabis%20for%20Bigger%20Yields%20(Free%20%26%20Easy)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3481,7 +3884,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-prevent-hay-smell-when-drying-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=5%20Effective%20Ways%20to%20Prevent%20Cannabis%20%22Hay%20Smell%22%20After%20Harvest%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3490,7 +3894,13 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/7-common-flowering-stage-problems-and-how-to-prevent-them",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "171F7bi4oeE",
+        "title": "How to Grow Weed: Easy Complete Guide for Beginners",
+        "channel": "How Weed Grow at Home - Indoor Cannabis Tutorials",
+        "url": "https://www.youtube.com/watch?v=171F7bi4oeE"
+      }
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3499,7 +3909,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/3-step-guide-choose-best-cannabis-grow-light",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=3-Step%20Guide%3A%20Choose%20Best%20Cannabis%20Grow%20Light%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3508,7 +3919,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/unexpected-grow-tools",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=10%20Unexpected%20Tools%20That%20Make%20Growing%20Weed%20Easier%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3517,7 +3929,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/f1-cannabis-strain-best-kept-secret-in-cannabis-genetics",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=%22F1%22%20Cannabis%20Seeds%3A%20Best-kept%20secret%20in%20cannabis%20genetics%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3526,7 +3939,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/best-coco-nutrients-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Best%20Coco%20Coir%20Nutrients%20for%20Cannabis%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3535,7 +3949,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/temperature",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20Temperature%20Tutorial%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3544,7 +3959,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/3-cannabis-supplements-for-heat-stress",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=3%20Proven%20Supplements%20to%20Help%20Cannabis%20with%20Heat%20Stress%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3553,7 +3969,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/5-cannabis-pests-love-heat",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=5%20Cannabis%20Pests%20That%20Strike%20in%20the%20Heat%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3562,7 +3979,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/dealing-with-heat-and-humidity-outdoors",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Dealing%20with%20Heat%20and%20Humidity%20Outdoors%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3571,7 +3989,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/5-secrets-cannabis-heat-control",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=5%20Secrets%20to%20Controlling%20Heat%20Indoors%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3580,7 +3999,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/7-effects-environment-cannabis-bud-quality",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=7%20Environment%20Effects%20on%20Bud%20Quality%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3589,7 +4009,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/pink-og-kush-harvest-in-picture",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Pink%20OG%20Kush%20Harvest%20(Picture%20Gallery)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3598,7 +4019,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/is-it-time-to-harvest-my-outdoor-cannabis-outdoor-ready-to-harvest-weed-picture-gallery",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Is%20it%20Time%20to%20Harvest%20My%20Outdoor%20Cannabis%3F%20(Outdoor%20Ready-to-Harvest%20Weed%20Picture%20Gallery)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3607,7 +4029,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/cannabis-grow-tent",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Complete%20Guide%20to%20Grow%20Tents%20for%20Cannabis%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3616,7 +4039,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/home-cannabis-grower-qas",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Home%20Cannabis%20Grower%20Q%26As%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3625,7 +4049,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/the-beginners-grow-setup-minimum-supplies-for-top-shelf-weed",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=The%20Beginner%E2%80%99s%20Grow%20Setup%3A%20Minimum%20Supplies%20for%20Top-Shelf%20Weed%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3634,7 +4059,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-grow-better-weed-at-home",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Grow%20Better%20Weed%3A%20The%205%20Core%20Principles%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3643,7 +4069,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/led-grow-journal-mars-hydro-tsl-2000w-vs-spider-farmer-sf-2000",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Cannabis%20LED%20Grow%20Journal%3A%20Mars%20Hydro%20TSL-2000%20vs%20Spider%20Farmer%20SF-2000%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3652,7 +4079,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/solo-cup-challenge-grow-weed-in-a-cup",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=What%20is%20the%20Solo%20Cup%20Challenge%3F%20(Grow%20Weed%20in%20a%20Cup)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3661,7 +4089,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-pollinate-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Pollinate%20Cannabis%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3670,7 +4099,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/fastest-outdoor-cannabis-strains-for-late-planting",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Fast%20Outdoor%20Strains%20for%20a%20Quicker%20Cannabis%20Harvest%20(Short%20Summer%2C%20Late%20Planting...)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3679,7 +4109,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/yields-limiting-factor",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Fix%20Your%20%22Limiting%20Factor%22%20to%20Increase%20Yields%20%26%20Bud%20Size%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3688,7 +4119,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/easy-cannabis-scrog-how-to-scrog-without-screen",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Nebula%E2%80%99s%20Screenless%20SCROG%20Method%3A%20Bigger%20Yields%20Without%20the%20Net%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3697,7 +4129,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-save-money-when-growing-weed",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Save%20Money%20When%20Growing%20Weed%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3706,7 +4139,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/mars-hydro-tsl2000-led-cannabis-grow-setup-tutorial-300w-led",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Mars%20Hydro%20TSL2000%20LED%20Cannabis%20Grow%20Setup%20%26%20Tutorial%20(300W%20LED)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3715,7 +4149,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/bigger-yields-more-thc-7-game-changing-cannabis-growing-insights-for-2026",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Unlock%20Bigger%20Yields%20%26%20More%20THC%3A%207%20Game-Changing%20Insights%20for%20Cannabis%20Growers%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3724,7 +4159,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/mid-flower-yellow-leaves-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Harvest%20Rescue%3A%20How%20to%20Beat%20the%20Mid-Flower%20Curse%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3733,7 +4169,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/cannabis-bad-soil",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Your%20soil%20might%20be%20ruining%20your%20cannabis%20grow%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3742,7 +4179,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/best-soil-nutrients-for-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Best%20Soil%20Nutrients%20%26%20Supplements%20for%20Cannabis%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3751,7 +4189,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/10-minute-guide-get-set-up-to-grow-cannabis-indoors",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=10-Minute%20Guide%3A%20Get%20Your%20Cannabis%20Garden%20Supplies%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3760,7 +4199,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/the-weeks-your-buds-gain-most-of-their-weight",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=The%20Weeks%20Your%20Buds%20Gain%20Most%20of%20Their%20Weight%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3769,7 +4209,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/the-high-idea-that-got-you-4-free-blue-dream-seeds",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=The%20High%20Idea%20That%20Got%20You%204%20Free%20Blue%20Dream%20Seeds%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3778,7 +4219,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/why-are-my-cannabis-leaves-light-green-or-dark-green-with-pictures",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Why%20Are%20My%20Cannabis%20Leaves%20Light%20Green%20or%20Dark%20Green%3F%20(With%20Pictures)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3787,7 +4229,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/3-tips-to-maximize-bud-density-around-harvest-time",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=3%20Tips%20to%20Maximize%20Bud%20Density%20Around%20Harvest%20Time%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3796,7 +4239,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/should-i-grow-weed",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Should%20I%20Grow%20Weed%3F%20(Pros%20%26%20Cons)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3805,7 +4249,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-new-cannabis-seed-law-affect-home-growers-october-2026-update",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20Will%20the%20New%20Cannabis%20Seed%20Law%20Affect%20Home%20Growers%3F%20%5BOctober%202026%20Update%5D%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3814,7 +4259,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-make-cannabis-clones-aero-cloner",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Make%20Cannabis%20Clones%20with%20an%20Aero%20Cloner%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3823,7 +4269,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-keep-a-bonsai-mother-for-unlimited-clones",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Create%20a%20Bonsai%20Mother%20for%20Unlimited%20Clones%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3832,7 +4279,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-use-a-grow-cube-to-grow-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=How%20to%20Use%20a%20%E2%80%9CGrow%20Cube%E2%80%9D%20to%20Grow%20Cannabis%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3841,7 +4289,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/why-cannabis-yields-arent-important-anymore",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Why%20Cannabis%20Yields%20Aren%E2%80%99t%20Important%20(Anymore)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3850,7 +4299,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/are-cannabis-seedlings-overwatered-how-to-fix",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Are%20my%20cannabis%20seedlings%20overwatered%3F%20(Solved)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3859,7 +4309,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/review-of-platinum-cookies-strain-by-seed-supreme-highly-recommended",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Review%20of%20Platinum%20Cookies%20strain%20by%20Seed%20Supreme%20(Highly%20Recommended!)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3868,7 +4319,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/whats-going-on-with-the-new-u-s-cannabis-seed-law",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=What%E2%80%99s%20going%20on%20with%20the%20new%20U.S.%20cannabis%20seed%20law%3F%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3877,7 +4329,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/the-new-federal-hemp-cannabis-seed-law-full-text-effective-dec-11-2026",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=The%20New%20Federal%20Hemp%20%26%20Cannabis%20Seed%20Law%20%E2%80%94%20Full%20Text%20(Effective%20Dec%2011%2C%202026)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3886,7 +4339,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/over-watered-vs-under-watered-seedlings",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Overwatered%20vs%20underwatered%20seedlings%20(too%20much%20or%20too%20little%20water%3F)%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3895,7 +4349,13 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/what-soil-is-good-for-growing-cannabis",
-      "publishedAt": null
+      "publishedAt": null,
+      "video": {
+        "id": "171F7bi4oeE",
+        "title": "How to Grow Weed: Easy Complete Guide for Beginners",
+        "channel": "How Weed Grow at Home - Indoor Cannabis Tutorials",
+        "url": "https://www.youtube.com/watch?v=171F7bi4oeE"
+      }
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3904,7 +4364,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/cannabis-plant-problems/bud-rot",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Your%20Biggest%20Buds%20Are%20the%20Most%20Likely%20to%20Rot%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3913,7 +4374,8 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/how-to-support-growweedeasy-com",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Free%20Ways%20to%20Help%20Grow%20Weed%20Easy%20cannabis%20education"
     },
     {
       "guideId": "external-aHR0cHM6Ly93d3cuZ3",
@@ -3922,7 +4384,9 @@
       "category": "Growing",
       "source": "Grow Weed Easy",
       "url": "https://www.growweedeasy.com/website-feedback/",
-      "publishedAt": null
+      "publishedAt": null,
+      "videoSearchUrl": "https://www.youtube.com/results?search_query=Contact%20Us%20cannabis%20education"
     }
-  ]
+  ],
+  "videoReferencesUpdatedAt": "2026-11-14T03:36:12.092Z"
 }
