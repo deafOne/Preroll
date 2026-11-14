@@ -22,7 +22,7 @@
   document.head.appendChild(style);
   var button=document.createElement('button');
   button.id='pr-terpenstein-launcher';button.type='button';button.setAttribute('aria-label','Open Dr. Terpenstein cannabis assistant');button.setAttribute('aria-expanded','false');
-  button.innerHTML='<span class="pr-doc-face" aria-hidden="true">👨‍🔬</span><span class="pr-doc-leaf" aria-hidden="true">🌿</span><span class="pr-doc-label">Ask Dr. Terpenstein</span>';
+  button.innerHTML='<svg class="pr-doc-face" viewBox="0 0 64 64" role="img" aria-label="Dr. Terpenstein cartoon scientist"><path d="M11 58Q12 42 32 42T53 58" fill="#e8eee6" stroke="#47704d" stroke-width="2"/><path d="M23 41v-7h18v7" fill="#d99a6a"/><ellipse cx="32" cy="29" rx="19" ry="21" fill="#d99a6a" stroke="#7d4b39" stroke-width="2"/><path d="M12 23Q7 7 22 9Q24 0 34 7Q45 1 49 14Q60 12 52 27L47 18Q33 23 18 17Z" fill="#65bd55" stroke="#245d34" stroke-width="2"/><g fill="#e9fff0" stroke="#24452d" stroke-width="2"><circle cx="24" cy="29" r="7"/><circle cx="40" cy="29" r="7"/></g><path d="M31 29h2M31 39q2 3 5 0" fill="none" stroke="#714332" stroke-width="2" stroke-linecap="round"/><path d="M31 4q-5-8-1-10q8 3 1 10" fill="#a6ff78"/></svg><span class="pr-doc-label">Ask Dr. Terpenstein</span>';
   var panel=document.createElement('section');panel.id='pr-terpenstein-panel';panel.setAttribute('aria-label','Dr. Terpenstein assistant');
   panel.innerHTML='<header><span>🌿 Dr. Terpenstein · Cannabis expert</span><button type="button" aria-label="Close assistant">×</button></header><iframe title="Dr. Terpenstein cannabis education chat" loading="lazy" src="/dr-terpenstein/?embed=1"></iframe>';
   function toggle(open){panel.classList.toggle('open',open);button.setAttribute('aria-expanded',String(open));}
