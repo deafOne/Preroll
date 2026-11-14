@@ -432,8 +432,8 @@ app.post('/api/media-network/inquiries',rateLimitAuth,async(req,res,next)=>{
   const interest=String(body.interest||'').trim().slice(0,100);
   const market=String(body.market||'').trim().slice(0,140);
   const message=String(body.message||'').trim().slice(0,1200);
-  if(!businessName||!contactName||!/^\\S+@\\S+\\.\\S+$/.test(email)||!businessType||!interest||body.consent!=='on')return res.status(400).json({error:'Complete the required fields and consent checkbox.'});
-  if(website&&!/^https?:\\/\\//i.test(website))return res.status(400).json({error:'Website must begin with https:// or http://'});
+  if(!businessName||!contactName||!/^\S+@\S+\.\S+$/.test(email)||!businessType||!interest||body.consent!=='on')return res.status(400).json({error:'Complete the required fields and consent checkbox.'});
+  if(website&&!/^https?:\/\//i.test(website))return res.status(400).json({error:'Website must begin with https:// or http://'});
   const result=await pool.query('INSERT INTO media_network_inquiries(business_name,contact_name,email,website,business_type,interest,market,message) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id,created_at',[businessName,contactName,email,website||null,businessType,interest,market||null,message||null]);
   res.status(201).json({ok:true,id:result.rows[0].id,receivedAt:result.rows[0].created_at});
  }catch(e){next(e)}
