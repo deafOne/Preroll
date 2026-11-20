@@ -22,6 +22,7 @@ function decode(value) {
 }
 function targetFor(sourceFile, rawValue) {
   const value = decode(rawValue.trim());
+  if (value.includes("'+") || value.includes('"+') || value.includes('${')) return null;
   if (!value || value.startsWith('#') || value.startsWith('//') || /^[a-z][a-z0-9+.-]*:/i.test(value)) return null;
   const clean = value.split(/[?#]/, 1)[0];
   if (!clean) return null;
