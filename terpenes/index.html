@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cannabis Terpenes — Preroll.org</title>
+<meta name="description" content="Explore evidence-based educational profiles of common cannabis terpenes, their aromas, and what laboratory labels can and cannot tell you.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://preroll.org/terpenes/">
+<link rel="icon" href="../assets/logo.svg">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div id="ageGate" class="age-gate" role="dialog" aria-modal="true" aria-label="Age verification">
+  <div class="age-card">
+    <img src="../assets/logo.svg" alt="Preroll.org" class="age-logo">
+    <p class="eyebrow">AGE CHECK</p>
+    <h1>Are you 21 or older?</h1>
+    <p>Preroll.org is intended for adults of legal age. Educational content only.</p>
+    <div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div>
+    <small id="ageMessage"></small>
+  </div>
+</div>
+<header class="site-header">
+  <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="Preroll.org"></a>
+  <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
+  <nav id="nav"><a href="../index.html">Home</a><a href="../strains/index.html">Strains</a><a href="../guides/index.html">Guides</a><a href="index.html" aria-current="page">Terpenes</a><a href="../forum/index.html">Forum</a></nav>
+</header>
+<main class="container">
+  <section class="hero compact section">
+    <p class="eyebrow">CANNABIS CHEMISTRY</p>
+    <h1>Terpene library.</h1>
+    <p class="lede">Terpenes contribute to the aroma of many plants, including cannabis. A terpene profile describes measured chemistry; it does not guarantee a particular effect or predict an individual response.</p>
+  </section>
+  <section class="section">
+    <div class="section-head"><div><p class="eyebrow">PROFILES</p><h2>Explore common terpenes.</h2></div></div>
+    <div class="cards-grid">
+      <article class="panel"><p class="eyebrow">PEPPERY · SPICY</p><h3>Beta-caryophyllene</h3><p class="muted">A peppery, spicy aroma found in cannabis and other plants.</p><a class="btn ghost small" href="caryophyllene.html">Read profile</a></article>
+      <article class="panel"><p class="eyebrow">CITRUS</p><h3>Limonene</h3><p class="muted">A citrus-associated terpene found across many plant species.</p><a class="btn ghost small" href="limonene.html">Read profile</a></article>
+      <article class="panel"><p class="eyebrow">HERBAL · EARTHY</p><h3>Myrcene</h3><p class="muted">A naturally occurring terpene found in cannabis and other plants.</p><a class="btn ghost small" href="myrcene.html">Read profile</a></article>
+      <article class="panel"><p class="eyebrow">PINE</p><h3>Pinene</h3><p class="muted">A terpene associated with pine-like aromas throughout the plant kingdom.</p><a class="btn ghost small" href="pinene.html">Read profile</a></article>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><div class="container"><p>© <span id="year"></span> Preroll.org · 21+ · Educational information.</p></div></footer>
+<script src="../age-gate.js?v=6"></script>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
