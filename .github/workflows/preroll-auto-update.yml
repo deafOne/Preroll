@@ -15,44 +15,66 @@ concurrency:
 
 jobs:
   live-data-monitor:
-    name: Verify every live data section
+    name: Verify live data and published page sources
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Check out site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Set up Node.js 24
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '24'
-      - name: Check production API, database, news, OCM, strains and community
+      - name: Audit local routes, production API, database, news, OCM, strains and community
         run: node scripts/check-live-data.js
 
   guide-catalog:
     name: Discover and publish verified guide links
     if: github.event_name == 'workflow_dispatch' || github.event.schedule == '15 5 * * *'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: main
       - name: Set up Node.js 24
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '24'
-      - name: Discover new educational resources
+      - name: Discover new educational resources and clean legacy placeholders
         run: node scripts/build-guide-catalog.js
       - name: Validate guide catalog before publishing
         run: |
-          node -e "const fs=require('node:fs');const p=JSON.parse(fs.readFileSync('guides/catalog.json','utf8'));if(!Array.isArray(p.guides)||!p.guides.length)throw Error('Guide catalog is empty');const seen=new Set();for(const g of p.guides){if(!g.title||!g.url)throw Error('Invalid guide record: '+JSON.stringify(g));const u=new URL(g.url);if(!['http:','https:'].includes(u.protocol))throw Error('Invalid guide URL: '+g.url);if(seen.has(g.url))throw Error('Duplicate guide URL: '+g.url);seen.add(g.url)}console.log('Validated '+p.guides.length+' guide records. Generated '+p.generatedAt)"
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('guides/catalog.json', 'utf8'));
+          if (!Array.isArray(data.guides) || !data.guides.length) throw new Error('Guide catalog is empty');
+          if (data.count !== data.guides.length) throw new Error('Guide count does not match catalog length');
+          const ids = new Set();
+          const urls = new Set();
+          for (const guide of data.guides) {
+            if (!guide.guideId || !guide.title || !guide.url) throw new Error('Incomplete guide record: ' + JSON.stringify(guide));
+            if (guide.source === 'Preroll.org Editorial') throw new Error('Placeholder editorial record remains: ' + guide.title);
+            const url = new URL(guide.url);
+            if (!['http:', 'https:'].includes(url.protocol)) throw new Error('Invalid guide URL: ' + guide.url);
+            url.hash = '';
+            const key = url.href.replace(/\/$/, '');
+            if (ids.has(guide.guideId)) throw new Error('Duplicate guide ID: ' + guide.guideId);
+            if (urls.has(key)) throw new Error('Duplicate guide URL: ' + guide.url);
+            ids.add(guide.guideId);
+            urls.add(key);
+          }
+          console.log('Validated ' + data.guides.length + ' unique external guide records.');
+          NODE
       - name: Publish catalog changes
         run: |
           if git diff --quiet -- guides/catalog.json; then
-            echo "No new qualifying guide links today; keeping the existing catalog."
+            echo "No catalog cleanup or ten new verified links today; keeping the current catalog."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add guides/catalog.json
-          git commit -m "Automated daily guide catalog refresh"
+          git commit -m "Automated verified guide catalog refresh"
           git push origin HEAD:main
