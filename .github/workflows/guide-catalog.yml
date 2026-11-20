@@ -23,21 +23,7 @@ jobs:
       - name: Discover and clean verified guide links
         run: node scripts/build-guide-catalog.js
       - name: Validate guide catalog
-        run: |
-          node - <<'NODE'
-          const fs = require('node:fs');
-          const data = JSON.parse(fs.readFileSync('guides/catalog.json', 'utf8'));
-          if (!Array.isArray(data.guides) || !data.guides.length || data.count !== data.guides.length) throw new Error('Invalid guide catalog count');
-          const ids = new Set(), urls = new Set();
-          for (const guide of data.guides) {
-            if (!guide.guideId || !guide.title || !guide.url || guide.source === 'Preroll.org Editorial') throw new Error('Invalid or placeholder guide record');
-            const url = new URL(guide.url); if (!['http:', 'https:'].includes(url.protocol)) throw new Error('Invalid URL');
-            url.hash = ''; const key = url.href.replace(/\/$/, '');
-            if (ids.has(guide.guideId) || urls.has(key)) throw new Error('Duplicate guide ID or URL');
-            ids.add(guide.guideId); urls.add(key);
-          }
-          console.log('Validated ' + data.guides.length + ' unique guide records.');
-          NODE
+        run: node scripts/validate-guide-catalog.js
       - name: Commit catalog
         run: |
           git config user.name "preroll-guide-bot"
