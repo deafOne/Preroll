@@ -18,6 +18,35 @@ async function get(path) {
 }
 
 async function main() {
+  const pages = [
+    ['Homepage', '/'],
+    ['News', '/news/'],
+    ['New York market', '/#market'],
+    ['Strain library', '/strains/'],
+    ['Guides', '/guides/'],
+    ['Forum', '/forum/'],
+    ['Calculators', '/calculators/'],
+    ['Dr. Terpenstein', '/dr-terpenstein/'],
+    ['Resources', '/resources/'],
+    ['Media Network', '/media-network/'],
+    ['Green Empire game', '/game/'],
+    ['Infinity Cannabis Tycoon', '/tycoon/']
+  ];
+  const pageResults = await Promise.allSettled(pages.map(async ([name, path]) => {
+    const response = await fetch('https://preroll.org' + path, {
+      headers: { 'User-Agent': 'Preroll.org site monitor/1.0' },
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+      redirect: 'follow'
+    });
+    if (!response.ok) throw new Error(name + ' returned HTTP ' + response.status);
+    return name;
+  }));
+  let pageFailures = 0;
+  pageResults.forEach((result, index) => {
+    if (result.status === 'fulfilled') console.log('PASS page ' + result.value);
+    else { pageFailures++; console.error('FAIL page ' + pages[index][0] + ' — ' + result.reason.message); }
+  });
+
   const checks = [
     ['API/database health', '/api/health'],
     ['Cannabis news feed', '/api/news?latest=18'],
@@ -57,7 +86,7 @@ async function main() {
     return { name, count };
   }));
 
-  let failures = 0;
+  let failures = pageFailures;
   results.forEach((result, index) => {
     if (result.status === 'fulfilled') {
       console.log('PASS ' + result.value.name + ' — ' + result.value.count);
@@ -66,7 +95,7 @@ async function main() {
       console.error('FAIL ' + checks[index][0] + ' — ' + result.reason.message);
     }
   });
-  console.log('Preroll.org live-data check: ' + (checks.length - failures) + '/' + checks.length + ' passed.');
+  console.log('Preroll.org automated audit: ' + (pages.length + checks.length - failures) + '/' + (pages.length + checks.length) + ' checks passed.');
   if (failures) process.exitCode = 1;
 }
 
