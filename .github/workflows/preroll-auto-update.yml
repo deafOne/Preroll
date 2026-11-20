@@ -1,0 +1,58 @@
+name: Preroll.org automatic updates and live-data checks
+
+on:
+  schedule:
+    - cron: '15 5 * * *'
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: preroll-automatic-updates
+  cancel-in-progress: false
+
+jobs:
+  live-data-monitor:
+    name: Verify every live data section
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check production API, database, news, OCM, strains and community
+        run: node scripts/check-live-data.js
+
+  guide-catalog:
+    name: Discover and publish verified guide links
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '15 5 * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Discover new educational resources
+        run: node scripts/build-guide-catalog.js
+      - name: Validate guide catalog before publishing
+        run: |
+          node -e "const fs=require('node:fs');const p=JSON.parse(fs.readFileSync('guides/catalog.json','utf8'));if(!Array.isArray(p.guides)||!p.guides.length)throw Error('Guide catalog is empty');const seen=new Set();for(const g of p.guides){if(!g.title||!g.url||!/^https?:\\/\\//.test(g.url))throw Error('Invalid guide record: '+JSON.stringify(g));if(seen.has(g.url))throw Error('Duplicate guide URL: '+g.url);seen.add(g.url)}console.log('Validated '+p.guides.length+' guide records. Generated '+p.generatedAt)"
+      - name: Publish catalog changes
+        run: |
+          if git diff --quiet -- guides/catalog.json; then
+            echo "No new qualifying guide links today; keeping the existing catalog."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add guides/catalog.json
+          git commit -m "Automated daily guide catalog refresh"
+          git push origin HEAD:main
