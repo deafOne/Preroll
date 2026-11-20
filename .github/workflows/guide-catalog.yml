@@ -1,30 +1,43 @@
 name: Build guide catalog
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/build-guide-catalog.js'
-      - '.github/workflows/guide-catalog.yml'
-  schedule:
-    - cron: '35 4 * * *'
   workflow_dispatch:
+
 permissions:
   contents: write
 
 concurrency:
   group: catalog-writers
   cancel-in-progress: false
+
 jobs:
   guides:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
-      - name: Scrape recent cannabis how-to guides
+      - name: Discover and clean verified guide links
         run: node scripts/build-guide-catalog.js
+      - name: Validate guide catalog
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('guides/catalog.json', 'utf8'));
+          if (!Array.isArray(data.guides) || !data.guides.length || data.count !== data.guides.length) throw new Error('Invalid guide catalog count');
+          const ids = new Set(), urls = new Set();
+          for (const guide of data.guides) {
+            if (!guide.guideId || !guide.title || !guide.url || guide.source === 'Preroll.org Editorial') throw new Error('Invalid or placeholder guide record');
+            const url = new URL(guide.url); if (!['http:', 'https:'].includes(url.protocol)) throw new Error('Invalid URL');
+            url.hash = ''; const key = url.href.replace(/\/$/, '');
+            if (ids.has(guide.guideId) || urls.has(key)) throw new Error('Duplicate guide ID or URL');
+            ids.add(guide.guideId); urls.add(key);
+          }
+          console.log('Validated ' + data.guides.length + ' unique guide records.');
+          NODE
       - name: Commit catalog
         run: |
           git config user.name "preroll-guide-bot"
@@ -33,7 +46,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Guide catalog unchanged"
           else
-            git commit -m "Update cannabis how-to guide catalog"
+            git commit -m "Update verified cannabis guide catalog"
             git pull --rebase origin main
             git push
           fi
