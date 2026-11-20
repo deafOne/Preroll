@@ -85,7 +85,7 @@ async function crawl(source) {
     console.error('Daily guide publication paused: found ' + additions.length +
       ' new eligible links; exactly ' + NEW_PER_RUN +
       ' are required. Existing live catalog was left untouched. Check source access or discovery rules.');
-    process.exitCode = 2;
+    // A low-discovery day is a clean no-op: preserve the existing catalog and let the next scheduled run retry.
     return;
   }
 
