@@ -1,7 +1,7 @@
 /* Dr. Terpenstein site-wide assistant. UI-only: does not intercept page data or API requests. */
 (function(){
   'use strict';
-  var path=location.pathname.replace(/\\/+$/,'/');
+  var path=location.pathname.replace(/\/+$/,'/');
   if(path==='/dr-terpenstein/' || path==='/dr-terpenstein/index.html') return;
   if(document.getElementById('pr-terpenstein-launcher')) return;
   var style=document.createElement('style');
