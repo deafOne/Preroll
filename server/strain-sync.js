@@ -38,13 +38,21 @@ function parsePage(html, source, page) {
   }
   return [...out.values()];
 }
+// One upstream request at a time, with a hard minimum 10-second gap
+// shared across Leafly and Weedmaps for the lifetime of this run.
+const MIN_REQUEST_GAP_MS = 10_000;
+let lastRequestStartedAt = 0;
 async function fetchPage(url) {
+  const waitMs = Math.max(0, lastRequestStartedAt + MIN_REQUEST_GAP_MS - Date.now());
+  if (waitMs) await sleep(waitMs);
+  lastRequestStartedAt = Date.now();
+  console.log('[rate-limit] requesting ' + url + ' at ' + new Date(lastRequestStartedAt).toISOString());
   const r = await fetch(url, {
     headers: {
-      'User-Agent': 'Mozilla/5.0 (compatible; Preroll.org strain catalog importer/1.1)',
+      'User-Agent': 'Preroll.org strain catalog importer/1.2 (+https://preroll.org)',
       'Accept': 'text/html,application/xhtml+xml'
     },
-    signal: AbortSignal.timeout(15000)
+    signal: AbortSignal.timeout(20000)
   });
   if (!r.ok) throw new Error(r.status + ' ' + r.statusText);
   return r.text();
@@ -114,26 +122,19 @@ async function save(rows) {
 async function runSource(source) {
   const first = await fetchPage(source.base + '1');
   const pages = Math.min(discoverPages(first, source.fallbackPages), 60);
-  console.log('[' + source.name + '] scanning ' + pages + ' pages (safety cap 60)');
+  console.log('[' + source.name + '] scanning ' + pages + ' pages (safety cap 60; one request every 10 seconds)');
   const all = new Map();
   for (const row of parsePage(first, source.name, 1)) all.set(row.slug, row);
-  let next = 2;
-  const concurrency = 4;
-  while (next <= pages) {
-    const batch = [];
-    for (let i = 0; i < concurrency && next <= pages; i++, next++) batch.push(next);
-    const results = await Promise.all(batch.map(async page => {
-      try {
-        const rows = parsePage(await fetchPage(source.base + page), source.name, page);
-        await sleep(200);
-        return rows;
-      } catch (e) {
-        console.warn('[' + source.name + '] page ' + page + ' skipped: ' + e.message);
-        return [];
-      }
-    }));
-    for (const rows of results) for (const row of rows) all.set(row.slug, row);
-    await sleep(250);
+  // Sequential requests are intentional. fetchPage enforces the 10-second
+  // minimum globally, so there is no parallel scraping or burst traffic.
+  for (let page = 2; page <= pages; page++) {
+    try {
+      const rows = parsePage(await fetchPage(source.base + page), source.name, page);
+      for (const row of rows) all.set(row.slug, row);
+      console.log('[' + source.name + '] page ' + page + '/' + pages + ': ' + rows.length + ' records');
+    } catch (e) {
+      console.warn('[' + source.name + '] page ' + page + ' skipped: ' + e.message);
+    }
   }
   const rows = [...all.values()];
   if (rows.length) await save(rows);
