@@ -5,11 +5,13 @@ const SOURCES=[
  {source:'weedmaps',base:'https://weedmaps.com/strains?page=',defaultPages:591}
 ];
 
-const CONCURRENCY=2;
-const MAX_PAGES_PER_SOURCE=600;
+const CONCURRENCY=1;
+const MAX_PAGES_PER_SOURCE=60;
 const MIN_VALID_RECORDS=100;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const PAGE_DELAY_MS=900;
+const PAGE_DELAY_MS=0;
+const MIN_REQUEST_GAP_MS=10000;
+let lastRequestStartedAt=0;
 
 function decode(s=''){
  return s
@@ -68,6 +70,10 @@ async function fetchPage(url){
  let last;
  for(let attempt=0;attempt<3;attempt++){
   try{
+   const waitMs=Math.max(0,lastRequestStartedAt+MIN_REQUEST_GAP_MS-Date.now());
+   if(waitMs)await sleep(waitMs);
+   lastRequestStartedAt=Date.now();
+   console.log('[rate-limit] request started '+new Date(lastRequestStartedAt).toISOString()+' '+url);
    const r=await fetch(url,{headers,redirect:'follow',signal:AbortSignal.timeout(15000)});
    if(r.status===403||r.status===406){
     throw Object.assign(new Error('HTTP '+r.status+'; source denies automated access, stopping requests to this host'),{permanent:true});
