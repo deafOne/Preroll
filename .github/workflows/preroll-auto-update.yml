@@ -1,6 +1,11 @@
 name: Preroll.org automatic updates and live-data checks
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/check-live-data.js'
+      - '.github/workflows/preroll-auto-update.yml'
   schedule:
     - cron: '15 5 * * *'
     - cron: '0 */6 * * *'
@@ -45,28 +50,7 @@ jobs:
       - name: Discover new educational resources and clean legacy placeholders
         run: node scripts/build-guide-catalog.js
       - name: Validate guide catalog before publishing
-        run: |
-          node - <<'NODE'
-          const fs = require('node:fs');
-          const data = JSON.parse(fs.readFileSync('guides/catalog.json', 'utf8'));
-          if (!Array.isArray(data.guides) || !data.guides.length) throw new Error('Guide catalog is empty');
-          if (data.count !== data.guides.length) throw new Error('Guide count does not match catalog length');
-          const ids = new Set();
-          const urls = new Set();
-          for (const guide of data.guides) {
-            if (!guide.guideId || !guide.title || !guide.url) throw new Error('Incomplete guide record: ' + JSON.stringify(guide));
-            if (guide.source === 'Preroll.org Editorial') throw new Error('Placeholder editorial record remains: ' + guide.title);
-            const url = new URL(guide.url);
-            if (!['http:', 'https:'].includes(url.protocol)) throw new Error('Invalid guide URL: ' + guide.url);
-            url.hash = '';
-            const key = url.href.replace(/\/$/, '');
-            if (ids.has(guide.guideId)) throw new Error('Duplicate guide ID: ' + guide.guideId);
-            if (urls.has(key)) throw new Error('Duplicate guide URL: ' + guide.url);
-            ids.add(guide.guideId);
-            urls.add(key);
-          }
-          console.log('Validated ' + data.guides.length + ' unique external guide records.');
-          NODE
+        run: node scripts/validate-guide-catalog.js
       - name: Publish catalog changes
         run: |
           if git diff --quiet -- guides/catalog.json; then
