@@ -22,11 +22,11 @@ services:
         value: "true"
 
   - type: cron
-    name: preroll-strain-sync
+    name: preroll-strain-sync-v2wf
     runtime: node
     plan: free
     rootDir: server
-    schedule: "0 5 * * *"
+    schedule: "0 */2 * * *"
     repo: https://github.com/deafOne/Preroll
     buildCommand: npm install
     startCommand: npm run sync-strains
