@@ -5,9 +5,22 @@ let catalog=[],page=1;
 const profileCache=new Map();
 function esc(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function sourceUrl(s){if(s.url&&(s.url.startsWith('https://')||s.url.startsWith('http://')))return s.url;return s.source==='leafly'?'https://www.leafly.com/strains/'+encodeURIComponent(s.id):s.source==='weedmaps'?'https://weedmaps.com/strains/'+encodeURIComponent(s.id):'#'}
+function cleanStrainName(value,id=''){
+ let name=String(value||'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ')
+  .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ')
+  .replace(/<[^>]*>/g,' ').replace(/&nbsp;|&#160;/gi,' ').replace(/&amp;/gi,'&')
+  .replace(/&quot;/gi,'"').replace(/&#39;|&apos;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>')
+  .replace(/\{[^{}]*\}/g,' ').replace(/(?:^|\s)@font-face[\s\S]*$/i,' ')
+  .replace(/\b(?:font-family|font-face|src|font-weight|font-style)\s*:[^;]+;?/gi,' ')
+  .replace(/\s+/g,' ').trim();
+ if(!name||/@font-face|font-family\s*:|url\s*\(|\.woff2?\b|\{[^}]*\}/i.test(name)){
+  name=String(id||'').replace(/\.(?:html?|json)$/i,'').split(/[-_]+/).filter(Boolean).map(x=>x.length<=3?x.toUpperCase():x[0].toUpperCase()+x.slice(1)).join(' ');
+ }
+ return name.slice(0,180);
+}
 function junkStarTitle(name=''){return /\b\d+\s*(?:-|–|—|to)\s*(?:\d+\s*)?stars?\b|\b0\s*[-–—]\s*\*\s*stars?\b/i.test(String(name))||/\b\d+(?:\.\d+)?\s*stars?\b/i.test(String(name));}
 function hasPhotoHint(s){return Boolean(s.imageUrl||s.image_url||s.image||s.photo||s.photoUrl||s.photo_url||s.thumbnail||s.featured_image);}
-function filtered(){const q=$('#strainSearch').value.trim().toLowerCase(),type=$('#typeFilter').value,source=$('#sourceFilter').value;return catalog.filter(s=>!junkStarTitle(s.name)&&(!q||String(s.name).toLowerCase().includes(q)||String(s.id).toLowerCase().includes(q))&&(type==='all'||s.type===type)&&(source==='all'||s.source===source)).sort((a,b)=>Number(hasPhotoHint(b))-Number(hasPhotoHint(a))||String(a.name).localeCompare(String(b.name)));}
+function filtered(){const q=$('#strainSearch').value.trim().toLowerCase(),type=$('#typeFilter').value,source=$('#sourceFilter').value;return catalog.filter(s=>{const name=cleanStrainName(s.name,s.id);return name&&!junkStarTitle(name)&&(!q||name.toLowerCase().includes(q)||String(s.id||'').toLowerCase().includes(q))&&(type==='all'||s.type===type)&&(source==='all'||s.source===source)}).sort((a,b)=>Number(hasPhotoHint(b))-Number(hasPhotoHint(a))||cleanStrainName(a.name,a.id).localeCompare(cleanStrainName(b.name,b.id)));}
 function validStrainDescription(value){
  const s=String(value||'').trim();
  if(!s)return '';
@@ -70,7 +83,7 @@ async function load(){
   const response=await fetch(API_URL+'/api/strains?limit=20000',{cache:'no-store',headers:{Accept:'application/json'}});
   const data=await response.json();
   if(!response.ok)throw new Error(data.error||'Verified strain data unavailable');
-  catalog=Array.isArray(data.strains)?data.strains:[];
+  catalog=(Array.isArray(data.strains)?data.strains:[]).map(s=>({...s,name:cleanStrainName(s.name,s.id||s.slug)})).filter(s=>s.name);
   const sf=$('#sourceFilter');
   for(const src of [...new Set(catalog.map(x=>x.source).filter(Boolean))].sort()){
    if(![...sf.options].some(o=>o.value===src)){const op=document.createElement('option');op.value=src;op.textContent=src;sf.appendChild(op)}
