@@ -185,22 +185,22 @@ async function auth(req,res,next){
 }
 
 function cleanStrainName(value,slug=''){
- let name=String(value||'').replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi,' ')
-  .replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi,' ')
+ let name=String(value||'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ')
+  .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ')
   .replace(/<[^>]*>/g,' ')
   .replace(/&nbsp;|&#160;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"')
   .replace(/&#39;|&apos;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>')
-  .replace(/&#(x[0-9a-f]+|\\d+);/gi,(_,n)=>{const code=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):parseInt(n,10);return Number.isFinite(code)&&code>0&&code<=0x10ffff?String.fromCodePoint(code):' '})
-  .replace(/\\{[^{}]*\\}/g,' ').replace(/(?:^|\\s)@font-face[\\s\\S]*$/i,' ')
-  .replace(/\\b(?:font-family|font-face|src|font-weight|font-style)\\s*:[^;]+;?/gi,' ')
-  .replace(/\\s+/g,' ').trim().slice(0,180);
- const looksLikeCss=/@font-face|font-family\\s*:|url\\s*\\(|\\.woff2?\\b|\\{[^}]*\\}|(?:^|\\s)(?:body|html|\\.\\w+|#\\w+)\\s*\\{/i.test(name);
+  .replace(/&#(x[0-9a-f]+|\d+);/gi,(_,n)=>{const code=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):parseInt(n,10);return Number.isFinite(code)&&code>0&&code<=0x10ffff?String.fromCodePoint(code):' '})
+  .replace(/\{[^{}]*\}/g,' ').replace(/(?:^|\s)@font-face[\s\S]*$/i,' ')
+  .replace(/\b(?:font-family|font-face|src|font-weight|font-style)\s*:[^;]+;?/gi,' ')
+  .replace(/\s+/g,' ').trim().slice(0,180);
+ const looksLikeCss=/@font-face|font-family\s*:|url\s*\(|\.woff2?\b|\{[^}]*\}|(?:^|\s)(?:body|html|\.\w+|#\w+)\s*\{/i.test(name);
  if(!name||looksLikeCss||name.length<2)return slugToStrainName(slug);
  return name;
 }
 function slugToStrainName(slug=''){
- const value=String(slug||'').replace(/\\.(?:html?|json)$/i,'').trim();
- if(!value||/@|\\{|\\}|\\.woff|font-family/i.test(value))return '';
+ const value=String(slug||'').replace(/\.(?:html?|json)$/i,'').trim();
+ if(!value||/@|\{|\}|\.woff|font-family/i.test(value))return '';
  return value.split(/[-_]+/).filter(Boolean).map(part=>part.length<=3?part.toUpperCase():part[0].toUpperCase()+part.slice(1)).join(' ').slice(0,180);
 }
 function readStaticStrainCatalog(q,limit){
