@@ -4,7 +4,7 @@
 var path=location.pathname.replace(/\/+$/,'/');
 if(path==='/dr-terpenstein/'||path==='/dr-terpenstein/index.html'||document.getElementById('pr-terpenstein-launcher'))return;
 var style=document.createElement('style');
-style.textContent=\`
+style.textContent=`
 #pr-terpenstein-launcher{position:fixed!important;right:18px!important;bottom:calc(18px + env(safe-area-inset-bottom,0px))!important;z-index:2147483000!important;width:76px!important;height:76px!important;border:2px solid #9aff7c!important;border-radius:50%!important;background:radial-gradient(circle at 35% 25%,#315d37,#102117 70%)!important;box-shadow:0 8px 30px #0009!important;display:grid!important;place-items:center!important;cursor:pointer;color:#fff;transition:transform .2s;touch-action:manipulation}
 #pr-terpenstein-launcher:hover{transform:translateY(-4px) scale(1.04)}
 #pr-terpenstein-launcher .pr-doc-face{width:54px;height:54px;overflow:visible;animation:prDocBob 4.5s ease-in-out infinite;transform-origin:50% 90%}
@@ -41,7 +41,7 @@ style.textContent=\`
 #pr-terpenstein-panel .pr-foot{flex:none;text-align:center;padding:0 10px 9px;background:#101711;color:#91a394;font-size:10px}
 @media(max-width:768px){#pr-terpenstein-launcher{right:12px!important;bottom:calc(12px + env(safe-area-inset-bottom,0px))!important;width:68px!important;height:68px!important}#pr-terpenstein-panel{right:8px!important;bottom:calc(88px + env(safe-area-inset-bottom,0px))!important;width:calc(100vw - 16px)!important;height:min(76dvh,640px)!important;max-height:calc(100dvh - 112px - env(safe-area-inset-bottom,0px))!important;border-radius:17px!important}#pr-terpenstein-launcher .pr-doc-label{display:none}}
 @media(prefers-reduced-motion:reduce){#pr-terpenstein-launcher .pr-doc-face,#pr-terpenstein-launcher .pr-eye,#pr-terpenstein-launcher .pr-leaf,#pr-terpenstein-panel.open{animation:none!important;transition:none!important}}
-\`;
+`;
 document.head.appendChild(style);
 var button=document.createElement('button');
 button.id='pr-terpenstein-launcher';button.type='button';button.setAttribute('aria-label','Consult Dr. Terpenstein');button.setAttribute('aria-expanded','false');
