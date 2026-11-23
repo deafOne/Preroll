@@ -25,8 +25,17 @@ function slugFromHref(href=''){
  return m?decode(m[1]).replace(/\/$/,''):null;
 }
 
-function cleanName(s=''){
- return decode(s.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()).slice(0,180);
+function cleanName(s='',slug=''){
+ let name=decode(String(s).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ')
+  .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ')
+  .replace(/<[^>]+>/g,' ').replace(/\{[^{}]*\}/g,' ')
+  .replace(/(?:^|\s)@font-face[\s\S]*$/i,' ')
+  .replace(/\b(?:font-family|font-face|src|font-weight|font-style)\s*:[^;]+;?/gi,' ')
+  .replace(/\s+/g,' ').trim()).slice(0,180);
+ if(!name||/@font-face|font-family\s*:|url\s*\(|\.woff2?\b|\{[^}]*\}/i.test(name)){
+  name=String(slug||'').split(/[-_]+/).filter(Boolean).map(x=>x.length<=3?x.toUpperCase():x[0].toUpperCase()+x.slice(1)).join(' ').slice(0,180);
+ }
+ return name;
 }
 
 function inferType(text=''){
@@ -44,8 +53,8 @@ function parse(html,source){
  while((m=re.exec(html))){
   const slug=slugFromHref(m[1]);
   if(!slug||slug.includes('/'))continue;
-  const name=cleanName(m[2]);
-  if(!name||name.length<2||/^(all strains|strains|learn more)$/i.test(name))continue;
+  const name=cleanName(m[2],slug);
+  if(!name||name.length<2||/@font-face|font-family\s*:|url\s*\(|\.woff2?\b/i.test(name)||/^(all strains|strains|learn more)$/i.test(name))continue;
   const nearby=html.slice(Math.max(0,m.index-700),Math.min(html.length,m.index+1200));
   const type=inferType(nearby);
   out.set(slug,{id:slug,name,type,source,url:'https://'+(source==='leafly'?'www.leafly.com':source==='herbistry420'?'herbistry420.com':'weedmaps.com')+'/strains/'+slug});
