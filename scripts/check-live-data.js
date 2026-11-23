@@ -5,15 +5,30 @@ const fs = require('node:fs');
 const path = require('node:path');
 const API = (process.env.PREROLL_API_URL || 'https://preroll-v2wf.onrender.com').replace(/\/+$/, '');
 const PAGE_TIMEOUT_MS = 15000;
-const API_TIMEOUT_MS = 30000;
+const API_TIMEOUT_MS = 60000;
 const OCM_TIMEOUT_MS = 90000;
 
 async function get(endpoint, timeout = API_TIMEOUT_MS) {
-  const response = await fetch(API + endpoint, {
-    headers: { Accept: 'application/json', 'User-Agent': 'Preroll.org live-data monitor/2.0' },
-    signal: AbortSignal.timeout(timeout),
-    cache: 'no-store'
-  });
+  let response;
+  let lastError;
+  // Render's free web service can take time to wake after an idle period.
+  // Retry one transport timeout/network failure; never retry an HTTP/API error.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      response = await fetch(API + endpoint, {
+        headers: { Accept: 'application/json', 'User-Agent': 'Preroll.org live-data monitor/2.0' },
+        signal: AbortSignal.timeout(timeout),
+        cache: 'no-store'
+      });
+      break;
+    } catch (error) {
+      lastError = error;
+      if (attempt === 1 || !['TimeoutError', 'AbortError', 'TypeError'].includes(error.name)) throw error;
+      console.warn('RETRY ' + endpoint + ' — transient connection failure; retrying once after Render wake-up');
+      await new Promise(resolve => setTimeout(resolve, 3000));
+    }
+  }
+  if (!response) throw lastError || new Error(endpoint + ' request failed');
   let data;
   try { data = await response.json(); }
   catch { throw new Error(endpoint + ' returned invalid JSON (HTTP ' + response.status + ')'); }
