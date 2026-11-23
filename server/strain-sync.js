@@ -23,16 +23,30 @@ function stripHtml(v = '') {
     .replace(/<[^>]+>/g, ' ').replace(/&amp;/gi, '&').replace(/&quot;/gi, '"').replace(/&#39;/gi, "'")
     .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&nbsp;/gi, ' ').replace(/\s+/g, ' ').trim();
 }
+function cleanStrainName(value,slug='') {
+  let name=String(value||'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ')
+    .replace(/<[^>]+>/g,' ').replace(/&nbsp;|&#160;/gi,' ')
+    .replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;|&apos;/gi,"'")
+    .replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/\{[^{}]*\}/g,' ')
+    .replace(/(?:^|\s)@font-face[\s\S]*$/i,' ')
+    .replace(/\b(?:font-family|font-face|src|font-weight|font-style)\s*:[^;]+;?/gi,' ')
+    .replace(/\s+/g,' ').trim().slice(0,180);
+  if(!name||/@font-face|font-family\s*:|url\s*\(|\.woff2?\b|\{[^}]*\}/i.test(name)){
+    name=String(slug||'').split(/[-_]+/).filter(Boolean).map(x=>x.length<=3?x.toUpperCase():x[0].toUpperCase()+x.slice(1)).join(' ').slice(0,180);
+  }
+  return name;
+}
 function parsePage(html, source, page) {
   const out = new Map(), re = /<a[^>]+href=["'](?:https?:\/\/[^"']+)?\/strains\/([^"'?#/]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = re.exec(html))) {
-    const slug = m[1], text = stripHtml(m[2]).replace(/\s+/g, ' ').trim();
+    const slug = m[1], text = cleanStrainName(stripHtml(m[2]),m[1]);
     if (!text || text.length > 160 || /^(strains|learn more|indica|sativa|hybrid)$/i.test(text)) continue;
     const before = stripHtml(html.slice(Math.max(0, m.index - 700), m.index)).toLowerCase();
     const tm = before.match(/\b(indica|sativa|hybrid)\b/);
     const type = tm ? tm[1][0].toUpperCase() + tm[1].slice(1) : 'Unknown';
-    const name = text.replace(/^(indica|sativa|hybrid)\s+/i, '').replace(/\s+aka.*$/i, '').trim();
+    const name = cleanStrainName(text.replace(/^(indica|sativa|hybrid)\s+/i, '').replace(/\s+aka.*$/i, '').trim(),slug);
     if (name.length < 2) continue;
     out.set(slug, { slug, name, type, source, source_page: page });
   }
@@ -147,7 +161,7 @@ async function syncStaticCatalog() {
   const strains = Array.isArray(payload.strains) ? payload.strains : [];
   const rows = [];
   for (const item of strains) {
-    const name = String(item.name || '').trim().slice(0, 180);
+    const name = cleanStrainName(item.name,item.id||item.slug);
     const slug = String(item.id || item.slug || '').trim().slice(0, 180);
     if (!name || !slug) continue;
     let source = String(item.source || 'catalog').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 20);
