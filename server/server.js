@@ -184,11 +184,30 @@ async function auth(req,res,next){
  }catch(e){next(e)}
 }
 
+function cleanStrainName(value,slug=''){
+ let name=String(value||'').replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi,' ')
+  .replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi,' ')
+  .replace(/<[^>]*>/g,' ')
+  .replace(/&nbsp;|&#160;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"')
+  .replace(/&#39;|&apos;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>')
+  .replace(/&#(x[0-9a-f]+|\\d+);/gi,(_,n)=>{const code=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):parseInt(n,10);return Number.isFinite(code)&&code>0&&code<=0x10ffff?String.fromCodePoint(code):' '})
+  .replace(/\\{[^{}]*\\}/g,' ').replace(/(?:^|\\s)@font-face[\\s\\S]*$/i,' ')
+  .replace(/\\b(?:font-family|font-face|src|font-weight|font-style)\\s*:[^;]+;?/gi,' ')
+  .replace(/\\s+/g,' ').trim().slice(0,180);
+ const looksLikeCss=/@font-face|font-family\\s*:|url\\s*\\(|\\.woff2?\\b|\\{[^}]*\\}|(?:^|\\s)(?:body|html|\\.\\w+|#\\w+)\\s*\\{/i.test(name);
+ if(!name||looksLikeCss||name.length<2)return slugToStrainName(slug);
+ return name;
+}
+function slugToStrainName(slug=''){
+ const value=String(slug||'').replace(/\\.(?:html?|json)$/i,'').trim();
+ if(!value||/@|\\{|\\}|\\.woff|font-family/i.test(value))return '';
+ return value.split(/[-_]+/).filter(Boolean).map(part=>part.length<=3?part.toUpperCase():part[0].toUpperCase()+part.slice(1)).join(' ').slice(0,180);
+}
 function readStaticStrainCatalog(q,limit){
  const fs=require('fs'),path=require('path');
  try{
   const data=JSON.parse(fs.readFileSync(path.join(__dirname,'..','strains','catalog.json'),'utf8'));
-  let rows=Array.isArray(data.strains)?data.strains:[];
+  let rows=(Array.isArray(data.strains)?data.strains:[]).map(x=>({...x,name:cleanStrainName(x.name,x.id||x.slug)})).filter(x=>x.name);
   if(q)rows=rows.filter(x=>String(x.name||'').toLowerCase().includes(q)||String(x.id||'').toLowerCase().includes(q));
   return {strains:rows.slice(0,limit),total:rows.length,limit,sources:['leafly','weedmaps'],mode:'static-fallback'};
  }catch(err){
