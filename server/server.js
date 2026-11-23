@@ -222,8 +222,8 @@ async function readBackupStrainCatalog(q,limit){
  const rows=(await pool.query(
   'SELECT slug AS id,name,type,source FROM strain_catalog_backup WHERE '+filter+' ORDER BY LOWER(name),source LIMIT $2',
   [pattern,limit]
- )).rows;
- return {strains:rows,total,limit,sources:['leafly','weedmaps'],mode:'database-backup'};
+ )).rows.map(x=>({...x,name:cleanStrainName(x.name,x.id)})).filter(x=>x.name);
+ return {strains:rows,total:rows.length,limit,sources:['leafly','weedmaps'],mode:'database-backup'};
 }
 app.get('/api/strains',async(req,res,next)=>{
  const q=String(req.query.q||'').trim().toLowerCase();
@@ -237,8 +237,8 @@ app.get('/api/strains',async(req,res,next)=>{
    const rows=(await pool.query(
     'SELECT slug AS id,name,type,source FROM strains WHERE '+filter+' ORDER BY LOWER(name),source LIMIT $2',
     [pattern,limit]
-   )).rows;
-   if(rows.length)return res.json({strains:rows,total,limit,sources:['leafly','weedmaps'],mode:'database'});
+   )).rows.map(x=>({...x,name:cleanStrainName(x.name,x.id)})).filter(x=>x.name);
+   if(rows.length)return res.json({strains:rows,total:rows.length,limit,sources:['leafly','weedmaps'],mode:'database'});
   }
   console.warn('Active strain catalog is empty for requested filter; trying permanent backup snapshot.');
   const backup=await readBackupStrainCatalog(q,limit);
