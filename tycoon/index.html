@@ -67,8 +67,8 @@ function updateBeds(){beds.forEach(b=>{if(b.mesh)scene.remove(b.mesh);b.mesh=nul
 const char=new THREE.Group();const body=new THREE.Mesh(new THREE.CapsuleGeometry(.48,.8,5,9),mat(0x315f43));body.position.y=1.05;body.castShadow=true;char.add(body);const head=new THREE.Mesh(new THREE.SphereGeometry(.34,14,12),mat(0xd4a57f));head.position.y=1.85;head.castShadow=true;char.add(head);const cap=new THREE.Mesh(new THREE.CylinderGeometry(.37,.37,.12,16),green);cap.position.y=2.12;char.add(cap);scene.add(char);
 const vehicle=new THREE.Group();const chassis=new THREE.Mesh(new THREE.BoxGeometry(2.2,.65,4),green);chassis.position.y=.8;chassis.castShadow=true;vehicle.add(chassis);const cab=new THREE.Mesh(new THREE.BoxGeometry(1.8,.9,1.7),glass);cab.position.set(0,1.52,-.3);vehicle.add(cab);for(const x of [-.95,.95])for(const z of [-1.35,1.35]){const w=new THREE.Mesh(new THREE.CylinderGeometry(.38,.38,.22,16),dark);w.rotation.z=Math.PI/2;w.position.set(x,.48,z);vehicle.add(w)}vehicle.position.set(4,0,6);scene.add(vehicle);
 const state={cash:2500,rep:0,harvest:0,seeds:5,inventory:0,level:1,upgrade:0,planted:0,vehicle:false,location:'Main Street'};
-function load(){try{const s=JSON.parse(localStorage.getItem('ict-save')||'null');if(s)Object.assign(state,s); }catch{}}
-function save(){localStorage.setItem('ict-save',JSON.stringify({...state,vehicle:false}));toast('Progress saved on this device.')}
+function load(){try{const s=JSON.parse(localStorage.getItem('ict-save')||'null');if(s){const savedBeds=s.beds;delete s.beds;Object.assign(state,s);if(Array.isArray(savedBeds))savedBeds.forEach((plantedAt,i)=>{if(beds[i])beds[i].plantedAt=Number(plantedAt)||0;});}}catch{}}
+function save(){try{localStorage.setItem('ict-save',JSON.stringify({...state,vehicle:false,beds:beds.map(b=>b.plantedAt)}));toast('Progress saved on this device.')}catch{toast('Save unavailable in this browser session.')}}
 load();updateBeds();
 function hud(){ $('cash').textContent='$'+Math.floor(state.cash).toLocaleString();$('rep').textContent=state.rep;$('harvest').textContent=state.harvest;$('level').textContent=state.level;$('objective').textContent=state.harvest?'Sell your harvest at the dispensary or expand production.':'Visit the greenhouse and start your first crop.';}
 hud();
@@ -89,7 +89,7 @@ let keys={},yaw=0,pitch=.22,drag=false,lastX=0,lastY=0,velY=0,onGround=true;cons
 addEventListener('keydown',e=>{keys[e.code]=true;if(['Space','ArrowUp','ArrowDown'].includes(e.code))e.preventDefault();if(e.code==='KeyE')interact();if(e.code==='KeyF')toggleVehicle();if(e.code==='Space'&&onGround&&!state.vehicle){velY=8;onGround=false;}});
 addEventListener('keyup',e=>keys[e.code]=false);
 renderer.domElement.addEventListener('pointerdown',e=>{drag=true;lastX=e.clientX;lastY=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)});
-renderer.domElement.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;yaw-=dx*.005;pitch=Math.max(-.05,Math.min(.8,pitch+dy*.003)});
+renderer.domElement.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;yaw-=dx*.005;pitch=Math.max(-.05,Math.min(.8,pitch+dy*.003));});
 renderer.domElement.addEventListener('pointerup',()=>drag=false);
 function toggleVehicle(){if(state.vehicle){state.vehicle=false;char.position.copy(vehicle.position).add(new THREE.Vector3(2.7,0,0));char.visible=true;toast('Exited vehicle.');return}if(char.position.distanceTo(vehicle.position)<5){state.vehicle=true;char.visible=false;toast('Vehicle ready. Use WASD to drive. Press F to exit.')}else toast('Walk closer to the green pickup first.')}
 $('mobileInteract').onclick=interact;$('mobileJump').onclick=()=>{if(onGround&&!state.vehicle){velY=8;onGround=false}};$('mobileDrive').onclick=toggleVehicle;
