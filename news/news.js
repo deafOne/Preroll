@@ -1,5 +1,5 @@
 (()=>{
-const API=String(window.PREROLL_CONFIG?.API_URL||"").replace(/\\/+$/,"");
+const API=String(window.PREROLL_CONFIG?.API_URL||"").replace(/\/+$/,"");
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
 const fmt=d=>{const x=new Date(d);return Number.isNaN(x.getTime())?"Date unavailable":x.toLocaleString()};
