@@ -38,21 +38,17 @@
  <div id="anonymousCanvas" class="anonymous-canvas" aria-live="polite"><div class="ca-empty">Loading the community canvas…</div></div>
 </section>
 <section id="leave-a-mark" class="ca-compose-section">
- <div class="ca-compose-copy"><p class="eyebrow">YOUR TURN</p><h2>Say what<br>you came to say.</h2><p>No account. No username. No profile. Write up to 240 characters and add it to the shared wall.</p><p class="ca-smallprint">There is no profanity filter or editorial approval queue. Please don't post names, addresses, contact details, threats, or information that identifies another person. The page doesn't attach an account or username to a note; hosting and network providers may still process technical connection data.</p></div>
+ <div class="ca-compose-copy"><p class="eyebrow">YOUR TURN</p><h2>Say what<br>you came to say.</h2><p>No account. No username. No profile. Draw directly on a large sheet of digital notebook paper and add it to the shared wall.</p><p class="ca-smallprint">There is no profanity filter or editorial approval queue. Please don't post names, addresses, contact details, threats, or information that identifies another person. The page doesn't attach an account or username to a note; hosting and network providers may still process technical connection data.</p></div>
  <form id="anonymousTagForm" class="ca-compose-card">
-  <label for="anonymousMessage">Leave a note</label>
-  <textarea id="anonymousMessage" maxlength="240" rows="5" placeholder="What do you wish people understood about cannabis culture?" required></textarea>
-  <div class="ca-compose-meta"><span id="characterCount">0 / 240</span><span>Choose a canvas tone</span></div>
-  <div class="ca-colors" role="group" aria-label="Choose note color">
-   <label><input type="radio" name="tagColor" value="moss" checked><span class="swatch moss"></span><span class="sr-only">Moss</span></label>
-   <label><input type="radio" name="tagColor" value="cream"><span class="swatch cream"></span><span class="sr-only">Cream</span></label>
-   <label><input type="radio" name="tagColor" value="ember"><span class="swatch ember"></span><span class="sr-only">Ember</span></label>
-   <label><input type="radio" name="tagColor" value="lavender"><span class="swatch lavender"></span><span class="sr-only">Lavender</span></label>
-   <label><input type="radio" name="tagColor" value="sky"><span class="swatch sky"></span><span class="sr-only">Sky</span></label>
-   <label><input type="radio" name="tagColor" value="rose"><span class="swatch rose"></span><span class="sr-only">Rose</span></label>
+  <div class="ca-draw-toolbar"><strong>Make your mark</strong><div class="ca-tools">
+   <button type="button" id="penTool" class="ca-tool active">Pen</button><button type="button" id="eraserTool" class="ca-tool">Eraser</button><button type="button" id="undoStroke" class="ca-tool">Undo</button><button type="button" id="clearDrawing" class="ca-tool">Clear</button>
+  </div></div>
+  <div class="ca-paper-wrap"><canvas id="drawingCanvas" aria-label="Draw your anonymous message on notebook paper"></canvas></div>
+  <div class="ca-compose-meta"><span>Draw with your finger, mouse, or stylus</span><label class="ca-size-label">Pen size <input id="penSize" type="range" min="2" max="14" value="4"></label></div>
+  <div class="ca-colors" role="group" aria-label="Ink color">
+   <label><input type="radio" name="tagColor" value="moss" checked><span class="swatch moss"></span></label><label><input type="radio" name="tagColor" value="cream"><span class="swatch cream"></span></label><label><input type="radio" name="tagColor" value="ember"><span class="swatch ember"></span></label><label><input type="radio" name="tagColor" value="lavender"><span class="swatch lavender"></span></label><label><input type="radio" name="tagColor" value="sky"><span class="swatch sky"></span></label><label><input type="radio" name="tagColor" value="rose"><span class="swatch rose"></span></label>
   </div>
-  <button id="submitAnonymousTag" class="btn primary" type="submit">Add to the canvas ↗</button>
-  <p id="anonymousTagStatus" class="ca-status" role="status" aria-live="polite"></p>
+  <button id="submitAnonymousTag" class="btn primary" type="submit">Pin drawing to the wall ↗</button><p id="anonymousTagStatus" class="ca-status" role="status" aria-live="polite"></p>
  </form>
 </section>
 <section class="ca-footer-note"><span>THE CULTURE IS MORE THAN THE LABELS.</span><span>Preroll.org · Cannabis Anonymous</span></section>
