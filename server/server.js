@@ -199,6 +199,10 @@ async function init(){
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
  )`);
  await pool.query('CREATE INDEX IF NOT EXISTS idx_cannabis_anonymous_tags_created ON cannabis_anonymous_tags(created_at DESC)');
+ if(process.env.CLEAR_CANNABIS_ANONYMOUS_WALL_ONCE==='true'){
+  const cleared=await pool.query('TRUNCATE TABLE cannabis_anonymous_tags RESTART IDENTITY');
+  console.log('Cannabis Anonymous wall cleared by authorized one-time request:',cleared.command);
+ }
  const backupCount = (await pool.query('SELECT COUNT(*)::int AS count FROM strain_catalog_backup')).rows[0].count;
  if (backupCount === 0) {
   const backupResult = await pool.query(`
