@@ -146,6 +146,19 @@ async function init(){
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
  )`);
  await pool.query('CREATE INDEX IF NOT EXISTS idx_media_inquiries_created ON media_network_inquiries(created_at DESC)');
+ await pool.query(`CREATE TABLE IF NOT EXISTS dispensary_claims(
+  id BIGSERIAL PRIMARY KEY,
+  license_number VARCHAR(100) NOT NULL,
+  business_name VARCHAR(180) NOT NULL,
+  contact_name VARCHAR(90) NOT NULL,
+  email VARCHAR(180) NOT NULL,
+  website VARCHAR(240),
+  message VARCHAR(1200),
+  status VARCHAR(24) NOT NULL DEFAULT 'pending',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE(license_number,email)
+ )`);
+ await pool.query('CREATE INDEX IF NOT EXISTS idx_dispensary_claims_status ON dispensary_claims(status,created_at DESC)');
  const backupCount = (await pool.query('SELECT COUNT(*)::int AS count FROM strain_catalog_backup')).rows[0].count;
  if (backupCount === 0) {
   const backupResult = await pool.query(`
@@ -433,6 +446,67 @@ app.get('/api/strains/:slug/profile',async(req,res)=>{
  }
 });
 
+
+function isActiveRetailLicense(row){
+ const pick=(keys)=>keys.map(k=>row?.[k]).find(v=>v!==undefined&&v!==null&&String(v).trim()!=='')||'';
+ const type=String(pick(['license_type','license_category','type'])).toLowerCase();
+ const status=String(pick(['license_status','status','current_status'])).toLowerCase();
+ return /adult.?use.*retail|retail.*dispensary|au retail/.test(type) && /active|operational|issued/.test(status);
+}
+function publicDispensaryRecord(row){
+ const pick=(keys)=>keys.map(k=>row?.[k]).find(v=>v!==undefined&&v!==null&&String(v).trim()!=='')||'';
+ const name=String(pick(['entity_name','business_name','dba','licensee_name'])).trim();
+ const licenseNumber=String(pick(['license_number','license_no','license_id'])).trim();
+ const address=String(pick(['address','location_address','street_address','address_1'])).trim();
+ const city=String(pick(['city','location_city'])).trim();
+ const county=String(pick(['county','location_county'])).trim();
+ const state=String(pick(['state','location_state'])).trim()||'NY';
+ const zip=String(pick(['zip','zip_code','postal_code','location_zip'])).trim();
+ const phone=String(pick(['phone','phone_number','business_phone'])).trim();
+ const email=String(pick(['email','contact_email','business_email'])).trim();
+ const website=safeHttpUrl(pick(['website','website_url','business_website']));
+ return {name,licenseNumber,address,city,county,state,zip,phone,email,website,
+  licenseType:String(pick(['license_type','license_category','type'])).trim(),
+  status:String(pick(['license_status','status','current_status'])).trim()};
+}
+app.get('/api/dispensaries',async(req,res)=>{
+ try{
+  const data=await cached('nylicenses',10*60*1000,getNyLicenses);
+  const q=String(req.query.q||'').trim().toLowerCase().slice(0,100);
+  const county=String(req.query.county||'').trim().toLowerCase().slice(0,80);
+  const records=(data.licenses||[]).filter(isActiveRetailLicense).map(publicDispensaryRecord).filter(x=>x.name&&x.licenseNumber);
+  const filtered=records.filter(x=>(!q||[x.name,x.address,x.city,x.county,x.licenseNumber].join(' ').toLowerCase().includes(q))&&(!county||x.county.toLowerCase()===county));
+  const counties=[...new Set(records.map(x=>x.county).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  res.setHeader('Cache-Control','public, max-age=300, s-maxage=600');
+  res.json({provider:data.provider,source:data.source,fetchedAt:data.fetchedAt,total:filtered.length,allActiveRetail:records.length,counties,dispensaries:filtered});
+ }catch(e){console.error('NY dispensary directory unavailable:',e.message);res.status(502).json({error:'New York OCM dispensary records are temporarily unavailable.'})}
+});
+app.post('/api/dispensaries/claims',rateLimitAuth,async(req,res,next)=>{
+ if(!pool)return res.status(503).json({error:'Business listing storage is temporarily unavailable.'});
+ try{
+  const body=req.body||{};
+  if(String(body.companyFax||'').trim())return res.status(202).json({ok:true});
+  const licenseNumber=String(body.licenseNumber||'').trim().slice(0,100);
+  const contactName=String(body.contactName||'').trim().slice(0,90);
+  const email=String(body.email||'').trim().toLowerCase().slice(0,180);
+  const website=String(body.website||'').trim().slice(0,240);
+  const message=String(body.message||'').trim().slice(0,1200);
+  if(!licenseNumber||!contactName||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)||body.consent!=='on')return res.status(400).json({error:'Enter your OCM license number, contact name, valid business email, and consent.'});
+  if(website&&!/^https?:\\/\\//i.test(website))return res.status(400).json({error:'Website must begin with https:// or http://'});
+  const data=await cached('nylicenses',10*60*1000,getNyLicenses);
+  const row=(data.licenses||[]).find(item=>{
+   const number=String(item.license_number||item.license_no||item.license_id||'').trim();
+   return number.toLowerCase()===licenseNumber.toLowerCase()&&isActiveRetailLicense(item);
+  });
+  if(!row)return res.status(400).json({error:'That license number was not found as an active New York adult-use retail dispensary in the current OCM dataset.'});
+  const listing=publicDispensaryRecord(row);
+  const result=await pool.query(`INSERT INTO dispensary_claims(license_number,business_name,contact_name,email,website,message)
+   VALUES($1,$2,$3,$4,$5,$6)
+   ON CONFLICT(license_number,email) DO UPDATE SET contact_name=EXCLUDED.contact_name,website=EXCLUDED.website,message=EXCLUDED.message,status='pending'
+   RETURNING id,created_at`,[listing.licenseNumber,listing.name,contactName,email,website||null,message||null]);
+  res.status(201).json({ok:true,id:result.rows[0].id,status:'pending_review',receivedAt:result.rows[0].created_at});
+ }catch(e){next(e)}
+});
 app.get('/api/news',async(req,res)=>{try{res.setHeader('Cache-Control','no-store');res.json(await cached('news',10*60*1000,getCannabisNews))}catch(e){res.status(502).json({error:'Public cannabis news feeds unavailable'})}});
 
 app.get('/api/ny/licenses',async(req,res,next)=>{try{res.setHeader('Cache-Control','no-store');const data=await cached('nylicenses',10*60*1000,getNyLicenses);res.json(data)}catch(e){res.status(502).json({error:'New York license data unavailable'})}});
