@@ -192,6 +192,13 @@ async function init(){
   UNIQUE(license_number,email)
  )`);
  await pool.query('CREATE INDEX IF NOT EXISTS idx_dispensary_claims_status ON dispensary_claims(status,created_at DESC)');
+ await pool.query(`CREATE TABLE IF NOT EXISTS cannabis_anonymous_tags(
+  id BIGSERIAL PRIMARY KEY,
+  message VARCHAR(240) NOT NULL,
+  color VARCHAR(24) NOT NULL DEFAULT 'moss',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+ )`);
+ await pool.query('CREATE INDEX IF NOT EXISTS idx_cannabis_anonymous_tags_created ON cannabis_anonymous_tags(created_at DESC)');
  const backupCount = (await pool.query('SELECT COUNT(*)::int AS count FROM strain_catalog_backup')).rows[0].count;
  if (backupCount === 0) {
   const backupResult = await pool.query(`
@@ -608,6 +615,31 @@ app.post('/api/posts/:id/like',rateLimitWrites,async(req,res,next)=>{if(!pool)re
 app.get('/api/reviews',async(req,res,next)=>{if(!pool)return res.json([]);try{const q=await pool.query('SELECT id,strain,author,text,overall,burn,flavor,value,EXTRACT(EPOCH FROM created_at)*1000 AS created FROM reviews ORDER BY created_at DESC');res.json(q.rows)}catch(e){next(e)}});
 app.post('/api/reviews',rateLimitWrites,auth,async(req,res,next)=>{try{const vals=['overall','burn','flavor','value'].map(k=>Number(req.body?.[k]));if(vals.some(v=>!Number.isInteger(v)||v<1||v>5))return res.status(400).json({error:'Scores must be 1 through 5.'});const strain=String(req.body?.strain||'').slice(0,80),text=String(req.body?.text||'').trim().slice(0,600);if(!strain||!text)return res.status(400).json({error:'Strain and review text required'});const q=await pool.query('INSERT INTO reviews(strain,author,text,overall,burn,flavor,value) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING id,strain,author,text,overall,burn,flavor,value,EXTRACT(EPOCH FROM created_at)*1000 AS created',[strain,req.user.username,text,...vals]);res.status(201).json(q.rows[0])}catch(e){next(e)}});
 
+
+const anonymousTagHits=new Map();
+function rateLimitAnonymousTags(req,res,next){
+ const key=(req.ip||'unknown')+'|anonymous-canvas',now=Date.now(),windowMs=60*1000,max=8,item=anonymousTagHits.get(key);
+ if(!item||now-item.start>windowMs){anonymousTagHits.set(key,{start:now,count:1});return next()}
+ item.count++;if(item.count>max)return res.status(429).json({error:'Please wait a moment before adding another note.'});next();
+}
+app.get('/api/cannabis-anonymous/tags',async(req,res,next)=>{
+ if(!pool)return res.status(503).json({error:'The anonymous canvas database is temporarily unavailable.'});
+ try{
+  const q=await pool.query("SELECT id,message,color,EXTRACT(EPOCH FROM created_at)*1000 AS created FROM cannabis_anonymous_tags ORDER BY created_at DESC LIMIT 240");
+  res.setHeader('Cache-Control','no-store');res.json({tags:q.rows});
+ }catch(e){next(e)}
+});
+app.post('/api/cannabis-anonymous/tags',rateLimitAnonymousTags,async(req,res,next)=>{
+ if(!pool)return res.status(503).json({error:'The anonymous canvas database is temporarily unavailable.'});
+ try{
+  const message=String(req.body?.message||'').trim().replace(/[\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F]/g,'').slice(0,240);
+  const colors=['moss','cream','ember','lavender','sky','rose'];
+  const color=colors.includes(req.body?.color)?req.body.color:'moss';
+  if(message.length<1)return res.status(400).json({error:'Write something before adding your note.'});
+  const q=await pool.query('INSERT INTO cannabis_anonymous_tags(message,color) VALUES($1,$2) RETURNING id,message,color,EXTRACT(EPOCH FROM created_at)*1000 AS created',[message,color]);
+  res.status(201).json({tag:q.rows[0]});
+ }catch(e){next(e)}
+});
 app.use((err,req,res,next)=>{console.error(err);res.status(500).json({error:'Server error'})});
 init().then(async()=>{
  const server=app.listen(PORT,()=>console.log('Preroll.org API listening on '+PORT));
