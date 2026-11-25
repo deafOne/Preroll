@@ -20,7 +20,7 @@
         }
       }
     }catch(error){}
-      const params=new URLSearchParams({action:'query',generator:'search',gsrsearch:'filetype:bitmap '+query,gsrnamespace:'6',gsrlimit:'12',prop:'imageinfo',iiprop:'url|extmetadata',iiurlwidth:'1000',format:'json',origin:'*',maxlag:'5'});
+    try{\n      const params=new URLSearchParams({action:'query',generator:'search',gsrsearch:'filetype:bitmap '+query,gsrnamespace:'6',gsrlimit:'12',prop:'imageinfo',iiprop:'url|extmetadata',iiurlwidth:'1000',format:'json',origin:'*',maxlag:'5'});
       const response=await fetch(API+'?'+params.toString(),{headers:{Accept:'application/json'},signal:AbortSignal.timeout(12000)});
       if(!response.ok)throw new Error('Commons HTTP '+response.status);
       const data=await response.json();
