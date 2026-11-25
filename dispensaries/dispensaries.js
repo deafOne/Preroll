@@ -1,5 +1,5 @@
 (()=>{'use strict';
-const API=String(window.PREROLL_CONFIG?.API_URL||'').replace(/\\/+$/,'');
+const API=String(window.PREROLL_CONFIG?.API_URL||'').replace(/\/+$/,'');
 const $=id=>document.getElementById(id);
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl=v=>{try{const u=new URL(String(v));return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}};
