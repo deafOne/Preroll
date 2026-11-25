@@ -73,11 +73,11 @@ async function parseRssFeed(url,source){
   const linkTags=block.match(/<link\\b[^>]*>/gi)||[];
   let urlValue='';
   for(const tag of linkTags){
-   const href=(tag.match(/\\bhref=["']([^"']+)["']/i)||[])[1];
-   const rel=(tag.match(/\\brel=["']([^"']+)["']/i)||[])[1]||'alternate';
-   const body=(tag.match(/^<link[^>]*>([\\s\\S]*?)<\\/link>/i)||[])[1];
-   if(rel==='alternate'||!rel){urlValue=(href||body||'').trim();if(urlValue)break}
+   const href=(tag.match(/\bhref=["']([^"']+)["']/i)||[])[1];
+   const rel=(tag.match(/\brel=["']([^"']+)["']/i)||[])[1]||'alternate';
+   if((rel==='alternate'||!rel)&&href){urlValue=href.trim();break}
   }
+  if(!urlValue)urlValue=((block.match(/<link[^>]*>([\s\S]*?)<\/link>/i)||[])[1]||'').trim();
   const date=((block.match(/<(pubDate|published|updated|dc:date|date)[^>]*>([\\s\\S]*?)<\\/\\1>/i)||[])[2]||'').trim();
   const parsedDate=date?new Date(date):null;
   const publishedAt=parsedDate&&!Number.isNaN(parsedDate.getTime())?parsedDate.toISOString():null;
