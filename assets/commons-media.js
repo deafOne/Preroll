@@ -11,6 +11,15 @@
     const key=norm(query);
     if(memory.has(key))return memory.get(key);
     try{
+      const saved=sessionStorage.getItem('pr_commons_v1_'+key);
+      if(saved){
+        const parsed=JSON.parse(saved);
+        if(parsed&&Date.now()-parsed.savedAt<7*24*60*60*1000&&Array.isArray(parsed.pages)){
+          memory.set(key,parsed.pages);
+          return parsed.pages;
+        }
+      }
+    }catch(error){}
       const params=new URLSearchParams({action:'query',generator:'search',gsrsearch:'filetype:bitmap '+query,gsrnamespace:'6',gsrlimit:'12',prop:'imageinfo',iiprop:'url|extmetadata',iiurlwidth:'1000',format:'json',origin:'*',maxlag:'5'});
       const response=await fetch(API+'?'+params.toString(),{headers:{Accept:'application/json'},signal:AbortSignal.timeout(12000)});
       if(!response.ok)throw new Error('Commons HTTP '+response.status);
@@ -22,6 +31,7 @@
         return {title:page.title||'',url:info.thumburl||info.url||'',pageUrl:info.descriptionurl||'',artist,license,description:plain(meta.ImageDescription?.value||'')};
       }).filter(x=>x.url&&x.pageUrl);
       memory.set(key,pages);
+      try{sessionStorage.setItem('pr_commons_v1_'+key,JSON.stringify({savedAt:Date.now(),pages}));}catch(error){}
       return pages;
     }catch(error){return [];}
   }
@@ -39,7 +49,7 @@
     const needle=norm(clean);
     const match=candidates.find(item=>{
       const title=norm(item.title),description=norm(item.description);
-      return title.includes(needle)||description.includes(needle);
+      return title.includes(needle);
     });
     if(!match){
       wrap.innerHTML='<div class="strain-photo-fallback">No exact-name photo verified yet.<br><a href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">Search photos for '+esc(clean)+' ↗</a></div>';
