@@ -1,45 +1,17 @@
-(()=>{
-'use strict';
-const API=String(window.PREROLL_CONFIG?.API_URL||'').replace(/\/+$/,'');
-const $=s=>document.querySelector(s);
-const canvas=$('#anonymousCanvas');
-const form=$('#anonymousTagForm');
-const message=$('#anonymousMessage');
-const colors=['moss','cream','ember','lavender','sky','rose'];
-const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-const dateText=d=>{const x=new Date(Number(d));return Number.isNaN(x.getTime())?'Recently':x.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})};
-function render(tags){
- canvas.replaceChildren();
- if(!tags.length){const empty=document.createElement('p');empty.className='ca-empty';empty.textContent='The canvas is waiting. Leave the first note.';canvas.append(empty)}
- tags.forEach(tag=>{
-  const card=document.createElement('article');card.className='ca-tag '+(colors.includes(tag.color)?tag.color:'moss');
-  const note=document.createElement('p');note.textContent=tag.message;
-  const time=document.createElement('small');time.textContent=dateText(tag.created);
-  card.append(note,time);canvas.append(card);
- });
- $('#canvasCount').textContent=tags.length+' '+(tags.length===1?'note':'notes')+' on the wall';
-}
-async function load(){
- try{
-  const r=await fetch(API+'/api/cannabis-anonymous/tags',{cache:'no-store',signal:AbortSignal.timeout(12000)});
-  const d=await r.json();if(!r.ok)throw Error(d.error||'Canvas unavailable');
-  render(Array.isArray(d.tags)?d.tags:[]);
- }catch(e){canvas.innerHTML='';const p=document.createElement('p');p.className='ca-empty';p.textContent='The canvas is temporarily unavailable. Try refreshing in a moment.';canvas.append(p);$('#canvasCount').textContent='Connection unavailable'}
-}
-message.addEventListener('input',()=>$('#characterCount').textContent=message.value.length+' / 240');
-form.addEventListener('submit',async e=>{
- e.preventDefault();const text=message.value.trim();if(!text)return;
- const submit=$('#submitAnonymousTag');submit.disabled=true;submit.textContent='Adding…';$('#anonymousTagStatus').textContent='';
- const color=document.querySelector('input[name="tagColor"]:checked')?.value||'moss';
- try{
-  const r=await fetch(API+'/api/cannabis-anonymous/tags',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,color}),signal:AbortSignal.timeout(12000)});
-  const d=await r.json();if(!r.ok)throw Error(d.error||'Could not add note');
-  message.value='';$('#characterCount').textContent='0 / 240';$('#anonymousTagStatus').textContent='Your note is on the wall.';await load();$('#anonymousCanvas').scrollIntoView({behavior:'smooth',block:'start'});
- }catch(err){$('#anonymousTagStatus').textContent=err.message||'Could not add note. Please try again.'}
- finally{submit.disabled=false;submit.textContent='Add to the canvas ↗'}
-});
-$('#menuBtn')?.addEventListener('click',()=>{const open=$('#nav')?.classList.toggle('open');$('#menuBtn')?.setAttribute('aria-expanded',String(!!open))});
-document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>$('#nav')?.classList.remove('open')));
-$('#year').textContent=new Date().getFullYear();
-load();setInterval(load,60000);
+(()=>{'use strict';
+const API=String(window.PREROLL_CONFIG?.API_URL||'').replace(/\/+$/,''),$=s=>document.querySelector(s),wall=$('#anonymousCanvas'),form=$('#anonymousTagForm'),paper=$('#drawingCanvas');
+const ink={moss:'#385d32',cream:'#765b3c',ember:'#a94f2b',lavender:'#684b91',sky:'#285f83',rose:'#9a435b'};
+let strokes=[],active=null,tool='pen',ctx,dpr=1;
+function resize(){const r=paper.getBoundingClientRect();if(!r.width)return;dpr=Math.min(devicePixelRatio||1,2);paper.width=Math.round(r.width*dpr);paper.height=Math.round(r.height*dpr);ctx=paper.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);redraw()}
+function redraw(){if(!ctx)return;const w=paper.clientWidth,h=paper.clientHeight;ctx.clearRect(0,0,w,h);strokes.forEach(s=>{if(!s.points.length)return;ctx.beginPath();ctx.lineCap='round';ctx.lineJoin='round';ctx.lineWidth=s.width;ctx.strokeStyle=s.color;if(s.points.length===1){ctx.arc(s.points[0].x*w,s.points[0].y*h,s.width/2,0,Math.PI*2);ctx.fillStyle=s.color;ctx.fill()}else{s.points.forEach((p,i)=>i?ctx.lineTo(p.x*w,p.y*h):ctx.moveTo(p.x*w,p.y*h));ctx.stroke()}})}
+function point(e){const r=paper.getBoundingClientRect();return{x:Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y:Math.max(0,Math.min(1,(e.clientY-r.top)/r.height))}}
+paper.addEventListener('pointerdown',e=>{e.preventDefault();paper.setPointerCapture(e.pointerId);active={color:tool==='eraser'?'#fffdf5':ink[$('input[name="tagColor"]:checked')?.value||'moss'],width:tool==='eraser'?24:Number($('#penSize').value),points:[point(e)]};strokes.push(active);redraw()});
+paper.addEventListener('pointermove',e=>{if(active){active.points.push(point(e));redraw()}});['pointerup','pointercancel','lostpointercapture'].forEach(n=>paper.addEventListener(n,()=>active=null));
+function setTool(t){tool=t;$('#penTool').classList.toggle('active',t==='pen');$('#eraserTool').classList.toggle('active',t==='eraser')}
+$('#penTool').onclick=()=>setTool('pen');$('#eraserTool').onclick=()=>setTool('eraser');$('#undoStroke').onclick=()=>{strokes.pop();redraw()};$('#clearDrawing').onclick=()=>{strokes=[];redraw()};
+function preview(c,items){const x=c.getContext('2d'),w=c.width,h=c.height;x.fillStyle='#fffdf5';x.fillRect(0,0,w,h);x.strokeStyle='#cbd9e5';x.lineWidth=1;for(let y=30;y<h;y+=28){x.beginPath();x.moveTo(0,y);x.lineTo(w,y);x.stroke()}x.strokeStyle='#e9aaaa';x.beginPath();x.moveTo(38,0);x.lineTo(38,h);x.stroke();(items||[]).forEach(s=>{if(!s.points?.length)return;x.beginPath();x.lineCap='round';x.lineJoin='round';x.lineWidth=Math.max(2,(s.width||4)*.8);x.strokeStyle=s.color||ink.moss;s.points.forEach((p,i)=>i?x.lineTo(p.x*w,p.y*h):x.moveTo(p.x*w,p.y*h));x.stroke()})}
+function render(tags){wall.replaceChildren();if(!tags.length){const p=document.createElement('p');p.className='ca-empty';p.textContent='The page is blank. Make the first mark.';wall.append(p)}tags.forEach(t=>{const card=document.createElement('article');card.className='ca-tag ca-drawing-card';const c=document.createElement('canvas');c.width=600;c.height=360;c.setAttribute('aria-label','Anonymous community drawing');preview(c,t.strokes);const time=document.createElement('small');time.textContent=new Date(Number(t.created)).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'});card.append(c,time);wall.append(card)});$('#canvasCount').textContent=tags.length+' '+(tags.length===1?'drawing':'drawings')+' on the wall'}
+async function load(){try{const r=await fetch(API+'/api/cannabis-anonymous/tags',{cache:'no-store',signal:AbortSignal.timeout(12000)}),d=await r.json();if(!r.ok)throw Error(d.error||'Canvas unavailable');render(Array.isArray(d.tags)?d.tags:[])}catch(e){wall.replaceChildren();const p=document.createElement('p');p.className='ca-empty';p.textContent='The canvas is temporarily unavailable. Try refreshing in a moment.';wall.append(p);$('#canvasCount').textContent='Connection unavailable'}}
+form.addEventListener('submit',async e=>{e.preventDefault();if(!strokes.length){$('#anonymousTagStatus').textContent='Make a drawing on the paper first.';return}const btn=$('#submitAnonymousTag');btn.disabled=true;btn.textContent='Pinning…';try{const r=await fetch(API+'/api/cannabis-anonymous/tags',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'',color:$('input[name="tagColor"]:checked')?.value||'moss',strokes}),signal:AbortSignal.timeout(15000)}),d=await r.json();if(!r.ok)throw Error(d.error||'Could not add drawing');strokes=[];redraw();$('#anonymousTagStatus').textContent='Your drawing is on the wall.';await load();wall.scrollIntoView({behavior:'smooth',block:'start'})}catch(e2){$('#anonymousTagStatus').textContent=e2.message||'Could not add drawing.'}finally{btn.disabled=false;btn.textContent='Pin drawing to the wall ↗'}});
+$('#menuBtn')?.addEventListener('click',()=>{const open=$('#nav')?.classList.toggle('open');$('#menuBtn')?.setAttribute('aria-expanded',String(!!open))});document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>$('#nav')?.classList.remove('open')));$('#year').textContent=new Date().getFullYear();if(window.ResizeObserver)new ResizeObserver(resize).observe(paper.parentElement);else addEventListener('resize',resize);resize();load();setInterval(load,60000);
 })();
