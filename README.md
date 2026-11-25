@@ -38,7 +38,8 @@ The repository root is the static frontend. GitHub Pages can serve it directly.
 The production data layer uses **only sources that do not require a signup, API key, paid plan, or secret credential**:
 
 - **New York State OCM/Open Data** — current OCM license records through the public State Open Data/Socrata endpoint.
-- **New York State OCM Pressroom** — official live cannabis news and regulatory updates fetched directly from the public OCM pressroom.
+- **Public cannabis publisher RSS feeds** — Marijuana Moment, Cannabis Wire, Cannabis Industry Journal, and MJBizDaily; the public New York OCM newsroom feed is also checked when it returns machine-readable items.
+- **News quality rules** — homepage stories must have a valid HTTPS article URL, a publisher source, and a real publication date no more than 30 days old. Undated, stale, malformed, duplicate, and placeholder items are excluded. The site shows publisher-provided summaries only; it does not invent article copy. If publishers are temporarily unavailable, the last verified snapshot is clearly labeled rather than passed off as live.
 
 The server caches these feeds to reduce upstream requests.
 
