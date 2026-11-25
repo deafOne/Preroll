@@ -632,7 +632,7 @@ app.get('/api/cannabis-anonymous/tags',async(req,res,next)=>{
 app.post('/api/cannabis-anonymous/tags',rateLimitAnonymousTags,async(req,res,next)=>{
  if(!pool)return res.status(503).json({error:'The anonymous canvas database is temporarily unavailable.'});
  try{
-  const message=String(req.body?.message||'').trim().replace(/[\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F]/g,'').slice(0,240);
+  const message=String(req.body?.message||'').trim().replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g,'').slice(0,240);
   const colors=['moss','cream','ember','lavender','sky','rose'];
   const color=colors.includes(req.body?.color)?req.body.color:'moss';
   if(message.length<1)return res.status(400).json({error:'Write something before adding your note.'});
