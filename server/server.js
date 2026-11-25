@@ -64,13 +64,13 @@ async function fetchJson(url,options={}){
  if(!r.ok)throw new Error('Upstream returned '+r.status);
  return r.json();
 }
-function xmlText(v=''){return v.replace(/<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>/g,'$1').replace(/<[^>]+>/g,' ').replace(/&#(x[0-9a-f]+|\\d+);/gi,(_,n)=>{const code=n.toLowerCase().startsWith('x')?parseInt(n.slice(1),16):parseInt(n,10);return Number.isFinite(code)?String.fromCodePoint(code):''}).replace(/&(amp|quot|apos|lt|gt|nbsp);/gi,(_,n)=>({amp:'&',quot:'"',apos:"'",lt:'<',gt:'>',nbsp:' '}[n.toLowerCase()]||'')).replace(/[\\u0000-\\u001f\\u007f]/g,' ').replace(/\\s+/g,' ').trim()}
+function xmlText(v=''){return v.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/<[^>]+>/g,' ').replace(/&#(x[0-9a-f]+|\d+);/gi,(_,n)=>{const code=n.toLowerCase().startsWith('x')?parseInt(n.slice(1),16):parseInt(n,10);return Number.isFinite(code)?String.fromCodePoint(code):''}).replace(/&(amp|quot|apos|lt|gt|nbsp);/gi,(_,n)=>({amp:'&',quot:'"',apos:"'",lt:'<',gt:'>',nbsp:' '}[n.toLowerCase()]||'')).replace(/[\u0000-\u001f\u007f]/g,' ').replace(/\s+/g,' ').trim()}
 async function parseRssFeed(url,source){
- const xml=await fetchText(url),items=[],blocks=xml.match(/<(item|entry)\\b[\\s\\S]*?<\\/\\1>/gi)||[];
+ const xml=await fetchText(url),items=[],blocks=xml.match(/<(item|entry)\b[\s\S]*?<\/\1>/gi)||[];
  for(const block of blocks.slice(0,30)){
-  const title=xmlText((block.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i)||[])[1]||'');
-  const description=xmlText((block.match(/<(description|summary|content:encoded)[^>]*>([\\s\\S]*?)<\\/\\1>/i)||[])[2]||'').slice(0,500);
-  const linkTags=block.match(/<link\\b[^>]*>/gi)||[];
+  const title=xmlText((block.match(/<title[^>]*>([\s\S]*?)<\/title>/i)||[])[1]||'');
+  const description=xmlText((block.match(/<(description|summary|content:encoded)[^>]*>([\s\S]*?)<\/\1>/i)||[])[2]||'').slice(0,500);
+  const linkTags=block.match(/<link\b[^>]*>/gi)||[];
   let urlValue='';
   for(const tag of linkTags){
    const href=(tag.match(/\bhref=["']([^"']+)["']/i)||[])[1];
@@ -78,7 +78,7 @@ async function parseRssFeed(url,source){
    if((rel==='alternate'||!rel)&&href){urlValue=href.trim();break}
   }
   if(!urlValue)urlValue=((block.match(/<link[^>]*>([\s\S]*?)<\/link>/i)||[])[1]||'').trim();
-  const date=((block.match(/<(pubDate|published|updated|dc:date|date)[^>]*>([\\s\\S]*?)<\\/\\1>/i)||[])[2]||'').trim();
+  const date=((block.match(/<(pubDate|published|updated|dc:date|date)[^>]*>([\s\S]*?)<\/\1>/i)||[])[2]||'').trim();
   const parsedDate=date?new Date(date):null;
   const publishedAt=parsedDate&&!Number.isNaN(parsedDate.getTime())?parsedDate.toISOString():null;
   if(title&&urlValue&&publishedAt)items.push({source,title,description,url:urlValue,publishedAt,image:''});
@@ -104,7 +104,7 @@ async function getCannabisNews(){
   if(parsed.protocol!=='https:'||!(parsed.hostname===host||parsed.hostname.endsWith('.'+host)))return false;
   if(!Number.isFinite(age)||age < -24*60*60*1000||age>maxAge)return false;
   if(a.title.length<8||/^(read more|click here|latest news)$/i.test(a.title))return false;
-  const key=a.url.replace(/\\/$/,'').toLowerCase();
+  const key=a.url.replace(/\/$/,'').toLowerCase();
   const titleKey=a.title.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   if(seen.has(key)||seen.has(titleKey))return false;
   seen.add(key);seen.add(titleKey);return true;
