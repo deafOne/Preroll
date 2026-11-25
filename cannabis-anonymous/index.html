@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cannabis Anonymous — The Culture Remembers | Preroll.org</title>
+<meta name="description" content="An anonymous public canvas for honest words about cannabis culture, stigma, identity and the stories people carry.">
+<link rel="canonical" href="https://preroll.org/cannabis-anonymous/">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="anonymous-page">
+<div id="ageGate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+ <div class="age-card"><img src="../assets/logo.svg" alt="Preroll.org" class="age-logo"><p class="eyebrow">AGE CHECK</p><h1 id="ageTitle">Are you 21 or older?</h1><p>This community space is intended for adults 21+.</p><div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div><small id="ageMessage" aria-live="polite"></small></div>
+</div>
+<header class="site-header">
+ <a class="brand" href="../index.html" aria-label="Preroll.org home"><img src="../assets/logo.svg" alt="Preroll.org"></a>
+ <button id="menuBtn" class="menu-btn" aria-label="Open navigation" aria-expanded="false">☰</button>
+ <nav id="nav" aria-label="Main navigation"><a href="../index.html">Home</a><a href="../news/index.html">News</a><a href="../index.html#market">NY Market</a><a href="../forum/index.html">Forum</a><a href="index.html" aria-current="page">Cannabis Anonymous</a></nav>
+ <div class="header-actions"><a class="btn ghost small" href="../forum/index.html">Community forum</a></div>
+</header>
+<main>
+<section class="ca-hero">
+ <div class="ca-hero-inner">
+  <p class="eyebrow">A PUBLIC WALL FOR THE CULTURE</p>
+  <h1>Cannabis<br><em>Anonymous.</em></h1>
+  <p class="ca-lede">A place to leave a thought, a memory, a truth, or a piece of the story that never made it into the headlines.</p>
+  <p class="ca-manifesto">Not a recovery program. Not a brand talking at you. Just a shared canvas for the people who lived through the stigma — and the people still carrying it.</p>
+  <a class="btn primary" href="#leave-a-mark">Leave your mark ↓</a>
+ </div>
+ <div class="ca-hero-mark" aria-hidden="true"><span>NO NAME.</span><b>JUST<br>YOUR<br>WORDS.</b><i>✳</i></div>
+</section>
+<section class="ca-context">
+ <div><p class="eyebrow">WHY THIS EXISTS</p><h2>The stigma didn't disappear<br>when the laws changed.</h2></div>
+ <p>For years, cannabis culture was flattened into stereotypes. People hid parts of themselves, families stayed quiet, and ordinary stories were treated like something to be ashamed of. This wall makes room for those stories — the funny, difficult, complicated, proud, and unfinished ones.</p>
+</section>
+<section class="ca-wall-section">
+ <div class="ca-wall-heading"><div><p class="eyebrow">THE COMMUNITY CANVAS</p><h2>Words from the wall.</h2><p class="muted">A living collection of anonymous notes. Newest contributions appear first.</p></div><span id="canvasCount" class="ca-count">Loading canvas…</span></div>
+ <div id="anonymousCanvas" class="anonymous-canvas" aria-live="polite"><div class="ca-empty">Loading the community canvas…</div></div>
+</section>
+<section id="leave-a-mark" class="ca-compose-section">
+ <div class="ca-compose-copy"><p class="eyebrow">YOUR TURN</p><h2>Say what<br>you came to say.</h2><p>No account. No username. No profile. Write up to 240 characters and add it to the shared wall.</p><p class="ca-smallprint">There is no profanity filter or editorial approval queue. Please don't post names, addresses, contact details, threats, or information that identifies another person. The page doesn't attach an account or username to a note; hosting and network providers may still process technical connection data.</p></div>
+ <form id="anonymousTagForm" class="ca-compose-card">
+  <label for="anonymousMessage">Leave a note</label>
+  <textarea id="anonymousMessage" maxlength="240" rows="5" placeholder="What do you wish people understood about cannabis culture?" required></textarea>
+  <div class="ca-compose-meta"><span id="characterCount">0 / 240</span><span>Choose a canvas tone</span></div>
+  <div class="ca-colors" role="group" aria-label="Choose note color">
+   <label><input type="radio" name="tagColor" value="moss" checked><span class="swatch moss"></span><span class="sr-only">Moss</span></label>
+   <label><input type="radio" name="tagColor" value="cream"><span class="swatch cream"></span><span class="sr-only">Cream</span></label>
+   <label><input type="radio" name="tagColor" value="ember"><span class="swatch ember"></span><span class="sr-only">Ember</span></label>
+   <label><input type="radio" name="tagColor" value="lavender"><span class="swatch lavender"></span><span class="sr-only">Lavender</span></label>
+   <label><input type="radio" name="tagColor" value="sky"><span class="swatch sky"></span><span class="sr-only">Sky</span></label>
+   <label><input type="radio" name="tagColor" value="rose"><span class="swatch rose"></span><span class="sr-only">Rose</span></label>
+  </div>
+  <button id="submitAnonymousTag" class="btn primary" type="submit">Add to the canvas ↗</button>
+  <p id="anonymousTagStatus" class="ca-status" role="status" aria-live="polite"></p>
+ </form>
+</section>
+<section class="ca-footer-note"><span>THE CULTURE IS MORE THAN THE LABELS.</span><span>Preroll.org · Cannabis Anonymous</span></section>
+</main>
+<footer class="site-footer">
+ <div class="footer-brand"><a href="../index.html"><img src="../assets/logo.svg" alt="Preroll.org"></a><p>Cannabis culture, useful information and community conversation. Built for curious adults.</p><small>Adults 21+ only. Cannabis Anonymous is a public expression wall, not an Alcoholics Anonymous affiliate, recovery program, or medical service.</small></div>
+ <div><strong>Discover</strong><a href="../news/index.html">News</a><a href="../strains/index.html">Strain library</a><a href="../guides/index.html">Guides</a></div>
+ <div><strong>Community</strong><a href="../forum/index.html">Forum</a><a href="index.html">Cannabis Anonymous</a><a href="../dr-terpenstein/index.html">Dr. Terpenstein</a></div>
+ <div><strong>Explore</strong><a href="../dispensaries/">NY dispensaries</a><a href="../calculators/index.html">Calculators</a><a href="../index.html">Home</a></div>
+ <div class="footer-bottom"><span>© <span id="year"></span> Preroll.org</span><span>Keep the stories. Lose the stigma.</span></div>
+</footer>
+<script src="../age-gate.js?v=6"></script>
+<script src="../config.js?v=6"></script>
+<script src="cannabis-anonymous.js?v=1"></script>
+</body>
+</html>
