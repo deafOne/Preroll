@@ -1,31 +1,144 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Preroll.org — Live Cannabis News, New York Market & Community</title><meta name="description" content="Preroll.org is a 21+ cannabis information hub with live cannabis news, New York licensed-market data, community discussions, reviews, strain information and education."><meta name="robots" content="index,follow"><link rel="canonical" href="https://preroll.org/"><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="styles.css"></head><body>
-<div id="ageGate" class="age-gate" role="dialog" aria-modal="true"><div class="age-card"><img src="assets/logo.svg" alt="Preroll.org" class="age-logo"><p class="eyebrow">AGE CHECK</p><h1>Are you 21 or older?</h1><p>Preroll.org is intended for adults of legal age. Educational content only.</p><div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div><small id="ageMessage"></small></div></div>
-<header class="site-header"><a class="brand" href="index.html"><img src="assets/logo.svg" alt="Preroll.org"></a><button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button><nav id="nav"><a href="index.html">Home</a><a href="news/index.html">News</a><a href="#market">NY Market</a><a href="#community">Community</a><div class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-expanded="false">Explore <span>⌄</span></button><div class="nav-dropdown-menu"><a href="strains/index.html">Strains</a><a href="guides/index.html">Guides</a><a href="calculators/index.html">Calculators</a><a href="game/index.html">Green Empire</a><a href="tycoon/index.html">Infinity Cannabis Tycoon</a><a href="dr-terpenstein/index.html">Dr. Terpenstein</a><a href="resources/index.html">Resources</a></div></div><a href="forum/index.html">Forum</a><a href="media-network/">Media Network</a></nav><div class="header-actions"><a class="btn ghost small" href="forum/index.html">Join forum</a></div></header>
-<main><section class="hero-logo-stage section" aria-label="Preroll.org cannabis community"><img class="hero-main-logo" src="assets/logo.svg" alt="Preroll.org — Cannabis Related Talk" fetchpriority="high"><p class="hero-logo-caption">Cannabis news. Community talk. Real information.</p><div class="hero-logo-actions"><a class="btn primary" href="#news">Latest news</a><a class="btn ghost" href="forum/index.html">Join the conversation</a></div></section>
-<section class="section visual-showcase" aria-label="Cannabis photography">
-<div class="visual-card visual-wide"><img src="https://images.pexels.com/photos/7667893/pexels-photo-7667893.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Close-up cannabis leaves" loading="lazy"><div class="visual-overlay"><span class="eyebrow">THE PLANT</span><h2>Real cannabis. Real information.</h2><p>Visuals that reinforce the subject without turning Preroll.org into a product catalog.</p></div></div>
-<div class="visual-mini-grid">
-<figure class="visual-card"><img src="https://images.pexels.com/photos/36906724/pexels-photo-36906724.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Cannabis plant with mature buds" loading="lazy"><figcaption>Flower & cultivation</figcaption></figure>
-<figure class="visual-card"><img src="https://images.pexels.com/photos/33314138/pexels-photo-33314138.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Cannabis plant and developing buds" loading="lazy"><figcaption>Plant knowledge</figcaption></figure>
-</div></section><section id="live-overview" class="section live-command-center"><div class="live-ribbon"><span class="live-dot"></span><strong>LIVE DATA COMMAND CENTER</strong><span id="feedHealth">Connecting…</span></div><div class="section-head"><div><p class="eyebrow">LIVE OVERVIEW</p><h2>Today on Preroll.</h2></div><button id="refreshAll" class="btn ghost small">Refresh all</button></div><div class="live-stats"><div class="panel live-stat-card"><div class="stat-icon">📰</div><strong id="newsCount">—</strong><span>current news stories</span></div><div class="panel live-stat-card"><div class="stat-icon">NY</div><strong id="marketCount">—</strong><span>active NY records</span></div><div class="panel live-stat-card"><div class="stat-icon">🏪</div><strong id="retailCount">—</strong><span>adult-use retail records</span></div><div class="panel live-stat-card"><div class="stat-icon">💬</div><strong id="postCount">—</strong><span>community discussions</span></div><div class="panel live-stat-card"><div class="stat-icon">★</div><strong id="reviewCount">—</strong><span>community reviews</span></div></div></section>
-<section id="news" class="section"><div class="section-head"><div><p class="eyebrow">LIVE NEWS</p><h2>Latest cannabis coverage.</h2></div><a class="btn ghost small" href="news/index.html">All news</a></div><div id="newsGrid" class="news-grid"><p class="muted">Loading live news…</p></div></section>
-<section id="market" class="section"><div class="section-head"><div><p class="eyebrow">NEW YORK • LIVE</p><h2>Licensed cannabis market.</h2></div><span id="marketUpdated" class="muted">Loading OCM data…</span></div><div class="ocm-dashboard">
-<div class="ocm-summary">
-<div class="ocm-stat"><span>OCM records</span><strong id="ocmTotal">—</strong><small>Current Open Data</small></div>
-<div class="ocm-stat"><span>Active / operational</span><strong id="marketCount">—</strong><small>License records</small></div>
-<div class="ocm-stat"><span>Adult-use retail</span><strong id="retailCount">—</strong><small>Retail records</small></div>
-<div class="ocm-stat"><span>Last checked</span><strong id="ocmAge">—</strong><small id="marketUpdated">Loading…</small></div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preroll.org — Cannabis Culture, Community & New York Market</title>
+<meta name="description" content="Explore cannabis culture, real community conversations, independent news, New York licensed-market data, strain information and practical education at Preroll.org. Adults 21+.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://preroll.org/">
+<link rel="icon" href="assets/logo.svg">
+<link rel="preconnect" href="https://images.pexels.com">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="ageGate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+  <div class="age-card">
+    <img src="assets/logo.svg" alt="Preroll.org" class="age-logo">
+    <p class="eyebrow">THE COMMUNITY STARTS HERE</p>
+    <h1 id="ageTitle">Are you 21 or older?</h1>
+    <p>Preroll.org is an adult cannabis information and community platform. Educational content only.</p>
+    <div class="row"><button id="ageYes" class="btn primary">Yes, enter</button><button id="ageNo" class="btn ghost">No</button></div>
+    <small id="ageMessage" aria-live="polite"></small>
+  </div>
 </div>
-<div class="ocm-toolbar">
-<div class="searchbar"><input id="marketSearch" placeholder="Search business, city, county, license type…"><button id="marketRefresh" class="btn primary">Refresh</button></div>
-<div class="ocm-filters"><select id="marketType"><option value="">All license types</option></select><select id="marketStatus"><option value="">All statuses</option></select></div>
-</div>
-<div class="ocm-meta"><span id="marketStatusText">Loading OCM records…</span><a href="https://data.ny.gov/d/jskf-tt3q" target="_blank" rel="noopener noreferrer">Official OCM dataset ↗</a></div>
-<div id="marketBreakdown" class="ocm-breakdown"></div>
-<div id="marketGrid" class="ocm-list"></div>
-</div></section>
-<section id="community" class="section"><div class="section-head"><div><p class="eyebrow">LIVE COMMUNITY</p><h2>What people are discussing.</h2></div><a class="btn ghost small" href="forum/index.html">Open forum</a></div><div class="split-section"><div><div id="forumFeed" class="feed"><p class="muted">Loading discussions…</p></div></div><div><div class="section-head compact"><h3>Recent reviews</h3><a href="forum/index.html" class="muted">Join →</a></div><div id="reviewFeed" class="feed"><p class="muted">Loading reviews…</p></div></div></div></section>
-<section class="section info-grid"><div class="panel"><p class="eyebrow">STRAINS</p><h3>Strain library</h3><p class="muted">Browse cultivar names, cannabinoid ranges, terpene profiles and community reviews.</p><div class="strain-chips"><a href="strains/index.html">Blue Dream</a><a href="strains/gelato-41.html">Gelato 41</a><a href="strains/gmo.html">GMO</a><a href="strains/jack-herer.html">Jack Herer</a><a href="strains/wedding-cake.html">Wedding Cake</a><a href="strains/northern-lights.html">Northern Lights</a></div></div><div class="panel"><p class="eyebrow">TOOLS</p><h3>Calculators & utilities</h3><p class="muted">Cost-per-pre-roll, edible serving math and saved-stash tools live on their own page.</p><a class="btn primary small" href="calculators/index.html">Open calculators</a></div><div class="panel"><p class="eyebrow">RESOURCES</p><h3>Transparent resource directory</h3><p class="muted">Official, research, harm-reduction and consumer sources labeled by publisher.</p><a class="btn primary small" href="resources/index.html">Open resources</a></div></section></main>
-<footer><div><img src="assets/logo.svg" alt="Preroll.org"><p>Live information, education and community. Adults 21+ only.</p></div><div><strong>Explore</strong><a href="news/index.html">News</a><a href="forum/index.html">Forum</a><a href="guides/index.html">Guides</a><a href="resources/index.html">Resources</a><a href="calculators/index.html">Calculators</a><a href="media-network/">Media Network</a><a href="game/index.html">Green Empire</a><a href="tycoon/index.html">Infinity Cannabis Tycoon</a></div><div><strong>Data</strong><a href="#market">NY Market</a><a href="#community">Community</a><a href="strains/index.html">Strains</a></div><div><strong>Preroll.org</strong><span>© <span id="year"></span></span></div></footer>
-<script src="age-gate.js?v=6"></script><script>window.PREROLL_CONFIG=window.PREROLL_CONFIG||{API_URL:"https://preroll-api.onrender.com"};</script><script src="config.js?v=4"></script><script src="home.js?v=1"></script><script src="/terpenstein-widget.js?v=3" defer></script>
-</body></html>
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Preroll.org home"><img src="assets/logo.svg" alt="Preroll.org"></a>
+  <button id="menuBtn" class="menu-btn" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav id="nav" aria-label="Main navigation">
+    <a href="#discover">Discover</a><a href="#news">News</a><a href="#market">NY Market</a><a href="#community">Community</a>
+    <div class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-expanded="false">Explore <span>⌄</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="strains/index.html">Strain library</a><a href="guides/index.html">Guides & learning</a><a href="calculators/index.html">Calculators</a>
+        <a href="forum/index.html">Community forum</a><a href="dr-terpenstein/index.html">Dr. Terpenstein</a><a href="resources/index.html">Resources</a>
+        <a href="game/index.html">Green Empire</a><a href="tycoon/index.html">Infinity Cannabis Tycoon</a><a href="media-network/">Media Network</a>
+      </div>
+    </div>
+  </nav>
+  <div class="header-actions"><a class="btn ghost small" href="forum/index.html">Join the community</a></div>
+</header>
+
+<main>
+<section class="home-hero">
+  <div class="hero-backdrop" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-kicker"><i class="live-dot"></i> CULTURE • KNOWLEDGE • COMMUNITY</span>
+      <h1>More than a site.<br><em>It's the culture.</em></h1>
+      <p class="hero-lede">Your place to keep up, learn something, explore the plant and connect with the people shaping cannabis.</p>
+      <form id="homeSearch" class="hero-search" role="search">
+        <label class="sr-only" for="homeSearchInput">Search cannabis news</label>
+        <input id="homeSearchInput" type="search" placeholder="Search the latest cannabis coverage…" autocomplete="off">
+        <button class="btn primary" type="submit">Explore news <span aria-hidden="true">↗</span></button>
+      </form>
+      <div class="hero-links"><a class="btn primary" href="#discover">Explore Preroll <span>↓</span></a><a class="btn glass-btn" href="forum/index.html">Meet the community <span>↗</span></a></div>
+      <div class="hero-proof"><span><b>01</b> Real information</span><span><b>02</b> Live NY data</span><span><b>03</b> Community voices</span></div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-image-main"><img src="https://images.pexels.com/photos/7667893/pexels-photo-7667893.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Cannabis leaves in natural light" fetchpriority="high"></div>
+      <div class="hero-image-caption"><span class="caption-mark">P.</span><div><strong>Stay curious.</strong><small>Explore cannabis from every angle.</small></div></div>
+      <div class="hero-floating-note"><span>THE PREROLL PERSPECTIVE</span><strong>Good information.<br>Better conversations.</strong></div>
+    </div>
+  </div>
+  <a class="hero-scroll" href="#discover">SCROLL TO EXPLORE <span>↓</span></a>
+</section>
+
+<section id="discover" class="section discover-section">
+  <div class="section-intro"><div><p class="eyebrow">YOUR STARTING POINT</p><h2>Find your next rabbit hole.</h2></div><p>Everything has a place. Jump straight into what interests you.</p></div>
+  <div class="discovery-grid">
+    <a class="discovery-card discovery-feature" href="news/index.html"><div class="discovery-art art-news"><span>01 / THE LATEST</span><b>Stay<br>in the know.</b></div><div class="discovery-copy"><div><h3>Cannabis news</h3><p>Stories, culture and industry updates.</p></div><span class="circle-arrow">↗</span></div></a>
+    <a class="discovery-card" href="strains/index.html"><div class="discovery-art art-strains"><span>02 / THE PLANT</span><b>Explore<br>the library.</b></div><div class="discovery-copy"><div><h3>Strain library</h3><p>Names, profiles and terpene information.</p></div><span class="circle-arrow">↗</span></div></a>
+    <a class="discovery-card" href="forum/index.html"><div class="discovery-art art-community"><span>03 / THE PEOPLE</span><b>Pull up<br>a conversation.</b></div><div class="discovery-copy"><div><h3>Community forum</h3><p>Ask, share and hear real perspectives.</p></div><span class="circle-arrow">↗</span></div></a>
+    <a class="discovery-card" href="guides/index.html"><div class="discovery-art art-guides"><span>04 / LEARN SOMETHING</span><b>Knowledge<br>grows here.</b></div><div class="discovery-copy"><div><h3>Guides & education</h3><p>Clear, practical cannabis information.</p></div><span class="circle-arrow">↗</span></div></a>
+    <a class="discovery-card" href="calculators/index.html"><div class="discovery-art art-tools"><span>05 / USEFUL TOOLS</span><b>Make the<br>numbers work.</b></div><div class="discovery-copy"><div><h3>Calculators</h3><p>Simple tools for everyday questions.</p></div><span class="circle-arrow">↗</span></div></a>
+    <a class="discovery-card" href="dr-terpenstein/index.html"><div class="discovery-art art-doctor"><span>06 / ASK THE DOC</span><b>Meet Dr.<br>Terpenstein.</b></div><div class="discovery-copy"><div><h3>Dr. Terpenstein</h3><p>Explore terpene and plant knowledge.</p></div><span class="circle-arrow">↗</span></div></a>
+  </div>
+</section>
+
+<section id="live-overview" class="section live-section">
+  <div class="live-heading"><div><p class="eyebrow">THE PULSE OF PREROLL</p><h2>What's happening now.</h2><p class="section-subtitle">Live feeds from across the site. Numbers reflect the latest successful data response.</p></div><div class="live-tools"><span class="live-state"><i class="live-dot"></i><span id="feedHealth">Connecting…</span></span><button id="refreshAll" class="btn ghost small">↻ Refresh</button></div></div>
+  <div class="live-stats">
+    <a class="live-stat-card" href="news/index.html"><span class="stat-icon">↗</span><strong id="newsCount">—</strong><span>News stories</span><small>Read what's new</small></a>
+    <a class="live-stat-card" href="#market"><span class="stat-icon">NY</span><strong id="marketCount">—</strong><span>Active NY records</span><small>Explore the market</small></a>
+    <a class="live-stat-card" href="#market"><span class="stat-icon">⌂</span><strong id="retailCount">—</strong><span>Retail records</span><small>Find licensed retail data</small></a>
+    <a class="live-stat-card" href="forum/index.html"><span class="stat-icon">✳</span><strong id="postCount">—</strong><span>Discussions</span><small>Join the conversation</small></a>
+    <a class="live-stat-card" href="forum/index.html"><span class="stat-icon">★</span><strong id="reviewCount">—</strong><span>Community reviews</span><small>Read community feedback</small></a>
+  </div>
+  <p id="lastUpdated" class="live-footnote">Live data status will appear here.</p>
+</section>
+
+<section id="news" class="section editorial-section">
+  <div class="section-head"><div><p class="eyebrow">THE NEWSROOM</p><h2>Fresh off the feed.</h2><p class="section-subtitle">Cannabis stories and updates, with links back to their original publishers.</p></div><a class="text-link" href="news/index.html">All cannabis news <span>↗</span></a></div>
+  <div id="newsGrid" class="news-grid"><p class="muted">Loading live news…</p></div>
+</section>
+
+<section id="market" class="section market-section">
+  <div class="section-head"><div><p class="eyebrow">NEW YORK • OFFICIAL OPEN DATA</p><h2>Know the market.</h2><p class="section-subtitle">Explore New York cannabis license records. Search by business, location, license type or status.</p></div><a class="text-link" href="https://data.ny.gov/d/jskf-tt3q" target="_blank" rel="noopener noreferrer">Official OCM dataset <span>↗</span></a></div>
+  <div class="ocm-dashboard">
+    <div class="ocm-summary">
+      <div class="ocm-stat"><span>Total OCM records</span><strong id="ocmTotal">—</strong><small>Current open dataset</small></div>
+      <div class="ocm-stat"><span>Active / operational</span><strong id="marketActiveCount">—</strong><small>License records</small></div>
+      <div class="ocm-stat"><span>Adult-use retail</span><strong id="marketRetailCount">—</strong><small>Retail records</small></div>
+      <div class="ocm-stat"><span>Last checked</span><strong id="ocmAge">—</strong><small id="marketUpdated">Waiting for data</small></div>
+    </div>
+    <div class="ocm-toolbar">
+      <div class="searchbar"><label class="sr-only" for="marketSearch">Search NY license records</label><input id="marketSearch" placeholder="Search business, city, county, license type…"><button id="marketRefresh" class="btn primary">Refresh data</button></div>
+      <div class="ocm-filters"><label class="sr-only" for="marketType">Filter by license type</label><select id="marketType"><option value="">All license types</option></select><label class="sr-only" for="marketStatus">Filter by status</label><select id="marketStatus"><option value="">All statuses</option></select></div>
+    </div>
+    <div class="ocm-meta"><span id="marketStatusText">Loading OCM records…</span><span>Source: <a href="https://data.ny.gov/d/jskf-tt3q" target="_blank" rel="noopener noreferrer">New York State Open Data ↗</a></span></div>
+    <div id="marketBreakdown" class="ocm-breakdown"></div>
+    <div id="marketGrid" class="ocm-list"><p class="muted">Loading licensed businesses…</p></div>
+  </div>
+</section>
+
+<section id="community" class="section community-section">
+  <div class="section-head"><div><p class="eyebrow">FROM THE COMMUNITY</p><h2>Real people. Real conversations.</h2><p class="section-subtitle">See what's being discussed, then jump into the forum.</p></div><a class="text-link" href="forum/index.html">Visit the forum <span>↗</span></a></div>
+  <div class="community-columns"><div class="community-feed-panel"><div class="feed-title"><h3>Recent discussions</h3><a href="forum/index.html">View all ↗</a></div><div id="forumFeed" class="feed"><p class="muted">Loading discussions…</p></div></div><div class="community-feed-panel"><div class="feed-title"><h3>Community reviews</h3><a href="forum/index.html">Read reviews ↗</a></div><div id="reviewFeed" class="feed"><p class="muted">Loading reviews…</p></div></div></div>
+  <a class="community-cta" href="forum/index.html"><div><span class="eyebrow">YOUR VOICE BELONGS HERE</span><h3>Don't just scroll.<br>Be part of it.</h3><p>Join the conversation and help build a better cannabis community.</p></div><span class="circle-arrow">↗</span></a>
+</section>
+
+<section class="section more-section">
+  <div class="section-head"><div><p class="eyebrow">KEEP EXPLORING</p><h2>There's more to Preroll.</h2></div><p class="section-subtitle">A few more corners of the community worth checking out.</p></div>
+  <div class="more-grid">
+    <a href="resources/index.html"><span>01</span><h3>Resource center</h3><p>Official sources, research and harm-reduction information.</p><b>Explore resources ↗</b></a>
+    <a href="media-network/"><span>02</span><h3>Preroll Media Network</h3><p>Discover the media side of cannabis culture.</p><b>Explore the network ↗</b></a>
+    <a href="tycoon/index.html"><span>03</span><h3>Infinity Cannabis Tycoon</h3><p>Step into the interactive game experience.</p><b>Play the game ↗</b></a>
+    <a href="game/index.html"><span>04</span><h3>Green Empire</h3><p>Explore the original Preroll game.</p><b>Play Green Empire ↗</b></a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand"><a href="/" aria-label="Preroll home"><img src="assets/logo.svg" alt="Preroll.org"></a><p>Cannabis culture, useful information and community conversation. Built for curious adults.</p><small>Adults 21+ only. Educational content; not medical or legal advice.</small></div>
+  <div><strong>Discover</strong><a href="news/index.html">News</a><a href="strains/index.html">Strain library</a><a href="guides/index.html">Guides</a><a href="resources/index.html">Resources</a></div>
+  <div><strong>Community</strong><a href="forum/index.html">Forum</a><a href="dr-terpenstein/index.html">Dr. Terpenstein</a><a href="media-network/">Media Network</a></div>
+  <div><strong>Explore</strong><a href="calculators/index.html">Calculators</a><a href="tycoon/index.html">Infinity Cannabis Tycoon</a><a href="game/index.html">Green Empire</a><a href="#market">NY Market data</a></div>
+  <div class="footer-bottom"><span>© <span id="year"></span> Preroll.org</span><span>Stay curious. Stay informed. Keep it respectful.</span></div>
+</footer>
+
+<script src="age-gate.js?v=6"></script>
+<script>window.PREROLL_CONFIG=window.PREROLL_CONFIG||{API_URL:"https://preroll-v2wf.onrender.com"};</script>
+<script src="config.js?v=5"></script><script src="home.js?v=2"></script><script src="/terpenstein-widget.js?v=3" defer></script>
+</body>
+</html>
