@@ -57,11 +57,10 @@ async function enrichCard(card,s){
   card.querySelector('.strain-facts-all').innerHTML=all.length?all.join(''):'<p class="muted">The source has not published additional profile fields for this strain yet.</p>';
   card.querySelector('.strain-updated').textContent='Source: StrainAPI · '+(p.updatedAt?'Updated '+new Date(p.updatedAt).toLocaleDateString():'No update date supplied');
   const link=card.querySelector('.strain-source');if(p.sourceUrl){link.href=p.sourceUrl;link.textContent='Open original strain profile ↗'}
-  if(p.imageUrl){const img=card.querySelector('.strain-photo');img.src=p.imageUrl;img.alt=p.imageAlt||p.name+' strain photo';img.hidden=false;const fallback=card.querySelector('.strain-photo-fallback');img.addEventListener('error',()=>{img.hidden=true;fallback.hidden=false;fallback.textContent='Source image could not be loaded.'},{once:true});fallback.hidden=true}
-  else card.querySelector('.strain-photo-fallback').textContent='No verified strain photo available from source.';
+  await PrerollCommons.loadStrainImage(s.name,card.querySelector('.strain-photo-wrap'));
  }catch(e){
   card.querySelector('.strain-description').textContent='No exact-name detailed profile is available from the connected source yet. The catalog entry remains searchable; no details have been guessed.';
-  card.querySelector('.strain-photo-fallback').textContent='No verified strain photo available.';
+  await PrerollCommons.loadStrainImage(s.name,card.querySelector('.strain-photo-wrap'));
  }
 }
 async function enrichVisible(rows){
