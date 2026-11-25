@@ -492,7 +492,7 @@ app.post('/api/dispensaries/claims',rateLimitAuth,async(req,res,next)=>{
   const website=String(body.website||'').trim().slice(0,240);
   const message=String(body.message||'').trim().slice(0,1200);
   if(!licenseNumber||!contactName||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||body.consent!=='on')return res.status(400).json({error:'Enter your OCM license number, contact name, valid business email, and consent.'});
-  if(website&&!/^https?:\/\//i.test(website))return res.status(400).json({error:'Website must begin with https:// or http://'});
+  if(website){let parsed;try{parsed=new URL(website)}catch{return res.status(400).json({error:'Website must be a valid http or https URL.'})}if(!['http:','https:'].includes(parsed.protocol))return res.status(400).json({error:'Website must use http or https.'});}
   const data=await cached('nylicenses',10*60*1000,getNyLicenses);
   const row=(data.licenses||[]).find(item=>{
    const number=String(item.license_number||item.license_no||item.license_id||'').trim();
