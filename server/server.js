@@ -55,7 +55,7 @@ function cached(key,ttl,value){
  return pending;
 }
 async function fetchText(url){
- const r=await fetch(url,{headers:{'User-Agent':'Preroll.org/1.0','Accept':'text/html,application/xhtml+xml'}});
+ const r=await fetch(url,{headers:{'User-Agent':'Preroll.org/1.0 (+https://preroll.org)','Accept':'application/rss+xml,application/atom+xml,application/xml,text/xml;q=0.9,*/*;q=0.5'},signal:AbortSignal.timeout(12000)});
  if(!r.ok)throw new Error('Upstream returned '+r.status);
  return r.text();
 }
@@ -64,27 +64,60 @@ async function fetchJson(url,options={}){
  if(!r.ok)throw new Error('Upstream returned '+r.status);
  return r.json();
 }
-function xmlText(v=''){return v.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/<[^>]+>/g,' ').replace(/&#(x[0-9a-f]+|\d+);/gi,(_,n)=>{const code=n.toLowerCase().startsWith('x')?parseInt(n.slice(1),16):parseInt(n,10);return Number.isFinite(code)?String.fromCodePoint(code):''}).replace(/&(amp|quot|apos|lt|gt|nbsp);/gi,(_,n)=>({amp:'&',quot:'\"',apos:"'",lt:'<',gt:'>',nbsp:' '}[n.toLowerCase()]||'')).replace(/[\u0000-\u001f\u007f]/g,' ').replace(/\s+/g,' ').trim()}
+function xmlText(v=''){return v.replace(/<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>/g,'$1').replace(/<[^>]+>/g,' ').replace(/&#(x[0-9a-f]+|\\d+);/gi,(_,n)=>{const code=n.toLowerCase().startsWith('x')?parseInt(n.slice(1),16):parseInt(n,10);return Number.isFinite(code)?String.fromCodePoint(code):''}).replace(/&(amp|quot|apos|lt|gt|nbsp);/gi,(_,n)=>({amp:'&',quot:'"',apos:"'",lt:'<',gt:'>',nbsp:' '}[n.toLowerCase()]||'')).replace(/[\\u0000-\\u001f\\u007f]/g,' ').replace(/\\s+/g,' ').trim()}
 async function parseRssFeed(url,source){
- const xml=await fetchText(url),items=[],blocks=xml.match(/<(item|entry)\b[\s\S]*?<\/\1>/gi)||[];
- for(const block of blocks.slice(0,20)){
-  const title=xmlText((block.match(/<title[^>]*>([\s\S]*?)<\/title>/i)||[])[1]||'');
-  const description=xmlText((block.match(/<(description|summary|content:encoded)[^>]*>([\s\S]*?)<\/\1>/i)||[])[2]||'').slice(0,500);
-  const linkMatch=block.match(/<link[^>]*>([\s\S]*?)<\/link>/i)||block.match(/<link[^>]+href=["']([^"']+)["']/i);
-  const urlValue=(linkMatch?.[1]||'').trim();
-  const date=((block.match(/<(pubDate|published|updated|dc:date)[^>]*>([\s\S]*?)<\/\1>/i)||[])[2]||'').trim();
-  const publishedAt=date?new Date(date).toISOString():null;
-  if(title&&urlValue)items.push({source,title,description,url:urlValue,publishedAt,image:''});
+ const xml=await fetchText(url),items=[],blocks=xml.match(/<(item|entry)\\b[\\s\\S]*?<\\/\\1>/gi)||[];
+ for(const block of blocks.slice(0,30)){
+  const title=xmlText((block.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i)||[])[1]||'');
+  const description=xmlText((block.match(/<(description|summary|content:encoded)[^>]*>([\\s\\S]*?)<\\/\\1>/i)||[])[2]||'').slice(0,500);
+  const linkTags=block.match(/<link\\b[^>]*>/gi)||[];
+  let urlValue='';
+  for(const tag of linkTags){
+   const href=(tag.match(/\\bhref=["']([^"']+)["']/i)||[])[1];
+   const rel=(tag.match(/\\brel=["']([^"']+)["']/i)||[])[1]||'alternate';
+   const body=(tag.match(/^<link[^>]*>([\\s\\S]*?)<\\/link>/i)||[])[1];
+   if(rel==='alternate'||!rel){urlValue=(href||body||'').trim();if(urlValue)break}
+  }
+  const date=((block.match(/<(pubDate|published|updated|dc:date|date)[^>]*>([\\s\\S]*?)<\\/\\1>/i)||[])[2]||'').trim();
+  const parsedDate=date?new Date(date):null;
+  const publishedAt=parsedDate&&!Number.isNaN(parsedDate.getTime())?parsedDate.toISOString():null;
+  if(title&&urlValue&&publishedAt)items.push({source,title,description,url:urlValue,publishedAt,image:''});
  }
  return items;
 }
+let lastGoodNews=null;
 async function getCannabisNews(){
- const feeds=[['https://www.marijuanamoment.net/feed/','Marijuana Moment'],['https://cannabiswire.com/feed/','Cannabis Wire'],['https://cannabisindustryjournal.com/feed/','Cannabis Industry Journal'],['https://mjbizdaily.com/feed/','MJBizDaily']];
+ const feeds=[
+  ['https://www.marijuanamoment.net/feed/','Marijuana Moment'],
+  ['https://cannabiswire.com/feed/','Cannabis Wire'],
+  ['https://cannabisindustryjournal.com/feed/','Cannabis Industry Journal'],
+  ['https://mjbizdaily.com/feed/','MJBizDaily'],
+  ['https://cannabis.ny.gov/news.xml','New York Office of Cannabis Management']
+ ];
  const results=await Promise.allSettled(feeds.map(([url,source])=>parseRssFeed(url,source)));
- const articles=results.flatMap(r=>r.status==='fulfilled'?r.value:[]),seen=new Set();
- const unique=articles.filter(a=>{const key=a.url||a.title;if(seen.has(key))return false;seen.add(key);return true}).sort((a,b)=>(Date.parse(b.publishedAt||'')||0)-(Date.parse(a.publishedAt||'')||0)).slice(0,18);
- if(!unique.length)throw new Error('No upstream cannabis news feeds available');
- return {provider:'Public cannabis RSS feeds',configured:true,requiresSignup:false,updatedAt:new Date().toISOString(),articles:unique};
+ const now=Date.now(),maxAge=30*24*60*60*1000,seen=new Set();
+ const articles=results.flatMap(r=>r.status==='fulfilled'?r.value:[]).filter(a=>{
+  let parsed;try{parsed=new URL(a.url)}catch{return false}
+  const feed=feeds.find(([,name])=>name===a.source);
+  const host=new URL(feed[0]).hostname;
+  const age=now-Date.parse(a.publishedAt);
+  if(parsed.protocol!=='https:'||!(parsed.hostname===host||parsed.hostname.endsWith('.'+host)))return false;
+  if(!Number.isFinite(age)||age < -24*60*60*1000||age>maxAge)return false;
+  if(a.title.length<8||/^(read more|click here|latest news)$/i.test(a.title))return false;
+  const key=a.url.replace(/\\/$/,'').toLowerCase();
+  const titleKey=a.title.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  if(seen.has(key)||seen.has(titleKey))return false;
+  seen.add(key);seen.add(titleKey);return true;
+ }).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt)).slice(0,18);
+ if(articles.length){
+  lastGoodNews={provider:'Verified publisher RSS feeds',configured:true,requiresSignup:false,updatedAt:new Date().toISOString(),stale:false,feedCount:results.filter(r=>r.status==='fulfilled').length,articles};
+  return lastGoodNews;
+ }
+ if(lastGoodNews){
+  const stillCurrent=lastGoodNews.articles.filter(a=>now-Date.parse(a.publishedAt)<=maxAge);
+  if(stillCurrent.length)return {...lastGoodNews,articles:stillCurrent,stale:true,warning:'Live publishers could not be reached; showing the last verified feed snapshot.'};
+ }
+ throw new Error('No recent, dated articles were returned by the configured publishers');
 }
 async function getNyLicenses(){
  const url='https://data.ny.gov/resource/jskf-tt3q.json?$limit=50000';
