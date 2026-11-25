@@ -199,6 +199,7 @@ async function init(){
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
  )`);
  await pool.query('CREATE INDEX IF NOT EXISTS idx_cannabis_anonymous_tags_created ON cannabis_anonymous_tags(created_at DESC)');
+ await pool.query("ALTER TABLE cannabis_anonymous_tags ADD COLUMN IF NOT EXISTS strokes JSONB NOT NULL DEFAULT '[]'::jsonb");
  if(process.env.CLEAR_CANNABIS_ANONYMOUS_WALL_ONCE==='true'){
   const cleared=await pool.query('TRUNCATE TABLE cannabis_anonymous_tags RESTART IDENTITY');
   console.log('Cannabis Anonymous wall cleared by authorized one-time request:',cleared.command);
@@ -629,7 +630,7 @@ function rateLimitAnonymousTags(req,res,next){
 app.get('/api/cannabis-anonymous/tags',async(req,res,next)=>{
  if(!pool)return res.status(503).json({error:'The anonymous canvas database is temporarily unavailable.'});
  try{
-  const q=await pool.query("SELECT id,message,color,EXTRACT(EPOCH FROM created_at)*1000 AS created FROM cannabis_anonymous_tags ORDER BY created_at DESC LIMIT 240");
+  const q=await pool.query("SELECT id,message,color,strokes,EXTRACT(EPOCH FROM created_at)*1000 AS created FROM cannabis_anonymous_tags ORDER BY created_at DESC LIMIT 240");
   res.setHeader('Cache-Control','no-store');res.json({tags:q.rows});
  }catch(e){next(e)}
 });
@@ -639,8 +640,17 @@ app.post('/api/cannabis-anonymous/tags',rateLimitAnonymousTags,async(req,res,nex
   const message=String(req.body?.message||'').trim().replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g,'').slice(0,240);
   const colors=['moss','cream','ember','lavender','sky','rose'];
   const color=colors.includes(req.body?.color)?req.body.color:'moss';
-  if(message.length<1)return res.status(400).json({error:'Write something before adding your note.'});
-  const q=await pool.query('INSERT INTO cannabis_anonymous_tags(message,color) VALUES($1,$2) RETURNING id,message,color,EXTRACT(EPOCH FROM created_at)*1000 AS created',[message,color]);
+  const strokes=Array.isArray(req.body?.strokes)?req.body.strokes:[];
+  if(strokes.length>350)return res.status(400).json({error:'This drawing is too large. Please simplify it.'});
+  const cleanStrokes=[];
+  for(const stroke of strokes){
+   if(!stroke||!Array.isArray(stroke.points)||stroke.points.length<1||stroke.points.length>1200)continue;
+   const rawColor=String(stroke.color||'').slice(0,16),width=Math.max(1,Math.min(24,Number(stroke.width)||4));
+   const points=stroke.points.slice(0,1200).map(p=>({x:Math.max(0,Math.min(1,Number(p.x)||0)),y:Math.max(0,Math.min(1,Number(p.y)||0))}));
+   cleanStrokes.push({color:/^#[0-9a-f]{3,8}$/i.test(rawColor)?rawColor:'#385d32',width,points});
+  }
+  if(message.length<1&&cleanStrokes.length<1)return res.status(400).json({error:'Draw something before adding it to the wall.'});
+  const q=await pool.query('INSERT INTO cannabis_anonymous_tags(message,color,strokes) VALUES($1,$2,$3::jsonb) RETURNING id,message,color,strokes,EXTRACT(EPOCH FROM created_at)*1000 AS created',[message||'Anonymous drawing',color,JSON.stringify(cleanStrokes)]);
   res.status(201).json({tag:q.rows[0]});
  }catch(e){next(e)}
 });
