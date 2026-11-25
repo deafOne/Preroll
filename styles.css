@@ -539,3 +539,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .news-bottom-cta .btn{width:100%;justify-content:center}
 }
 @media(max-width:380px){.news-page{padding-left:14px;padding-right:14px}.news-card-meta{flex-direction:column;gap:5px}}
+
+/* Hand-drawn anonymous wall: oversized ruled notebook paper */
+.anonymous-canvas{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;background:#111813;border:1px solid #34443a;padding:22px;gap:18px}
+.ca-drawing-card{background:#fffdf5;border-radius:3px;padding:14px 14px 10px;box-shadow:0 14px 30px #0008;transform:none;min-height:0}
+.ca-drawing-card canvas{display:block;width:100%;height:auto;aspect-ratio:5/3;background:#fffdf5}
+.ca-drawing-card small{color:#7b817b;text-align:right;font-family:ui-sans-serif,system-ui,sans-serif}
+.ca-compose-card{padding:22px;background:#171d18}
+.ca-draw-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ca-draw-toolbar strong{font-size:1.05rem}
+.ca-tools{display:flex;gap:6px;flex-wrap:wrap}
+.ca-tool{border:1px solid #39483c;background:#0d130e;color:#dce7dd;border-radius:8px;padding:8px 11px;min-height:40px;cursor:pointer}
+.ca-tool.active{background:#c8e6b5;color:#14200f;border-color:#c8e6b5}
+.ca-paper-wrap{width:100%;border-radius:3px;overflow:hidden;background:#fffdf5;box-shadow:0 12px 32px #0008;border:1px solid #d6d1c3}
+#drawingCanvas{display:block;width:100%;height:680px;max-height:72vh;min-height:430px;touch-action:none;cursor:crosshair;background-color:#fffdf5;background-image:linear-gradient(to right,transparent 0,transparent 54px,#e9aaaa 55px,#e9aaaa 56px,transparent 57px),repeating-linear-gradient(to bottom,#fffdf5 0,#fffdf5 31px,#cbd9e5 32px,#fffdf5 33px);background-position:0 0,0 5px}
+.ca-size-label{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.ca-size-label input{padding:0;width:100px;accent-color:#b6f36b}
+.ca-compose-meta{align-items:center;flex-wrap:wrap}
+.ca-colors .swatch{width:28px;height:28px}
+@media(max-width:850px){.anonymous-canvas{grid-template-columns:1fr}.ca-drawing-card{max-width:100%}}
+@media(max-width:600px){.anonymous-canvas{padding:12px;gap:13px}#drawingCanvas{height:590px;min-height:420px;max-height:none;background-image:linear-gradient(to right,transparent 0,transparent 39px,#e9aaaa 40px,#e9aaaa 41px,transparent 42px),repeating-linear-gradient(to bottom,#fffdf5 0,#fffdf5 29px,#cbd9e5 30px,#fffdf5 31px)}.ca-draw-toolbar{align-items:flex-start;flex-direction:column}.ca-tools{width:100%}.ca-tool{flex:1}}
